@@ -1144,18 +1144,38 @@ paths:
         Retrieve metadata about IRIS seismic stations, networks, and channels in StationXML format.
         Provides comprehensive information about station locations, instrumentation, and response characteristics from IRIS Data Management Center.
         
+        **🎯 Common Usage Patterns (use ONE pattern, not all parameters):**
+        
+        **1. Specific Station:** `network=IU&station=ANMO&level=station`
+        ```
+        /fdsn/station/1/query?network=IU&station=ANMO&level=station
+        ```
+        
+        **2. Network Overview:** `network=IU&level=network`
+        ```
+        /fdsn/station/1/query?network=IU&level=network
+        ```
+        
+        **3. Regional Search:** `minlatitude=32&maxlatitude=42&minlongitude=-125&maxlongitude=-114&level=station`
+        ```
+        /fdsn/station/1/query?minlatitude=32&maxlatitude=42&minlongitude=-125&maxlongitude=-114&level=station
+        ```
+        
+        **4. Radial Search:** `latitude=37.78&longitude=-122.42&maxradius=5&level=station`
+        ```
+        /fdsn/station/1/query?latitude=37.78&longitude=-122.42&maxradius=5&level=station
+        ```
+        
+        **⚠️ Parameter Groups (don't mix):**
+        - **Geographic Box**: minlat + maxlat + minlon + maxlon
+        - **Radial Search**: lat + lon + maxradius (+ optional minradius)
+        - **Specific Selection**: network + station + location + channel
+        
         **IRIS Detail Levels:**
         - `network`: Basic IRIS network information (IU, II, CI, AK, etc.)
         - `station`: Network and station information with coordinates
         - `channel`: Complete channel metadata with sample rates and orientations
         - `response`: Full instrument response functions and calibrations
-        
-        **Real IRIS Examples:**
-        - **All GSN stations**: `net=IU&level=station` (Global Seismograph Network)
-        - **ANMO details**: `net=IU&sta=ANMO&level=channel` (Flagship station metadata)
-        - **California region**: `net=CI&minlat=32&maxlat=42&minlon=-125&maxlon=-114&level=station`
-        - **European stations**: `net=II&minlat=35&maxlat=70&minlon=-10&maxlon=40&level=station`
-        - **Broadband channels**: `net=IU&sta=ANMO&cha=BH*&level=response` (Full response data)
         
         **IRIS Network Coverage:**
         - **IU**: 152+ GSN stations worldwide (primary global coverage)
@@ -1170,12 +1190,21 @@ paths:
         in: query
         required: false
         description: |
-          IRIS Network code(s) - wildcards supported. Major IRIS networks:
+          **Primary Parameter** - IRIS Network code(s), wildcards supported.
+          
+          **🎯 Tip**: Start with this parameter for most queries.
+          
+          **Major IRIS Networks:**
           - IU: Global Seismograph Network (152+ stations worldwide)
           - II: IRIS/IDA Network (40+ very broadband stations)
           - CI: California Integrated Network (400+ regional stations)
           - AK: Alaska Regional Network (200+ stations)
           - US: US National Seismic Network (400+ stations)
+          
+          **Example Queries:**
+          - Single network: `network=IU&level=station`
+          - Multiple: `network=IU,II&level=station`
+          - All global: `network=*&level=network`
         schema:
           type: string
         examples:
