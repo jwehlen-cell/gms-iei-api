@@ -16,14 +16,20 @@
     <script>
       window.onload = () => {
         const ui = SwaggerUIBundle({
-          url: "openapi.yaml",
+          url: "./openapi.yaml",
           dom_id: '#swagger-ui',
           deepLinking: true,
           validatorUrl: null,
           presets: [SwaggerUIBundle.presets.apis],
           layout: "BaseLayout",
           docExpansion: "list",
-          tryItOutEnabled: true
+          tryItOutEnabled: true,
+          onComplete: () => {
+            console.log('Swagger UI loaded successfully');
+          },
+          onFailure: (error) => {
+            console.error('Failed to load OpenAPI spec:', error);
+          }
         });
         window.ui = ui;
       };
