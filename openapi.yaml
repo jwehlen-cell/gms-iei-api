@@ -883,6 +883,609 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/StoreEventResponse'
+  # ==========================================
+  # FDSN (International Federation of Digital Seismograph Networks) Web Services
+  # ==========================================
+  # Standard seismological web services following FDSN specifications
+  # All FDSN endpoints are prefixed with /fdsn/ to distinguish from GMS-specific endpoints
+  
+  /fdsn/dataselect/1/query:
+    get:
+      summary: FDSN DataSelect - Retrieve seismic waveform data
+      description: |
+        **FDSN DataSelect Web Service (v1.1)**
+        
+        Retrieve seismic time series data in miniSEED format following the FDSN dataselect specification.
+        This service provides access to continuous waveform data from seismic stations.
+        
+        **Common Usage Patterns:**
+        - Download continuous data: `/fdsn/dataselect/1/query?net=IU&sta=ANMO&starttime=2025-10-29T00:00:00&endtime=2025-10-29T01:00:00`
+        - Multiple stations: `/fdsn/dataselect/1/query?net=IU&sta=ANMO,CCM&starttime=2025-10-29T00:00:00&endtime=2025-10-29T01:00:00`
+        - Specific channels: `/fdsn/dataselect/1/query?net=IU&sta=ANMO&cha=BHZ&starttime=2025-10-29T00:00:00&endtime=2025-10-29T01:00:00`
+        
+        **Data Format:** Returns miniSEED binary data by default.
+      tags:
+        - FDSN Web Services
+      parameters:
+      - name: network
+        in: query
+        required: false
+        description: Network code (e.g., IU, II, GT)
+        schema:
+          type: string
+        example: "IU"
+      - name: station
+        in: query
+        required: false
+        description: Station code (e.g., ANMO, CCM, BOSA)
+        schema:
+          type: string
+        example: "ANMO"
+      - name: location
+        in: query
+        required: false
+        description: Location code (e.g., 00, 10, --)
+        schema:
+          type: string
+        example: "00"
+      - name: channel
+        in: query
+        required: false
+        description: Channel code (e.g., BHZ, BHN, BHE, HHZ)
+        schema:
+          type: string
+        example: "BHZ"
+      - name: starttime
+        in: query
+        required: true
+        description: Start time for data request (ISO 8601 format)
+        schema:
+          type: string
+          format: date-time
+        example: "2025-10-29T00:00:00"
+      - name: endtime
+        in: query
+        required: true
+        description: End time for data request (ISO 8601 format)
+        schema:
+          type: string
+          format: date-time
+        example: "2025-10-29T01:00:00"
+      - name: quality
+        in: query
+        required: false
+        description: Data quality (D=raw, R=raw, Q=QC'd, M=merged)
+        schema:
+          type: string
+          enum: [D, R, Q, M]
+          default: "B"
+        example: "B"
+      - name: minimumlength
+        in: query
+        required: false
+        description: Minimum segment length in seconds
+        schema:
+          type: number
+          format: double
+        example: 300.0
+      - name: longestonly
+        in: query
+        required: false
+        description: Return only the longest continuous segment
+        schema:
+          type: boolean
+          default: false
+        example: false
+      responses:
+        '200':
+          description: miniSEED waveform data
+          content:
+            application/vnd.fdsn.mseed:
+              schema:
+                type: string
+                format: binary
+                description: Binary miniSEED data containing seismic time series
+        '204':
+          description: No data available for the specified parameters
+        '400':
+          description: Bad request - invalid parameters
+        '413':
+          description: Request too large - time window or number of channels exceeds limits
+        '414':
+          description: Request URI too large
+        '500':
+          description: Internal server error
+    post:
+      summary: FDSN DataSelect - Retrieve seismic waveform data (bulk request)
+      description: |
+        **FDSN DataSelect Web Service (v1.1) - Bulk Request**
+        
+        Submit multiple data requests using POST with request body containing selection criteria.
+        Useful for requesting data from many stations or complex time windows.
+        
+        **Request Format:** Plain text with one selection per line:
+        ```
+        NET STA LOC CHA STARTTIME ENDTIME
+        IU ANMO 00 BHZ 2025-10-29T00:00:00 2025-10-29T01:00:00
+        IU CCM 00 BHZ 2025-10-29T00:00:00 2025-10-29T01:00:00
+        ```
+      tags:
+        - FDSN Web Services
+      requestBody:
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: string
+              description: |
+                Selection list with one request per line.
+                Format: NET STA LOC CHA STARTTIME ENDTIME
+                Use * or ? for wildcards, -- for empty location codes.
+            example: |
+              IU ANMO 00 BHZ 2025-10-29T00:00:00 2025-10-29T01:00:00
+              IU CCM 00 BHZ 2025-10-29T00:00:00 2025-10-29T01:00:00
+              GT PLCA -- BHZ 2025-10-29T00:00:00 2025-10-29T01:00:00
+      responses:
+        '200':
+          description: miniSEED waveform data
+          content:
+            application/vnd.fdsn.mseed:
+              schema:
+                type: string
+                format: binary
+        '204':
+          description: No data available
+        '400':
+          description: Bad request
+  
+  /fdsn/station/1/query:
+    get:
+      summary: FDSN Station - Retrieve seismic station metadata
+      description: |
+        **FDSN Station Web Service (v1.1)**
+        
+        Retrieve metadata about seismic stations, networks, and channels in StationXML format.
+        Provides comprehensive information about station locations, instrumentation, and response characteristics.
+        
+        **Level Options:**
+        - `network`: Basic network information
+        - `station`: Network and station information  
+        - `channel`: Network, station, and channel information
+        - `response`: Complete metadata including instrument responses
+        
+        **Example Queries:**
+        - All IU network stations: `/fdsn/station/1/query?net=IU&level=station`
+        - Station details: `/fdsn/station/1/query?net=IU&sta=ANMO&level=channel`
+        - Geographic area: `/fdsn/station/1/query?minlat=30&maxlat=50&minlon=-120&maxlon=-70&level=station`
+      tags:
+        - FDSN Web Services
+      parameters:
+      - name: network
+        in: query
+        required: false
+        description: Network code(s) - wildcards supported
+        schema:
+          type: string
+        example: "IU"
+      - name: station
+        in: query
+        required: false
+        description: Station code(s) - wildcards supported  
+        schema:
+          type: string
+        example: "ANMO"
+      - name: location
+        in: query
+        required: false
+        description: Location code(s) - wildcards supported
+        schema:
+          type: string
+        example: "00"
+      - name: channel
+        in: query
+        required: false
+        description: Channel code(s) - wildcards supported
+        schema:
+          type: string
+        example: "BH?"
+      - name: starttime
+        in: query
+        required: false
+        description: Start time for station operation
+        schema:
+          type: string
+          format: date-time
+        example: "2025-01-01T00:00:00"
+      - name: endtime
+        in: query
+        required: false
+        description: End time for station operation
+        schema:
+          type: string
+          format: date-time
+        example: "2025-12-31T23:59:59"
+      - name: minlatitude
+        in: query
+        required: false
+        description: Minimum latitude (decimal degrees)
+        schema:
+          type: number
+          format: double
+          minimum: -90
+          maximum: 90
+        example: 30.0
+      - name: maxlatitude
+        in: query
+        required: false
+        description: Maximum latitude (decimal degrees)
+        schema:
+          type: number
+          format: double
+          minimum: -90
+          maximum: 90
+        example: 50.0
+      - name: minlongitude
+        in: query
+        required: false
+        description: Minimum longitude (decimal degrees)
+        schema:
+          type: number
+          format: double
+          minimum: -180
+          maximum: 180
+        example: -120.0
+      - name: maxlongitude
+        in: query
+        required: false
+        description: Maximum longitude (decimal degrees)
+        schema:
+          type: number
+          format: double
+          minimum: -180
+          maximum: 180
+        example: -70.0
+      - name: latitude
+        in: query
+        required: false
+        description: Center latitude for radial search
+        schema:
+          type: number
+          format: double
+          minimum: -90
+          maximum: 90
+        example: 37.7749
+      - name: longitude
+        in: query
+        required: false
+        description: Center longitude for radial search
+        schema:
+          type: number
+          format: double
+          minimum: -180
+          maximum: 180
+        example: -122.4194
+      - name: minradius
+        in: query
+        required: false
+        description: Minimum radius from center point (degrees)
+        schema:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 180
+        example: 0.0
+      - name: maxradius
+        in: query
+        required: false
+        description: Maximum radius from center point (degrees)
+        schema:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 180
+        example: 10.0
+      - name: level
+        in: query
+        required: false
+        description: Level of detail in response
+        schema:
+          type: string
+          enum: [network, station, channel, response]
+          default: station
+        example: "station"
+      - name: includerestricted
+        in: query
+        required: false
+        description: Include restricted stations in results
+        schema:
+          type: boolean
+          default: true
+        example: true
+      - name: includeavailability
+        in: query
+        required: false
+        description: Include data availability information
+        schema:
+          type: boolean
+          default: false
+        example: false
+      - name: format
+        in: query
+        required: false
+        description: Output format
+        schema:
+          type: string
+          enum: [xml, text]
+          default: xml
+        example: "xml"
+      responses:
+        '200':
+          description: Station metadata in StationXML or text format
+          content:
+            application/xml:
+              schema:
+                type: string
+                description: StationXML format metadata
+            text/plain:
+              schema:
+                type: string
+                description: Pipe-delimited text format
+        '204':
+          description: No stations found matching criteria
+        '400':
+          description: Bad request - invalid parameters
+        '413':
+          description: Request too large
+        '500':
+          description: Internal server error
+  
+  /fdsn/event/1/query:
+    get:
+      summary: FDSN Event - Retrieve earthquake catalog data
+      description: |
+        **FDSN Event Web Service (v1.1)**
+        
+        Retrieve earthquake event information from seismic catalogs in QuakeML format.
+        Provides comprehensive earthquake data including origin times, locations, magnitudes, and uncertainties.
+        
+        **Common Queries:**
+        - Recent earthquakes: `/fdsn/event/1/query?starttime=2025-10-22T00:00:00&endtime=2025-10-29T00:00:00&minmagnitude=4.0`
+        - Regional events: `/fdsn/event/1/query?minlat=32&maxlat=42&minlon=-125&maxlon=-114&minmagnitude=3.0`
+        - Large events: `/fdsn/event/1/query?minmagnitude=6.0&starttime=2025-01-01T00:00:00`
+        - Near location: `/fdsn/event/1/query?lat=37.78&lon=-122.42&maxradius=2.0&minmagnitude=2.0`
+        
+        **Output Formats:** QuakeML (XML), CSV text
+      tags:
+        - FDSN Web Services
+      parameters:
+      - name: starttime
+        in: query
+        required: false
+        description: Start time for earthquake search
+        schema:
+          type: string
+          format: date-time
+        example: "2025-10-22T00:00:00"
+      - name: endtime
+        in: query
+        required: false
+        description: End time for earthquake search
+        schema:
+          type: string
+          format: date-time
+        example: "2025-10-29T23:59:59"
+      - name: minlatitude
+        in: query
+        required: false
+        description: Minimum latitude (decimal degrees)
+        schema:
+          type: number
+          format: double
+          minimum: -90
+          maximum: 90
+        example: 32.0
+      - name: maxlatitude
+        in: query
+        required: false
+        description: Maximum latitude (decimal degrees)
+        schema:
+          type: number
+          format: double
+          minimum: -90
+          maximum: 90
+        example: 42.0
+      - name: minlongitude
+        in: query
+        required: false
+        description: Minimum longitude (decimal degrees)
+        schema:
+          type: number
+          format: double
+          minimum: -180
+          maximum: 180
+        example: -125.0
+      - name: maxlongitude
+        in: query
+        required: false
+        description: Maximum longitude (decimal degrees)
+        schema:
+          type: number
+          format: double
+          minimum: -180
+          maximum: 180
+        example: -114.0
+      - name: latitude
+        in: query
+        required: false
+        description: Center latitude for radial search
+        schema:
+          type: number
+          format: double
+          minimum: -90
+          maximum: 90
+        example: 37.78
+      - name: longitude
+        in: query
+        required: false
+        description: Center longitude for radial search
+        schema:
+          type: number
+          format: double
+          minimum: -180
+          maximum: 180
+        example: -122.42
+      - name: minradius
+        in: query
+        required: false
+        description: Minimum radius from center (degrees)
+        schema:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 180
+        example: 0.0
+      - name: maxradius
+        in: query
+        required: false
+        description: Maximum radius from center (degrees)
+        schema:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 180
+        example: 2.0
+      - name: mindepth
+        in: query
+        required: false
+        description: Minimum event depth (km)
+        schema:
+          type: number
+          format: double
+        example: 0.0
+      - name: maxdepth
+        in: query
+        required: false
+        description: Maximum event depth (km)
+        schema:
+          type: number
+          format: double
+        example: 700.0
+      - name: minmagnitude
+        in: query
+        required: false
+        description: Minimum earthquake magnitude
+        schema:
+          type: number
+          format: double
+        example: 4.0
+      - name: maxmagnitude
+        in: query
+        required: false
+        description: Maximum earthquake magnitude
+        schema:
+          type: number
+          format: double
+        example: 9.0
+      - name: magnitudetype
+        in: query
+        required: false
+        description: Magnitude type (e.g., Mw, mb, Ms, ml)
+        schema:
+          type: string
+        example: "Mw"
+      - name: eventtype
+        in: query
+        required: false
+        description: Event type (earthquake, quarry blast, etc.)
+        schema:
+          type: string
+        example: "earthquake"
+      - name: limit
+        in: query
+        required: false
+        description: Maximum number of events to return
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 20000
+        example: 100
+      - name: offset
+        in: query
+        required: false
+        description: Number of events to skip
+        schema:
+          type: integer
+          minimum: 1
+        example: 1
+      - name: orderby
+        in: query
+        required: false
+        description: Sort order for results
+        schema:
+          type: string
+          enum: [time, time-asc, magnitude, magnitude-asc]
+          default: time
+        example: "time"
+      - name: catalog
+        in: query
+        required: false
+        description: Catalog to search (e.g., ANSS, ISC, GCMT)
+        schema:
+          type: string
+        example: "ANSS"
+      - name: contributor
+        in: query
+        required: false
+        description: Contributing organization
+        schema:
+          type: string
+        example: "USGS"
+      - name: updatedafter
+        in: query
+        required: false
+        description: Events updated after this time
+        schema:
+          type: string
+          format: date-time
+        example: "2025-10-25T00:00:00"
+      - name: format
+        in: query
+        required: false
+        description: Output format
+        schema:
+          type: string
+          enum: [xml, csv]
+          default: xml
+        example: "xml"
+      - name: nodata
+        in: query
+        required: false
+        description: Response when no data found
+        schema:
+          type: string
+          enum: ['204', '404']
+          default: '204'
+        example: "204"
+      responses:
+        '200':
+          description: Earthquake event data in QuakeML or CSV format
+          content:
+            application/xml:
+              schema:
+                type: string
+                description: QuakeML format earthquake catalog data
+            text/csv:
+              schema:
+                type: string
+                description: CSV format earthquake data
+        '204':
+          description: No events found matching criteria
+        '400':
+          description: Bad request - invalid parameters
+        '413':
+          description: Request too large
+        '500':
+          description: Internal server error
 components:
   parameters:
     TimeFormat:
@@ -1042,6 +1645,198 @@ components:
         high_precision:
           value: "2025-10-29T14:32:17.850123Z"
           summary: "High precision timestamp with microseconds"
+    # ==========================================
+    # FDSN-specific schemas and data models
+    # ==========================================
+    FDSNStationXML:
+      type: string
+      format: xml
+      description: |
+        StationXML format compliant with FDSN Station Web Service specification.
+        Contains comprehensive metadata about seismic networks, stations, channels, and instrument responses.
+        
+        **Structure:**
+        - Network level: Basic network information and station list
+        - Station level: Station coordinates, site information, channel list  
+        - Channel level: Detailed channel metadata, sample rates, orientations
+        - Response level: Complete instrument response functions and calibrations
+        
+        **Validation:** Must comply with StationXML v1.1 schema
+      example: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <FDSNStationXML xmlns="http://www.fdsn.org/xml/station/1">
+          <Network code="IU" startDate="1988-01-01T00:00:00">
+            <Description>Global Seismograph Network</Description>
+            <Station code="ANMO" startDate="1989-08-29T00:00:00">
+              <Latitude>34.9459</Latitude>
+              <Longitude>-106.4572</Longitude>
+              <Elevation>1820.0</Elevation>
+              <Site><Name>Albuquerque, New Mexico, USA</Name></Site>
+            </Station>
+          </Network>
+        </FDSNStationXML>
+    
+    FDSNQuakeML:
+      type: string
+      format: xml
+      description: |
+        QuakeML format compliant with FDSN Event Web Service specification.
+        Contains earthquake event information including origins, magnitudes, picks, and uncertainties.
+        
+        **Event Information:**
+        - Origin time and location with uncertainties
+        - Multiple magnitude estimates (Mw, mb, Ms, ml, etc.)
+        - Phase picks and arrival times
+        - Focal mechanisms and moment tensors
+        - Quality assessment and processing metadata
+        
+        **Validation:** Must comply with QuakeML v1.2 schema
+      example: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <q:quakeml xmlns:q="http://quakeml.org/xmlns/quakeml/1.2">
+          <eventParameters>
+            <event publicID="smi:usgs.gov/event/usc000lvb5">
+              <origin>
+                <time><value>2025-10-29T14:32:17.850Z</value></time>
+                <latitude><value>37.7749</value></latitude>
+                <longitude><value>-122.4194</value></longitude>
+                <depth><value>8500</value></depth>
+              </origin>
+              <magnitude>
+                <mag><value>4.2</value></mag>
+                <type>ml</type>
+              </magnitude>
+            </event>
+          </eventParameters>
+        </q:quakeml>
+    
+    FDSNMiniSEED:
+      type: string
+      format: binary
+      description: |
+        miniSEED format seismic data following SEED (Standard for the Exchange of Earthquake Data) specification.
+        Binary format containing time series waveform data with metadata headers.
+        
+        **Data Structure:**
+        - Fixed 512-byte records with header and data payload
+        - Compressed data using Steim1, Steim2, or other encoding
+        - Sample rates from 0.1 to 20,000+ samples per second
+        - Support for multiple data types (integer, float)
+        
+        **Metadata Headers:**
+        - Network, station, location, channel codes (NSLC)
+        - Start time and sample rate
+        - Data quality indicators
+        - Calibration and timing information
+        
+        **Usage:** Standard format for seismic data exchange and archiving
+      example: "Binary miniSEED data - 512-byte records containing compressed seismic time series"
+    
+    FDSNNetworkCode:
+      type: string
+      pattern: '^[A-Z0-9]{1,8}$'
+      description: |
+        FDSN network code following SEED naming conventions.
+        
+        **Format Rules:**
+        - 1-8 alphanumeric characters
+        - Uppercase letters and numbers only
+        - No special characters or spaces
+        
+        **Common Examples:**
+        - IU: Global Seismograph Network
+        - II: IRIS/IDA Seismic Network  
+        - GT: Global Telemetered Seismograph Network
+        - CU: Caribbean Network
+        - IM: International Monitoring System
+      example: "IU"
+    
+    FDSNStationCode:
+      type: string
+      pattern: '^[A-Z0-9]{1,5}$'
+      description: |
+        FDSN station code following SEED naming conventions.
+        
+        **Format Rules:**
+        - 1-5 alphanumeric characters
+        - Uppercase letters and numbers only
+        - Unique within network
+        
+        **Examples:**
+        - ANMO: Albuquerque, New Mexico
+        - CCM: Cathedral Cave, Missouri
+        - BOSA: Bosa, Colombia
+        - COLA: College Outpost, Alaska
+      example: "ANMO"
+    
+    FDSNLocationCode:
+      type: string
+      pattern: '^[A-Z0-9\-]{0,2}$'
+      description: |
+        FDSN location code for distinguishing multiple instruments at same station.
+        
+        **Format Rules:**
+        - 0-2 characters (can be empty)
+        - Alphanumeric or dash (--) for empty
+        - Case sensitive
+        
+        **Common Values:**
+        - 00: Primary location
+        - 10: Secondary location  
+        - --: Empty/unspecified location
+        - 20: Borehole instrument
+      example: "00"
+    
+    FDSNChannelCode:
+      type: string
+      pattern: '^[A-Z][A-Z][A-Z]$'
+      description: |
+        FDSN channel code identifying specific data stream characteristics.
+        
+        **Format: BBB (Band-Instrument-Orientation)**
+        
+        **Band Code (sample rate):**
+        - F: ≥ 1000 sps, < 5000 sps
+        - G: ≥ 1000 sps, < 5000 sps (Gap)
+        - D: ≥ 250 sps, < 1000 sps  
+        - C: ≥ 250 sps, < 1000 sps (Continued)
+        - E: ≥ 80 sps, < 250 sps
+        - S: ≥ 10 sps, < 80 sps
+        - H: ≥ 80 sps, < 250 sps (High)
+        - B: ≥ 10 sps, < 80 sps (Broad)
+        - M: < 10 sps (Medium)
+        - L: < 1 sps (Long)
+        - V: < 0.1 sps (Very long)
+        - U: < 0.01 sps (Ultra long)
+        
+        **Instrument Code:**
+        - H: High gain seismometer
+        - L: Low gain seismometer  
+        - G: Gravimeter
+        - M: Mass position seismometer
+        - N: Accelerometer
+        
+        **Orientation:**
+        - Z: Vertical
+        - N: North-South horizontal
+        - E: East-West horizontal
+        - 1,2,3: Orthogonal components
+      examples:
+        broadband_vertical:
+          value: "BHZ"
+          summary: "Broadband high-gain vertical seismometer"
+        broadband_north:
+          value: "BHN" 
+          summary: "Broadband high-gain north component"
+        broadband_east:
+          value: "BHE"
+          summary: "Broadband high-gain east component"
+        high_freq_vertical:
+          value: "HHZ"
+          summary: "High frequency vertical seismometer"
+        accelerometer_vertical:
+          value: "HNZ"
+          summary: "High frequency accelerometer vertical"
     FacetingDefinition:
       type: object
       required:
