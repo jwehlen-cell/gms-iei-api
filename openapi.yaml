@@ -1190,10 +1190,15 @@ paths:
         https://service.iris.edu/fdsnws/station/1/query?latitude=37.78&longitude=-122.42&maxradius=5&level=station
         ```
         
-        **⚠️ Parameter Groups (don't mix):**
-        - **Geographic Box**: minlat + maxlat + minlon + maxlon
-        - **Radial Search**: lat + lon + maxradius (+ optional minradius)
+        **⚠️ Parameter Groups (don't mix - IRIS will return 400 errors):**
+        - **Geographic Box**: minlat + maxlat + minlon + maxlon (NOT with lat/lon/radius)
+        - **Radial Search**: lat + lon + maxradius (NOT with min/max lat/lon)
         - **Specific Selection**: network + station + location + channel
+        
+        **🚫 Common Error**: Don't use both geographic box AND radial search together!
+        - ❌ BAD: `minlatitude=32&maxlatitude=42&latitude=37&longitude=-122&maxradius=5`
+        - ✅ GOOD: `minlatitude=32&maxlatitude=42&minlongitude=-125&maxlongitude=-114`
+        - ✅ GOOD: `latitude=37&longitude=-122&maxradius=5`
         
         **IRIS Detail Levels:**
         - `network`: Basic IRIS network information (IU, II, CI, AK, etc.)
@@ -1303,7 +1308,14 @@ paths:
         in: query
         required: false
         description: |
-          Minimum latitude (decimal degrees). IRIS regional examples:
+          **Bounding Box Search** - Minimum latitude (decimal degrees).
+          
+          ⚠️ **Conflict Warning**: Cannot use with latitude/longitude/radius!
+          - Use EITHER: minlat/maxlat/minlon/maxlon (bounding box)
+          - OR: lat/lon/radius (circular search)
+          - NOT both together!
+          
+          **IRIS Regional Examples:**
           - California: 32° (San Diego area)
           - Alaska: 55° (Southern Alaska)
           - Europe: 35° (Mediterranean)
@@ -1327,7 +1339,11 @@ paths:
         in: query
         required: false
         description: |
-          Maximum latitude (decimal degrees). IRIS regional examples:
+          **Bounding Box Search** - Maximum latitude (decimal degrees).
+          
+          ⚠️ **Conflict Warning**: Cannot use with latitude/longitude/radius!
+          
+          **IRIS Regional Examples:**
           - California: 42° (Oregon border)
           - Alaska: 72° (Northern Alaska)
           - Europe: 70° (Scandinavia)
@@ -1351,7 +1367,11 @@ paths:
         in: query
         required: false
         description: |
-          Minimum longitude (decimal degrees). IRIS regional examples:
+          **Bounding Box Search** - Minimum longitude (decimal degrees).
+          
+          ⚠️ **Conflict Warning**: Cannot use with latitude/longitude/radius!
+          
+          **IRIS Regional Examples:**
           - US West Coast: -125° (Pacific Ocean)
           - Alaska: -180° (Aleutian Islands)
           - Europe: -10° (Atlantic)
@@ -1375,7 +1395,11 @@ paths:
         in: query
         required: false
         description: |
-          Maximum longitude (decimal degrees). IRIS regional examples:
+          **Bounding Box Search** - Maximum longitude (decimal degrees).
+          
+          ⚠️ **Conflict Warning**: Cannot use with latitude/longitude/radius!
+          
+          **IRIS Regional Examples:**
           - US West Coast: -114° (Nevada border)
           - Alaska: -130° (Eastern Alaska)
           - Europe: 40° (Eastern Europe)
@@ -1398,7 +1422,13 @@ paths:
       - name: latitude
         in: query
         required: false
-        description: Center latitude for radial search
+        description: |
+          **Radial Search Center** - Latitude for circular search (decimal degrees).
+          
+          ⚠️ **Conflict Warning**: Cannot use with minlatitude/maxlatitude!
+          - Use EITHER: lat/lon/radius (circular search)
+          - OR: minlat/maxlat/minlon/maxlon (bounding box)
+          - NOT both together!
         schema:
           type: number
           format: double
@@ -1408,7 +1438,13 @@ paths:
       - name: longitude
         in: query
         required: false
-        description: Center longitude for radial search
+        description: |
+          **Radial Search Center** - Longitude for circular search (decimal degrees).
+          
+          ⚠️ **Conflict Warning**: Cannot use with minlongitude/maxlongitude!
+          - Use EITHER: lat/lon/radius (circular search)  
+          - OR: minlat/maxlat/minlon/maxlon (bounding box)
+          - NOT both together!
         schema:
           type: number
           format: double
