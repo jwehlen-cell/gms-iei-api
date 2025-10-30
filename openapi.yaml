@@ -971,6 +971,7 @@ paths:
           - US: US National Seismic Network
         schema:
           type: string
+        example: "IU"
         examples:
           gsn:
             value: "IU"
@@ -1325,16 +1326,7 @@ paths:
           format: double
           minimum: -90
           maximum: 90
-        examples:
-          california:
-            value: 32.0
-            summary: "California region (San Diego to Oregon)"
-          alaska:
-            value: 55.0
-            summary: "Alaska region"
-          europe:
-            value: 35.0
-            summary: "European IRIS stations"
+        # No default examples to avoid conflicts with radial search
       - name: maxlatitude
         in: query
         required: false
@@ -1353,16 +1345,7 @@ paths:
           format: double
           minimum: -90
           maximum: 90
-        examples:
-          california:
-            value: 42.0
-            summary: "California region northern boundary"
-          alaska:
-            value: 72.0
-            summary: "Alaska region including Arctic"
-          europe:
-            value: 70.0
-            summary: "European region including Scandinavia"
+        # No default examples to avoid conflicts with radial search
       - name: minlongitude
         in: query
         required: false
@@ -1381,16 +1364,7 @@ paths:
           format: double
           minimum: -180
           maximum: 180
-        examples:
-          west_coast:
-            value: -125.0
-            summary: "US West Coast region"
-          europe:
-            value: -10.0
-            summary: "European region"
-          asia:
-            value: 120.0
-            summary: "East Asian region"
+        # No default examples to avoid conflicts with radial search
       - name: maxlongitude
         in: query
         required: false
@@ -1409,16 +1383,7 @@ paths:
           format: double
           minimum: -180
           maximum: 180
-        examples:
-          west_coast:
-            value: -114.0
-            summary: "US West Coast eastern boundary"
-          europe:
-            value: 40.0
-            summary: "European region eastern boundary"
-          asia:
-            value: 150.0
-            summary: "East Asian region including Japan"
+        # No default examples to avoid conflicts with radial search
       - name: latitude
         in: query
         required: false
@@ -1434,7 +1399,7 @@ paths:
           format: double
           minimum: -90
           maximum: 90
-        example: 37.7749
+        # No default example to avoid conflicts with bounding box search
       - name: longitude
         in: query
         required: false
@@ -1450,7 +1415,7 @@ paths:
           format: double
           minimum: -180
           maximum: 180
-        example: -122.4194
+        # No default example to avoid conflicts with bounding box search
       - name: minradius
         in: query
         required: false
@@ -1460,7 +1425,7 @@ paths:
           format: double
           minimum: 0
           maximum: 180
-        example: 0.0
+        # No default example to avoid conflicts
       - name: maxradius
         in: query
         required: false
@@ -1470,7 +1435,7 @@ paths:
           format: double
           minimum: 0
           maximum: 180
-        example: 10.0
+        # No default example to avoid conflicts
       - name: level
         in: query
         required: false
