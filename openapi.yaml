@@ -924,11 +924,26 @@ paths:
         This service provides access to continuous waveform data from IRIS (Incorporated Research Institutions for Seismology) archives.
         
         **IRIS Examples - Real Data Available:**
-        - **Global Seismograph Network**: `net=IU&sta=ANMO&starttime=2025-10-29T00:00:00&endtime=2025-10-29T01:00:00`
-        - **IRIS/IDA Network**: `net=II&sta=BFO&cha=BHZ&starttime=2025-10-29T12:00:00&endtime=2025-10-29T13:00:00`
-        - **Alaska Regional**: `net=AK&sta=RIDG&cha=BHZ&starttime=2025-10-29T00:00:00&endtime=2025-10-29T06:00:00`
-        - **California Integrated**: `net=CI&sta=PASC&cha=HHZ&starttime=2025-10-29T00:00:00&endtime=2025-10-29T01:00:00`
-        - **Multiple channels**: `net=IU&sta=ANMO&cha=BH?&starttime=2025-10-29T00:00:00&endtime=2025-10-29T01:00:00`
+        - **Global Seismograph Network**: 
+          ```
+          https://service.iris.edu/fdsnws/dataselect/1/query?net=IU&sta=ANMO&starttime=2025-10-29T00:00:00&endtime=2025-10-29T01:00:00
+          ```
+        - **IRIS/IDA Network**: 
+          ```
+          https://service.iris.edu/fdsnws/dataselect/1/query?net=II&sta=BFO&cha=BHZ&starttime=2025-10-29T12:00:00&endtime=2025-10-29T13:00:00
+          ```
+        - **Alaska Regional**: 
+          ```
+          https://service.iris.edu/fdsnws/dataselect/1/query?net=AK&sta=RIDG&cha=BHZ&starttime=2025-10-29T00:00:00&endtime=2025-10-29T06:00:00
+          ```
+        - **California Integrated**: 
+          ```
+          https://service.iris.edu/fdsnws/dataselect/1/query?net=CI&sta=PASC&cha=HHZ&starttime=2025-10-29T00:00:00&endtime=2025-10-29T01:00:00
+          ```
+        - **Multiple channels**: 
+          ```
+          https://service.iris.edu/fdsnws/dataselect/1/query?net=IU&sta=ANMO&cha=BH?&starttime=2025-10-29T00:00:00&endtime=2025-10-29T01:00:00
+          ```
         
         **Real IRIS Station Examples:**
         - **IU.ANMO** - Albuquerque, New Mexico (34.95°N, 106.46°W) - Broadband
@@ -1148,22 +1163,22 @@ paths:
         
         **1. Specific Station:** `network=IU&station=ANMO&level=station`
         ```
-        /fdsn/station/1/query?network=IU&station=ANMO&level=station
+        https://service.iris.edu/fdsnws/station/1/query?network=IU&station=ANMO&level=station
         ```
         
         **2. Network Overview:** `network=IU&level=network`
         ```
-        /fdsn/station/1/query?network=IU&level=network
+        https://service.iris.edu/fdsnws/station/1/query?network=IU&level=network
         ```
         
         **3. Regional Search:** `minlatitude=32&maxlatitude=42&minlongitude=-125&maxlongitude=-114&level=station`
         ```
-        /fdsn/station/1/query?minlatitude=32&maxlatitude=42&minlongitude=-125&maxlongitude=-114&level=station
+        https://service.iris.edu/fdsnws/station/1/query?minlatitude=32&maxlatitude=42&minlongitude=-125&maxlongitude=-114&level=station
         ```
         
         **4. Radial Search:** `latitude=37.78&longitude=-122.42&maxradius=5&level=station`
         ```
-        /fdsn/station/1/query?latitude=37.78&longitude=-122.42&maxradius=5&level=station
+        https://service.iris.edu/fdsnws/station/1/query?latitude=37.78&longitude=-122.42&maxradius=5&level=station
         ```
         
         **⚠️ Parameter Groups (don't mix):**
@@ -1492,11 +1507,23 @@ paths:
         Retrieve earthquake event information from seismic catalogs in QuakeML format.
         Provides comprehensive earthquake data including origin times, locations, magnitudes, and uncertainties.
         
-        **Common Queries:**
-        - Recent earthquakes: `/fdsn/event/1/query?starttime=2025-10-22T00:00:00&endtime=2025-10-29T00:00:00&minmagnitude=4.0`
-        - Regional events: `/fdsn/event/1/query?minlat=32&maxlat=42&minlon=-125&maxlon=-114&minmagnitude=3.0`
-        - Large events: `/fdsn/event/1/query?minmagnitude=6.0&starttime=2025-01-01T00:00:00`
-        - Near location: `/fdsn/event/1/query?lat=37.78&lon=-122.42&maxradius=2.0&minmagnitude=2.0`
+        **Common IRIS Queries:**
+        - **Recent earthquakes**: 
+          ```
+          https://service.iris.edu/fdsnws/event/1/query?starttime=2025-10-22T00:00:00&endtime=2025-10-29T00:00:00&minmagnitude=4.0
+          ```
+        - **Regional events (California)**: 
+          ```
+          https://service.iris.edu/fdsnws/event/1/query?minlat=32&maxlat=42&minlon=-125&maxlon=-114&minmagnitude=3.0
+          ```
+        - **Large global events**: 
+          ```
+          https://service.iris.edu/fdsnws/event/1/query?minmagnitude=6.0&starttime=2025-01-01T00:00:00
+          ```
+        - **Events near San Francisco**: 
+          ```
+          https://service.iris.edu/fdsnws/event/1/query?lat=37.78&lon=-122.42&maxradius=2.0&minmagnitude=2.0
+          ```
         
         **Output Formats:** QuakeML (XML), CSV text
       tags:
@@ -3255,3 +3282,7 @@ components:
             $ref: ../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment
 servers:
 - url: https://api.example.com
+  description: Example GMS API Server
+- url: https://service.iris.edu/fdsnws
+  description: IRIS FDSN Web Services (for FDSN endpoints only)
+  variables: {}
