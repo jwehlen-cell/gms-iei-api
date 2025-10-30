@@ -18,10 +18,11 @@
     <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
     <script>
       window.onload = () => {
-        // Add cache-busting parameter to force reload of OpenAPI spec
+        // Strong cache-busting with multiple parameters
         const timestamp = new Date().getTime();
+        const random = Math.random().toString(36).substring(7);
         const ui = SwaggerUIBundle({
-          url: `./openapi.yaml?v=${timestamp}`,
+          url: `./openapi.yaml?v=${timestamp}&r=${random}&updated=2025-10-29`,
           dom_id: '#swagger-ui',
           deepLinking: true,
           validatorUrl: null,
@@ -31,17 +32,27 @@
           tryItOutEnabled: true,
           requestInterceptor: (request) => {
             // Log requests for debugging
-            console.log('Request:', request);
+            console.log('Request:', request.url);
             return request;
           },
           onComplete: () => {
-            console.log('Swagger UI loaded successfully with timestamp:', timestamp);
+            console.log('Swagger UI loaded successfully with enhanced cache-busting');
+            console.log('Timestamp:', timestamp, 'Random:', random);
+            console.log('Updated: 2025-10-29 with comprehensive time examples');
           },
           onFailure: (error) => {
             console.error('Failed to load OpenAPI spec:', error);
           }
         });
         window.ui = ui;
+        
+        // Force reload of spec every 30 seconds for development
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+          setTimeout(() => {
+            console.log('Development mode: Refreshing spec...');
+            window.location.reload();
+          }, 30000);
+        }
       };
     </script>
   </body>
