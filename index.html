@@ -4,6 +4,9 @@
     <meta charset="utf-8"/>
     <title>GMS IEI API – Swagger UI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css">
     <style>
       body { margin:0; }
@@ -15,8 +18,10 @@
     <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
     <script>
       window.onload = () => {
+        // Add cache-busting parameter to force reload of OpenAPI spec
+        const timestamp = new Date().getTime();
         const ui = SwaggerUIBundle({
-          url: "./openapi.yaml",
+          url: `./openapi.yaml?v=${timestamp}`,
           dom_id: '#swagger-ui',
           deepLinking: true,
           validatorUrl: null,
@@ -24,8 +29,13 @@
           layout: "BaseLayout",
           docExpansion: "list",
           tryItOutEnabled: true,
+          requestInterceptor: (request) => {
+            // Log requests for debugging
+            console.log('Request:', request);
+            return request;
+          },
           onComplete: () => {
-            console.log('Swagger UI loaded successfully');
+            console.log('Swagger UI loaded successfully with timestamp:', timestamp);
           },
           onFailure: (error) => {
             console.error('Failed to load OpenAPI spec:', error);
