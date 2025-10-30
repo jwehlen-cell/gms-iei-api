@@ -26,7 +26,6 @@ info:
     name: MIT
     url: https://opensource.org/licenses/MIT
   termsOfService: https://api.example.com/terms
-jsonSchemaDialect: https://json-schema.org/draft/2020-12/schema
 externalDocs:
   description: FDSN Web Services Specification
   url: https://www.fdsn.org/webservices/
