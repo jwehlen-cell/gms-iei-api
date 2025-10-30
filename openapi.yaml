@@ -8,7 +8,21 @@ paths:
   /events:
     get:
       summary: List all events
-      description: "Retrieve a list of all events with optional filtering by time range, location, and other criteria."
+      description: |
+        Retrieve a list of all events with optional filtering by time range, location, and other criteria.
+        
+        **Time Filtering Examples:**
+        - Last 24 hours: startTime=2025-10-28T00:00:00.000Z&endTime=2025-10-29T00:00:00.000Z
+        - Specific hour: startTime=2025-10-29T14:00:00.000Z&endTime=2025-10-29T15:00:00.000Z
+        - Last week: startTime=2025-10-22T00:00:00.000Z&endTime=2025-10-29T00:00:00.000Z
+        - Real-time monitoring: endTime=2025-10-29T18:45:30.500Z (no startTime for all historical)
+        
+        **Location Examples:**
+        - Regional: latitude=37.7749&longitude=-122.4194&radiusKm=100 (San Francisco Bay Area)
+        - Global seismic: latitude=35.0&longitude=139.0&radiusKm=1000 (Japan region)
+        
+        **Combined Filtering:**
+        - Recent events near station: startTime=2025-10-29T00:00:00.000Z&latitude=69.5355&longitude=25.5063&radiusKm=50
       parameters:
       - in: header
         name: time-format
@@ -22,7 +36,7 @@ paths:
         schema:
           type: string
           format: date-time
-        example: "2023-01-01T00:00:00.000Z"
+        example: "2025-10-29T00:00:00.000Z"
       - name: endTime
         in: query
         required: false
@@ -30,7 +44,7 @@ paths:
         schema:
           type: string
           format: date-time
-        example: "2023-12-31T23:59:59.999Z"
+        example: "2025-10-31T23:59:59.999Z"
       - name: latitude
         in: query
         required: false
@@ -261,7 +275,7 @@ paths:
         schema:
           type: string
           format: date-time
-        example: "2023-01-01T00:00:00.000Z"
+        example: "2025-10-29T00:00:00.000Z"
       - name: endTime
         in: query
         required: false
@@ -269,7 +283,7 @@ paths:
         schema:
           type: string
           format: date-time
-        example: "2023-12-31T23:59:59.999Z"
+        example: "2025-10-31T23:59:59.999Z"
       responses:
         '200':
           description: Events within the specified location
@@ -469,7 +483,7 @@ paths:
         schema:
           type: string
           format: date-time
-        example: "2023-01-01T00:00:00.000Z"
+        example: "2025-10-29T00:00:00.000Z"
       - name: signalDetectionEndTime
         in: query
         required: true
@@ -477,7 +491,7 @@ paths:
         schema:
           type: string
           format: date-time
-        example: "2023-01-01T23:59:59.999Z"
+        example: "2025-10-29T18:45:30.500Z"
       - name: changedSinceTime
         in: query
         required: false
@@ -485,7 +499,7 @@ paths:
         schema:
           type: string
           format: date-time
-        example: "2023-01-01T12:00:00.000Z"
+        example: "2025-10-15T12:30:00.000Z"
       responses:
         '200':
           description: A list of events
@@ -577,7 +591,7 @@ paths:
         schema:
           type: string
           format: date-time
-        example: "2023-01-01T00:00:00.000Z"
+        example: "2025-10-29T00:00:00.000Z"
       - name: endTime
         in: query
         required: true
@@ -585,7 +599,7 @@ paths:
         schema:
           type: string
           format: date-time
-        example: "2023-01-01T23:59:59.999Z"
+        example: "2025-10-29T18:45:30.500Z"
       - name: stageIds
         in: query
         required: true
@@ -605,7 +619,7 @@ paths:
         schema:
           type: string
           format: date-time
-        example: "2023-01-01T12:00:00.000Z"
+        example: "2025-10-15T12:30:00.000Z"
       responses:
         '200':
           description: Events with signal detections and segments
@@ -882,20 +896,48 @@ components:
       in: query
       name: startTime
       required: false
-      description: Start time for filtering (ISO 8601 format)
+      description: |
+        Start time for filtering events (ISO 8601 format in UTC).
+        Supports various formats:
+        - Full timestamp: 2025-10-29T14:30:00.000Z
+        - Date only: 2025-10-29 (interpreted as 00:00:00.000Z)
+        - With timezone: 2025-10-29T14:30:00-05:00
+        Examples: Recent seismic events, daily monitoring windows, real-time analysis
       schema:
         type: string
         format: date-time
-      example: "2023-01-01T00:00:00.000Z"
+      examples:
+        today: 
+          value: "2025-10-29T00:00:00.000Z"
+          summary: "Start of today"
+        last_week:
+          value: "2025-10-22T00:00:00.000Z" 
+          summary: "One week ago"
+        specific_time:
+          value: "2025-10-29T14:30:15.500Z"
+          summary: "Specific timestamp with milliseconds"
     EndTime:
       in: query
       name: endTime
       required: false
-      description: End time for filtering (ISO 8601 format)
+      description: |
+        End time for filtering events (ISO 8601 format in UTC).
+        Must be greater than startTime if both are provided.
+        Supports the same formats as startTime.
+        Examples: Analysis cutoff times, monitoring period endpoints
       schema:
         type: string
         format: date-time
-      example: "2023-12-31T23:59:59.999Z"
+      examples:
+        today_end:
+          value: "2025-10-31T23:59:59.999Z"
+          summary: "End of October 2025"
+        now:
+          value: "2025-10-29T18:45:30.500Z"
+          summary: "Current timestamp"
+        next_day:
+          value: "2025-10-30T00:00:00.000Z"
+          summary: "Start of next day"
     Latitude:
       in: query
       name: latitude
@@ -963,6 +1005,43 @@ components:
         default: 0
       example: 0
   schemas:
+    TimeStamp:
+      type: string
+      format: date-time
+      description: |
+        ISO 8601 formatted timestamp in UTC timezone.
+        
+        **Supported Formats:**
+        - Full precision: YYYY-MM-DDTHH:mm:ss.sssZ
+        - Standard: YYYY-MM-DDTHH:mm:ssZ  
+        - Date only: YYYY-MM-DD (interpreted as 00:00:00.000Z)
+        - With timezone: YYYY-MM-DDTHH:mm:ss±HH:mm
+        
+        **Common Use Cases:**
+        - Event occurrence times
+        - Signal detection timestamps  
+        - Query time ranges
+        - Data modification times
+        
+        **Precision:**
+        - Millisecond precision supported (.sss)
+        - Microsecond precision in some contexts (.ssssss)
+      examples:
+        seismic_event:
+          value: "2025-10-29T14:32:17.850Z"
+          summary: "Seismic event detection time"
+        daily_start:
+          value: "2025-10-29T00:00:00.000Z" 
+          summary: "Start of day for daily analysis"
+        real_time:
+          value: "2025-10-29T18:45:30.123Z"
+          summary: "Real-time monitoring timestamp"
+        historical:
+          value: "2025-09-15T08:15:42.500Z"
+          summary: "Historical event for comparison"
+        high_precision:
+          value: "2025-10-29T14:32:17.850123Z"
+          summary: "High precision timestamp with microseconds"
     FacetingDefinition:
       type: object
       required:
