@@ -1,45 +1,105 @@
-# GMS IEI API (Combined OpenAPI + Swagger UI)
+# GMS IEI API Documentation
 
-This repository provides a **unified OpenAPI 3.0 spec** built by merging the Common and Event fragments from your uploaded package, plus ready-to-serve **Swagger UI** and **ReDoc** documentation that can be deployed on **GitHub Pages**.
+This repository provides a **unified OpenAPI 3.0 specification** for the GMS IEI API with interactive documentation powered by **Swagger UI** and **ReDoc**, automatically deployed via **GitHub Pages**.
 
-## What's inside
+## 🌐 Live Documentation
 
-- `openapi.yaml` — combined OpenAPI spec
-- `index.html` — Swagger UI (interactive, Try-It-Out)
-- `redoc.html` — ReDoc single-page reference docs
-- `.github/workflows/pages.yml` — GitHub Actions workflow to deploy pages
-- `.gitignore`, `LICENSE`
+**📖 Interactive API Documentation**: [https://jwehlen-cell.github.io/gms-iei-api/](https://jwehlen-cell.github.io/gms-iei-api/)
 
-## Local preview
+## 📁 Repository Contents
 
-Just open `index.html` in a local server (CORS-safe). E.g.:
+- **`openapi.yaml`** — Unified OpenAPI 3.0 specification
+- **`index.html`** — Swagger UI (interactive documentation with "Try It Out" functionality)
+- **`redoc.html`** — ReDoc single-page reference documentation
+- **`.github/workflows/pages.yml`** — GitHub Actions workflow for automatic deployment
+- **`.nojekyll`** — Ensures proper GitHub Pages deployment
+- **`LICENSE`** — Repository license
+
+## 🚀 Quick Start
+
+### Local Development
+
+To preview the documentation locally:
 
 ```bash
-python3 -m http.server 8080
-# Visit http://localhost:8080
+# Start a local HTTP server
+python3 -m http.server 8000
+
+# Visit the documentation
+open http://localhost:8000
 ```
 
-Or open `redoc.html` for ReDoc.
+The Swagger UI will be available at the root URL, or you can access ReDoc directly at `http://localhost:8000/redoc.html`.
 
-## GitHub Pages deployment
+### GitHub Pages Deployment
 
-1. Create a new GitHub repo (e.g., `gms-iei-api`).
-2. Push these files to the `main` branch.
-3. In the repo:
-   - Go to **Settings → Pages** and set **Source** to **GitHub Actions**.
-4. The action in `.github/workflows/pages.yml` will build and publish your site to Pages.
-   - Visit `https://<your-org-or-user>.github.io/<repo>/`
+The documentation is automatically deployed to GitHub Pages via GitHub Actions:
 
-## Updating the API
+1. **Automatic Deployment**: Every push to the `main` branch triggers a deployment
+2. **Live URL**: [https://jwehlen-cell.github.io/gms-iei-api/](https://jwehlen-cell.github.io/gms-iei-api/)
+3. **Deployment Status**: Check [Actions tab](https://github.com/jwehlen-cell/gms-iei-api/actions) for build status
 
-- Edit `openapi.yaml` and commit.
-- Swagger UI and ReDoc will auto-refresh on the next Pages build.
+#### Manual Setup (if needed)
 
-## Notes on merge
+If setting up in a new repository:
 
-- Source fragments merged: `common-coi.yaml`, `common-operations.yaml`, `event-coi.yaml`, `event-operations.yaml`.
-- If any non-structural conflicts were detected during merge, they're recorded under an **`x-conflicts`** extension path inside `openapi.yaml` so you can review and resolve them manually.
+1. Fork or clone this repository
+2. Push to your GitHub repository's `main` branch  
+3. Go to **Settings → Pages** in your repository
+4. Set **Source** to **GitHub Actions**
+5. The workflow will automatically deploy your documentation
+
+## 🔧 Updating the API Documentation
+
+1. **Edit the OpenAPI specification**: Modify `openapi.yaml`
+2. **Commit and push**: Changes will automatically trigger a new deployment
+3. **Documentation updates**: Swagger UI and ReDoc will reflect changes within 2-3 minutes
+
+```bash
+# Make your changes to openapi.yaml
+git add openapi.yaml
+git commit -m "Update API specification"
+git push origin main
+```
+
+## 🛠️ Troubleshooting
+
+### GitHub Pages 404 Error
+If you encounter a 404 error:
+
+1. **Check repository visibility**: Repository must be public (or you need GitHub Pro/Team for private repos)
+2. **Verify Pages settings**: Go to Settings → Pages, ensure source is set to "GitHub Actions"
+3. **Check deployment status**: Visit the [Actions tab](https://github.com/jwehlen-cell/gms-iei-api/actions) to see if deployment succeeded
+4. **Wait for deployment**: Initial deployment can take 5-10 minutes
+
+### Local Development Issues
+- **CORS errors**: Always use a local HTTP server, don't open `index.html` directly in browser
+- **File not found**: Ensure you're running the server from the repository root directory
+
+## 📋 API Specification Details
+
+This OpenAPI specification was created by merging multiple API fragments:
+
+- **Source fragments**: `common-coi.yaml`, `common-operations.yaml`, `event-coi.yaml`, `event-operations.yaml`
+- **Version**: OpenAPI 3.0.3
+- **API Title**: GMS IEI API (Combined)
+- **Conflict resolution**: Any merge conflicts are documented under `x-conflicts` extension in the YAML
+
+## 📝 License
+
+This project is licensed under the terms specified in the [LICENSE](LICENSE) file.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/your-feature`
+3. Make your changes to `openapi.yaml`
+4. Test locally using the local development setup
+5. Commit your changes: `git commit -am 'Add your feature'`
+6. Push to the branch: `git push origin feature/your-feature`
+7. Submit a pull request
 
 ---
 
-Generated on 2025-10-30.
+**Last updated**: October 29, 2025  
+**Generated documentation**: [https://jwehlen-cell.github.io/gms-iei-api/](https://jwehlen-cell.github.io/gms-iei-api/)
