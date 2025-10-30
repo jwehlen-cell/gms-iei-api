@@ -914,10 +914,10 @@ paths:
   # Standard seismological web services following FDSN specifications
   # All FDSN endpoints are prefixed with /fdsn/ to distinguish from GMS-specific endpoints
   
-  /fdsn/dataselect/1/query:
+  /fdsnws/dataselect/1/query:
     servers:
-    - url: https://service.iris.edu/fdsnws
-      description: IRIS FDSN Web Services
+    - url: https://service.iris.edu
+      description: IRIS Web Services
     get:
       summary: FDSN DataSelect - Retrieve seismic waveform data
       description: |
@@ -1098,8 +1098,8 @@ paths:
           description: Internal server error
     post:
       servers:
-      - url: https://service.iris.edu/fdsnws
-        description: IRIS FDSN Web Services
+      - url: https://service.iris.edu
+        description: IRIS Web Services
       summary: FDSN DataSelect - Retrieve seismic waveform data (bulk request)
       description: |
         **FDSN DataSelect Web Service (v1.1) - IRIS Bulk Request**
@@ -1156,10 +1156,10 @@ paths:
         '400':
           description: Bad request
   
-  /fdsn/station/1/query:
+  /fdsnws/station/1/query:
     servers:
-    - url: https://service.iris.edu/fdsnws
-      description: IRIS FDSN Web Services
+    - url: https://service.iris.edu
+      description: IRIS Web Services
     get:
       summary: FDSN Station - Retrieve seismic station metadata from IRIS
       description: |
@@ -1507,10 +1507,10 @@ paths:
         '500':
           description: Internal server error
   
-  /fdsn/event/1/query:
+  /fdsnws/event/1/query:
     servers:
-    - url: https://service.iris.edu/fdsnws
-      description: IRIS FDSN Web Services
+    - url: https://service.iris.edu
+      description: IRIS Web Services
     get:
       summary: FDSN Event - Retrieve earthquake catalog data
       description: |
