@@ -1,0 +1,11 @@
+
+# Node / tooling
+node_modules/
+dist/
+*.log
+
+# macOS
+.DS_Store
+
+# Python local servers
+__pycache__/

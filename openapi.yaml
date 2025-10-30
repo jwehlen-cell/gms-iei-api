@@ -1,0 +1,1383 @@
+openapi: 3.0.3
+info:
+  title: GMS IEI API (Combined)
+  version: 1.0.0-combined
+  description: 'Unified OpenAPI 3.0 spec built from Common and Event fragments. Source:
+    gms-iei-req-2025-09-15.'
+paths:
+  /event/query/events-outside-range-signal-detections-inside-range:
+    post:
+      summary: Find Events outside a time range that are associated to SignalDetections
+        inside the time range
+      description: "This operation returns Event objects that have a preferredEventHypothesisByStage\
+        \ EventHypothesis occurring outside the provided time range that is associated\
+        \ to a SignalDetectionHypothesis that occurs inside the provided time range\
+        \ and is associated to any Station in the provided collection. The provided\
+        \ Station objects may be populated as entity references. An Event occurs outside\
+        \ of the time range if its preferredEventHypothesisByStage collection contains\
+        \ an EventHypothesis for any provided Stage that has a peferredLocationSolution\
+        \ with time occurring before signalDetectionStartTime or after signalDetectionEndtime.\
+        \ The start time and end time are exclusive; if the preferredLocationSolution\
+        \ time is exactly equal to signalDetectionStartTime or is exactly equal to\
+        \ signalDetectionEndTime, the Event is not outside the time range. A SignalDetectionHypothesis\
+        \ occurs inside of the time range if its ARRIVAL_TIME FeatureMeasurement has\
+        \ an arrivalTime value in the time range beginning at signalDetectionStartTime\
+        \ and ending at signalDetectionEndTime. Both signalDetectionStartTime and\
+        \ signalDetectionEndTime are inclusive; a value exactly equal to one of these\
+        \ bounds is in the time range. After finding a matching Event, this operation\
+        \ returns within the Event\_each\_EventHypothesis created in a provided Stage.\_\
+        The returned Event objects are populated according to the default faceted\
+        \ attribute population defined in the COI data model except some of the EventHypothesis\
+        \ objects in their eventHypotheses collections may be populated objects instead\
+        \ of id-only references. The EventHypothesis objects that were stored on or\
+        \ after changedSinceTime are populated according to the default faceted attribute\
+        \ population defined in the COI data model; all other EventHypothesis objects\
+        \ are populated as id-only references. If changedSinceTime is not provided,\
+        \ all EventHypothesis objects are populated according to the default faceted\
+        \ attribute population defined in the COI data model."
+      parameters:
+      - in: header
+        name: time-format
+        required: false
+        schema:
+          $ref: ../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventsOutsideRangeWithSignalDetectionsInsideRangeRequest'
+      responses:
+        '200':
+          description: A list of events
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: event-coi.yaml#/components/schemas/Event
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: event-coi.yaml#/components/schemas/Event
+  /event/with-detections-and-segments/query/time:
+    post:
+      summary: Find events with detections and segments by time
+      description: "This operation finds the Event objects occurring in the time range\
+        \ provided in the query predicate. An\_Event occurs in a time range if its\
+        \ preferredEventHypothesisByStage entry for any provided\_Stage\_includes\
+        \ an EventHypothesis with a preferredLocationSolution with time occurring\
+        \ in the time range beginning at startTime and ending at endTime (both startTime\
+        \ and endTime are inclusive; a value exactly equal to one of these bounds\
+        \ is in the time range). After finding an Event is within the time range,\
+        \ this operation returns within the Event\_each\_EventHypothesis created in\
+        \ a provided Stage. Faceted attributes of the returned Event objects are populated\
+        \ according to the default faceted attribute population defined in the COI\
+        \ data model, with the exception of the EventHypothesis collection which is\
+        \ populated with the default faceted attribute instantiations (i.e. rather\
+        \ than reference only default population defined in the COI data model). Additionally,\
+        \ this operation returns a collection of SignalDetection objects (each including\
+        \ populated SignalDetectionHypothesis objects), for each SignalDetection with\
+        \ a SignalDetectionHypothesis associated to any EventHypothesis included within\
+        \ the returned Event collection. Further, this operation returns a ChannelSegment\
+        \ collection containing the measured ChannelSegment objects referenced by\
+        \ the FeatureMeasurement objects in the returned SignalDetectionHypothesis\
+        \ objects. Within the returned ChannelSegment objects, this operation populates\
+        \ the maskedBy ProcessingMask objects, leaving their maskedQcSegmentVersions\
+        \ populated as identifier-only instances. This operation returns an EventsWithSignalDetectionsAndSegments\
+        \ object combining the loaded Event, EventHypothesis, SignalDetection, SignalDetectionHypothesis,\
+        \ and ChannelSegment objects. An optional changedSinceTime parameter limits\
+        \ the Event objects returned to those that contain EventHypothesis objects\
+        \ that were stored on or after the changedSinceTime. For each returned Event,\
+        \ EventHypothesis objects stored on or after changedSinceTime are fully populated;\
+        \ all other EventHypothesis objects are populated as id-only references. Similarly,\
+        \ each populated EventHypothesis object's associated SignalDetectionHypothesis\
+        \ objects, along with any other SignalDetectionHypothesis objects in their\
+        \ SignalDetection histories that were stored on or after changedSinceTime,\
+        \ are fully populated; all other SignalDetectionHypothesis objects in the\
+        \ returned SignalDetection objects are populated as id-only references. Faceted\
+        \ attributes of the returned EventHypothesis and SignalDetectionHypothesis\
+        \ are populated according to the default faceted attribute population defined\
+        \ in the COI data model."
+      parameters:
+      - in: header
+        name: time-format
+        required: false
+        schema:
+          $ref: ../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventsWithDetectionsAndSegmentsByTimeRequest'
+      responses:
+        '200':
+          description: Events with signal detections and segments
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventsWithSignalDetectionsAndSegments'
+            application/msgpack:
+              schema:
+                $ref: '#/components/schemas/EventsWithSignalDetectionsAndSegments'
+  /event/status-info/query/stage-id-and-events:
+    post:
+      summary: Find event status info by stage ID and events.
+      description: This operation finds an EventStatusInfo collection using a query
+        predicate of a single Stage ID and an Event collection.
+      parameters:
+      - in: header
+        name: time-format
+        required: false
+        schema:
+          $ref: ../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventStatusInfoByStageIdAndEventsRequest'
+      responses:
+        '200':
+          description: Successful operation. Returns an EventStatusInfo collection.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: event-coi.yaml#/components/schemas/EventStatusInfo
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: event-coi.yaml#/components/schemas/EventStatusInfo
+  /event/status-info/query/stage-id-and-timerange:
+    post:
+      summary: Find EventStatusInfo by Stage ID and timerange.
+      description: This operation finds and returns the EventStatusInfo objects stored
+        on or after the provided time that correspond to the provided Stage ID and
+        to any Event objects occurring in the time range provided in the query predicate.
+        An Event occurs in a time range if the EventHypothesis associated to the provided
+        Stage ID in preferredEventHypothesisByStage contains any LocationSolution
+        in its locationSolution collection with time occurring in the time range beginning
+        at startTime and ending at endTime (both startTime and endTime are inclusive;
+        a value exactly equal to one of these bounds is in the time range.)
+      parameters:
+      - in: header
+        name: time-format
+        required: false
+        schema:
+          $ref: ../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventStatusInfoByStageIdAndTimeRequest'
+      responses:
+        '200':
+          description: Event status info by stage ID and time response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: event-coi.yaml#/components/schemas/EventStatusInfo
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: event-coi.yaml#/components/schemas/EventStatusInfo
+  /event/status-info/update:
+    post:
+      summary: Store or update EventStatusInfo
+      description: "This operation persistently stores the EventStatusInfo included\
+        \ in the request, updating it if it has previously been stored. If this operation\
+        \ successfully stores the\_EventStatusInfo object, then it also\_sets the\
+        \ object's storage time to the current wall-clock time."
+      parameters:
+      - in: header
+        name: time-format
+        required: false
+        schema:
+          $ref: ../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventStatusInfoUpdateRequest'
+      responses:
+        '200':
+          description: Event status info stored or updated successfully
+  /event/correlated-events/query/source-event-hypotheses:
+    post:
+      summary: "Finds and returns the CorrelatedEvents\_object for each source EventHypothesis\_\
+        provided in the query predicate."
+      description: "This operation finds and returns the CorrelatedEvents\_object\
+        \ for each source EventHypothesis\_provided in the query predicate. Each\_\
+        CorrelatedEvents\_object includes a\_CorrelatedEventHypothesis collection\
+        \ of objects similar to one of the provided\_EventHypothesis\_objects, which\
+        \ were originally found using waveform correlation. The\_EventHypothesis\_\
+        objects provided to this operation may be references or populated objects."
+      parameters:
+      - in: header
+        name: time-format
+        required: false
+        schema:
+          $ref: ../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CorrelatedEventsBySourceEventHypothesesRequest'
+      responses:
+        '200':
+          description: "Successful operation. The response is a CorrelatedEvents collection\
+            \ with at most one CorrelatedEvents object for each source EventHypothesis\
+            \ provided in the query predicate. The response does not include a\_CorrelatedEvents\_\
+            object for a provided source\_EventHypothesis\_if the data store does\
+            \ not include waveform correlation results for that\_EventHypothesis.\
+            \ The CorrelatedEvents\_objects include faceted attributes populated according\
+            \ to the provided FacetingDefinition, or according to their\_defaults\
+            \ described in the COI data model if no\_FacetingDefinition\_is provided.\_\
+            Each populated ChannelSegment\_object in a returned CorrelatedEvents\_\
+            object has timeseries\_collection populated with\_WfdiscWaveformClaimCheck\_\
+            objects."
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: event-coi.yaml#/components/schemas/CorrelatedEvents
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: event-coi.yaml#/components/schemas/CorrelatedEvents
+  /event/update:
+    post:
+      summary: Stores the provided Event, SignalDetection, and ChannelSegment objects,
+        updating an Event object if it was previously stored.
+      description: "Stores the provided Event, SignalDetection, and ChannelSegment\
+        \ objects, updating an Event object if it was previously stored.\_Stores each\
+        \ of the provided Event objects or updates an Event object if it was previously\
+        \ stored. Stores each of the provided SignalDetection objects or updates a\
+        \ SignalDetection object if it was previously stored.\_SignalDetection objects\
+        \ are associated to the Event by being associated to the SignalDetectionHypothesis\
+        \ objects in the associatedSignalDetectionHypotheses collections of the EventHypothesis\
+        \ objects. The ChannelSegment objects associated to the provided SignalDetection\
+        \ objects are contained in the provided ChannelSegment object collection.\
+        \ For every SignalDetection object that could not be updated or stored, whether\
+        \ due to an inconsistency with a previously stored SignalDetection object\
+        \ or another issue, all Event objects with associated SignalDetectionHypothesis\
+        \ objects contained within that SignalDetection object's signalDetectionHypotheses\
+        \ collection are not stored. The ChannelSegment objects are associated to\
+        \ the Event objects through the Event objects' associated EventHypothesis\
+        \ objects' associated SignalDetectionHypothesis objects' FeatureMeasurement\
+        \ objects' measuredChannelSegment and analysisWaveform, the associated EventHypothesis\
+        \ objects' associated LocationSolution objects' associated LocationBehavior\
+        \ objects' FeatureMeasurement and FeaturePrediction objects, and the associated\
+        \ LocationSolution objects' associated NetworkMagnitudeSolution objects' associated\
+        \ FeatureMeasurement objects, and are associated to the provided SignalDetection\
+        \ objects through the FeatureMeasurement objects' measuredChannelSegment and\
+        \ analysisWaveform. For a given Event, checks if that Event was previously\
+        \ stored. If that Event was previously stored, checks that the previously\
+        \ stored Event is consistent with the current Event. The current Event is\
+        \ consistent with the previously stored Event if all EventHypothesis objects\
+        \ in the previously stored Event object's eventHypotheses created in the provided\_\
+        Stage\_are contained within the current Event object's eventHypotheses collection\
+        \ and all EventHypothesis objects in the previously stored Event object's\
+        \ finalEventHypothesisHistory are contained within the current Event object's\
+        \ finalEventHypothesisHistory in the same order, with all new EventHypothesis\
+        \ objects in the history appearing after the previous Event object's finalEventHypothesisHistory\
+        \ EventHypothesis objects. If the current Event is consistent with the previously\
+        \ stored Event, updates the previously stored Event with the current Event,\
+        \ otherwise does not store the current Event. Event objects are not partially\
+        \ stored; either the entire Event aggregate is stored or nothing is stored.\
+        \ For a given Event, the check for consistency and storage of the aggregate\
+        \ Event, along with the associated SignalDetection objects and ChannelSegment\
+        \ objects should be a single atomic transaction to prevent a race condition\
+        \ from happening if two versions of the same Event with inconsistent eventHypotheses\
+        \ collections are stored simultaneously. Stores the Event aggregate by storing\
+        \ the Event (when updating a previously stored Event, the previousEventHypothesisbyStage\
+        \ and\_eventHypotheses\_collections should be updated to include the new results\
+        \ for the provided\_Stage)\_and all EventHypothesis objects in the Event object's\
+        \ eventHypotheses that were not previously stored. New SignalDetectionHypothesis\
+        \ objects associated to the EventHypothesis are stored by storing the provided\
+        \ SignalDetection objects. New ChannelSegment objects are stored by storing\
+        \ the provided ChannelSegment objects. New Channel objects associated with\
+        \ the EventHypothesis should also be stored; the new Channel objects will\
+        \ likely be derived Channel objects. The Data Fabric will typically have previously\
+        \ received these associated derived Channel objects through a Channel storage\
+        \ request-response service operation. The aggregate Event should only be stored\
+        \ if its associated SignalDetection objects and ChannelSegment objects were\
+        \ successfully stored. For every successfully stored or updated object, sets\
+        \ the object's storage time to the current wall-clock time. See endpoint /signal-detection/update\
+        \ for a\_ChannelSegment storage description. See endpoint /waveform/channel-segment/store\
+        \ for a\_SignalDetection\_storage description."
+      parameters:
+      - in: header
+        name: time-format
+        required: false
+        schema:
+          $ref: ../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat
+      requestBody:
+        description: A StoreEventsRequest object. This object includes the current
+          stage WorkflowDefinitionId as the identifier for the automatic or interactive
+          Stage the caller was working in when creating or updating each provided
+          Event.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StoreEventsRequest'
+      responses:
+        '200':
+          description: All Event objects were successfully stored.
+          content:
+            application/json: {}
+            application/msgpack: {}
+        '209':
+          description: "Unable to update all or some of the provided Event objects.\
+            \ A collection of StoreEventResponse objects including an entry for each\
+            \ Event\_provided in the request. If the Event was not stored due to an\
+            \ inconsistency with the previously stored Event, storeStatus is set to\
+            \ CONFLICT, the event is set to the previously stored Event with EventHypothesis\
+            \ objects fully populated, with the signalDetection and channelSegment\
+            \ collections left empty. If the Event was not stored due to an inconsistency\
+            \ with storing a SignalDetection, storeStatus is set to CONFLICT, the\
+            \ event is set to the provided Event populated as an id-only instance,\
+            \ the signalDetections collection is set to include all previously stored\
+            \ SignalDetection objects that were inconsistent with the new SignalDetection\
+            \ objects as the previously stored, fully populated SignalDetection objects\
+            \ with fully populated SignalDetectionHypothesis objects and with all\
+            \ ChannelSegment objects populated as id-only instances, and the channelSegments\
+            \ collection is set to include populated instances of the ChannelSegment\
+            \ objects associated to the returned SignalDetection objects that were\
+            \ inconsistent. If the Event was not stored for a different reason, storeStatus\
+            \ is set to FAILURE, the event is set to the provided Event populated\
+            \ as an id-only instance, with the signalDetection and channelSegment\
+            \ collections left empty. If the Event was stored, storedStatus is set\
+            \ to SUCCESS and the event is set to the provided Event populated as an\
+            \ id-only instance with the signalDetection and channelSegment collections\
+            \ left empty."
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreEventResponse'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreEventResponse'
+components:
+  schemas:
+    FacetingDefinition:
+      type: object
+      required:
+      - classType
+      - facetingDefinitionByAttributeName
+      properties:
+        classType:
+          type: string
+        populated:
+          type: boolean
+        facetingDefinitionByAttributeName:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/FacetingDefinition'
+    Comment:
+      type: object
+      required:
+      - id
+      - author
+      - comment
+      - time
+      properties:
+        id:
+          type: string
+          format: uuid
+        author:
+          type: string
+        comment:
+          type: string
+        time:
+          type: string
+          format: date-time
+    FieldMap:
+      type: object
+      additionalProperties:
+        type: object
+    DoubleValue:
+      type: object
+      required:
+      - value
+      - units
+      properties:
+        value:
+          type: number
+          format: double
+        standardDeviation:
+          type: number
+          format: double
+        units:
+          $ref: '#/components/schemas/Units'
+    InstantValue:
+      type: object
+      required:
+      - value
+      properties:
+        value:
+          type: string
+          format: date-time
+        standardDeviation:
+          type: string
+          format: duration
+    DurationValue:
+      type: object
+      required:
+      - value
+      properties:
+        value:
+          type: string
+          format: duration
+        standardDeviation:
+          type: string
+          format: duration
+    Units:
+      type: string
+      enum:
+      - COUNTS
+      - COUNTS_PER_NANOMETER
+      - COUNTS_PER_PASCAL
+      - DECIBELS
+      - DEGREES
+      - DEGREES_PER_KILOMETER
+      - DEGREES_PER_SECOND
+      - HERTZ
+      - KILOMETERS
+      - KILOMETERS_PER_SECOND
+      - LOG_NANOMETERS
+      - MICROPASCALS
+      - MICROPASCALS_PER_COUNT
+      - MICROPASCALS_SQUARED_PER_SECOND
+      - NANOMETERS
+      - NANOMETERS_PER_COUNT
+      - NANOMETERS_PER_SECOND
+      - NANOMETERS_SQUARED_PER_SECOND
+      - ONE_OVER_DEGREES
+      - ONE_OVER_KILOMETERS
+      - PASCALS
+      - PASCALS_PER_COUNT
+      - PASCALS_SQUARED_PER_SECOND
+      - RADIANS
+      - SECONDS
+      - SECONDS_PER_DEGREE
+      - SECONDS_PER_DEGREE_KILOMETER
+      - SECONDS_PER_DEGREE_SQUARED
+      - SECONDS_PER_KILOMETER
+      - SECONDS_PER_KILOMETER_PER_DEGREE
+      - SECONDS_PER_KILOMETER_SQUARED
+      - SECONDS_PER_RADIAN
+      - UNITLESS
+    StoreStatus:
+      type: string
+      enum:
+      - CONFLICT
+      - FAILURE
+      - SUCCESS
+    CreationInfo:
+      type: object
+      required:
+      - createdBy
+      - creationTime
+      - stageId
+      properties:
+        createdBy:
+          type: string
+        creationTime:
+          type: string
+          format: date-time
+        stageId:
+          $ref: ../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId
+    TimeFormat:
+      type: string
+      enum:
+      - EPOCH
+      - ISO
+      description: Provided in an HTTP Header. Defines the format of date and time
+        values in request and response objects. When not provided, the date and time
+        values default to the ISO 8601 Date and Time format.
+    Event:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          format: uuid
+        monitoringOrganization:
+          type: string
+        eventHypotheses:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventHypothesis'
+          minItems: 1
+        finalEventHypothesisHistory:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventHypothesis'
+        preferredEventHypothesisByStage:
+          type: array
+          items:
+            $ref: '#/components/schemas/PreferredEventHypothesis'
+          minItems: 1
+        rejectedSignalDetectionAssociations:
+          type: array
+          items:
+            $ref: ../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/SignalDetection
+    EventHypothesis:
+      type: object
+      required:
+      - id
+      properties:
+        creationInfo:
+          $ref: ../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/CreationInfo
+        rejected:
+          type: boolean
+        preferredLocationSolution:
+          $ref: '#/components/schemas/LocationSolution'
+        parentEventHypotheses:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventHypothesis'
+        locationSolutions:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocationSolution'
+          minItems: 1
+        id:
+          $ref: '#/components/schemas/EventHypothesisId'
+        deleted:
+          type: boolean
+        associatedSignalDetectionHypotheses:
+          type: array
+          items:
+            $ref: ../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/SignalDetectionHypothesis
+    LocationSolution:
+      type: object
+      required:
+      - id
+      properties:
+        featurePredictions:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeaturePrediction'
+        id:
+          type: string
+          format: uuid
+        location:
+          $ref: '#/components/schemas/EventLocation'
+        locationBehaviors:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocationBehavior'
+        locationRestraint:
+          $ref: '#/components/schemas/LocationRestraint'
+        locationUncertainty:
+          $ref: '#/components/schemas/LocationUncertainty'
+        networkMagnitudeSolutions:
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkMagnitudeSolution'
+        ellipseIntersectionRegions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GeographicRegionId'
+        epicenterGeographicRegions:
+          type: array
+          items:
+            $ref: '#/components/schemas/GeographicRegionId'
+    GeographicRegionId:
+      type: object
+      required:
+      - id
+      - effectiveAt
+      properties:
+        id:
+          type: string
+          format: uuid
+        effectiveAt:
+          type: string
+          format: date-time
+    LocationBehavior:
+      type: object
+      required:
+      - defining
+      - definingInfo
+      - measurement
+      properties:
+        defining:
+          type: boolean
+        definingInfo:
+          $ref: '#/components/schemas/DefiningInfo'
+        measurement:
+          $ref: ../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/FeatureMeasurement
+        prediction:
+          $ref: '#/components/schemas/FeaturePrediction'
+        residual:
+          type: number
+          format: double
+        weight:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+    LocationRestraint:
+      type: object
+      required:
+      - depthRestraintType
+      - epicenterRestraintType
+      - timeRestraintType
+      properties:
+        depthRestraintKm:
+          type: number
+          format: double
+          minimum: -100.0
+          maximum: 1000.0
+        depthRestraintReason:
+          $ref: '#/components/schemas/DepthRestraintReason'
+        depthRestraintType:
+          $ref: '#/components/schemas/RestraintType'
+        epicenterRestraintType:
+          $ref: '#/components/schemas/RestraintType'
+        latitudeRestraintDegrees:
+          type: number
+          format: double
+          minimum: -90.0
+          maximum: 90.0
+        longitudeRestraintDegrees:
+          type: number
+          format: double
+          minimum: -180.0
+          maximum: 180.0
+        restrainer:
+          $ref: '#/components/schemas/RestrainerType'
+        timeRestraint:
+          type: string
+          format: date-time
+        timeRestraintType:
+          $ref: '#/components/schemas/RestraintType'
+    LocationUncertainty:
+      type: object
+      required:
+      - ellipses
+      - ellipsoids
+      properties:
+        ellipses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Ellipse'
+        ellipsoids:
+          type: array
+          items:
+            $ref: '#/components/schemas/Ellipsoid'
+        stdDevTravelTimeResiduals:
+          type: number
+          format: double
+          minimum: 0
+        tt:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        xt:
+          type: number
+          format: double
+        xx:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        xy:
+          type: number
+          format: double
+        xz:
+          type: number
+          format: double
+        yt:
+          type: number
+          format: double
+        yy:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        yz:
+          type: number
+          format: double
+        zt:
+          type: number
+          format: double
+        zz:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+    Ellipse:
+      type: object
+      required:
+      - aprioriStandardError
+      - confidenceLevel
+      - kWeight
+      - scalingFactorType
+      properties:
+        aprioriStandardError:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 1000
+        confidenceLevel:
+          type: number
+          format: double
+          minimum: 0.5
+          maximum: 1.0
+        depthUncertaintyKm:
+          type: number
+          format: double
+          minimum: 0
+          description: Uncertainty in the LocationSolution depth.
+        kWeight:
+          type: number
+          format: double
+          minimum: 0
+        scalingFactorType:
+          $ref: '#/components/schemas/ScalingFactorType'
+        semiMajorAxisLengthKm:
+          type: number
+          format: double
+          minimum: 0
+          exclusiveMinimum: true
+        semiMajorAxisTrendDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 360
+          exclusiveMaximum: true
+        semiMinorAxisLengthKm:
+          type: number
+          format: double
+          minimum: 0
+          exclusiveMinimum: true
+        timeUncertainty:
+          type: string
+          format: duration
+    Ellipsoid:
+      type: object
+      required:
+      - aprioriStandardError
+      - confidenceLevel
+      - kWeight
+      - scalingFactorType
+      properties:
+        aprioriStandardError:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 1000
+        confidenceLevel:
+          type: number
+          format: double
+          minimum: 0.5
+          maximum: 1.0
+        kWeight:
+          type: number
+          format: double
+          minimum: 0
+        scalingFactorType:
+          $ref: '#/components/schemas/ScalingFactorType'
+        semiIntermediateAxisLengthKm:
+          type: number
+          format: double
+          minimum: 0
+          exclusiveMinimum: true
+        semiIntermediateAxisPlungeDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 90
+        semiIntermediateAxisTrendDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 360
+          exclusiveMaximum: true
+        semiMajorAxisLengthKm:
+          type: number
+          format: double
+          minimum: 0
+          exclusiveMinimum: true
+        semiMajorAxisPlungeDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 90
+        semiMajorAxisTrendDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 360
+          exclusiveMaximum: true
+        semiMinorAxisLengthKm:
+          type: number
+          format: double
+          minimum: 0
+          exclusiveMinimum: true
+        semiMinorAxisPlungeDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 90
+        semiMinorAxisTrendDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 360
+          exclusiveMaximum: true
+        timeUncertainty:
+          type: string
+          format: duration
+    FeaturePrediction:
+      type: object
+      required:
+      - extrapolated
+      - featurePredictionComponents
+      - phase
+      - predictionType
+      - predictedValue
+      - receiverLocation
+      properties:
+        channel:
+          $ref: ../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Channel
+        extrapolated:
+          type: boolean
+        featurePredictionComponents:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeaturePredictionComponent'
+          minItems: 1
+        phase:
+          $ref: ../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/PhaseType
+        predictionChannelSegment:
+          $ref: ../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment
+        predictionType:
+          $ref: ../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/FeatureMeasurementType
+        predictedValue:
+          oneOf:
+          - $ref: ../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/AmplitudeMeasurementValue
+          - $ref: ../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/ArrivalTimeMeasurementValue
+          - $ref: ../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/NumericMeasurementValue
+          - $ref: ../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/EnumeratedMeasurementValue
+          - $ref: ../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/DurationMeasurementValue
+        receiverLocation:
+          $ref: ../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Location
+        sourceLocation:
+          $ref: '#/components/schemas/EventLocation'
+    FeaturePredictionComponent:
+      type: object
+      required:
+      - extrapolated
+      - predictedComponentType
+      - value
+      properties:
+        earthModel:
+          type: string
+        extrapolated:
+          type: boolean
+        predictedComponentType:
+          $ref: '#/components/schemas/FeaturePredictionComponentType'
+        value:
+          oneOf:
+          - $ref: ../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/AmplitudeMeasurementValue
+          - $ref: ../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/ArrivalTimeMeasurementValue
+          - $ref: ../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/NumericMeasurementValue
+          - $ref: ../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/EnumeratedMeasurementValue
+          - $ref: ../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/DurationMeasurementValue
+    NetworkMagnitudeSolution:
+      type: object
+      required:
+      - networkMagnitudeBehaviors
+      - type
+      - status
+      properties:
+        magnitude:
+          $ref: ../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DoubleValue
+        networkMagnitudeBehaviors:
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkMagnitudeBehavior'
+          minItems: 1
+        type:
+          $ref: '#/components/schemas/MagnitudeType'
+        status:
+          $ref: '#/components/schemas/NetworkMagnitudeStatus'
+    NetworkMagnitudeBehavior:
+      type: object
+      required:
+      - defining
+      - definingInfo
+      - stationMagnitudeSolution
+      properties:
+        defining:
+          type: boolean
+        definingInfo:
+          $ref: '#/components/schemas/DefiningInfo'
+        residual:
+          type: number
+          format: double
+        stationMagnitudeSolution:
+          $ref: '#/components/schemas/StationMagnitudeSolution'
+        weight:
+          type: number
+          format: double
+          minimum: 0
+    StationMagnitudeSolution:
+      type: object
+      required:
+      - attenuationModel
+      - phase
+      - station
+      - type
+      properties:
+        attenuationModel:
+          type: string
+        magnitude:
+          $ref: ../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DoubleValue
+        measurement:
+          $ref: ../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/FeatureMeasurement
+        modelCorrection:
+          type: number
+          format: double
+        phase:
+          $ref: ../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/PhaseType
+        station:
+          $ref: ../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Station
+        stationCorrection:
+          type: number
+          format: double
+        type:
+          $ref: '#/components/schemas/MagnitudeType'
+    EventStatusInfo:
+      type: object
+      required:
+      - id
+      - activeAnalystIds
+      - eventStatus
+      properties:
+        id:
+          $ref: '#/components/schemas/EventStatusInfoId'
+        activeAnalystIds:
+          type: array
+          items:
+            type: string
+        eventStatus:
+          $ref: '#/components/schemas/EventStatus'
+    EventStatusInfoId:
+      type: object
+      required:
+      - stageId
+      - event
+      properties:
+        stageId:
+          $ref: ../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId
+        event:
+          $ref: '#/components/schemas/Event'
+    FeaturePredictionComponentType:
+      type: string
+      enum:
+      - AZIMUTH_PATH_CORRECTION
+      - BASEMODEL_PREDICTION
+      - BULK_STATIC_STATION_CORRECTION
+      - ELEVATION_CORRECTION
+      - ELLIPTICITY_CORRECTION
+      - MASTER_EVENT_CORRECTION
+      - SLOWNESS_PATH_CORRECTION
+      - SOURCE_DEPENDENT_CORRECTION
+      - TRAVEL_TIME_PATH_CORRECTION
+      - UNCERTAINTY_DISTANCE_DEPENDENT
+      - UNCERTAINTY_PATH_DEPENDENT
+      - UNCERTAINTY_STATION_PHASE_DEPENDENT
+    ScalingFactorType:
+      type: string
+      enum:
+      - CONFIDENCE
+      - COVERAGE
+      - K_WEIGHTED
+    RestraintType:
+      type: string
+      enum:
+      - FIXED
+      - UNRESTRAINED
+    DepthRestraintReason:
+      type: string
+      enum:
+      - FIXED_AT_DEPTH_FOUND_USING_DEPTH_PHASE_MEASUREMENTS
+      - FIXED_AT_STANDARD_DEPTH
+      - FIXED_AT_SURFACE
+      - OTHER
+    RestrainerType:
+      type: string
+      enum:
+      - FIXED_BY_ANALYST
+      - FIXED_BY_CONFIGURATION
+      - FIXED_BY_LOCATOR
+      - UNKNOWN
+    PreferredEventHypothesis:
+      type: object
+      required:
+      - preferred
+      - preferredBy
+      - stage
+      properties:
+        preferred:
+          $ref: '#/components/schemas/EventHypothesis'
+        preferredBy:
+          type: string
+        stage:
+          $ref: ../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId
+    EventHypothesisId:
+      type: object
+      required:
+      - eventId
+      - hypothesisId
+      properties:
+        eventId:
+          type: string
+          format: uuid
+        hypothesisId:
+          type: string
+          format: uuid
+    EventLocation:
+      type: object
+      required:
+      - latitudeDegrees
+      - longitudeDegrees
+      - depthKm
+      - time
+      properties:
+        latitudeDegrees:
+          type: number
+          format: double
+          minimum: -90
+          maximum: 90
+        longitudeDegrees:
+          type: number
+          format: double
+          minimum: -180
+          maximum: 180
+        depthKm:
+          type: number
+          format: double
+        time:
+          type: string
+          format: date-time
+    MagnitudeType:
+      type: string
+      enum:
+      - MB
+      - MB_CODA
+      - MB_MB
+      - MB_MLE
+      - MB_PG
+      - MB_REL_T
+      - ML
+      - MS
+      - MS_MLE
+      - MS_VMAX
+      - MW_CODA
+    NetworkMagnitudeStatus:
+      type: string
+      enum:
+      - DID_NOT_CONVERGE
+      - TOO_FEW_DEFINING_STA_MAG
+      - VALID
+      - OTHER_FAILURE
+    DefiningInfo:
+      type: object
+      required:
+      - analystOverrideAllowed
+      - requestedDefining
+      - setBy
+      - systemOverrideAllowed
+      properties:
+        analystOverrideAllowed:
+          type: boolean
+        requestedDefining:
+          type: boolean
+        setBy:
+          $ref: '#/components/schemas/DefinerType'
+        systemOverrideAllowed:
+          type: boolean
+    DefinerType:
+      type: string
+      enum:
+      - ALGORITHM_OVERRIDE
+      - ANALYST_OVERRIDE
+      - CONFIGURATION_FORCED
+      - DEFAULT
+    EventStatus:
+      type: string
+      enum:
+      - NOT_STARTED
+      - IN_PROGRESS
+      - NOT_COMPLETE
+      - COMPLETE
+    CorrelatedEvents:
+      type: object
+      required:
+      - correlatedEventHypotheses
+      - scanType
+      - sourceEventHypothesis
+      properties:
+        correlatedEventHypotheses:
+          type: array
+          items:
+            $ref: '#/components/schemas/CorrelatedEventHypothesis'
+          minItems: 1
+        scanType:
+          $ref: '#/components/schemas/CorrelatedEventScanType'
+        sourceEventHypothesis:
+          type: object
+          $ref: '#/components/schemas/EventHypothesis'
+    CorrelatedEventScanType:
+      type: string
+      enum:
+      - AUTOMATIC
+      - REFERENCE
+      - USER
+    CorrelatedEventHypothesis:
+      type: object
+      required:
+      - correlationCoefficient
+      - correlationReferenceTime
+      - eventCorrelationContext
+      - similarEventChannelSegments
+      - similarEventHypothesis
+      - sourceEventChannelSegments
+      properties:
+        correlationCoefficient:
+          type: number
+          format: double
+        correlationReferenceTime:
+          type: string
+          format: date-time
+        eventCorrelationContext:
+          type: object
+          $ref: '#/components/schemas/EventCorrelationContext'
+        similarEventChannelSegments:
+          type: array
+          items:
+            $ref: ../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment
+          minItems: 1
+        similarEventHypothesis:
+          type: object
+          $ref: '#/components/schemas/EventHypothesis'
+        sourceEventChannelSegments:
+          type: array
+          items:
+            $ref: ../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment
+          minItems: 1
+    EventCorrelationContext:
+      type: object
+      required:
+      - channels
+      - station
+      - waveformConditioningByChannel
+      properties:
+        channels:
+          type: array
+          items:
+            $ref: ../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Channel
+          minItems: 1
+        station:
+          type: object
+          $ref: ../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Station
+        waveformConditioningByChannel:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChannelFilterDefinitionPair'
+    ChannelFilterDefinitionPair:
+      type: object
+      required:
+      - channel
+      - filterDefinition
+      properties:
+        channel:
+          type: object
+          $ref: ../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Channel
+        filterDefinition:
+          type: object
+          $ref: ../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/FilterDefinition
+    EventsOutsideRangeWithSignalDetectionsInsideRangeRequest:
+      type: object
+      required:
+      - stageIds
+      - stations
+      - signalDetectionStartTime
+      - signalDetectionEndTime
+      properties:
+        stageIds:
+          type: array
+          items:
+            $ref: ../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId
+          minItems: 1
+        stations:
+          type: array
+          items:
+            $ref: ../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Station
+          minItems: 1
+        signalDetectionStartTime:
+          type: string
+          format: date-time
+        signalDetectionEndTime:
+          type: string
+          format: date-time
+        changedSinceTime:
+          type: string
+          format: date-time
+    EventsWithDetectionsAndSegmentsByTimeRequest:
+      type: object
+      required:
+      - endTime
+      - stageIds
+      - startTime
+      properties:
+        endTime:
+          type: string
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+        stageIds:
+          type: array
+          items:
+            $ref: ../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId
+          minItems: 1
+        changedSinceTime:
+          type: string
+          format: date-time
+    EventsWithSignalDetectionsAndSegments:
+      type: object
+      required:
+      - events
+      - signalDetectionsWithChannelSegments
+      properties:
+        events:
+          type: array
+          items:
+            $ref: event-coi.yaml#/components/schemas/Event
+        signalDetectionsWithChannelSegments:
+          $ref: ../../SignalDetection/OpenAPISpec/signal-detection-operations.yaml#/components/schemas/SignalDetectionsWithChannelSegments
+    EventStatusInfoByStageIdAndEventsRequest:
+      type: object
+      required:
+      - events
+      - stageId
+      properties:
+        events:
+          type: array
+          items:
+            $ref: event-coi.yaml#/components/schemas/Event
+          minItems: 1
+        stageId:
+          $ref: ../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId
+    EventStatusInfoByStageIdAndTimeRequest:
+      type: object
+      required:
+      - changedSinceTime
+      - stageId
+      - startTime
+      - endTime
+      properties:
+        changedSinceTime:
+          type: string
+          format: date-time
+        stageId:
+          $ref: ../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId
+        endTime:
+          type: string
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+    EventStatusInfoUpdateRequest:
+      type: object
+      required:
+      - eventStatusInfo
+      properties:
+        eventStatusInfo:
+          $ref: event-coi.yaml#/components/schemas/EventStatusInfo
+    CorrelatedEventsBySourceEventHypothesesRequest:
+      type: object
+      required:
+      - sourceEventHypotheses
+      - facetingDefinition
+      properties:
+        sourceEventHypotheses:
+          type: array
+          items:
+            $ref: event-coi.yaml#/components/schemas/EventHypothesis
+          minItems: 1
+        facetingDefinition:
+          type: object
+          $ref: ../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/FacetingDefinition
+    StoreEventsRequest:
+      type: object
+      required:
+      - events
+      - signalDetections
+      - channelSegments
+      - stageId
+      properties:
+        events:
+          type: array
+          items:
+            $ref: event-coi.yaml#/components/schemas/Event
+          minItems: 1
+        signalDetections:
+          type: array
+          items:
+            $ref: ../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/SignalDetection
+        channelSegments:
+          type: array
+          items:
+            $ref: ../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment
+        stageId:
+          $ref: ../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId
+    StoreEventResponse:
+      type: object
+      required:
+      - event
+      - storeStatus
+      - signalDetections
+      - channelSegments
+      properties:
+        event:
+          $ref: event-coi.yaml#/components/schemas/Event
+        storeStatus:
+          $ref: ../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/StoreStatus
+        signalDetections:
+          type: array
+          items:
+            $ref: ../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/SignalDetection
+        channelSegments:
+          type: array
+          items:
+            $ref: ../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment
+servers:
+- url: https://api.example.com
