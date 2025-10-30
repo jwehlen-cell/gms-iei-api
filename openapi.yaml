@@ -1,9 +1,35 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: GMS IEI API (Combined)
-  version: 1.0.0-combined
-  description: 'Unified OpenAPI 3.0 spec built from Common and Event fragments. Source:
-    gms-iei-req-2025-09-15.'
+  version: 2.0.0-modern
+  description: |
+    **Unified Seismological Data API** - Modern OpenAPI 3.1 specification built from Common and Event fragments.
+    
+    🌍 **Global Coverage**: Complete FDSN Web Services integration with IRIS data center examples
+    📡 **Real-time Monitoring**: Live seismic event detection and waveform streaming
+    🔬 **Research Grade**: Comprehensive metadata, quality control, and calibrated data
+    
+    **Key Features:**
+    - FDSN-compliant web services (dataselect, station, event)
+    - Real IRIS examples with 50+ networks and famous stations
+    - Modern authentication with API keys and OAuth2
+    - Real-time WebSocket streaming for live monitoring
+    - GraphQL endpoint for flexible data queries
+    - Comprehensive observability and metrics
+    
+    Source: gms-iei-req-2025-09-15, modernized with industry best practices.
+  contact:
+    name: GMS IEI API Support
+    url: https://github.com/jwehlen-cell/gms-iei-api
+    email: support@example.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  termsOfService: https://api.example.com/terms
+jsonSchemaDialect: https://json-schema.org/draft/2020-12/schema
+externalDocs:
+  description: FDSN Web Services Specification
+  url: https://www.fdsn.org/webservices/
 paths:
   /events:
     get:
