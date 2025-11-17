@@ -1,0 +1,4935 @@
+﻿
+# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Common\OpenAPISpec\common-coi.yaml
+
+openapi: 3.0.3
+info:
+  title: GMS Common COI Schema
+  description: Defines a schema for shared GMS Common Object Interface (COI) classes used in multiple domains.
+  version: 1.0.7
+
+paths: {}
+
+components:
+  schemas:
+
+    FacetingDefinition:
+      type: object
+      required:
+        - classType
+        - facetingDefinitionByAttributeName
+      properties:
+        classType:
+          type: string
+        populated:
+          type: boolean
+        facetingDefinitionByAttributeName:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/FacetingDefinition'
+
+    Comment:
+      type: object
+      required:
+        - id
+        - author
+        - comment
+        - time
+      properties:
+        id:
+          type: string
+          format: uuid
+        author:
+          type: string
+        comment:
+          type: string
+        time:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+
+    FieldMap:
+      type: object          
+      additionalProperties:
+        type: object
+
+    DoubleValue:
+      type: object
+      required:
+        - value
+        - units
+      properties:
+        value:
+          type: number
+          format: double
+        standardDeviation:
+          type: number
+          format: double
+        units:
+           $ref: '#/components/schemas/Units'
+
+    InstantValue:
+      type: object
+      required:
+        - value
+      properties:
+        value:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        standardDeviation:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration    
+
+    DurationValue:
+      type: object
+      required:
+        - value
+      properties:
+        value:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        standardDeviation:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+             
+    Units:
+      type: string
+      enum:
+        -   COUNTS
+        -   COUNTS_PER_NANOMETER
+        -   COUNTS_PER_PASCAL
+        -   DECIBELS
+        -   DEGREES
+        -   DEGREES_PER_KILOMETER
+        -   DEGREES_PER_SECOND
+        -   HERTZ
+        -   KILOMETERS
+        -   KILOMETERS_PER_SECOND
+        -   LOG_NANOMETERS
+        -   MICROPASCALS
+        -   MICROPASCALS_PER_COUNT
+        -   MICROPASCALS_SQUARED_PER_SECOND
+        -   NANOMETERS
+        -   NANOMETERS_PER_COUNT
+        -   NANOMETERS_PER_SECOND
+        -   NANOMETERS_SQUARED_PER_SECOND
+        -   ONE_OVER_DEGREES
+        -   ONE_OVER_KILOMETERS
+        -   PASCALS
+        -   PASCALS_PER_COUNT
+        -   PASCALS_SQUARED_PER_SECOND
+        -   RADIANS
+        -   SECONDS
+        -   SECONDS_PER_DEGREE
+        -   SECONDS_PER_DEGREE_KILOMETER
+        -   SECONDS_PER_DEGREE_SQUARED
+        -   SECONDS_PER_KILOMETER
+        -   SECONDS_PER_KILOMETER_PER_DEGREE
+        -   SECONDS_PER_KILOMETER_SQUARED
+        -   SECONDS_PER_RADIAN
+        -   UNITLESS
+
+    StoreStatus:
+      type: string
+      enum:
+        - CONFLICT
+        - FAILURE
+        - SUCCESS
+
+    CreationInfo:
+      type: object
+      required:
+        - createdBy
+        - creationTime
+        - stageId
+      properties:
+        createdBy:
+          type: string
+        creationTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        stageId:
+          $ref: '../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'
+
+
+# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Common\OpenAPISpec\common-operations.yaml
+
+openapi: 3.0.3
+info:
+  title: GMS Common Operation Schema
+  description: Defines a schema for objects shared by operations in multiple GMS Common Object Interface (COI) domains.
+  version: 1.0.0
+
+paths: {}
+
+components:
+  schemas:
+
+    TimeFormat:
+      type: string
+      enum:
+        #The Unix Timestamp (epoch time) format
+        - EPOCH
+        #The ISO-8601 Date and Time format
+        - ISO
+      description: Provided in an HTTP Header. Defines the format of date and time values in request and response objects. When not provided, the date and time values default to the ISO 8601 Date and Time format.   
+
+# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Event\OpenAPISpec\event-coi.yaml
+
+openapi: 3.0.3
+info:
+  title: GMS Event COI schema
+  description: Defines a schema for the GMS Common Object Interface (COI) classes in the Event domain.
+  version: 1.0.9
+
+paths: {}
+
+components:
+  schemas:
+    Event:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          format: uuid
+        monitoringOrganization:
+          type: string
+        eventHypotheses:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventHypothesis'
+          minItems: 1
+        finalEventHypothesisHistory:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventHypothesis'
+        preferredEventHypothesisByStage:
+          type: array
+          items:
+            $ref: '#/components/schemas/PreferredEventHypothesis'
+          minItems: 1
+        rejectedSignalDetectionAssociations:
+          type: array
+          items:
+            $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/SignalDetection'
+
+    EventHypothesis:
+      type: object
+      required:
+        - id
+      properties:
+        creationInfo:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/CreationInfo'
+        rejected:
+          type: boolean
+        preferredLocationSolution:
+          $ref: '#/components/schemas/LocationSolution'
+        parentEventHypotheses:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventHypothesis'
+        locationSolutions:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocationSolution'
+          minItems: 1
+        id:
+          $ref: '#/components/schemas/EventHypothesisId'
+        deleted:
+          type: boolean
+        associatedSignalDetectionHypotheses:
+          type: array
+          items:
+            $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/SignalDetectionHypothesis'
+
+    LocationSolution:
+      type: object
+      required:
+        - id
+      properties:
+        featurePredictions:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeaturePrediction'
+        id:
+          type: string
+          format: uuid
+        location:
+          $ref: '#/components/schemas/EventLocation'
+        locationBehaviors:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocationBehavior'
+        locationRestraint:
+          $ref: '#/components/schemas/LocationRestraint'
+        locationUncertainty:
+          $ref: '#/components/schemas/LocationUncertainty'
+        networkMagnitudeSolutions:
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkMagnitudeSolution'
+        ellipseIntersectionRegions:
+          type: array
+          items:
+            $ref: "#/components/schemas/GeographicRegionId"
+        epicenterGeographicRegions:
+          type: array
+          items:
+            $ref: "#/components/schemas/GeographicRegionId"
+
+    GeographicRegionId:
+      type: object
+      required:
+        - id
+        - effectiveAt
+      properties:
+        id:
+          type: string
+          format: uuid
+        effectiveAt:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+
+    LocationBehavior:
+      type: object
+      required:
+        - defining
+        - definingInfo
+        - measurement
+      properties:
+        defining:
+          type: boolean
+        definingInfo:
+          $ref: '#/components/schemas/DefiningInfo'
+        measurement:
+          $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/FeatureMeasurement'
+        prediction:
+          $ref: '#/components/schemas/FeaturePrediction'
+        residual:
+          type: number
+          format: double
+        weight:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+
+    LocationRestraint:
+      type: object
+      required:
+        - depthRestraintType
+        - epicenterRestraintType
+        - timeRestraintType
+      properties:
+        depthRestraintKm:
+          type: number
+          format: double
+          minimum: -100.0
+          maximum: 1000.0
+        depthRestraintReason:
+          $ref: '#/components/schemas/DepthRestraintReason'
+        depthRestraintType:
+          $ref: '#/components/schemas/RestraintType'
+        epicenterRestraintType:
+          $ref: '#/components/schemas/RestraintType'
+        latitudeRestraintDegrees:
+          type: number
+          format: double
+          minimum: -90.0
+          maximum: 90.0
+        longitudeRestraintDegrees:
+          type: number
+          format: double
+          minimum: -180.0
+          maximum: 180.0
+        restrainer:
+          $ref: '#/components/schemas/RestrainerType'
+        timeRestraint:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        timeRestraintType:
+          $ref: '#/components/schemas/RestraintType'
+
+    LocationUncertainty:
+      type: object
+      required:
+        - ellipses
+        - ellipsoids
+      properties:
+        ellipses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Ellipse'
+        ellipsoids:
+          type: array
+          items:
+            $ref: '#/components/schemas/Ellipsoid'
+        stdDevTravelTimeResiduals:
+          type: number
+          format: double
+          minimum: 0
+        tt:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        xt:
+          type: number
+          format: double
+        xx:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        xy:
+          type: number
+          format: double
+        xz:
+          type: number
+          format: double
+        yt:
+          type: number
+          format: double
+        yy:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        yz:
+          type: number
+          format: double
+        zt:
+          type: number
+          format: double
+        zz:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+
+    Ellipse:
+      type: object
+      required:
+        - aprioriStandardError
+        - confidenceLevel
+        - kWeight
+        - scalingFactorType
+      properties:
+        aprioriStandardError:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 1000
+        confidenceLevel:
+          type: number
+          format: double
+          minimum: 0.5
+          maximum: 1.0
+        depthUncertaintyKm:
+          type: number
+          format: double
+          minimum: 0
+          description: Uncertainty in the LocationSolution depth.
+        kWeight:
+          type: number
+          format: double
+          minimum: 0
+        scalingFactorType:
+          $ref: '#/components/schemas/ScalingFactorType'
+        semiMajorAxisLengthKm:
+          type: number
+          format: double
+          minimum: 0
+          exclusiveMinimum: true
+        semiMajorAxisTrendDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 360
+          exclusiveMaximum: true
+        semiMinorAxisLengthKm:
+          type: number
+          format: double
+          minimum: 0
+          exclusiveMinimum: true
+        timeUncertainty:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+
+    Ellipsoid:
+      type: object
+      required:
+        - aprioriStandardError
+        - confidenceLevel
+        - kWeight
+        - scalingFactorType
+      properties:
+        aprioriStandardError:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 1000
+        confidenceLevel:
+          type: number
+          format: double
+          minimum: 0.5
+          maximum: 1.0
+        kWeight:
+          type: number
+          format: double
+          minimum: 0
+        scalingFactorType:
+          $ref: '#/components/schemas/ScalingFactorType'
+        semiIntermediateAxisLengthKm:
+          type: number
+          format: double
+          minimum: 0
+          exclusiveMinimum: true
+        semiIntermediateAxisPlungeDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 90
+        semiIntermediateAxisTrendDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 360
+          exclusiveMaximum: true
+        semiMajorAxisLengthKm:
+          type: number
+          format: double
+          minimum: 0
+          exclusiveMinimum: true
+        semiMajorAxisPlungeDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 90
+        semiMajorAxisTrendDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 360
+          exclusiveMaximum: true
+        semiMinorAxisLengthKm:
+          type: number
+          format: double
+          minimum: 0
+          exclusiveMinimum: true
+        semiMinorAxisPlungeDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 90
+        semiMinorAxisTrendDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 360
+          exclusiveMaximum: true
+        timeUncertainty:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+
+    FeaturePrediction:
+      type: object
+      required:
+        - extrapolated
+        - featurePredictionComponents
+        - phase
+        - predictionType
+        - predictedValue
+        - receiverLocation
+      properties:
+        channel:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Channel'
+        extrapolated:
+          type: boolean
+        featurePredictionComponents:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeaturePredictionComponent'
+          minItems: 1
+        phase:
+          $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/PhaseType'
+        predictionChannelSegment:
+          $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment'
+        predictionType:
+          $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/FeatureMeasurementType'
+        predictedValue:
+          oneOf:
+            - $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/AmplitudeMeasurementValue'
+            - $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/ArrivalTimeMeasurementValue'
+            - $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/NumericMeasurementValue'
+            - $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/EnumeratedMeasurementValue'
+            - $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/DurationMeasurementValue'
+        receiverLocation:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Location'
+        sourceLocation:
+          $ref: '#/components/schemas/EventLocation'
+
+    FeaturePredictionComponent:
+      type: object
+      required:
+        - extrapolated
+        - predictedComponentType
+        - value
+      properties:
+        earthModel:
+          type: string
+        extrapolated:
+          type: boolean
+        predictedComponentType:
+          $ref: '#/components/schemas/FeaturePredictionComponentType'
+        value:
+          oneOf:
+            - $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/AmplitudeMeasurementValue'
+            - $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/ArrivalTimeMeasurementValue'
+            - $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/NumericMeasurementValue'
+            - $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/EnumeratedMeasurementValue'
+            - $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/DurationMeasurementValue'
+
+    NetworkMagnitudeSolution:
+      type: object
+      required:
+        - networkMagnitudeBehaviors
+        - type
+        - status
+      properties:
+        magnitude:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DoubleValue'
+        networkMagnitudeBehaviors:
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkMagnitudeBehavior'
+          minItems: 1
+        type:
+          $ref: '#/components/schemas/MagnitudeType'
+        status:
+          $ref: '#/components/schemas/NetworkMagnitudeStatus'
+
+    NetworkMagnitudeBehavior:
+      type: object
+      required:
+        - defining
+        - definingInfo
+        - stationMagnitudeSolution
+      properties:
+        defining:
+          type: boolean
+        definingInfo:
+          $ref: '#/components/schemas/DefiningInfo'
+        residual:
+          type: number
+          format: double
+        stationMagnitudeSolution:
+          $ref: '#/components/schemas/StationMagnitudeSolution'
+        weight:
+          type: number
+          format: double
+          minimum: 0
+
+    StationMagnitudeSolution:
+      type: object
+      required:
+        - attenuationModel
+        - phase
+        - station
+        - type
+      properties:
+        attenuationModel:
+          type: string
+        magnitude:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DoubleValue'
+        measurement:
+          $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/FeatureMeasurement'
+        modelCorrection:
+          type: number
+          format: double
+        phase:
+          $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/PhaseType'
+        station:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Station'
+        stationCorrection:
+          type: number
+          format: double
+        type:
+          $ref: '#/components/schemas/MagnitudeType'
+
+    EventStatusInfo:
+      type: object
+      required:
+        - id
+        - activeAnalystIds
+        - eventStatus       
+      properties:
+        id:
+          $ref: "#/components/schemas/EventStatusInfoId"
+        activeAnalystIds:
+          type: array
+          items:
+            type: string
+        eventStatus:
+          $ref: '#/components/schemas/EventStatus'    
+
+    EventStatusInfoId:
+      type: object
+      required:
+        - stageId
+        - event
+      properties:
+        stageId:
+          $ref: '../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'
+        event:
+          $ref: '#/components/schemas/Event'
+
+    FeaturePredictionComponentType:
+      type: string
+      enum:
+        - AZIMUTH_PATH_CORRECTION
+        - BASEMODEL_PREDICTION
+        - BULK_STATIC_STATION_CORRECTION
+        - ELEVATION_CORRECTION
+        - ELLIPTICITY_CORRECTION
+        - MASTER_EVENT_CORRECTION
+        - SLOWNESS_PATH_CORRECTION
+        - SOURCE_DEPENDENT_CORRECTION
+        - TRAVEL_TIME_PATH_CORRECTION
+        - UNCERTAINTY_DISTANCE_DEPENDENT
+        - UNCERTAINTY_PATH_DEPENDENT
+        - UNCERTAINTY_STATION_PHASE_DEPENDENT
+
+    ScalingFactorType:
+      type: string
+      enum:
+        - CONFIDENCE
+        - COVERAGE
+        - K_WEIGHTED
+
+    RestraintType:
+      type: string
+      enum:
+        - FIXED
+        - UNRESTRAINED
+
+    DepthRestraintReason:
+      type: string
+      enum:
+        - FIXED_AT_DEPTH_FOUND_USING_DEPTH_PHASE_MEASUREMENTS
+        - FIXED_AT_STANDARD_DEPTH
+        - FIXED_AT_SURFACE
+        - OTHER
+
+    RestrainerType:
+      type: string
+      enum:
+        - FIXED_BY_ANALYST
+        - FIXED_BY_CONFIGURATION
+        - FIXED_BY_LOCATOR
+        - UNKNOWN
+
+    PreferredEventHypothesis:
+      type: object
+      required:
+        - preferred
+        - preferredBy
+        - stage
+      properties:
+        preferred:
+          $ref: '#/components/schemas/EventHypothesis'
+        preferredBy:
+          type: string
+        stage:
+          $ref: '../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'
+
+    EventHypothesisId:
+      type: object
+      required:
+        - eventId
+        - hypothesisId
+      properties:
+        eventId:
+          type: string
+          format: uuid
+        hypothesisId:
+          type: string
+          format: uuid
+
+    EventLocation:
+      type: object
+      required:
+        - latitudeDegrees
+        - longitudeDegrees
+        - depthKm
+        - time
+      properties:
+        latitudeDegrees:
+          type: number
+          format: double
+          minimum: -90
+          maximum: 90
+        longitudeDegrees:
+          type: number
+          format: double
+          minimum: -180
+          maximum: 180
+        depthKm:
+          type: number
+          format: double
+        time:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+
+    MagnitudeType:
+      type: string
+      enum:
+        - MB
+        - MB_CODA
+        - MB_MB
+        - MB_MLE
+        - MB_PG
+        - MB_REL_T
+        - ML
+        - MS
+        - MS_MLE
+        - MS_VMAX
+        - MW_CODA
+
+    NetworkMagnitudeStatus:
+      type: string
+      enum:
+        - DID_NOT_CONVERGE
+        - TOO_FEW_DEFINING_STA_MAG
+        - VALID
+        - OTHER_FAILURE
+
+    DefiningInfo:
+      type: object
+      required:
+        - analystOverrideAllowed
+        - requestedDefining
+        - setBy
+        - systemOverrideAllowed
+      properties:
+        analystOverrideAllowed:
+          type: boolean
+        requestedDefining:
+          type: boolean
+        setBy:
+          $ref: '#/components/schemas/DefinerType'
+        systemOverrideAllowed:
+          type: boolean
+
+    DefinerType:
+      type: string
+      enum:
+        - ALGORITHM_OVERRIDE
+        - ANALYST_OVERRIDE
+        - CONFIGURATION_FORCED
+        - DEFAULT
+
+    EventStatus:
+      type: string
+      enum:
+        - NOT_STARTED
+        - IN_PROGRESS
+        - NOT_COMPLETE
+        - COMPLETE
+
+    CorrelatedEvents:
+      type: object
+      required:
+        - correlatedEventHypotheses
+        - scanType
+        - sourceEventHypothesis
+      properties:
+        correlatedEventHypotheses:
+          type: array
+          items:
+            $ref: '#/components/schemas/CorrelatedEventHypothesis'
+          minItems: 1
+        scanType:
+          $ref: '#/components/schemas/CorrelatedEventScanType'
+        sourceEventHypothesis:
+          type: object
+          $ref: '#/components/schemas/EventHypothesis'
+
+    CorrelatedEventScanType:
+      type: string
+      enum:
+        - AUTOMATIC
+        - REFERENCE
+        - USER
+
+    CorrelatedEventHypothesis:
+      type: object
+      required:
+        - correlationCoefficient
+        - correlationReferenceTime
+        - eventCorrelationContext
+        - similarEventChannelSegments
+        - similarEventHypothesis
+        - sourceEventChannelSegments
+      properties:
+        correlationCoefficient:
+          type: number
+          format: double
+        correlationReferenceTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        eventCorrelationContext:
+          type: object
+          $ref: '#/components/schemas/EventCorrelationContext'
+        similarEventChannelSegments:
+          type: array
+          items:
+            $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment'
+          minItems: 1
+        similarEventHypothesis:
+          type: object
+          $ref: '#/components/schemas/EventHypothesis'
+        sourceEventChannelSegments:
+          type: array
+          items:
+            $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment'
+          minItems: 1
+
+    EventCorrelationContext:
+      type: object
+      required:
+        - channels
+        - station
+        - waveformConditioningByChannel
+      properties:
+        channels:
+          type: array
+          items:
+            $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Channel'
+          minItems: 1
+        station:
+          type: object
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Station'
+        waveformConditioningByChannel:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChannelFilterDefinitionPair'
+
+    ChannelFilterDefinitionPair:
+      type: object
+      required:
+        - channel
+        - filterDefinition
+      properties:
+        channel:
+          type: object
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Channel'
+        filterDefinition:
+          type: object
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/FilterDefinition'
+
+
+# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Event\OpenAPISpec\event-operations.yaml
+
+openapi: 3.0.3
+info:
+  title: Event Operations API
+  version: 1.0.6
+  description: API for event-related operations.
+
+paths:
+  /event/query/events-outside-range-signal-detections-inside-range:
+    post:
+      summary: Find Events outside a time range that are associated to SignalDetections inside the time range
+      description: This operation returns Event objects that have a preferredEventHypothesisByStage EventHypothesis occurring outside the provided time range that is associated to a SignalDetectionHypothesis that occurs inside the provided time range and is associated to any Station in the provided collection. The provided Station objects may be populated as entity references. An Event occurs outside of the time range if its preferredEventHypothesisByStage collection contains an EventHypothesis for any provided Stage that has a peferredLocationSolution with time occurring before signalDetectionStartTime or after signalDetectionEndtime. The start time and end time are exclusive; if the preferredLocationSolution time is exactly equal to signalDetectionStartTime or is exactly equal to signalDetectionEndTime, the Event is not outside the time range. A SignalDetectionHypothesis occurs inside of the time range if its ARRIVAL_TIME FeatureMeasurement has an arrivalTime value in the time range beginning at signalDetectionStartTime and ending at signalDetectionEndTime. Both signalDetectionStartTime and signalDetectionEndTime are inclusive; a value exactly equal to one of these bounds is in the time range. After finding a matching Event, this operation returns within the EventÂ eachÂ EventHypothesis created in a provided Stage.Â The returned Event objects are populated according to the default faceted attribute population defined in the COI data model except some of the EventHypothesis objects in their eventHypotheses collections may be populated objects instead of id-only references. The EventHypothesis objects that were stored on or after changedSinceTime are populated according to the default faceted attribute population defined in the COI data model; all other EventHypothesis objects are populated as id-only references. If changedSinceTime is not provided, all EventHypothesis objects are populated according to the default faceted attribute population defined in the COI data model.
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventsOutsideRangeWithSignalDetectionsInsideRangeRequest'
+      responses:
+        '200':
+          description: A list of events
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'event-coi.yaml#/components/schemas/Event'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'event-coi.yaml#/components/schemas/Event'            
+
+  /event/with-detections-and-segments/query/time:
+    post:
+      summary: Find events with detections and segments by time
+      description: This operation finds the Event objects occurring in the time range provided in the query predicate. AnÂ Event occurs in a time range if its preferredEventHypothesisByStage entry for any providedÂ StageÂ includes an EventHypothesis with a preferredLocationSolution with time occurring in the time range beginning at startTime and ending at endTime (both startTime and endTime are inclusive; a value exactly equal to one of these bounds is in the time range). After finding an Event is within the time range, this operation returns within the EventÂ eachÂ EventHypothesis created in a provided Stage. Faceted attributes of the returned Event objects are populated according to the default faceted attribute population defined in the COI data model, with the exception of the EventHypothesis collection which is populated with the default faceted attribute instantiations (i.e. rather than reference only default population defined in the COI data model). Additionally, this operation returns a collection of SignalDetection objects (each including populated SignalDetectionHypothesis objects), for each SignalDetection with a SignalDetectionHypothesis associated to any EventHypothesis included within the returned Event collection. Further, this operation returns a ChannelSegment collection containing the measured ChannelSegment objects referenced by the FeatureMeasurement objects in the returned SignalDetectionHypothesis objects. Within the returned ChannelSegment objects, this operation populates the maskedBy ProcessingMask objects, leaving their maskedQcSegmentVersions populated as identifier-only instances. This operation returns an EventsWithSignalDetectionsAndSegments object combining the loaded Event, EventHypothesis, SignalDetection, SignalDetectionHypothesis, and ChannelSegment objects. An optional changedSinceTime parameter limits the Event objects returned to those that contain EventHypothesis objects that were stored on or after the changedSinceTime. For each returned Event, EventHypothesis objects stored on or after changedSinceTime are fully populated; all other EventHypothesis objects are populated as id-only references. Similarly, each populated EventHypothesis object's associated SignalDetectionHypothesis objects, along with any other SignalDetectionHypothesis objects in their SignalDetection histories that were stored on or after changedSinceTime, are fully populated; all other SignalDetectionHypothesis objects in the returned SignalDetection objects are populated as id-only references. Faceted attributes of the returned EventHypothesis and SignalDetectionHypothesis are populated according to the default faceted attribute population defined in the COI data model.
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventsWithDetectionsAndSegmentsByTimeRequest'
+      responses:
+        '200':
+          description: Events with signal detections and segments
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventsWithSignalDetectionsAndSegments'
+            application/msgpack:
+              schema:
+                $ref: '#/components/schemas/EventsWithSignalDetectionsAndSegments'
+  
+  /event/status-info/query/stage-id-and-events:
+    post:
+      summary: Find event status info by stage ID and events.
+      description: This operation finds an EventStatusInfo collection using a query predicate of a single Stage ID and an Event collection.
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventStatusInfoByStageIdAndEventsRequest'
+      responses:
+        '200':
+          description: Successful operation. Returns an EventStatusInfo collection.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'event-coi.yaml#/components/schemas/EventStatusInfo'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'event-coi.yaml#/components/schemas/EventStatusInfo'  
+  
+  /event/status-info/query/stage-id-and-timerange:
+    post:
+      summary: Find EventStatusInfo by Stage ID and timerange.
+      description:  This operation finds and returns the EventStatusInfo objects stored on or after the provided time that correspond to the provided Stage ID and to any Event objects occurring in the time range provided in the query predicate. An Event occurs in a time range if the EventHypothesis associated to the provided Stage ID in preferredEventHypothesisByStage contains any LocationSolution in its locationSolution collection with time occurring in the time range beginning at startTime and ending at endTime (both startTime and endTime are inclusive; a value exactly equal to one of these bounds is in the time range.)
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventStatusInfoByStageIdAndTimeRequest'
+      responses:
+        '200':
+          description: Event status info by stage ID and time response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'event-coi.yaml#/components/schemas/EventStatusInfo'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'event-coi.yaml#/components/schemas/EventStatusInfo'  
+
+
+  /event/status-info/update:
+    post:
+      summary: Store or update EventStatusInfo
+      description: This operation persistently stores the EventStatusInfo included in the request, updating it if it has previously been stored. If this operation successfully stores theÂ EventStatusInfo object, then it alsoÂ sets the object's storage time to the current wall-clock time.
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventStatusInfoUpdateRequest'
+      responses:
+        '200':
+          description: Event status info stored or updated successfully
+
+
+  /event/correlated-events/query/source-event-hypotheses:
+    post:
+      summary: Finds and returns the CorrelatedEventsÂ object for each source EventHypothesisÂ provided in the query predicate.
+      description: This operation finds and returns the CorrelatedEventsÂ object for each source EventHypothesisÂ provided in the query predicate. EachÂ CorrelatedEventsÂ object includes aÂ CorrelatedEventHypothesis collection of objects similar to one of the providedÂ EventHypothesisÂ objects, which were originally found using waveform correlation. TheÂ EventHypothesisÂ objects provided to this operation may be references or populated objects.
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CorrelatedEventsBySourceEventHypothesesRequest'
+      responses:
+        '200':
+          description: Successful operation. The response is a CorrelatedEvents collection with at most one CorrelatedEvents object for each source EventHypothesis provided in the query predicate. The response does not include aÂ CorrelatedEventsÂ object for a provided sourceÂ EventHypothesisÂ if the data store does not include waveform correlation results for thatÂ EventHypothesis. The CorrelatedEventsÂ objects include faceted attributes populated according to the provided FacetingDefinition, or according to theirÂ defaults described in the COI data model if noÂ FacetingDefinitionÂ is provided.Â Each populated ChannelSegmentÂ object in a returned CorrelatedEventsÂ object has timeseriesÂ collection populated withÂ WfdiscWaveformClaimCheckÂ objects.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'event-coi.yaml#/components/schemas/CorrelatedEvents'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'event-coi.yaml#/components/schemas/CorrelatedEvents'
+
+  /event/update:
+    post:
+      summary: Stores the provided Event, SignalDetection, and ChannelSegment objects, updating an Event object if it was previously stored.
+      description: "Stores the provided Event, SignalDetection, and ChannelSegment objects, updating an Event object if it was previously stored.Â Stores each of the provided Event objects or updates an Event object if it was previously stored. Stores each of the provided SignalDetection objects or updates a SignalDetection object if it was previously stored.Â SignalDetection objects are associated to the Event by being associated to the SignalDetectionHypothesis objects in the associatedSignalDetectionHypotheses collections of the EventHypothesis objects. The ChannelSegment objects associated to the provided SignalDetection objects are contained in the provided ChannelSegment object collection. For every SignalDetection object that could not be updated or stored, whether due to an inconsistency with a previously stored SignalDetection object or another issue, all Event objects with associated SignalDetectionHypothesis objects contained within that SignalDetection object's signalDetectionHypotheses collection are not stored. The ChannelSegment objects are associated to the Event objects through the Event objects' associated EventHypothesis objects' associated SignalDetectionHypothesis objects' FeatureMeasurement objects' measuredChannelSegment and analysisWaveform, the associated EventHypothesis objects' associated LocationSolution objects' associated LocationBehavior objects' FeatureMeasurement and FeaturePrediction objects, and the associated LocationSolution objects' associated NetworkMagnitudeSolution objects' associated FeatureMeasurement objects, and are associated to the provided SignalDetection objects through the FeatureMeasurement objects' measuredChannelSegment and analysisWaveform.
+        For a given Event, checks if that Event was previously stored. If that Event was previously stored, checks that the previously stored Event is consistent with the current Event. The current Event is consistent with the previously stored Event if all EventHypothesis objects in the previously stored Event object's eventHypotheses created in the providedÂ StageÂ are contained within the current Event object's eventHypotheses collection and all EventHypothesis objects in the previously stored Event object's finalEventHypothesisHistory are contained within the current Event object's finalEventHypothesisHistory in the same order, with all new EventHypothesis objects in the history appearing after the previous Event object's finalEventHypothesisHistory EventHypothesis objects. If the current Event is consistent with the previously stored Event, updates the previously stored Event with the current Event, otherwise does not store the current Event. Event objects are not partially stored; either the entire Event aggregate is stored or nothing is stored. For a given Event, the check for consistency and storage of the aggregate Event, along with the associated SignalDetection objects and ChannelSegment objects should be a single atomic transaction to prevent a race condition from happening if two versions of the same Event with inconsistent eventHypotheses collections are stored simultaneously.
+        Stores the Event aggregate by storing the Event (when updating a previously stored Event, the previousEventHypothesisbyStage andÂ eventHypothesesÂ collections should be updated to include the new results for the providedÂ Stage)Â and all EventHypothesis objects in the Event object's eventHypotheses that were not previously stored. New SignalDetectionHypothesis objects associated to the EventHypothesis are stored by storing the provided SignalDetection objects. New ChannelSegment objects are stored by storing the provided ChannelSegment objects. New Channel objects associated with the EventHypothesis should also be stored; the new Channel objects will likely be derived Channel objects. The Data Fabric will typically have previously received these associated derived Channel objects through a Channel storage request-response service operation. The aggregate Event should only be stored if its associated SignalDetection objects and ChannelSegment objects were successfully stored. For every successfully stored or updated object, sets the object's storage time to the current wall-clock time.
+        See endpoint /signal-detection/update for aÂ ChannelSegment storage description. See endpoint /waveform/channel-segment/store for aÂ SignalDetectionÂ storage description."
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: A StoreEventsRequest object. This object includes the current stage WorkflowDefinitionId as the identifier for the automatic or interactive Stage the caller was working in when creating or updating each provided Event.
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/StoreEventsRequest'
+      responses:
+        '200':
+          description: All Event objects were successfully stored.
+          content:
+            application/json: {}
+            application/msgpack: {}
+        '209':
+          description: "Unable to update all or some of the provided Event objects. 
+            A collection of StoreEventResponse objects including an entry for each EventÂ provided in the request.
+            If the Event was not stored due to an inconsistency with the previously stored Event, storeStatus is set to CONFLICT, the event is set to the previously stored Event with EventHypothesis objects fully populated, with the signalDetection and channelSegment collections left empty.
+            If the Event was not stored due to an inconsistency with storing a SignalDetection, storeStatus is set to CONFLICT, the event is set to the provided Event populated as an id-only instance, the signalDetections collection is set to include all previously stored SignalDetection objects that were inconsistent with the new SignalDetection objects as the previously stored, fully populated SignalDetection objects with fully populated SignalDetectionHypothesis objects and with all ChannelSegment objects populated as id-only instances, and the channelSegments collection is set to include populated instances of the ChannelSegment objects associated to the returned SignalDetection objects that were inconsistent.
+            If the Event was not stored for a different reason, storeStatus is set to FAILURE, the event is set to the provided Event populated as an id-only instance, with the signalDetection and channelSegment collections left empty.
+            If the Event was stored, storedStatus is set to SUCCESS and the event is set to the provided Event populated as an id-only instance with the signalDetection and channelSegment collections left empty."
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreEventResponse'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreEventResponse'
+
+components:
+  schemas:
+
+    EventsOutsideRangeWithSignalDetectionsInsideRangeRequest:
+      type: object
+      required:
+        - stageIds
+        - stations
+        - signalDetectionStartTime
+        - signalDetectionEndTime
+      properties:
+        stageIds:
+          type: array
+          items:
+            $ref: '../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'
+          minItems: 1
+        stations:
+          type: array
+          items:
+            $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Station'
+          minItems: 1
+        signalDetectionStartTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        signalDetectionEndTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time          
+        changedSinceTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time            
+
+    EventsWithDetectionsAndSegmentsByTimeRequest:
+      type: object
+      required:
+        - endTime
+        - stageIds
+        - startTime      
+      properties:
+        endTime:
+          type: string
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+        stageIds:
+          type: array
+          items:
+            $ref: '../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'
+          minItems: 1
+        changedSinceTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time                    
+
+    EventsWithSignalDetectionsAndSegments:
+      type: object
+      required:
+        - events
+        - signalDetectionsWithChannelSegments      
+      properties:
+        events:
+          type: array
+          items:
+            $ref: 'event-coi.yaml#/components/schemas/Event'
+        signalDetectionsWithChannelSegments:
+          $ref: '../../SignalDetection/OpenAPISpec/signal-detection-operations.yaml#/components/schemas/SignalDetectionsWithChannelSegments'
+
+    EventStatusInfoByStageIdAndEventsRequest:
+      type: object
+      required:
+        - events
+        - stageId      
+      properties:
+        events:
+          type: array
+          items:
+            $ref: 'event-coi.yaml#/components/schemas/Event'
+          minItems: 1
+        stageId:
+          $ref: '../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'   
+
+    EventStatusInfoByStageIdAndTimeRequest:
+      type: object
+      required:
+        - changedSinceTime
+        - stageId
+        - startTime
+        - endTime
+      properties:
+        changedSinceTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time 
+        stageId:
+          $ref: '../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'     
+        endTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        startTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time                      
+
+    EventStatusInfoUpdateRequest:
+      type: object
+      required:
+        - eventStatusInfo     
+      properties:
+        eventStatusInfo:
+          $ref: 'event-coi.yaml#/components/schemas/EventStatusInfo' 
+
+    CorrelatedEventsBySourceEventHypothesesRequest:
+      type: object
+      required:
+        - sourceEventHypotheses
+        - facetingDefinition
+      properties:
+        sourceEventHypotheses:
+          type: array
+          items:
+            $ref: 'event-coi.yaml#/components/schemas/EventHypothesis'
+          minItems: 1
+        facetingDefinition:
+          type: object
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/FacetingDefinition'
+
+    StoreEventsRequest:
+      type: object
+      required:
+        - events
+        - signalDetections
+        - channelSegments
+        - stageId
+      properties:
+        events:
+          type: array
+          items:
+            $ref: 'event-coi.yaml#/components/schemas/Event'
+          minItems: 1
+        signalDetections:
+          type: array
+          items:
+            $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/SignalDetection'
+        channelSegments:
+          type: array
+          items:
+            $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment'
+        stageId:
+          $ref: '../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'
+
+    StoreEventResponse:
+      type: object
+      required:
+        - event
+        - storeStatus
+        - signalDetections
+        - channelSegments
+      properties:
+        event:
+          $ref: 'event-coi.yaml#/components/schemas/Event'
+        storeStatus:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/StoreStatus'
+        signalDetections:
+          type: array
+          items:
+            $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/SignalDetection'
+        channelSegments:
+          type: array
+          items:
+            $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment' 
+
+
+# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Intervals\OpenAPISpec\workflow-coi.yaml
+
+openapi: 3.0.3
+info:
+  title: GMS Workflow COI schema
+  description: Defines a schema for the GMS Common Object Interface (COI) classes in the Workflow domain.
+  version: 1.0.6
+
+paths: {}       
+
+components:
+  schemas:                   
+    
+    Interval:
+      required:
+        - endTime
+        - storageTime
+        - modificationTime
+        - status
+        - intervalId
+      type: object
+      properties:
+        endTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        processingStartTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        processingEndTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        storageTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        modificationTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        comments:
+          type: array
+          items:
+            $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/Comment'
+        status:
+          $ref: '#/components/schemas/IntervalStatus'
+        intervalId:
+          $ref: '#/components/schemas/IntervalId'
+          
+    IntervalId:
+      type: object
+      required:
+        - startTime
+        - definitionId
+      properties:
+        startTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        definitionId:
+          $ref: '#/components/schemas/WorkflowDefinitionId'
+          
+    WorkflowDefinitionId:
+      type: object
+      required:
+        - effectiveAt
+        - name
+      properties:
+        effectiveAt:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        name:
+          type: string
+
+    IntervalStatus:
+      type: string
+      enum:
+        - NOT_STARTED
+        - IN_PROGRESS
+        - NOT_COMPLETE
+        - COMPLETE
+        - FAILED
+        - SKIPPED
+        
+    StageInterval:
+      allOf:
+        - $ref: '#/components/schemas/Interval'
+        - type: object
+          required:
+            - stageMode
+          properties:
+            stageMetrics:
+              $ref: '#/components/schemas/StageMetrics'
+            stageMode:
+              $ref: '#/components/schemas/StageMode'
+
+    StageMode:
+      type: string
+      enum:
+        - INTERACTIVE
+        - AUTOMATIC
+
+    StageMetrics:
+      type: object
+      required:
+        - eventCount
+        - associatedSignalDetectionCount
+        - unassociatedSignalDetectionCount
+        - percentWaveformsAvailable
+        - waveformAvailabilityStationGroup
+      properties:
+        eventCount:
+          type: integer
+        associatedSignalDetectionCount:
+          type: integer
+        unassociatedSignalDetectionCount:
+          type: integer
+        maxMagnitude:
+          type: number
+          format: double
+        percentWaveformsAvailable:
+          type: number
+          format: double
+        # Either a version reference or populated instance
+        waveformAvailabilityStationGroup:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/StationGroup'
+        maxMagnitudeType:
+          $ref: '../../Event/OpenAPISpec/event-coi.yaml#/components/schemas/MagnitudeType'
+          
+    InteractiveAnalysisStageInterval:
+      allOf:
+        - $ref: '#/components/schemas/StageInterval'
+        - type: object
+          required:
+            - activityIntervals
+          properties:
+            activityIntervals:
+              type: array
+              items:
+                $ref: '#/components/schemas/ActivityInterval'
+              minItems: 1
+            completedAnalystId:
+              type: string
+                
+    ActivityInterval:
+      allOf:
+        - $ref: '#/components/schemas/Interval'
+        - type: object
+          required:
+            - stageIntervalId
+            - activeAnalystIds
+          properties:
+            stageIntervalId:
+              $ref: '#/components/schemas/IntervalId'
+            activeAnalystIds:
+              type: array
+              items:
+                type: string
+            reservedAnalystId:
+              type: string
+            completedAnalystId:
+              type: string
+    
+    AutomaticProcessingStageInterval:
+      allOf:
+        - $ref: '#/components/schemas/StageInterval'
+        - type: object
+          required:
+            - sequenceIntervals
+          properties:
+            sequenceIntervals:
+              type: array
+              items:
+                $ref: '#/components/schemas/ProcessingSequenceInterval'
+              minItems: 1
+                
+    ProcessingSequenceInterval:
+      allOf:
+        - $ref: '#/components/schemas/Interval'
+        - type: object
+          required:
+            - stageIntervalId
+            - percentComplete
+          properties:
+            stageIntervalId:
+              $ref: '#/components/schemas/IntervalId'
+            percentComplete:
+              type: number
+              format: double
+            lastExecutedStepName:
+              type: string
+    
+    Workflow:
+      type: object
+      required:
+        - workflowId
+        - stages
+      properties:
+        workflowId:
+          $ref: '#/components/schemas/WorkflowDefinitionId'
+        stages:
+          #ordered list 
+          type: array
+          items:
+            oneOf:
+            - $ref: '#/components/schemas/AutomaticProcessingStage'
+            - $ref: '#/components/schemas/InteractiveAnalysisStage'
+          minItems: 1
+          
+    Stage:
+      type: object
+      required:
+        - stageId
+        - duration
+        - mode
+      properties:
+        stageId:
+          $ref: '#/components/schemas/WorkflowDefinitionId'
+        duration:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        mode:
+          $ref: '#/components/schemas/StageMode'
+          
+    AutomaticProcessingStage:
+      allOf:
+        - $ref: '#/components/schemas/Stage'
+        - type: object
+          required:
+            - sequences
+          properties:
+            # Ordered list
+            sequences:
+              type: array
+              items:
+                $ref: '#/components/schemas/ProcessingSequence'
+              minItems: 1
+    
+    ProcessingSequence:
+      required:
+        - sequenceId
+        - steps
+      properties:
+        sequenceId:
+          $ref: '#/components/schemas/WorkflowDefinitionId'
+        # Ordered list
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProcessingStep'
+          minItems: 1
+    
+    ProcessingStep:
+      required:
+        - name
+      properties:
+        name:
+          type: string
+      
+    InteractiveAnalysisStage:
+      allOf:
+        - $ref: '#/components/schemas/Stage'
+        - type: object
+          required:
+            - activities
+          properties:
+            activities:
+              type: array
+              items:
+                $ref: '#/components/schemas/Activity'
+              minItems: 1
+                
+    Activity:
+      type: object
+      required:
+        - analysisActivity
+        - activityId
+      properties:
+        analysisActivity:
+          $ref: '#/components/schemas/AnalysisActivity'
+        activityId:
+          $ref: '#/components/schemas/WorkflowDefinitionId'
+          
+    AnalysisActivity:
+      type: string
+      enum:
+        - EVENT_REVIEW
+        - SCAN      
+    
+
+# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Intervals\OpenAPISpec\workflow-operations.yaml
+
+openapi: 3.0.3
+info:
+  title: GMS Workflow Data Fabric Operations
+  description: Defines the Data Fabric operations for the GMS Common Object Interface (COI) classes in the Workflow domain. The term "StageInterval object" refers to any StageInterval specialization, including InteractiveAnalysisStageInterval objects and AutomaticProcessingStageInterval objects.
+  version: 1.0.5
+
+paths:
+
+  /workflow/query/time:
+    post:
+      summary: Retrieves the Workflow in effect at the provided time, or for the current time if no time is provided. The Workflow that is effective for a provided time is the Workflow with the latest effectiveAt time that is earlier than or equal to the provided time.
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: A date-time value
+        content:
+          application/json:
+            schema:
+              type: string
+              #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+              format: date-time
+        required: false
+      responses:
+        '200':
+          description: Successful operation. Response includes a Workflow object.
+          content:
+            application/json:
+              schema:
+                $ref: 'workflow-coi.yaml#/components/schemas/Workflow'
+                
+  /workflow/interval/stage/query/stage-ids-timerange:
+    post:
+      summary: Retrieves the StageInterval objects from every provided Stage which overlap the provided time interval (inclusive). Uses the optionally provided changed since time to filter the StageIntervalÂ objects by their storage times.
+      description: Finds and returns the StageInterval objects with identifiers matching any of the Stage identifiers in the provided collection which overlap the provided time range (inclusive). If the provided request includes a populated changedSinceTime, then this operation only returns StageIntervalÂ objects which were stored on or after the provided time or which include associatedÂ IntervalÂ or StageMetrics objects which were stored on or after the provided time.
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: Set of WorkflowDefinitionId, start time, end time, and optional changed since time.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StageIntervalsByStageIdsAndTimeRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation. Returns lists of StageInterval objects, sorted by ascending start time, mapped to each provided WorkflowDefinitionId (IntervalId.WorkflowDefinitionId). Every StageInterval object associated to the same WorkflowDefinitionId have the same type. The map does not include an entry for a provided WorkflowDefinitionId if no StageInterval objects for the corresponding Stage overlap the provided time interval. Returns an empty map if no StageInterval objects match the query predicate.
+          content:
+            application/json:
+              schema:
+               $ref: '#/components/schemas/StageIntervalHistoryByStageId'
+            application/msgpack:
+              schema:
+               $ref: '#/components/schemas/StageIntervalHistoryByStageId'
+               
+  /workflow/interval/stage/query/ids:
+    post:
+      summary: Queries for a collection of StageInterval objects by their IntervalId identifiers.
+      description: Uses the provided list of StageInterval identifiers (IntervalId objects) to retrieve the corresponding StageInterval list.
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: A list of IntervalId objects.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: 'workflow-coi.yaml#/components/schemas/IntervalId'
+        required: true
+      responses:
+        '200':
+          description: Successful operation. Returns a StageInterval list corresponding to the provided list of IntervalId objects.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  oneOf:
+                  - $ref: 'workflow-coi.yaml#/components/schemas/AutomaticProcessingStageInterval'
+                  - $ref: 'workflow-coi.yaml#/components/schemas/InteractiveAnalysisStageInterval'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  oneOf:
+                  - $ref: 'workflow-coi.yaml#/components/schemas/AutomaticProcessingStageInterval'
+                  - $ref: 'workflow-coi.yaml#/components/schemas/InteractiveAnalysisStageInterval'
+        '209':
+          description: Partially successful operation. Returns a StageInterval list corresponding to some but not all of the provided IntervalId objects.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  oneOf:
+                  - $ref: 'workflow-coi.yaml#/components/schemas/AutomaticProcessingStageInterval'
+                  - $ref: 'workflow-coi.yaml#/components/schemas/InteractiveAnalysisStageInterval'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  oneOf:
+                  - $ref: 'workflow-coi.yaml#/components/schemas/AutomaticProcessingStageInterval'
+                  - $ref: 'workflow-coi.yaml#/components/schemas/InteractiveAnalysisStageInterval'
+            
+  /workflow/interval/stage/update:
+    post:
+      summary: Stores the provided StageInterval objects, updating previously stored objects.
+      description: "Persistently stores each StageInterval in the collection included in the request, updating any objects 
+        that have previously been stored. Also stores or updates the ProcessingSequenceInterval collection within the 
+        provided AutomaticProcessingStageInterval objects and the ActivityInterval collection within the provided 
+        InteractiveAnalysisStageInterval objects. While storing the objects, updates each IntervalÂ object'sÂ 
+        storageTimeÂ attribute to the current system time. The providedÂ StageIntervalÂ objects do not include their 
+        associatedÂ StageMetrics. If a StageInterval was previously stored, this operation checks that the new version of 
+        theÂ StageInterval is consistent with the previously stored version and only stores the object if they are consistent. 
+        The newÂ StageInterval version is consistent with the previously stored version if both objects have storageTimeÂ 
+        attributes with the same value and if all of the newÂ StageIntervalÂ object's aggregatedÂ IntervalÂ objects also have 
+        storageTimeÂ attributes with the same value as the previously stored versions of the same IntervalÂ objects. This 
+        operation does not partially storeÂ StageInterval objects; it either stores the entire StageInterval aggregate or leaves 
+        the persistent data unchanged. For each StageInterval, this operation atomically checks for consistency and stores the 
+        object to prevent a race condition from occurring when two storage requests simultaneously attempt to store two 
+        versions of the same StageInterval."
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: A list of StageInterval objects.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateStageIntervalsRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json: {}
+        '209':
+          description: "Unable to update all or some of the provided StageInterval objects. 
+            AÂ StoreStageIntervalResponse collection with an entry for each StageInterval provided in the request. A StoreStageIntervalResponse always includes a StageIntervalÂ object'sÂ intervalIdÂ and its other attributes are populated based on whether this operation successfully stored the StageInterval. 
+            If this operation successfully stored the StageInterval, the corresponding StoreStageIntervalResponse has a StoreStatus of SUCCESS and the StageInterval is unpopulated.
+            If this operation did not store theÂ StageInterval because it was not consistent with the previously storedÂ StageInterval, the corresponding StoreStageIntervalResponse has a StoreStatus of CONFLICT and the StageInterval object is populated with the currently stored StageInterval, including its aggregatedÂ Interval collection.
+            If this operation did not store the StageInterval for a different reason, the corresponding StoreStageIntervalResponse has a StoreStatus of FAILURE and the StageInterval is unpopulated."
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreStageIntervalResponse'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreStageIntervalResponse'
+
+components:
+  schemas:
+  
+    StageIntervalsByStageIdsAndTimeRequest:
+      type: object
+      required:
+        - startTime
+        - endTime
+        - stageIds
+      properties:
+        startTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        #Constraint: startTime must be before endTime
+        endTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        stageIds:
+          type: array
+          items:
+            $ref: 'workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'
+          minItems: 1
+        changedSinceTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+            
+    StageIntervalHistoryByStageId:
+      type: array
+      items:
+        type: object
+        required:
+          - key
+          - value
+        properties:
+          key:
+            $ref: 'workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'
+          value:
+            type: array
+            # Can be any specialization of StageInterval. Ordered by startTime.
+            items:
+              oneOf:
+                - $ref: 'workflow-coi.yaml#/components/schemas/AutomaticProcessingStageInterval'
+                - $ref: 'workflow-coi.yaml#/components/schemas/InteractiveAnalysisStageInterval'
+              
+    UpdateStageIntervalsRequest:
+      type: object
+      required:
+        - stageIntervals
+      properties:
+        stageIntervals:
+          type: array
+          # Can be any specialization of StageInterval
+          items:
+            oneOf:
+                - $ref: 'workflow-coi.yaml#/components/schemas/AutomaticProcessingStageInterval'
+                - $ref: 'workflow-coi.yaml#/components/schemas/InteractiveAnalysisStageInterval'
+
+    StoreStageIntervalResponse:
+      type: object
+      required:
+       - stageIntervalId
+       - storeStatus
+      properties:
+        stageInterval:
+          # Can be any specialization of StageInterval
+          oneOf:
+            - $ref: 'workflow-coi.yaml#/components/schemas/AutomaticProcessingStageInterval'
+            - $ref: 'workflow-coi.yaml#/components/schemas/InteractiveAnalysisStageInterval'
+        stageIntervalId:
+          $ref: 'workflow-coi.yaml#/components/schemas/IntervalId'
+        storeStatus:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/StoreStatus'
+
+# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\SignalDetection\OpenAPISpec\signal-detection-coi.yaml
+
+openapi: 3.0.3
+info:
+  title: GMS Signal Detection COI schema
+  description: Defines a schema for the GMS Common Object Interface (COI) classes in the Signal Detection domain.
+  version: 1.0.3
+
+paths: {}
+
+components:
+  schemas:
+
+    SignalDetection:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          format: uuid
+        signalDetectionHypotheses:
+          type: array
+          items:
+            $ref: '#/components/schemas/SignalDetectionHypothesis'
+          minItems: 1
+        station:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Station'
+
+    SignalDetectionHypothesis:
+      type: object
+      required:
+        - id
+      properties:
+        creationInfo:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/CreationInfo'
+        deleted:
+          type: boolean
+        featureMeasurements:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeatureMeasurement'
+          minItems: 2
+        filterByFilterDefinitionUsage:
+          type: array
+          items:
+            type: object
+            required:
+              - key
+              - value
+            properties:
+              key:
+                $ref: '#/components/schemas/FilterDefinitionUsage'
+              value:
+                type: string
+                format: uuid
+        filterById:
+          type: array
+          items:
+            type: object
+            required:
+              - key
+              - value
+            properties:
+              key:
+                type: string
+                format: uuid
+              value:
+                $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/FilterDefinition'
+        id:
+          $ref: '#/components/schemas/SignalDetectionHypothesisId'
+        monitoringOrganization:
+          type: string
+        parentSignalDetectionHypothesis:
+          $ref: '#/components/schemas/SignalDetectionHypothesis'
+        station:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Station'
+  
+    SignalDetectionHypothesisId:
+      type: object
+      required:
+        - id
+        - signalDetectionId
+      properties:
+        id:
+          type: string
+          format: uuid
+        signalDetectionId:
+          type: string
+          format: uuid
+
+    FeatureMeasurement:
+      type: object
+      required:
+        - channel
+        - featureMeasurementType
+        - id
+        - measurementValue
+      properties:
+        analysisWaveform:
+          $ref: '#/components/schemas/WaveformAndFilterDefinition'
+        channel:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Channel'
+        featureMeasurementType:
+          $ref: '#/components/schemas/FeatureMeasurementType'
+        id:
+          type: string
+          format: uuid
+        measuredChannelSegment:
+          $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment'
+        measurementValue:
+          oneOf:
+            - $ref: '#/components/schemas/AmplitudeMeasurementValue'
+            - $ref: '#/components/schemas/ArrivalTimeMeasurementValue'
+            - $ref: '#/components/schemas/NumericMeasurementValue'
+            - $ref: '#/components/schemas/EnumeratedMeasurementValue'
+            - $ref: '#/components/schemas/DurationMeasurementValue'
+        snr:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DoubleValue'
+
+    WaveformAndFilterDefinition:
+      type: object
+      properties:
+        waveform:
+          $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment'
+        filterId:
+          type: string
+          format: uuid
+      required:
+        - waveform      
+
+    FilterDefinitionUsage:
+      type: string
+      enum:
+        - AMPLITUDE
+        - DETECTION
+        - ONSET
+        - FK
+     
+    AmplitudeMeasurementValue:
+      type: object
+      required:
+        - amplitude
+        - units      
+      properties:
+        amplitude:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        clipped:
+          type: boolean
+        measurementTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        measurementWindowDuration:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        measurementWindowStart:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        period:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        units:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/Units'
+
+    ArrivalTimeMeasurementValue:
+      type: object
+      required:
+        - arrivalTime       
+      properties:
+        arrivalTime:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/InstantValue'
+        travelTime:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DurationValue'
+
+    DurationMeasurementValue:
+      type: object
+      properties:
+        duration:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DurationValue'
+        startTime:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/InstantValue'
+      required:
+        - duration
+        - startTime
+
+    EnumeratedMeasurementValue:
+      type: object
+      required:
+        - value 
+      properties:
+        confidence:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 1.0
+        referenceTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        value:
+          oneOf:
+            - $ref: '#/components/schemas/PhaseType'
+
+    NumericMeasurementValue:
+      type: object
+      required:
+        - measuredValue
+      properties:
+        measuredValue:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DoubleValue'
+        referenceTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+
+    FeatureMeasurementType:
+      type: string
+      enum:
+        - AMPLITUDE_A5_OVER_2
+        - AMPLITUDE_ALR_OVER_2
+        - AMPLITUDE_ANL_OVER_2
+        - AMPLITUDE_ANP_OVER_2
+        - ARRIVAL_TIME
+        - EMERGENCE_ANGLE
+        - LONG_PERIOD_FIRST_MOTION
+        - PHASE
+        - RECEIVER_TO_SOURCE_AZIMUTH
+        - RECTILINEARITY
+        - ROOT_MEAN_SQUARE
+        - SHORT_PERIOD_FIRST_MOTION
+        - SLOWNESS
+        - SOURCE_TO_RECEIVER_AZIMUTH
+        - SOURCE_TO_RECEIVER_DISTANCE
+
+    PhaseType:
+      type: string
+      enum:
+        - H
+        - I
+        - IPx
+        - Is
+        - It
+        - Iw
+        - Ix
+        - L
+        - Lg
+        - LQ
+        - LR
+        - N
+        - nLR
+        - nNL
+        - NP
+        - nP
+        - NP_1
+        - P
+        - P3KP
+        - P3KPbc
+        - P3KPbc_B
+        - P3KPdf
+        - P3KPdf_B
+        - P4KP
+        - P4KPbc
+        - P4KPdf
+        - P4KPdf_B
+        - P5KP
+        - P5KPbc
+        - P5KPbc_B
+        - P5KPdf
+        - P5KPdf_B
+        - P5KPdf_C
+        - P7KP
+        - P7KPbc
+        - P7KPbc_B
+        - P7KPbc_C
+        - P7KPdf
+        - P7KPdf_B
+        - P7KPdf_C
+        - P7KPdf_D
+        - Pb
+        - PcP
+        - PcS
+        - Pdiff
+        - Pg
+        - PKhKP
+        - PKiKP
+        - PKKP
+        - PKKPab
+        - PKKPbc
+        - PKKPdf
+        - PKKS
+        - PKKSab
+        - PKKSbc
+        - PKKSdf
+        - PKP
+        - PKP2
+        - PKP2ab
+        - PKP2bc
+        - PKP2df
+        - PKP3
+        - PKP3ab
+        - PKP3bc
+        - PKP3df
+        - PKP3df_B
+        - PKPab
+        - PKPbc
+        - PKPdf
+        - PKPPKP
+        - PKS
+        - PKSab
+        - PKSbc
+        - PKSdf
+        - PmP
+        - Pn
+        - PnPn
+        - pP
+        - PP
+        - PP_1
+        - PP_B
+        - pPdiff
+        - pPKiKP
+        - pPKP
+        - pPKPab
+        - pPKPbc
+        - pPKPdf
+        - PPP
+        - PPP_B
+        - PPS
+        - PPS_B
+        - pS
+        - PS
+        - PS_1
+        - pSdiff
+        - pSKS
+        - pSKSac
+        - pSKSdf
+        - Px
+        - Rg
+        - S
+        - Sb
+        - ScP
+        - ScS
+        - Sdiff
+        - Sg
+        - SKiKP
+        - SKKP
+        - SKKPab
+        - SKKPbc
+        - SKKPdf
+        - SKKS
+        - SKKSac
+        - SKKSac_B
+        - SKKSdf
+        - SKP
+        - SKPab
+        - SKPbc
+        - SKPdf
+        - SKS
+        - SKS2
+        - SKS2ac
+        - SKS2df
+        - SKSac
+        - SKSdf
+        - SKSSKS
+        - Sn
+        - SnSn
+        - sP
+        - SP
+        - SP_1
+        - sPdiff
+        - sPKiKP
+        - sPKP
+        - sPKPab
+        - sPKPbc
+        - sPKPdf
+        - sS
+        - SS
+        - SS_B
+        - sSdiff
+        - sSKS
+        - sSKSac
+        - sSKSdf
+        - SSS
+        - SSS_B
+        - Sx
+        - T
+        - tx
+        - Tx
+        - UNKNOWN
+        - UNSET
+
+    PhasePropagationType:
+      type: string
+      enum:
+        - HYDROACOUSTIC
+        - INFRASOUND
+        - SEISMIC_BODY
+        - SEISMIC_SURFACE
+
+    FirstMotionType:
+      type: string
+      enum:
+        - COMPRESSION
+        - DILATION
+        - INDETERMINATE
+
+# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\SignalDetection\OpenAPISpec\signal-detection-operations.yaml
+
+openapi: 3.0.3
+info:
+  title: GMS Signal Detection COI schema
+  description: Defines a schema for the GMS Common Object Interface (COI) classes in the Signal Detection domain.
+  version: 1.0.6
+
+paths:
+  /signal-detection/detection-with-channel-segments/query/stations-timerange:
+    post:
+      summary: Find SignalDetection objects with ChannelSegments by Stations and Time
+      description: "This operation finds and returns the SignalDetection objects detected by any provided Station within the provided time range. 
+        A SignalDetection occurs in the provided time range if its current SignalDetectionHypothesis has ARRIVAL_TIME FeatureMeasurement value within the provided time range. 
+        This operation populates each returned SignalDetection with all of its SignalDetectionHypothesis objects created in any provided Stage. 
+        This operation does not return any SignalDetection with an entry in the provided excludedSignalDetections collection. 
+        This operation returns a SignalDetectionsWithChannelSegments object combining the loaded SignalDetection and SignalDetectionHypothesis objects, along with a ChannelSegment collection containing each measuredChannelSegment and analysisWaveform in each FeatureMeasurement in each returned SignalDetectionHypothesis. 
+        Within the returned ChannelSegment objects, this operation populates the ProcessingMask objects in the maskedBy collection, leaving the ProcessingMask attribute maskedQcSegmentVersions attributes populated with identifier-only QcSegmentVersion instances.
+        If the changedSinceTime is present in the request, returns SignalDetection objects that meet the above criteria and have SignalDetectionHypothesis objects that have been added at or after the changedSinceTime.
+        If the changedSinceTime is present, only the SignalDetectionHypothesis objects added at or after the changedSinceTime are fully populated, all other SignalDetectionHypothesis objects are populated as id-only instances."
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DetectionsWithSegmentsByStationsAndTimeRequest'
+      responses:
+        '200':
+          description: A SignalDetectionsWithChannelSegments object combining the loaded SignalDetection and SignalDetectionHypothesis objects, along with a ChannelSegment collection containing each measuredChannelSegment and analysisWaveform in each FeatureMeasurement in each returned SignalDetectionHypothesis.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignalDetectionsWithChannelSegments'
+            application/msgpack:
+              schema:
+                $ref: '#/components/schemas/SignalDetectionsWithChannelSegments'
+
+  /signal-detection/update:
+    post:
+      summary: Stores the provided SignalDetection and ChannelSegment objects, updating a SignalDetection object if it was previously stored.
+      description: "Stores the provided SignalDetection objects, updating any SignalDetection object that was previously stored, and stores the associated ChannelSegment objects associated to the SignalDetectionÂ objects through the FeatureMeasurementÂ attributesÂ measuredChannelSegmentÂ andÂ analysisWaveform. If aÂ SignalDetection was previously stored, checks that the new version of the SignalDetection is consistent with the previously stored version. The new version is consistent with the previously stored version if allÂ SignalDetectionHypothesis objects in the previously stored version's ordered signalDetectionHypothesis collection created in the providedÂ StageÂ are contained within the new version's orderedÂ signalDetectionHypothesis collection and any new SignalDetectionHypothesis objects in the new version's collection occur after the previous version'sÂ SignalDetectionHypothesis objects created in the providedÂ Stage. If theÂ SignalDetection is not consistent with the previously stored version, does not store it. SignalDetection objects are not partially stored; either the entire SignalDetection aggregate is stored or nothing is stored. For a givenÂ SignalDetection, the check for consistency and storage of the aggregate SignalDetection is atomic to prevent a race condition from happening if two storage requests simultaneously attempt to store two versions of the sameÂ SignalDetection with inconsistent ordered SignalDetectionHypothesis collections.Â 
+        When storing aÂ SignalDetection, determines which SignalDetectionHypothesis objects in its ordered signalDetectionHypotheses collection have not been previously stored and stores those SignalDetectionHypothesis objects.Â Stores theÂ SignalDetection aggregate by storing the SignalDetectionÂ (when updating a previously stored SignalDetection, this only requires updating the signalDetectionHypothesisÂ collection to include the newÂ SignalDetectionHypothesisÂ objects), the new SignalDetectionHypothesis objects, the FeatureMeasurement objects in the SignalDetectionHypothesis object's featureMeasurements collection,Â theÂ FilterDefinition objects in the SignalDetectionHypothesis object's filterById mapping, the Channel object in the FeatureMeasurement object's channel attribute,Â the associated ChannelSegment objects in the FeatureMeasurement objects' measuredChannelSegment attribute and analysisWaveform WaveformAndFilterDefinition object,Â and the Channel in the FeatureMeasurement objects' analysisWaveform WaveformAndFilterDefinition object's ChannelSegment.Â The FeatureMeasurement objects to be stored will typically be associated with derived Channel objects.Â The DataFabric will typically have previously received these associated derived Channel objects through aÂ ChannelÂ storage request-response operation.
+        The associatedÂ ChannelSegment objects for the FeatureMeasurement objects are provided separately within the request to prevent duplication as multipleÂ FeatureMeasurement objects can share the same ChannelSegment.Â The aggregateÂ SignalDetection should only be stored if its associated ChannelSegment objects were successfully stored.Â TheÂ parentSignalDetectionHypothesis of a SignalDetectionHypothesis (if present) will have been previously stored or will be contained within the current SignalDetection object's signalDetectionHypotheses collection.
+        If the DataFabricÂ stored all of the SignalDetection objects then the response is empty. Otherwise, the response includes a collection of StoreSignalDetectionResponse objects. If a SignalDetection was not stored due to a conflict with the previously stored SignalDetection, storeStatus is set to CONFLICT, the signalDetection is set to the previously stored, fully populated SignalDetection with all ChannelSegment objects populated as id-only instances, and the channelSegments collection is set to the collection of all ChannelSegment objects (populated objects) associated with the SignalDetection. If the SignalDetection was not stored for a different reason, storeStatus is set to FAILURE, the signalDetection is set to the provided SignalDetection populated as an id-only instance, and the channelSegments collection is empty. If the SignalDetection was stored, storedStatus is set to SUCCESS, the signalDetection is set to the provided SignalDetection populated as an id-only instance, and the channelSegments collection is empty.
+        See endpoint /signal-detection/update for aÂ ChannelSegment storage description."
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: A StoreSignalDetectionsRequest object. This object includes the current stage WorkflowDefinitionId as this information can be used to determine where to store a SignalDetection.
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/StoreSignalDetectionsRequest'
+      responses:
+        '200':
+          description: All SignalDetection objects were successfully stored.
+          content:
+            application/json: {}
+            application/msgpack: {}
+        '209':
+          description: "Unable to update all or some of the provided SignalDetection objects. 
+            A collection of StoreSignalDetectionResponse objects including an entry for each SignalDetectionÂ provided in the request.
+            If a SignalDetection was not stored due to a conflict with the previously stored SignalDetection, storeStatus is set to CONFLICT, the signalDetection is set to the previously stored, fully populated SignalDetection with SignalDetectionHypothesis objects fully populated and with all ChannelSegment objects populated as id-only instances, and the channelSegments collection is set to the collection of all ChannelSegment objects (populated objects) associated with the SignalDetection.
+            If the SignalDetection was not stored for a different reason, storeStatus is set to FAILURE, the signalDetection is set to the provided SignalDetection populated as an id-only instance, and the channelSegments collection is empty.
+            If the SignalDetection was stored, storedStatus is set to SUCCESS, the signalDetection is set to the provided SignalDetection populated as an id-only instance, and the channelSegments collection is empty."
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreSignalDetectionResponse'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreSignalDetectionResponse'
+
+components:
+  schemas:
+    DetectionsWithSegmentsByStationsAndTimeRequest:
+      type: object
+      required:
+        - endTime
+        - excludedSignalDetections
+        - stageIds
+        - startTime
+        - stations      
+      properties:
+        endTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        excludedSignalDetections:
+          type: array
+          items:
+            $ref: 'signal-detection-coi.yaml#/components/schemas/SignalDetection'
+        stageIds:
+          type: array
+          items:
+            $ref: '../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'
+          minItems: 1
+        startTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        changedSinceTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        stations:
+          type: array
+          items:
+            $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Station'
+          minItems: 1
+
+    SignalDetectionsWithChannelSegments:
+      type: object
+      required:
+        - channelSegments
+        - signalDetections
+      properties:
+        channelSegments:
+          type: array
+          items:
+            $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment'
+        signalDetections:
+          type: array
+          items:
+            $ref: 'signal-detection-coi.yaml#/components/schemas/SignalDetection'
+
+    StoreSignalDetectionsRequest:
+      type: object
+      required:
+        - signalDetections
+        - channelSegments
+        - stageId
+      properties:
+        signalDetections:
+          type: array
+          items:
+            $ref: 'signal-detection-coi.yaml#/components/schemas/SignalDetection'
+          minItems: 1
+        channelSegments:
+          type: array
+          items:
+            $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment'
+        stageId:
+          $ref: '../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'
+
+    StoreSignalDetectionResponse:
+      type: object
+      required:
+       - signalDetection
+       - channelSegments
+       - storeStatus
+      properties:
+        signalDetection:
+          $ref: 'signal-detection-coi.yaml#/components/schemas/SignalDetection'
+        channelSegments:
+          type: array
+          items:
+            $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment'
+        storeStatus:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/StoreStatus'
+
+
+# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\StationDefinition\OpenAPISpec\station-definition-coi.yaml
+
+openapi: 3.0.3
+info:
+  title: GMS Station Definition COI schema
+  description: Defines a schema for the GMS Common Object Interface (COI) classes in the Station Definition domain.
+  version: 1.0.7
+
+paths: {}
+
+components:
+  schemas:
+
+    StationGroup:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        effectiveAt:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        effectiveUntil:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        effectiveForRequestTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        description:
+          type: string
+        stations:
+          type: array
+          items: 
+            $ref: '#/components/schemas/Station'
+          minItems: 1
+
+    Station:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        effectiveAt:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        effectiveUntil:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        effectiveForRequestTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        description:
+          type: string
+        stationType:
+          $ref: '#/components/schemas/StationType'
+        location:
+          $ref: '#/components/schemas/Location'
+        allRawChannels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Channel'
+          minItems: 1
+        relativePositionsByChannel:
+          type: array
+          items:
+            type: object
+            properties:
+              channel:
+                $ref: '#/components/schemas/Channel'
+              relativePosition:
+                $ref: '#/components/schemas/RelativePosition'
+          minItems: 1
+        channelGroups:
+          type: array
+          items: 
+            $ref: '#/components/schemas/ChannelGroup'
+     
+    ChannelGroup:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        effectiveAt:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        effectiveUntil:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        effectiveForRequestTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        description:
+          type: string
+        channelGroupType:
+          $ref: '#/components/schemas/ChannelGroupType'
+        location:
+          $ref: '#/components/schemas/Location'
+        channels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Channel'
+          minItems: 1
+          
+    Channel:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        effectiveAt:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        effectiveUntil:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        effectiveForRequestTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        canonicalName:
+          type: string
+        description:
+          type: string
+        station:
+         $ref: '#/components/schemas/Station'
+        channelDataType:
+          $ref: '#/components/schemas/ChannelDataType'
+        channelBandType:
+          $ref: '#/components/schemas/ChannelBandType'
+        channelInstrumentType:
+          $ref: '#/components/schemas/ChannelInstrumentType'
+        channelOrientationType:
+          $ref: '#/components/schemas/ChannelOrientationType'
+        channelOrientationCode:
+          type: string
+          minLength: 1
+          maxLength: 1
+        units:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/Units'
+        nominalSampleRateHz:
+          type: number
+          format: double
+        location:
+          $ref: '#/components/schemas/Location'
+        orientationAngles:
+          $ref: '#/components/schemas/OrientationAngles'
+        configuredInputs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Channel'
+          minItems: 1
+        processingDefinition:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/FieldMap'
+        processingMetadata:
+          type: array
+          items:
+            type: object
+            properties:
+              processingMetadataType:
+                $ref: '#/components/schemas/ChannelProcessingMetadataType'
+              value:
+                type: object
+        response:
+          $ref: '#/components/schemas/Response'
+
+    Response:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          format: uuid
+        effectiveAt:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        effectiveUntil:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        calibration:
+          $ref: '#/components/schemas/Calibration'
+        fapResponse:
+          $ref: '#/components/schemas/FrequencyAmplitudePhase'
+
+    Calibration:
+      type: object
+      required:
+        - calibrationPeriodSec
+        - calibrationTimeShift
+        - calibrationFactor
+      properties:
+        calibrationPeriodSec:
+          type: number
+          format: double
+        calibrationTimeShift:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        calibrationFactor:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DoubleValue'
+    
+    FrequencyAmplitudePhase:
+      type: object
+      required:
+        - id
+        - frequenciesHz
+        - amplitudePhaseResponses
+      properties:
+        id:
+          type: string
+          format: uuid
+        nominalSampleRateHz:
+          type: number
+          format: double
+        nominalCalibration:
+          $ref: '#/components/schemas/Calibration'
+        frequenciesHz:
+          type: array
+          items:
+            type: number
+            format: double
+          minItems: 1
+        amplitudePhaseResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/AmplitudePhaseResponse'   
+          minItems: 1   
+
+    AmplitudePhaseResponse:
+      type: object
+      required:
+        - amplitude
+        - phase
+      properties:
+        amplitude:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DoubleValue'
+        phase:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DoubleValue'
+
+          
+    RelativePosition:
+      type: object
+      required:
+        - northDisplacementKm
+        - eastDisplacementKm
+        - verticalDisplacementKm
+      properties:
+        northDisplacementKm:
+          type: number
+          format: double
+        eastDisplacementKm:
+          type: number
+          format: double
+        verticalDisplacementKm:
+          type: number
+          format: double
+    
+    Location:
+      type: object
+      required:
+        - latitudeDegrees
+        - longitudeDegrees
+        - depthKm
+        - elevationKm
+      properties: 
+        latitudeDegrees:
+          type: number
+          format: double
+        longitudeDegrees:
+          type: number
+          format: double
+        depthKm:
+          type: number
+          format: double
+        elevationKm:
+          type: number
+          format: double
+    
+    OrientationAngles:
+      type: object
+      properties:
+        horizontalAngleDeg:
+          type: number
+          format: double
+        verticalAngleDeg:
+          type: number
+          format: double          
+
+    StationType:
+      type: string
+      enum:
+        -   HYDROACOUSTIC
+        -   HYDROACOUSTIC_ARRAY
+        -   INFRASOUND
+        -   INFRASOUND_ARRAY
+        -   SEISMIC_1_COMPONENT
+        -   SEISMIC_3_COMPONENT
+        -   SEISMIC_3_COMPONENT_ARRAY
+        -   SEISMIC_ARRAY
+        -   WEATHER
+
+    ChannelGroupType:
+      type: string
+      enum:
+        -   PHYSICAL_SITE
+        -   PROCESSING_GROUP
+
+    ChannelDataType:
+      type: string
+      enum:
+        -   DIAGNOSTIC_SOH
+        -   DIAGNOSTIC_WEATHER
+        -   SEISMIC
+        -   HYDROACOUSTIC
+        -   INFRASOUND
+        -   WEATHER
+        
+    ChannelBandType:
+      type: string
+      enum:
+        -   UNKNOWN
+        -   ADMINISTRATIVE
+        -   BROADBAND
+        -   EXTREMELY_LONG_PERIOD
+        -   EXTREMELY_SHORT_PERIOD
+        -   HIGH_BROADBAND
+        -   LONG_PERIOD
+        -   MID_PERIOD
+        -   OPAQUE
+        -   PERIOD_GREATER_TEN_DAYS
+        -   PERIOD_ORDER_ONE_TO_TEN_DAYS
+        -   PERIOD_ORDER_TENTH_TO_ONE_DAY
+        -   SAMPLE_RATE_1KHZ_TO_LESS_5KHZ_CORNER_GREATER_EQUAL_10SEC
+        -   SAMPLE_RATE_1KHZ_TO_LESS_5KHZ_CORNER_LESS_10SEC
+        -   SAMPLE_RATE_250HZ_TO_LESS_1KHZ_CORNER_GREATER_EQUAL_10SEC
+        -   SAMPLE_RATE_250HZ_TO_LESS_1KHZ_CORNER_LESS_10SEC
+        -   SHORT_PERIOD
+        -   ULTRA_LONG_PERIOD
+        -   VERY_LONG_PERIOD
+            
+    ChannelInstrumentType:
+      type: string
+      enum:
+        -   UNKNOWN
+        -   ACCELEROMETER
+        -   BOLOMETER
+        -   CALIBRATION_INPUT
+        -   CREEP_METER
+        -   DERIVED
+        -   ELECTRIC_POTENTIAL
+        -   ELECTRONIC_TEST_POINT
+        -   GEOPHONE
+        -   GRAVIMETER
+        -   HIGH_GAIN_SEISMOMETER
+        -   HUMIDITY
+        -   LINEAR_STRAIN
+        -   LOW_GAIN_SEISMOMETER
+        -   MAGNETOMETER
+        -   MASS_POSITION_SEISMOMETER
+        -   NON_SPECIFIC_INSTRUMENT
+        -   PRESSURE
+        -   RAINFALL
+        -   ROTATIONAL_SENSOR
+        -   SYNTHESIZED_BEAM
+        -   TEMPERATURE
+        -   TIDE
+        -   TILT_METER
+        -   VOLUMETRIC_STRAIN
+        -   WATER_CURRENT
+        -   WIND
+        
+    ChannelOrientationType:
+      type: string
+      enum:
+        -   UNKNOWN
+        -   CABINET_SOURCE_1
+        -   CABINET_SOURCE_2
+        -   CABINET_SOURCE_3
+        -   CABINET_SOURCE_4
+        -   CALIBRATION_A
+        -   CALIBRATION_B
+        -   CALIBRATION_C
+        -   CALIBRATION_D
+        -   COHERENT_BEAM
+        -   DOWN_HOLE
+        -   EAST_WEST
+        -   FK_3C
+        -   FK_BEAM
+        -   HYDROPHONE
+        -   INCOHERENT_BEAM
+        -   INFRASOUND
+        -   INSIDE
+        -   LATITUDINAL
+        -   NORTH_SOUTH
+        -   OPTIONAL_U
+        -   OPTIONAL_V
+        -   OPTIONAL_W
+        -   ORIGIN_BEAM
+        -   ORTHOGONAL_1
+        -   ORTHOGONAL_2
+        -   ORTHOGONAL_3
+        -   OUTSIDE
+        -   RADIAL
+        -   TRANSVERSE
+        -   TRANSVERSE_VERTICAL
+        -   TRIAXIAL_A
+        -   TRIAXIAL_B
+        -   TRIAXIAL_C
+        -   UNDERGROUND
+        -   VERTICAL
+        -   WIND_DIRECTION
+        -   WIND_SPEED
+        
+    ChannelProcessingMetadataType:
+      type: string
+      enum: 
+        -   BEAM_COHERENT
+        -   BEAM_PHASE
+        -   BEAM_SUMMATION
+        -   BEAM_TYPE
+        -   BRIDGED
+        -   CHANNEL_GROUP
+        -   EVENT_HYPOTHESIS_ID
+        -   FILTER_CAUSALITY
+        -   FILTER_TYPE
+        -   LOCATION
+        -   SIGNAL_DETECTION_HYPOTHESIS_ID
+        -   STEERING_ANGLE_OF_INCIDENCE
+        -   STEERING_BACK_AZIMUTH
+        -   STEERING_SLOWNESS
+
+    # Masked derived Channel definitions
+    # 
+    ProcessingMaskDefinition:
+      type: object
+      required:
+        - appliedQcSegmentCategoryAndTypes
+        - maskedSectionMaxDropDuration
+        - maskedSectionDropThreshold
+        - maskedSegmentMergeThreshold
+        - processingOperation
+        - waveformMaskingDefinition
+      properties:
+        appliedQcSegmentCategoryAndTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/QcSegmentCategoryAndType'
+        maskedSectionMaxDropDuration:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        maskedSectionDropThreshold:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 100.0
+        maskedSegmentMergeThreshold:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        processingOperation:
+          $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ProcessingOperation'
+        waveformMaskingDefinition:
+          $ref: '#/components/schemas/WaveformMaskingDefinition'
+
+    QcSegmentCategoryAndType:
+      type: object
+      required:
+        - category
+      properties:
+        category:
+          $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/QcSegmentCategory'
+        type:
+          $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/QcSegmentType'
+
+    WaveformMaskingDefinition:
+      type: object
+      required:
+        - maskMode
+      properties:
+        interpolationThreshold:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        maskMode:
+          $ref: '#/components/schemas/MaskMode'
+
+    MaskMode:
+      type: string
+      enum:
+        - DROP
+        - FIX_BY_INTERPOLATION
+        - ZERO_FILL
+
+    # Demeaned derived Channel definitions
+    # 
+    DemeaningDefinition:
+      type: object
+      required:
+        - meanType
+        - includeInterpolatedSamples
+      properties:
+        meanType:
+          $ref: '#/components/schemas/MeanType'
+        includeInterpolatedSamples:
+          type: boolean
+
+    MeanType:
+      type: string
+      enum:
+        - ARITHMETIC
+
+    # Tapered derived Channel definitions
+    # 
+    TaperDefinition:
+      type: object
+      required:
+        - taperDirection
+        - taperDuration
+        - taperFunction
+        - taperType
+      properties:
+        taperDirection:
+          $ref: '#/components/schemas/TaperDirection'
+        taperDuration:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        taperFunction:
+          $ref: '#/components/schemas/TaperFunction'
+        taperType:
+          $ref: '#/components/schemas/TaperType'
+
+    TaperDirection:
+      type: string
+      enum:
+        - BOTH
+        - FORWARD
+        - REVERSE
+
+    TaperFunction:
+      type: string
+      enum:
+        - BLACKMAN
+        - COSINE
+        - HAMMING
+        - HANNING
+        - PARZEN
+        - WELCH
+
+    TaperType:
+      type: string
+      enum:
+        - ENDPOINT
+        - PROCESSING_MASK
+
+    # Filtered derived Channel definitions
+    # 
+    FilterDefinition:
+      type: object
+      required:
+        - filterDescription
+        - name
+      properties:
+        comments:
+          type: string
+        filterDescription:
+          oneOf:
+            - $ref: '#/components/schemas/LinearFilterDescription'
+            - $ref: '#/components/schemas/AutoregressiveFilterDescription'
+            - $ref: '#/components/schemas/PhaseMatchFilterDescription'
+            - $ref: '#/components/schemas/CascadeFilterDescription'
+        name:
+          type: string
+
+    FilterDescription:
+      type: object
+      required:
+        - causal
+        - filterType
+        - correctGroupDelay
+      properties:
+        causal:
+          type: boolean
+        comments:
+          type: string
+        filterType:
+          $ref: '#/components/schemas/FilterType'
+        correctGroupDelay:
+          type: boolean
+        response:
+          $ref: '#/components/schemas/FrequencyAmplitudePhase'
+
+    FilterType:
+      type: string
+      enum:
+        - AUTOREGRESSIVE
+        - CASCADE
+        - LINEAR
+        - PHASE_MATCH
+
+    LinearFilterDescription:
+      allOf:
+        - $ref: '#/components/schemas/FilterDescription'
+        - type: object
+          required:
+            - linearFilterType
+            - order
+            - passbandType
+            - zeroPhase
+          properties:
+            highFrequencyHz:
+              type: number
+              format: double
+              minimum: 0.0
+              exclusiveMinimum: true
+            lowFrequencyHz:
+              type: number
+              format: double
+              minimum: 0.0
+            linearFilterType:
+              $ref: '#/components/schemas/LinearFilterType'
+            order:
+              type: integer
+              minimum: 1
+            parameters:
+              oneOf:
+                - $ref: '#/components/schemas/FirFilterParameters'
+                - $ref: '#/components/schemas/IirFilterParameters'
+            passbandType:
+              $ref: '#/components/schemas/PassbandType'
+            zeroPhase:
+              type: boolean
+
+    LinearFilterParameters:
+      type: object
+      required:
+        - groupDelaySec
+        - sampleRateHz
+        - sampleRateToleranceHz
+      properties:
+        groupDelaySec:
+          type: number
+          format: double
+          minimum: 0.0
+        sampleRateHz:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        sampleRateToleranceHz:
+          type: number
+          format: double
+          minimum: 0.0
+
+    FirFilterParameters:
+      allOf:
+        - $ref: '#/components/schemas/LinearFilterParameters'
+        - type: object
+          required:
+            - transferFunctionBCoefficients
+          properties:
+            transferFunctionBCoefficients:
+              type: array
+              minItems: 1
+              items:
+                type: number
+                format: double
+
+    IirFilterParameters:
+      allOf:
+        - $ref: '#/components/schemas/LinearFilterParameters'
+        - type: object
+          required:
+            - sosDenominatorCoefficients
+            - sosNumeratorCoefficients
+          properties:
+            sosDenominatorCoefficients:
+              type: array
+              minItems: 3
+              items:
+                type: number
+                format: double
+            sosNumeratorCoefficients:
+              type: array
+              minItems: 3
+              items:
+                type: number
+                format: double
+
+    LinearFilterType:
+      type: string
+      enum:
+        - FIR_HAMMING
+        - FIR_OTHER
+        - IIR_BUTTERWORTH
+        - IIR_OTHER
+
+    PassbandType:
+      type: string
+      enum:
+        - BAND_PASS
+        - BAND_REJECT
+        - HIGH_PASS
+        - LOW_PASS
+
+    AutoregressiveFilterDescription:
+      allOf:
+        - $ref: '#/components/schemas/FilterDescription'
+        - type: object
+          required:
+            - autoregressiveFilterType
+            - autoregressiveType
+            - noiseWindowDuration
+            - noiseWindowOffset
+            - order
+            - signalWindowOffset
+          properties:
+            autoregressiveFilterType:
+              $ref: '#/components/schemas/AutoregressiveFilterType'
+            autoregressiveType:
+              $ref: '#/components/schemas/AutoregressiveType'
+            noiseWindowDuration:
+              type: string
+              #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+              format: duration
+            noiseWindowOffset:
+              type: string
+              #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+              format: duration
+            order:
+              type: integer
+              minimum: 1
+            parameters:
+                oneOf:
+                  - $ref: '#/components/schemas/AutoregressiveFilterParameters'
+                  - $ref: '#/components/schemas/AdaptiveAutoregressiveFilterParameters'
+            signalWindowDuration:
+              type: string
+              #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+              format: duration
+            signalWindowOffset:
+              type: string
+              #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+              format: duration           
+
+    AutoregressiveFilterType:
+      type: string
+      enum:
+        - ADAPTIVE
+        - NON_ADAPTIVE
+
+    AutoregressiveType:
+      type: string
+      enum:
+        - N
+        - N_SQUARED
+
+    BaseAutoregressiveFilterParameters:
+      type: object
+      required:
+        - sampleRateHz
+        - sampleRateToleranceHz
+      properties:
+        sampleRateHz:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        sampleRateToleranceHz:
+          type: number
+          format: double
+          minimum: 0.0
+
+    AutoregressiveFilterParameters:
+      allOf:
+        - $ref: '#/components/schemas/BaseAutoregressiveFilterParameters'
+        - type: object
+          required:
+            - coefficients
+            - noiseWindow
+          properties:
+            coefficients:
+              type: array
+              minItems: 1
+              items:
+                type: number
+                format: double
+            noiseWindow:
+              $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegmentDescriptor'
+
+    AdaptiveAutoregressiveFilterParameters:
+      allOf:
+        - $ref: '#/components/schemas/BaseAutoregressiveFilterParameters'
+        - type: object
+
+    PhaseMatchFilterDescription:
+      allOf:
+        - $ref: '#/components/schemas/FilterDescription'
+        - type: object
+          required:
+            - dispersionModelName
+            - frequencyTaperFunction
+            - highFrequencyHz
+            - highFrequencyTaperWidthHz
+            - lowFrequencyHz
+            - lowFrequencyTaperWidthHz
+            - numFrequencies
+            - phase
+            - referencePeriod
+          properties:
+            dispersionModelName:
+              type: string
+            frequencyTaperFunction:
+              $ref: '#/components/schemas/TaperFunction'
+            highFrequencyHz:
+              type: number
+              format: double
+              minimum: 0.0
+              exclusiveMinimum: true
+            highFrequencyTaperWidthHz:
+              type: number
+              format: double
+              minimum: 0.0
+              exclusiveMinimum: true
+            lowFrequencyHz:
+              type: number
+              format: double
+              minimum: 0.0
+            lowFrequencyTaperWidthHz:
+              type: number
+              format: double
+              minimum: 0.0
+              exclusiveMinimum: true
+            numFrequencies:
+              type: integer
+              minimum: 1
+            parameters:
+              $ref: '#/components/schemas/PhaseMatchFilterParameters'
+            phase:
+              $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/PhaseType'
+            referencePeriod:
+              type: string
+              #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+              format: duration
+
+    PhaseMatchFilterParameters:
+      type: object
+      required:
+        - receiverLocation
+        - sourceLocation
+      properties:
+        receiverLocation:
+          $ref: '#/components/schemas/Location'
+        sourceLocation:
+          $ref: '../../Event/OpenAPISpec/event-coi.yaml#/components/schemas/EventLocation'
+
+    CascadeFilterDescription:
+      allOf:
+        - $ref: '#/components/schemas/FilterDescription'
+        - type: object
+          required:
+            - filterDescriptions
+          properties:
+            filterDescriptions:
+              type: array
+              minItems: 2
+              items:
+                $ref: '#/components/schemas/FilterDescription'
+            parameters:
+              $ref: '#/components/schemas/CascadeFilterParameters'
+
+    CascadeFilterParameters:
+      type: object
+      required:
+        - sampleRateHz
+        - sampleRateToleranceHz
+      properties:
+        groupDelaySec:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        sampleRateHz:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        sampleRateToleranceHz:
+          type: number
+          format: double
+          minimum: 0.0
+
+    # Rotated derived Channel definitions
+    # 
+    RotationDefinition:
+      type: object
+      required:
+        - rotationDescription
+        - rotationParameters
+      properties:
+        rotationDescription:
+          $ref: '#/components/schemas/RotationDescription'
+        rotationParameters:
+          $ref: '#/components/schemas/RotationParameters'
+
+    RotationDescription:
+      type: object
+      required:
+        - phase
+        - rotationType
+        - samplingType
+        - twoDimensional
+      properties:
+        phase:
+          $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/PhaseType'
+        rotationType:
+          $ref: '#/components/schemas/RotationType'
+        samplingType:
+          $ref: '#/components/schemas/SamplingType'
+        twoDimensional:
+          type: boolean
+
+    RotationParameters:
+      type: object
+      required:
+        - locationToleranceKm
+        - orientationAngleToleranceDeg
+        - receiverToSourceAzimuthDeg
+        - sampleRateHz
+        - sampleRateToleranceHz
+      properties:
+        angleOfIncidenceDeg:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 90.0
+        locationToleranceKm:
+          type: number
+          format: double
+          minimum: 0.0
+        orientationAngleToleranceDeg:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 360.0
+        receiverToSourceAzimuthDeg:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 360.0
+        sampleRateHz:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        sampleRateToleranceHz:
+          type: number
+          format: double
+          minimum: 0.0
+
+    SamplingType:
+      type: string
+      enum:
+        - INTERPOLATED
+        - NEAREST_SAMPLE
+
+    RotationType:
+      type: string
+      enum:
+        - AMPLITUDE
+        - FK
+        - SIGNAL_DETECTION
+
+    # Beamed derived Channel definitions
+    # 
+    BeamDefinition:
+      type: object
+      required:
+        - beamDescription
+        - beamParameters
+      properties:
+        beamDescription:
+          $ref: '#/components/schemas/BeamDescription'
+        beamParameters:
+          $ref: '#/components/schemas/BeamParameters'
+
+    BeamDescription:
+      type: object
+      required:
+        - beamSummation
+        - beamType
+        - phase
+        - samplingType
+        - twoDimensional
+      properties:
+        beamSummation:
+          $ref: '#/components/schemas/BeamSummationType'
+        beamType:
+          $ref: '#/components/schemas/BeamType'
+        phase:
+          $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/PhaseType'
+        samplingType:
+          $ref: '#/components/schemas/SamplingType'
+        twoDimensional:
+          type: boolean
+
+    BeamSummationType:
+      type: string
+      enum:
+        - COHERENT
+        - INCOHERENT
+        - RMS
+
+    BeamType:
+      type: string
+      enum:
+        - AMPLITUDE
+        - CONTINUOUS_LOCATION
+        - EVENT
+        - FK
+        - SIGNAL_DETECTION
+
+    BeamParameters:
+      type: object
+      required:
+        - channelWeights
+        - minWaveformsToBeam
+        - orientationAngleToleranceDeg
+        - receiverToSourceAzimuthDeg
+        - sampleRateHz
+        - sampleRateToleranceHz
+        - slownessSecPerDeg
+      properties:
+        channelWeights:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/WeightByChannel'           
+        eventHypothesis:
+          $ref: '../../Event/OpenAPISpec/event-coi.yaml#/components/schemas/EventHypothesis'
+        minWaveformsToBeam:
+          type: integer
+          minimum: 2
+        orientationAngleToleranceDeg:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 360.0
+        receiverToSourceAzimuthDeg:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 360.0
+        sampleRateHz:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        sampleRateToleranceHz:
+          type: number
+          format: double
+          minimum: 0.0
+        signalDetectionHypothesis:
+          $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/SignalDetectionHypothesis'
+        slownessSecPerDeg:
+          type: number
+          format: double
+          minimum: 0.0
+        sourceLocation:
+          $ref: '#/components/schemas/Location'
+
+    WeightByChannel:
+      type: object
+      required:
+        - channel
+        - weight
+      properties:
+        channel:
+          $ref: '#/components/schemas/Channel'
+        weight:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 1.0
+
+    # FK derived Channel definitions
+    # 
+    FkSpectraDefinition:
+      type: object
+      required:
+        - fkSpectrumWindow
+        - normalizeWaveforms
+        - minimumWaveformsForSpectra
+        - orientationAngleToleranceDeg
+        - phase
+        - slownessGrid
+        - spectrumStepDuration
+        - twoDimensional
+        - type
+        - waveformSampleRate
+      properties:
+        demeaningDefinition:
+          $ref: '#/components/schemas/DemeaningDefinition'
+        fkSpectrumWindow:
+          $ref: '#/components/schemas/FkSpectrumWindow'
+        normalizeWaveforms:
+          type: boolean
+        minimumWaveformsForSpectra:
+          type: integer
+          minimum: 1
+        orientationAngleToleranceDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 360
+        phase:
+          $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/PhaseType'
+        slownessGrid:
+          $ref: '#/components/schemas/SlownessGrid'
+        spectrumStepDuration:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        twoDimensional:
+          type: boolean
+        type:
+          $ref: '#/components/schemas/FkType'
+        waveformSampleRate:
+          $ref: '#/components/schemas/FkWaveformSampleRate'
+
+    FkSpectraDefinitionArray:
+      allOf:
+        - $ref: '#/components/schemas/FkSpectraDefinition'
+        - type: object
+          required:
+            - channelWeights
+            - fkFrequencyRange
+            - fkUncertaintyDefinition
+          properties:
+            channelWeights:
+              type: array
+              minItems: 1
+              items:
+                $ref: '#/components/schemas/WeightByChannel'
+            fftTaperDefinition:
+              $ref: '#/components/schemas/TaperDefinition'
+            fkFrequencyRange:
+              $ref: '#/components/schemas/FkFrequencyRange'
+            fkUncertaintyDefinition:
+              $ref: '#/components/schemas/FkUncertaintyDefinition'
+
+    FkSpectraDefinition3c:
+      allOf:
+        - $ref: '#/components/schemas/FkSpectraDefinition'
+        - type: object
+          required:
+            - applyHilbertTransform
+            - locationToleranceKm
+            - mediumVelocityKmPerSec
+          properties:
+            applyHilbertTransform:
+              type: boolean
+            locationToleranceKm:
+              type: number
+              format: double
+              minimum: 0.0
+            mediumVelocityKmPerSec:
+              type: number
+              format: double
+              minimum: 0.0
+
+    FkType:
+      type: string
+      enum:
+        - FK_3C
+        - FK_ARRAY
+
+    FkFrequencyRange:
+      type: object
+      required:
+        - lowFrequencyHz
+        - highFrequencyHz
+      properties:
+        lowFrequencyHz:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        highFrequencyHz:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+
+    FkWaveformSampleRate:
+      type: object
+      required:
+        - waveformSampleRateHz
+        - waveformSampleRateToleranceHz
+      properties:
+        waveformSampleRateHz:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        waveformSampleRateToleranceHz:
+          type: number
+          format: double
+          minimum: 0.0
+
+    FkUncertaintyDefinition:
+      type: object
+      required:
+        - fkUncertaintyOption
+      properties:
+        empiricalUncertaintyDefinition:
+          $ref: '#/components/schemas/EmpiricalUncertaintyDefinition'
+        exponentialSignalCoherenceUncertaintyDefinition:
+          $ref: '#/components/schemas/ExponentialSignalCoherenceUncertaintyDefinition'
+        fkUncertaintyOption:
+          $ref: '#/components/schemas/FkUncertaintyOption'
+
+    FkUncertaintyOption:
+      type: string
+      enum:
+        - EMPIRICAL
+        - EXPONENTIAL
+        - OBSERVED_SIGNAL_COHERENCE
+        - PERFECT_SIGNAL_COHERENCE
+
+    EmpiricalUncertaintyDefinition:
+      type: object
+      required:
+        - modelUncertainty
+        - wavenumberUncertainty
+      properties:
+        modelUncertainty:
+          type: number
+          format: double
+        wavenumberUncertainty:
+          type: number
+          format: double
+
+    ExponentialSignalCoherenceUncertaintyDefinition:
+      type: object
+      required:
+        - decayConstant
+        - exponentialConstant
+      properties:
+        decayConstant:
+          type: number
+          format: double
+        exponentialConstant:
+          type: number
+          format: double
+
+    FkSpectrumWindow:
+      type: object
+      required:
+        - duration
+        - lead
+      properties:
+        duration:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        lead:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+
+    SlownessGrid:
+      type: object
+      required:
+        - maxSlowness
+        - numPoints
+      properties:
+        maxSlowness:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        numPoints:
+          type: integer
+          minimum: 1
+
+    # Spectrogram derived Channel definitions
+    #
+    SpectrogramDefinition:
+      type: object
+      required:
+        - numFrequencyBins
+        - spectrumWindowDefinition
+      properties:
+        numFrequencyBins:
+          type: integer
+          minimum: 1
+        spectrumWindowDefinition:
+          $ref: '#/components/schemas/SlidingWindowDefinition'
+        windowTaperDefinition:
+          $ref: '#/components/schemas/TaperDefinition'
+
+    SlidingWindowDefinition:
+      type: object
+      required:
+        - stepDuration
+        - windowDuration
+      properties:
+        stepDuration:
+          type: string
+          # Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        windowDuration:
+          type: string
+          # Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+
+    # Power Spectral Density derived Channel definitions
+    #
+    PowerSpectralDensitiesDefinition:
+      type: object
+      required:
+        - powerSpectralDensityDescription
+        - psdSampleWindowDefinition
+      properties:
+        powerSpectralDensityDescription:
+          $ref: '#/components/schemas/PowerSpectralDensityDescription'
+        psdSampleWindowDefinition:
+          $ref: '#/components/schemas/SlidingWindowDefinition'
+
+    PowerSpectralDensityDescription:
+      type: object
+      required:
+        - numFrequencyBins
+        - smoothingKernelSize
+        - spectrumWindowDefinition
+      properties:
+        numFrequencyBins:
+          type: integer
+          minimum: 1
+        smoothingKernelSize:
+          type: integer
+          minimum: 1
+        spectrumWindowDefinition:
+          $ref: '#/components/schemas/SlidingWindowDefinition'
+        windowTaperDefinition:
+          $ref: '#/components/schemas/TaperDefinition'
+
+# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\StationDefinition\OpenAPISpec\station-definition-operations.yaml
+
+openapi: 3.0.3
+info:
+  title: GMS Station Definition Data Fabric Operations
+  description: Defines the Data Fabric operations for the GMS Common Object Interface (COI) classes in the Station Definition domain.
+  version: 1.0.6
+
+paths:
+
+  /station-definition/station-group/query/names:
+    post:
+      summary: Retrieves the StationGroup objects with the provided (StationGroup entity name, effective time) pairs.
+      description: "Retrieves and returns each StationGroup entity version object matching any NameAndTime object in the collection provided in the request body. For each provided NameAndTime object, this operation finds the StationGroup entity version with: entity name matching the NameAndTime attribute name; the latest effectiveAt time equal to or earlier than the NameAndTime attribute effectiveTime; effectiveUntil time equal to or later than the NameAndTime attribute effectiveTime, or unpopulated effectiveUntilTime (which indicates the object is still effective). If the NameAndTime attribute effectiveTime is unpopulated, then this operation behaves as though its value is assigned to the current wall clock time. This operation populates the faceted attributes of each returned StationGroup object as described in the FacetingDefinition object provided in the request. If the FacetingDefinition object is unpopulated, this operation populates the faceted attributes of the StationGroup objects according to the defaults defined by the COI data model."
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: Set of NameAndTime objects, each containing a StationGroup entity name and an effective time.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NamesAndTimesRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation. Returns a StationGroup collection containing the StationGroup entity version objects matching the provided NameAndTime objects, populated according to the provided FacetingDefinition. The collection contains exactly one entry for each provided NameAndTime object.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/StationGroup'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/StationGroup'
+        '209':
+          description: Partially successful operation. Returns a StationGroup collection containing each StationGroup entity version object matching any of the provided NameAndTime objects and populated according to the provided FacetingDefinition. The collection does not include an entry for a provided NameAndTime object if no StationGroup entity exists with the provided name, or if the StationGroup entity exists but does not have a version effective at the requested time. Returns an empty collection if no StationGroup entity version objects match the query predicate.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/StationGroup'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/StationGroup'
+
+
+  /station-definition/station/query/names:
+    post:
+      summary: Retrieves the Station objects with the provided (Station entity name, effective time) pairs.
+      description: "Retrieves and returns each Station entity version object matching any NameAndTime object in the collection provided in the request body. For each provided NameAndTime object, this operation finds the Station entity version with: entity name matching the NameAndTime attribute name; the latest effectiveAt time equal to or earlier than the NameAndTime attribute effectiveTime; effectiveUntil time equal to or later than the NameAndTime attribute effectiveTime, or unpopulated effectiveUntilTime (which indicates the object is still effective). If the NameAndTime attribute effectiveTime is unpopulated, then this operation behaves as though its value is assigned to the current wall clock time. This operation populates the faceted attributes of each returned Station object as described in the FacetingDefinition object provided in the request. If the FacetingDefinition object is unpopulated, this operation populates the faceted attributes of the Station objects according to the defaults defined by the COI data model."
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: Set of NameAndTime objects, each containing a Station entity name and an effective time.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NamesAndTimesRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation. Returns a Station collection containing the Station entity version objects matching the provided NameAndTime objects, populated according to the provided FacetingDefinition. The collection contains exactly one entry for each provided NameAndTime object.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Station'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Station'
+        '209':
+          description: Partially successful operation. Returns a Station collection containing each Station entity version object matching any of the provided NameAndTime objects and populated according to the provided FacetingDefinition. The collection does not include an entry for a provided NameAndTime object if no Station entity exists with the provided name, or if the Station entity exists but does not have a version effective at the requested time. Returns an empty collection if no Station entity version objects match the query predicate.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Station'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Station'
+
+
+  /station-definition/channel/query/names:
+    post:
+      summary: Retrieves the Channel objects with the provided (Channel entity name, effective time) pairs.
+      description: "Retrieves and returns each Channel entity version object matching any NameAndTime object in the collection provided in the request body. For each provided NameAndTime object, this operation finds the Channel entity version with: entity name matching the NameAndTime attribute name; the latest effectiveAt time equal to or earlier than the NameAndTime attribute effectiveTime; effectiveUntil time equal to or later than the NameAndTime attribute effectiveTime, or unpopulated effectiveUntilTime (which indicates the object is still effective). If the NameAndTime attribute effectiveTime is unpopulated, then this operation behaves as though its value is assigned to the current wall clock time. This operation populates the faceted attributes of each returned Channel object as described in the FacetingDefinition object provided in the request. If the FacetingDefinition object is unpopulated, this operation populates the faceted attributes of the Channel objects according to the defaults defined by the COI data model."
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: Set of NameAndTime objects, each containing a Channel entity name and an effective time.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NamesAndTimesRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation. Returns a Channel collection containing the Channel entity version objects matching the provided NameAndTime objects, populated according to the provided FacetingDefinition. The collection contains exactly one entry for each provided NameAndTime object.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Channel'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Channel'
+        '209':
+          description: Partially successful operation. Returns a Channel collection containing each Channel entity version object matching any of the provided NameAndTime objects and populated according to the provided FacetingDefinition. The collection does not include an entry for a provided NameAndTime object if no Channel entity exists with the provided name, or if the Channel entity exists but does not have a version effective at the requested time. Returns an empty collection if no Channel entity version objects match the query predicate.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Channel'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Channel'
+
+  /station-definition/response/query/ids:
+    post:
+      summary: Retrieves the Response objects with the provided (Response entity id, effective time) pairs.
+      description: "Retrieves and returns each Response entity version object matching any UuidAndTime object provided in the request body. For each provided UuidAndTime object, this operation finds the Response entity version with: entity id matching the UuidAndTime attribute uuid; the latest effectiveAt time equal to or earlier than the UuidAndTime attribute effectiveTime; effectiveUntil time equal to or later than the UuidAndTime attribute effectiveTime, or unpopulated effectiveUntilTime (which indicates the object is still effective). If UuidAndTime attribute effectiveTime is unpopulated, then this operation behaves as though the client assigned its value to the current wall clock time. This operation populates the faceted attributes of each returned Response object as described in the FacetingDefinition object provided in the request. If the FacetingDefinition object is unpopulated, this operation populates the faceted attributes of the Response objects according to the defaults defined by the COI data model."
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: Set of UuidAndTime objects, each containing a Response entity identifier and an effective time.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UuidsAndTimesRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation. Returns a Response collection containing the Response entity version objects matching the provided UuidAndTime objects, populated according to the provided FacetingDefinition. The collection contains exactly one entry for each provided UuidAndTime object.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Response'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Response'
+        '209':
+          description: Partially successful operation. Returns a Response collection containing each Response entity version object matching any of the provided UuidAndTime objects and populated according to the provided FacetingDefinition. The collection does not include an entry for a provided UuidAndTime object if no Response entity exists with the provided UUID, or if the Response entity exists but does not have a version effective at the requested time. Returns an empty collection if no Response entity version objects match the query predicate.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Response'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Response'
+
+  /station-definition/channel/store:
+    post:
+      summary: Stores each provided Channel.
+      description: "Stores each providedÂ Channel. Each Channel provided to this operation must be a populated instance and cannot be either an entity reference or an entity version reference. 
+        If the providedÂ transient parameter is assigned to the boolean value 'true', then this operation may temporarily store eachÂ ChannelÂ object pending its association to another stored object (e.g. ChannelSegment,Â SignalDetection), 
+        at which time theÂ DataFabricÂ must persistently store the Channel. The DataFabricÂ may eventually remove from the temporary storageÂ a transiently stored ChannelÂ that is never associated to another stored object. 
+        If the provided transientÂ parameter is assigned to the boolean value 'false', then this operation persistently stores each of the providedÂ ChannelÂ objects. 
+        This operation will not update a previously stored ChannelÂ with new attribute values if a providedÂ ChannelÂ object has the same identifier (name andÂ effectiveAt) but different attribute values as the stored Channel, instead finding the provided ChannelÂ to be inconsistent with the previously storedÂ Channel. 
+        This operation will successfully store a providedÂ ChannelÂ if its identifier and attributes values exactly match a previously stored Channel.Â The way this operation stores the Channel to Station,Â Channel, and Response object associations must support the ChannelÂ query behavior. 
+        In particular, since the various objects may be updated with new versions on different cadences, it may be helpful to store the associations as references to the StationÂ orÂ Response entities rather than references to specific versions.Â 
+        (Future) This operation cascades storage to anyÂ ResponseÂ object aggregated by value in a providedÂ ChannelÂ object's responseÂ attribute. 
+        ThisÂ Response storage has the same transient / persistent storage and update behavior as described forÂ ChannelÂ objects."
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: A Channel collection and a flag indicating whether the storage is transient.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StoreChannelsRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation. Every provided Channel was stored successfully.
+          content:
+            application/json: {}
+            application/msgpack: {}
+        '209':
+          description: "Unable to store all or some of the provided Channel objects. The response body includes a StoreChannelResponse collection with an entry for each provided Channel.
+            If this operation successfully stores a provided Channel, then theÂ StoreChannelResponse has a StoreStatus of SUCCESS and a Channel populated as an entity version reference.
+            If this operation does not store a provided Channel because it is inconsistent with a previously stored Channel object, then theÂ StoreChannelResponse has a StoreStatus of CONFLICT and a populated instance of the previously stored Channel.
+            If the Channel was not able to be stored for a different reason, then the StoreChannelResponse has a StoreStatus of FAILURE and the Channel object is populated as an entity version reference."
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreChannelResponse'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreChannelResponse'
+
+
+  /station-definition/station/query/change-times:
+    post:
+      summary: Retrieves all of the times a Station entity, or any of its aggregated Station Definition entities (ChannelGroup, Channel, Response), were updated with new versions.
+      description: Retrieves an ordered collection of date-time values corresponding to every effective time when the Station provided in the query predicate, or any of its aggregated Station Definition objects (e.g. ChannelGroup, Channel, or Response), were updated with a new entity version within the time range provided in the query predicate. The provided time range is inclusive. One of the times in the output collection may occur before the startTime, corresponding to the final change affecting the Station entity version, or any of its aggregated Station Definition entities, that was in effect at the startTime. None of the times in the output collection occur after the endTime. The output collection is ordered by increasing time.
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: Station and time range
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StationChangeTimesRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation. Returns a date-time collection containing times when the Station, or any of its aggregated Station Definition entities (ChannelGroup, Channel, Response), were updated with new versions.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: date-time
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: date-time
+
+components:
+  schemas:
+
+    NamesAndTimesRequest:
+      type: object
+      required:
+        - namesAndTimes
+      properties:
+        namesAndTimes:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameAndTime'
+          minItems: 1
+        facetingDefinition:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/FacetingDefinition'
+
+    NameAndTime:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        effectiveAtTime:
+          type: string
+          # Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+
+    UuidsAndTimesRequest:
+      type: object
+      required:
+        - uuidsAndTimes
+      properties:
+        uuidsAndTimes:
+          type: array
+          items:
+            $ref: '#/components/schemas/UuidAndTime'
+          minItems: 1
+        facetingDefinition:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/FacetingDefinition'
+
+    UuidAndTime:
+      type: object
+      required:
+        - uuid
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        effectiveAtTime:
+          type: string
+          # Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+
+    StoreChannelsRequest:
+      type: object
+      required:
+        - channels
+        - transient
+      properties:
+        channels:
+          type: array
+          items:
+            $ref: 'station-definition-coi.yaml#/components/schemas/Channel'
+          minItems: 1
+        transient:
+          type: boolean
+
+    StoreChannelResponse:
+      type: object
+      required:
+        - channel
+        - storeStatus
+      properties:
+        channel:
+          $ref: 'station-definition-coi.yaml#/components/schemas/Channel'
+        storeStatus:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/StoreStatus'
+
+    StationChangeTimesRequest:
+      type: object
+      required:
+        - station
+        - startTime
+        - endTime
+      properties:
+        # May be populated as an entity reference, entity version reference, or fully populated version object.
+        station:
+          $ref: 'station-definition-coi.yaml#/components/schemas/Station'
+        #Constraint: startTime must be earlier than or equal to endTime
+        startTime:
+          type: string
+          # Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        endTime:
+          type: string
+          # Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time    
+
+
+# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Waveform\OpenAPISpec\waveform-coi.yaml
+
+openapi: 3.0.3
+info:
+  title: GMS Waveform COI schema
+  description: Defines a schema for the GMS Common Object Interface (COI) classes in the Waveform domain.
+  version: 1.0.8
+
+paths: {}
+
+components:
+  schemas:
+
+    ChannelSegment:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          $ref: '#/components/schemas/ChannelSegmentDescriptor'
+        timeseriesType:
+          $ref: '#/components/schemas/TimeseriesType'
+        units:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/Units'
+        maskedBy:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProcessingMask'
+        timeseries:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/Waveform'
+              - $ref: '#/components/schemas/WfdiscWaveformClaimCheck'
+              - $ref: '#/components/schemas/FkSpectra'
+              - $ref: '#/components/schemas/Spectrogram'
+              - $ref: '#/components/schemas/PowerSpectralDensities'
+          minItems: 1
+
+    ChannelSegmentDescriptor:
+      type: object
+      required:
+        - startTime
+        - endTime
+        - creationTime
+        - channel
+      properties:
+        startTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        endTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        creationTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        channel:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Channel'
+
+    TimeseriesType:
+      type: string
+      enum:
+        - DETECTION_FEATURE_MAP
+        - FK_SPECTRA
+        - POWER_SPECTRAL_DENSITIES
+        - SPECTROGRAM
+        - WAVEFORM
+        - WFDISC_WAVEFORM_CLAIM_CHECK
+
+    BaseTimeseries:
+      type: object
+      required:
+        - startTime
+        - endTime        
+      properties:
+        startTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        endTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time        
+    
+    #Timeseries have the specializations Waveform, FkSpectra, and DetectionFeatureMap. For now, only this generalized Timeseries should be implemented, specializations will be provided later if needed.
+    Timeseries:
+      allOf:
+        - $ref: '#/components/schemas/BaseTimeseries'
+      type: object
+      required:
+        - sampleRateHz
+        - sampleCount
+      properties:
+        sampleRateHz:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        sampleCount:
+          type: number
+          format: integer
+
+    Waveform:
+      allOf:
+        - $ref: '#/components/schemas/Timeseries'
+      type: object
+      required:
+        - samples
+      properties:
+        samples:
+          type: array
+          items:
+            type: number
+            format: float
+
+    WfdiscWaveformClaimCheck:
+      allOf:
+        - $ref: '#/components/schemas/BaseTimeseries'
+      type: object
+      required:
+        - wfids      
+      properties:
+        wfids:
+          type: array
+          items:
+            type: integer
+            format: int64
+          minItems: 1                        
+
+    ProcessingMask:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          format: uuid
+        effectiveAt:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time        
+        startTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        endTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        processingOperation:
+          $ref: '#/components/schemas/ProcessingOperation'
+        appliedToRawChannel:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Channel'
+        maskedQcSegmentVersions:
+          type: array
+          items:
+            $ref: '#/components/schemas/QcSegmentVersion'
+          minItems: 1
+
+    QcSegment:
+      required:
+        - id
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        channel:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Channel'
+        versionHistory:
+          #This collection is ordered by the QcSegmentVerion object's QcSegmentVersionId effectiveAt times in ascending order.
+          type: array
+          items:
+            $ref: '#/components/schemas/QcSegmentVersion'
+          minItems: 1
+
+    QcSegmentVersion:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          $ref: '#/components/schemas/QcSegmentVersionId'
+        channel:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Channel'
+        category:
+          $ref: '#/components/schemas/QcSegmentCategory'
+        type:
+          $ref: '#/components/schemas/QcSegmentType'
+        startTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        endTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        createdBy:
+          type: string
+        rejected:
+          type: boolean
+        rationale:
+          type: string
+        stageId:
+          $ref: '../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'
+        discoveredOn:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChannelSegment'
+
+    QcSegmentVersionId:
+      type: object
+      properties:
+        parentQcSegmentId:
+          type: string
+          format: uuid
+        effectiveAt:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+
+    QcSegmentCategory:
+      type: string
+      enum:
+        - ANALYST_DEFINED
+        - DATA_AUTHENTICATION
+        - LONG_TERM
+        - STATION_SOH
+        - UNPROCESSED
+        - WAVEFORM
+
+    QcSegmentType:
+      type: string
+      enum:
+        - AGGREGATE
+        - CALIBRATION
+        - FLAT
+        - GAP
+        - NOISY
+        - SENSOR_PROBLEM
+        - SPIKE
+        - STATION_PROBLEM
+        - STATION_SECURITY
+        - TIMING
+
+    ProcessingOperation:
+      type: string
+      enum:
+        - AMPLITUDE_MEASUREMENT
+        - DISPLAY_FILTER
+        - EVENT_BEAM
+        - FK_BEAM
+        - FK_SPECTRA
+        - POWER_SPECTRAL_DENSITY
+        - ROTATION
+        - SIGNAL_DETECTION_BEAM
+        - SPECTROGRAM
+        - VIRTUAL_BEAM
+
+    FkSpectra:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Timeseries'
+      required:
+        - samples
+      properties:
+        fkSpectraMetadata:
+          $ref: '#/components/schemas/FkSpectraMetadata'
+        samples:
+          type: array
+          items:
+            $ref: '#/components/schemas/FkSpectrum'
+          minItems: 1
+
+    FkSpectraMetadata:
+      type: object
+      required:
+        - fkSpectrumWindow
+        - slownessGrid
+        - phase
+      properties:
+        fkSpectrumWindow:
+          $ref: '#/components/schemas/FkSpectrumWindow'
+        slownessGrid:
+          $ref: '#/components/schemas/SlownessGrid'
+        phase:
+          $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/PhaseType'
+
+    FkSpectrumWindow:
+      type: object
+      required:
+        - duration
+        - lead
+      properties:
+        duration:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+          minimum: 0.0
+          exclusiveMinimum: true
+        lead:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+          minimum: 0.0
+
+    SlownessGrid:
+      type: object
+      required:
+        - maxSlowness
+        - numPoints
+      properties:
+        maxSlowness:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        # the value of numPoints must be odd as it includes the origin point with an equal amount of points on each side.
+        numPoints:
+          type: number
+          format: integer
+          minimum: 1
+      
+    FkSpectrum:
+      type: object
+      properties:
+        fstat:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: float
+        power:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: float
+        fkQual:
+          type: number
+          format: double
+        fkAttributes:
+          $ref: '#/components/schemas/FkAttributes'
+
+    FkAttributes:
+      type: object
+      required:
+        - peakFstat
+        - peakPower
+        - receiverToSourceAzimuth
+        - slowness
+      properties:
+        peakFstat:
+          type: number
+          format: float
+        peakPower:
+          type: number
+          format: float
+        receiverToSourceAzimuth:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DoubleValue'
+          minimum: 0
+          maximum: 360
+        slowness:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DoubleValue'
+
+    Spectrogram:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Timeseries'
+      required:
+        - frequencyBins
+        - spectra
+      properties:
+        frequencyBins:
+          $ref: '#/components/schemas/FrequencyBins'
+        spectra:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: float
+
+    PowerSpectralDensities:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Timeseries'
+      required:
+        - powerSpectralDensities
+        - frequencyBins
+      properties:
+        powerSpectralDensities:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: float
+        frequencyBins:
+          $ref: '#/components/schemas/FrequencyBins'
+
+    FrequencyBins:
+      type: object
+      required:
+        - maxCenterFrequencyHz
+        - minCenterFrequencyHz
+        - numFrequencyBins
+      properties:
+        maxCenterFrequencyHz:
+          type: number
+          format: double
+          minimum: 0
+          exclusiveMinimum: true
+        minCenterFrequencyHz:
+          type: number
+          format: double
+          minimum: 0
+        numFrequencyBins:
+          type: integer
+          minimum: 1
+
+
+# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Waveform\OpenAPISpec\waveform-operations.yaml
+
+openapi: 3.0.3
+info:
+  title: GMS Waveform Data Fabric Operations
+  description: Defines the Data Fabric operations for the GMS Common Object Interface (COI) classes in the Waveform domain.
+  version: 1.0.9
+
+paths:
+
+  /waveform/qcsegment/query/channels-timerange:
+    post:
+      summary: Retrieves QcSegment objects for the provided channels in the given timerange (inclusive). Uses the optionally provided changed since time to return only QcSegment objects that have changed on or after this time.
+      description: "Retrieves and returns all QcSegment objects within the time range provided in the request and with an associated Channel within the collection provided in the request. 
+        A QcSegment is within the timerange provided by the request if the QcSegment entity's current (latest version) QcSegmentVersion is within the time range. 
+        A QcSegmentVersion is within the time range if the QcSegmentVersion object's startTime is before or at the request's endTime and the QcSegmentVersion object's endTime is after or at the request's startTime. 
+        If the changedSinceTime is present, returns only QcSegment objects stored on or after the changedSinceTime that also meet the other criteria of the query.
+        This operation populates the faceted attributes of the QcSegment according to the FacetingDefinition object in the request. 
+        If the FacetingDefinition object is unpopulated, this operation populates the faceted attributes of the QcSegment according to the defaults defined by the COI data model, except that if changedSinceTime is present it will populate each QcSegmentVersionÂ that was stored on or after that changedSinceTime rather than only the latestÂ QcSegmentVersion."
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: A request with a start time, end time, collection of channels, and optionally a FacetingDefinition.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChannelsTimeRangeRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation. Returns a collection of QcSegment objects populated according to the FacetingDefinition or the specified COI default faceting if the FacetingDefinition was unpopulated.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'waveform-coi.yaml#/components/schemas/QcSegment'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'waveform-coi.yaml#/components/schemas/QcSegment'
+
+  /waveform/query/event-beams-by-stations-and-timerange:
+    post:
+      summary: Finds Event beam Waveforms for the provided Station collection and time range.
+      description: This operation finds and returns the Event beam Waveform ChannelSegmentÂ objects for the Station collection and time range provided in the query predicate. This operation only returnsÂ EventÂ beam Waveform ChannelSegmentÂ objects created for EventHypothesisÂ objects preferred for one of the entries in the provided Stage collection. This operation only returnsÂ Waveform ChannelSegmentÂ objects created for EventHypothesisÂ objects occurring in the time range provided in the query predicate. An EventHypothesis occurs in a time range if it contains a peferredLocationSolution with time occurring in the time rangeÂ beginning at startTime and ending at endTime (both startTime and endTimeÂ inclusive; a value exactly equal to one of these bounds is in the time range). If the provided request includes a populated changedSinceTime, then this operation only returnsÂ  EventÂ beam Waveform ChannelSegmentÂ objects which were stored on or after the provided time. TheÂ ChannelSegmentsByEventHypothesis response is a map withÂ EventHypothesis objects for the keys (populated as id-only reference instances) mapped to EventÂ beamÂ WaveformÂ ChannelSegment collections for the values. It maps EventHypothesisÂ objects to EventÂ beam Waveform ChannelSegmentÂ objects created for the EventHypothesis.Â Each returnedÂ ChannelSegmentÂ object's Timeseries collection contains either WaveformÂ orÂ WfdiscWaveformClaimCheckÂ objects. This operation uses the providedÂ FacetingDefinitionÂ to determine how to populate faceted attributes in theÂ ChannelSegmentÂ objects (e.g. associated Channel ;Â maskedByÂ ProcessingMaskÂ collection). The provided Station objects are populated as entity references.
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: A StationsTimeRangeRequest object.
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/StationsTimeRangeRequest'
+      responses:
+        '200':
+          description: A map of EventHypothesis objects to ChannelSegment collections
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelSegmentsByEventHypothesis'
+            application/msgpack:
+              schema:
+                $ref: '#/components/schemas/ChannelSegmentsByEventHypothesis'
+
+  /waveform/qcsegment/update:
+    post:
+      summary: Stores the provided QcSegment objects, updating a QcSegment object if it was previously stored.
+      description: "Stores the provided QcSegment objects. To store a QcSegment object, 
+        atomically checks that the provided QcSegment object is consistent with the QcSegment object previously stored in the database 
+        and updates the QcSegment object in the database with the provided QcSegment. 
+        The provided QcSegment is consistent with the QcSegment object stored in the database 
+        if either no QcSegment object exists in the database with the same id as the provided QcSegment 
+        or the stored QcSegment in the database with the same id as the provided QcSegment has 
+        all of the QcSegmentVersion objects in its versionHistory contained within the provided QcSegment object's versionHistory. 
+        The provided QcSegment will have one or more new QcSegmentVersion objects in addition to the QcSegmentVersion objects 
+        associated to the currently stored QcSegment; 
+        these QcSegmentVersion objects must all be versions with an effectiveAt after the stored QcSegment object's associated QcSegmentVersion objects' effectiveAt fields.
+        The consistency check and update for a single QcSegment must be atomic so that if the same QcSegment 
+        is updated simultaneously by different users with two different latest QcSegmentVersions, 
+        one update is rejected and no inconsistency occurs. 
+        For every successfully stored or updated object, sets the object's storage time to the current wall clock time."  
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: An StoreQcSegmentsRequest object.
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/StoreQcSegmentsRequest'
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json: {}
+            application/msgpack: {}
+        '209':
+          description: "Unable to update all or some of the provided QcSegment objects. 
+            A collection of StoreQcSegmentResponse objects.
+            If the QcSegment was not stored due to a conflict with the previously stored QcSegment, storeStatus is set to CONFLICT 
+            and qcSegment is set to the previously stored, fully populated QcSegment.
+            If the QcSegment was not stored for a different reason, storeStatus is set to FAILURE, and the qcSegment is set to the provided QcSegment populated as an id-only instance.
+            If the QcSegment was stored, storedStatus is set to SUCCESS and the qcSegment is set to the provided QcSegment populated as an id-only instance."
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreQcSegmentResponse'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreQcSegmentResponse'
+
+  /waveform/channel-segment/store:
+    post:
+      summary: Stores the ChannelSegment objects in the provided ChannelSegment collection.
+      description: "For each ChannelSegment object in the provided ChannelSegment, stores that ChannelSegment object 
+        along with the associated maskedBy ProcessingMask objects and the derived Channel in the ChannelSegment object's ChannelSegmentDescriptor.
+        The provided ChannelSegment objects may include any of the TimeseriesTypes.
+        Previously stored ChannelSegment objects with the same Channel and time range as the ChannelSegment to be stored are not replaced or updated.
+        Instead, a new ChannelSegment object will be stored based on the unique creationTime.
+        The ChannelSegment is uniquely identified by its id attribute consisting of a startTime, endTime, creationTime, and Channel.
+        For the Channel in the ChannelSegment object's id, if that Channel was not stored, stores that Channel.
+        The Data Fabric will typically have previously received the derived Channel objects through a Channel storage request-response service operation.
+        For each Channel in that Channel's configuredInputs, recursively repeats the process of storing the Channel, 
+        storing the Channel if it is not already stored and iterating through that Channel object's configuredInputs.
+        Recursively ensures that all Channel objects that were the original Channel object or in the configuredInputs of a Channel object were stored.
+        This operation stores each ProcessingMask in the ChannelSegment object's maskedBy collection that is not already stored.
+        For every successfully stored or updated object, sets the object's storage time to the current wall-clock time."
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: An StoreChannelSegmentsRequest object.
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/StoreChannelSegmentsRequest'
+      responses:
+        '200':
+          description: All ChannelSegment objects were successfully stored.
+          content:
+            application/json: {}
+            application/msgpack: {}
+        '209':
+          description: Returns a collection of all ChannelSegment objects that were not successfully stored as id-only instances.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoreChannelSegmentsResponse'
+            application/msgpack:
+              schema:
+                $ref: '#/components/schemas/StoreChannelSegmentsResponse'
+components:
+  schemas:
+
+    ChannelsTimeRangeRequest:
+      type: object
+      required:
+        - startTime
+        - endTime
+        - channels
+      properties:
+        startTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        endTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        changedSinceTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        channels:
+          type: array
+          items:
+            $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Channel'
+          minItems: 1
+        facetingDefinition:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/FacetingDefinition'
+
+    StationsTimeRangeRequest:
+      type: object
+      required:
+        - stations
+        - startTime
+        - endTime
+        - stageIds
+      properties:
+        stations:
+          type: array
+          minItems: 1
+          items:
+            $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Station'
+        startTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        endTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        stageIds:
+          type: array
+          items:
+            $ref: '../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'
+          minItems: 1
+        changedSinceTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        facetingDefinition:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/FacetingDefinition'
+
+    ChannelSegmentsByEventHypothesis:
+      type: object
+      required:
+        - channelSegments
+        - eventHypothesis
+      properties:
+        channelSegments:
+          type: array
+          minItems: 1
+          items:
+            $ref: 'waveform-coi.yaml#/components/schemas/ChannelSegment'
+        eventHypothesis:
+          $ref: '../../Event/OpenAPISpec/event-coi.yaml#/components/schemas/EventHypothesis'
+
+    StoreQcSegmentsRequest:
+      type: object
+      required:
+       - qcSegments
+      properties:
+        qcSegments:
+          type: array
+          items:
+            $ref: 'waveform-coi.yaml#/components/schemas/QcSegment'
+
+    StoreQcSegmentResponse:
+      type: object
+      required:
+       - qcSegment
+       - storeStatus
+      properties:
+        qcSegment:
+          $ref: 'waveform-coi.yaml#/components/schemas/QcSegment'
+        storeStatus:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/StoreStatus'
+                
+    StoreChannelSegmentsRequest:
+      type: object
+      required:
+        - channelSegments
+      properties:
+        channelSegments:
+          type: array
+          items:
+            $ref: 'waveform-coi.yaml#/components/schemas/ChannelSegment'
+
+    StoreChannelSegmentsResponse:
+      type: object
+      required:
+        - unsuccessfulChannelSegments
+      properties:
+        unsuccessfulChannelSegments:
+          type: array
+          items:
+            $ref: 'waveform-coi.yaml#/components/schemas/ChannelSegment'
+
