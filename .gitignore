@@ -9,3 +9,7 @@ dist/
 
 # Python local servers
 __pycache__/
+
+# Editor/backup artifacts
+*.bak
+*.fixed.yaml
