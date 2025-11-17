@@ -1,5 +1,3 @@
-﻿
-# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Common\OpenAPISpec\common-coi.yaml
 
 openapi: 3.0.3
 info:
@@ -156,7 +154,7 @@ components:
           $ref: '../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'
 
 
-# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Common\OpenAPISpec\common-operations.yaml
+--- # file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Common\OpenAPISpec\common-operations.yaml
 
 openapi: 3.0.3
 info:
@@ -178,7 +176,7 @@ components:
         - ISO
       description: Provided in an HTTP Header. Defines the format of date and time values in request and response objects. When not provided, the date and time values default to the ISO 8601 Date and Time format.   
 
-# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Event\OpenAPISpec\event-coi.yaml
+--- # file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Event\OpenAPISpec\event-coi.yaml
 
 openapi: 3.0.3
 info:
@@ -941,7 +939,7 @@ components:
           $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/FilterDefinition'
 
 
-# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Event\OpenAPISpec\event-operations.yaml
+--- # file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Event\OpenAPISpec\event-operations.yaml
 
 openapi: 3.0.3
 info:
@@ -1343,7 +1341,7 @@ components:
             $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment' 
 
 
-# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Intervals\OpenAPISpec\workflow-coi.yaml
+--- # file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Intervals\OpenAPISpec\workflow-coi.yaml
 
 openapi: 3.0.3
 info:
@@ -1637,7 +1635,7 @@ components:
         - SCAN      
     
 
-# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Intervals\OpenAPISpec\workflow-operations.yaml
+--- # file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Intervals\OpenAPISpec\workflow-operations.yaml
 
 openapi: 3.0.3
 info:
@@ -1885,7 +1883,7 @@ components:
         storeStatus:
           $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/StoreStatus'
 
-# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\SignalDetection\OpenAPISpec\signal-detection-coi.yaml
+--- # file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\SignalDetection\OpenAPISpec\signal-detection-coi.yaml
 
 openapi: 3.0.3
 info:
@@ -2297,7 +2295,7 @@ components:
         - DILATION
         - INDETERMINATE
 
-# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\SignalDetection\OpenAPISpec\signal-detection-operations.yaml
+--- # file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\SignalDetection\OpenAPISpec\signal-detection-operations.yaml
 
 openapi: 3.0.3
 info:
@@ -2473,7 +2471,7 @@ components:
           $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/StoreStatus'
 
 
-# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\StationDefinition\OpenAPISpec\station-definition-coi.yaml
+--- # file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\StationDefinition\OpenAPISpec\station-definition-coi.yaml
 
 openapi: 3.0.3
 info:
@@ -3839,7 +3837,7 @@ components:
         windowTaperDefinition:
           $ref: '#/components/schemas/TaperDefinition'
 
-# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\StationDefinition\OpenAPISpec\station-definition-operations.yaml
+--- # file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\StationDefinition\OpenAPISpec\station-definition-operations.yaml
 
 openapi: 3.0.3
 info:
@@ -4214,7 +4212,7 @@ components:
           format: date-time    
 
 
-# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Waveform\OpenAPISpec\waveform-coi.yaml
+--- # file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Waveform\OpenAPISpec\waveform-coi.yaml
 
 openapi: 3.0.3
 info:
@@ -4641,7 +4639,7 @@ components:
           minimum: 1
 
 
-# --- file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Waveform\OpenAPISpec\waveform-operations.yaml
+--- # file: C:\Users\1036750517C\OneDrive - United States Air Force\Documents\2025\2025 Geo\gms-iei-req-2025-11-13\gms-iei-req-2025-11-13\Waveform\OpenAPISpec\waveform-operations.yaml
 
 openapi: 3.0.3
 info:
@@ -4932,4 +4930,5 @@ components:
           type: array
           items:
             $ref: 'waveform-coi.yaml#/components/schemas/ChannelSegment'
+
 
