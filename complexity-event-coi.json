@@ -1,0 +1,64 @@
+{
+  "paths": {
+    "count": 0
+  },
+  "operations": {
+    "count": 0,
+    "methods": {},
+    "avgParameters": 0.0,
+    "maxParameters": 0
+  },
+  "schemas": {
+    "count": 34,
+    "objectCount": 24,
+    "avgProperties": 5.75,
+    "maxProperties": 14,
+    "refCount": 78,
+    "distinctRefTargets": [
+      "ChannelFilterDefinitionPair",
+      "CorrelatedEventHypothesis",
+      "CorrelatedEventScanType",
+      "DefinerType",
+      "DefiningInfo",
+      "DepthRestraintReason",
+      "Ellipse",
+      "Ellipsoid",
+      "Event",
+      "EventCorrelationContext",
+      "EventHypothesis",
+      "EventHypothesisId",
+      "EventLocation",
+      "EventStatus",
+      "EventStatusInfoId",
+      "FeaturePrediction",
+      "FeaturePredictionComponent",
+      "FeaturePredictionComponentType",
+      "GeographicRegionId",
+      "LocationBehavior",
+      "LocationRestraint",
+      "LocationSolution",
+      "LocationUncertainty",
+      "MagnitudeType",
+      "NetworkMagnitudeBehavior",
+      "NetworkMagnitudeSolution",
+      "NetworkMagnitudeStatus",
+      "PreferredEventHypothesis",
+      "RestrainerType",
+      "RestraintType",
+      "ScalingFactorType",
+      "StationMagnitudeSolution"
+    ],
+    "circularRefSchemas": [
+      "Event",
+      "EventHypothesis",
+      "PreferredEventHypothesis"
+    ],
+    "circularRefCount": 3,
+    "maxNestingDepth": 2
+  },
+  "meta": {
+    "openapiVersion": "3.0.3",
+    "title": "GMS Event COI schema",
+    "version": "1.0.9"
+  }
+}
