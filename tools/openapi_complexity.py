@@ -499,10 +499,97 @@ def compute_metrics(spec: Dict[str, Any]) -> Dict[str, Any]:
     return report
 
 
+def _render_assessment_md(report: Dict[str, Any]) -> str:
+    ops = report["operations"]["count"]
+    methods = report["operations"]["methods"]
+    post_only = bool(ops) and set(methods.keys()) == {"post"}
+    schemas_cnt = report["schemas"]["count"]
+    obj_cnt = report["schemas"]["objectCount"]
+    refs_cnt = report["schemas"]["refCount"]
+    circ_cnt = report["schemas"]["circularRefCount"]
+    max_depth = report["schemas"]["maxNestingDepth"]
+    poly = report["schemas"]["polymorphism"]
+    union_branches = poly.get("unionBranchCount", 0) or 0
+    union_nodes = poly.get("unionSchemaCount", 0) or 0
+    discrim_cnt = poly.get("discriminatorCount", 0) or 0
+    score = float(report.get("complexityScore", 0.0) or 0.0)
+    title = report.get("meta", {}).get("title") or "(untitled)"
+    version = report.get("meta", {}).get("version") or "(unknown)"
+
+    # Heuristic feasibility classification
+    not_feasible = post_only and union_branches >= 10 and discrim_cnt == 0 and circ_cnt >= 5 and refs_cnt >= 150
+    barely_feasible = (post_only or union_branches > 0 or circ_cnt > 0 or refs_cnt >= 100)
+    if not_feasible:
+        conclusion = "No — not a reasonable contractor handoff in current form."
+        feasibility = "Not realistically feasible without targeted refactoring and governance."
+    elif barely_feasible:
+        conclusion = "Risky — possible but only with non-trivial guardrails."
+        feasibility = "Barely feasible; expect adapters, validators, and mapping layers."
+    else:
+        conclusion = "Yes — reasonable handoff with manageable risk."
+        feasibility = "Feasible with standard practices and modest onboarding."
+
+    md = []
+    md.append(f"# API Architectural Assessment — {title}\n")
+    md.append("## Executive Summary")
+    md.append(f"- Conclusion: {conclusion}")
+    md.append("- Why: POST-centric contract mirrors internal class graphs; polymorphism without discriminators and circular references increase coupling, testing effort, and integration risk.")
+    md.append(
+        f"- Indicators: ops {ops} ({', '.join(k.upper()+':'+str(v) for k,v in methods.items())}), "
+        f"schemas {schemas_cnt} (objects {obj_cnt}), refs {refs_cnt}, circular {circ_cnt}, maxDepth {max_depth}, oneOf branches {union_branches}, discriminators {discrim_cnt}, score {score}/100.\n"
+    )
+
+    md.append("## 1. Real-World Implementability")
+    md.append("- Domain understandability: Dense, interrelated schemas with cycles require deep domain context.")
+    md.append("- Client generation: oneOf without discriminators causes fragile or untyped unions in common generators.")
+    md.append("- Endpoint implementation: POST-only orchestration implies RPC over resources; new vendors must mirror server logic.")
+    md.append("- Workarounds: Custom mappers, serializers with recursion guards, and hand-written adapters are needed.")
+    md.append(f"- Feasibility: {feasibility}\n")
+
+    md.append("## 2. REST Architecture Appropriateness")
+    md.append("- Uniform interface: Lack of safe, cacheable GETs and resource identifiers prevents HTTP caching and linkability.")
+    md.append("- Resource modeling: Contract exposes a distributed object model, not stable resource representations.")
+    md.append("- Internal coupling: Composition and cycles leak class-model concerns to consumers.")
+    md.append("- Impacts: Lower interoperability; limited caching/scalability; larger mocking surface.\n")
+
+    md.append("## 3. Consumer Burden")
+    md.append("- Deserialization: Type resolution by shape/context increases runtime errors and testing effort.")
+    md.append("- Coupling/recursion: Circular refs and high $ref density complicate clients and fixtures.")
+    md.append("- Test harnesses: Realistic mocks require large interdependent graphs; fixture churn tracks internal changes.")
+    md.append("- Semantic ambiguity: POST-only flows conceal behavior, pushing knowledge to docs and tacit understanding.\n")
+
+    md.append("## 4. Integration Risk & Vendor Lock-In")
+    md.append("- Recreating internals: Forces implementers to rebuild server class models, reducing architectural independence.")
+    md.append("- Change ripple: Schema changes propagate across integrations and tests.")
+    md.append("- Sustainment: Polymorphism without discriminators + cycles create multi-year sustainment drag.\n")
+
+    md.append("## 5. Recommended Path Forward")
+    md.append("- Likely origin: COI-first approach drifted into exposing class hierarchies without a dedicated API architect.")
+    md.append("- Strategy:")
+    md.append("  1) Define resource boundaries (Events, Detections, Stations, Channels, Timeseries) with stable IDs and GET/PUT/PATCH/DELETE.")
+    md.append("  2) Provide faceted/projection views; avoid shipping full aggregates by default.")
+    md.append("  3) Add discriminators or simplify polymorphism to explicit types.")
+    md.append("  4) Isolate legacy/DAL mapping behind a translation layer; avoid mirroring internals.")
+    md.append("  5) Document normalization/masking/compat rules per endpoint.")
+    md.append("  6) Establish single-point technical ownership for contract and versioning.")
+    md.append("  7) Transition: maintain current endpoints; add resource-oriented ones; deprecate RPC after adoption.\n")
+
+    md.append("## Direct Answer")
+    if not_feasible:
+        md.append("No — not a reasonable contractor handoff now; proceed with the recommended resource-oriented refactor and governance to reduce risk.")
+    elif barely_feasible:
+        md.append("Risky — feasible with non-trivial guardrails (adapters, validators, mapping layers) and governance.")
+    else:
+        md.append("Yes — reasonable handoff with manageable risk under standard practices.")
+
+    return "\n".join(md) + "\n"
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("spec", help="Path to OpenAPI YAML file")
     ap.add_argument("--json-out", help="Write report to file instead of stdout")
+    ap.add_argument("--assessment-out", help="Write qualitative assessment Markdown to this file")
     args = ap.parse_args()
 
     spec = load_spec(args.spec)
@@ -517,6 +604,12 @@ def main():
         # Also print a concise human-readable summary and score for quick scanning
         print("\n=== Summary ===")
         print(report.get("summary", ""))
+
+    if args.assessment_out:
+        md = _render_assessment_md(report)
+        with open(args.assessment_out, "w", encoding="utf-8") as f:
+            f.write(md)
+        print(f"Wrote assessment to {args.assessment_out}")
 
 
 if __name__ == "__main__":
