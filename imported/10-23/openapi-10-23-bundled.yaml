@@ -1,0 +1,757 @@
+openapi: 3.0.3
+info:
+  title: GMS Workflow COI schema
+  description: Defines a schema for the GMS Common Object Interface (COI) classes in the Workflow domain.
+  version: 1.0.6
+  contact:
+    name: GMS API Support
+    url: https://example.com/gms
+    email: support@example.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: https://api.example.com/gms/workflow
+    description: Primary Workflow API server (placeholder)
+  - url: https://staging-api.example.com/gms/workflow
+    description: Staging Workflow API server (placeholder)
+paths: {}
+components:
+  schemas:
+    Interval:
+      required:
+        - endTime
+        - storageTime
+        - modificationTime
+        - status
+        - intervalId
+      type: object
+      properties:
+        endTime:
+          type: string
+          format: date-time
+        processingStartTime:
+          type: string
+          format: date-time
+        processingEndTime:
+          type: string
+          format: date-time
+        storageTime:
+          type: string
+          format: date-time
+        modificationTime:
+          type: string
+          format: date-time
+        comments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment'
+        status:
+          $ref: '#/components/schemas/IntervalStatus'
+        intervalId:
+          $ref: '#/components/schemas/IntervalId'
+    IntervalId:
+      type: object
+      required:
+        - startTime
+        - definitionId
+      properties:
+        startTime:
+          type: string
+          format: date-time
+        definitionId:
+          $ref: '#/components/schemas/WorkflowDefinitionId'
+    WorkflowDefinitionId:
+      type: object
+      required:
+        - effectiveAt
+        - name
+      properties:
+        effectiveAt:
+          type: string
+          format: date-time
+        name:
+          type: string
+    IntervalStatus:
+      type: string
+      enum:
+        - NOT_STARTED
+        - IN_PROGRESS
+        - NOT_COMPLETE
+        - COMPLETE
+        - FAILED
+        - SKIPPED
+    StageInterval:
+      allOf:
+        - $ref: '#/components/schemas/Interval'
+        - type: object
+          required:
+            - stageMode
+          properties:
+            stageMetrics:
+              $ref: '#/components/schemas/StageMetrics'
+            stageMode:
+              $ref: '#/components/schemas/StageMode'
+    StageMode:
+      type: string
+      enum:
+        - INTERACTIVE
+        - AUTOMATIC
+    StageMetrics:
+      type: object
+      required:
+        - eventCount
+        - associatedSignalDetectionCount
+        - unassociatedSignalDetectionCount
+        - percentWaveformsAvailable
+        - waveformAvailabilityStationGroup
+      properties:
+        eventCount:
+          type: integer
+        associatedSignalDetectionCount:
+          type: integer
+        unassociatedSignalDetectionCount:
+          type: integer
+        maxMagnitude:
+          type: number
+          format: double
+        percentWaveformsAvailable:
+          type: number
+          format: double
+        waveformAvailabilityStationGroup:
+          $ref: '#/components/schemas/StationGroup'
+        maxMagnitudeType:
+          $ref: '#/components/schemas/MagnitudeType'
+    InteractiveAnalysisStageInterval:
+      allOf:
+        - $ref: '#/components/schemas/StageInterval'
+        - type: object
+          required:
+            - activityIntervals
+          properties:
+            activityIntervals:
+              type: array
+              items:
+                $ref: '#/components/schemas/ActivityInterval'
+              minItems: 1
+            completedAnalystId:
+              type: string
+    ActivityInterval:
+      allOf:
+        - $ref: '#/components/schemas/Interval'
+        - type: object
+          required:
+            - stageIntervalId
+            - activeAnalystIds
+          properties:
+            stageIntervalId:
+              $ref: '#/components/schemas/IntervalId'
+            activeAnalystIds:
+              type: array
+              items:
+                type: string
+            reservedAnalystId:
+              type: string
+            completedAnalystId:
+              type: string
+    AutomaticProcessingStageInterval:
+      allOf:
+        - $ref: '#/components/schemas/StageInterval'
+        - type: object
+          required:
+            - sequenceIntervals
+          properties:
+            sequenceIntervals:
+              type: array
+              items:
+                $ref: '#/components/schemas/ProcessingSequenceInterval'
+              minItems: 1
+    ProcessingSequenceInterval:
+      allOf:
+        - $ref: '#/components/schemas/Interval'
+        - type: object
+          required:
+            - stageIntervalId
+            - percentComplete
+          properties:
+            stageIntervalId:
+              $ref: '#/components/schemas/IntervalId'
+            percentComplete:
+              type: number
+              format: double
+            lastExecutedStepName:
+              type: string
+    Workflow:
+      type: object
+      required:
+        - workflowId
+        - stages
+      properties:
+        workflowId:
+          $ref: '#/components/schemas/WorkflowDefinitionId'
+        stages:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/AutomaticProcessingStage'
+              - $ref: '#/components/schemas/InteractiveAnalysisStage'
+          minItems: 1
+    Stage:
+      type: object
+      required:
+        - stageId
+        - duration
+        - mode
+      properties:
+        stageId:
+          $ref: '#/components/schemas/WorkflowDefinitionId'
+        duration:
+          type: string
+          format: duration
+        mode:
+          $ref: '#/components/schemas/StageMode'
+    AutomaticProcessingStage:
+      allOf:
+        - $ref: '#/components/schemas/Stage'
+        - type: object
+          required:
+            - sequences
+          properties:
+            sequences:
+              type: array
+              items:
+                $ref: '#/components/schemas/ProcessingSequence'
+              minItems: 1
+    ProcessingSequence:
+      required:
+        - sequenceId
+        - steps
+      properties:
+        sequenceId:
+          $ref: '#/components/schemas/WorkflowDefinitionId'
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProcessingStep'
+          minItems: 1
+    ProcessingStep:
+      required:
+        - name
+      properties:
+        name:
+          type: string
+    InteractiveAnalysisStage:
+      allOf:
+        - $ref: '#/components/schemas/Stage'
+        - type: object
+          required:
+            - activities
+          properties:
+            activities:
+              type: array
+              items:
+                $ref: '#/components/schemas/Activity'
+              minItems: 1
+    Activity:
+      type: object
+      required:
+        - analysisActivity
+        - activityId
+      properties:
+        analysisActivity:
+          $ref: '#/components/schemas/AnalysisActivity'
+        activityId:
+          $ref: '#/components/schemas/WorkflowDefinitionId'
+    AnalysisActivity:
+      type: string
+      enum:
+        - EVENT_REVIEW
+        - SCAN
+    Comment:
+      type: object
+      required:
+        - id
+        - author
+        - comment
+        - time
+      properties:
+        id:
+          type: string
+          format: uuid
+        author:
+          type: string
+        comment:
+          type: string
+        time:
+          type: string
+          format: date-time
+    StationType:
+      type: string
+      enum:
+        - HYDROACOUSTIC
+        - HYDROACOUSTIC_ARRAY
+        - INFRASOUND
+        - INFRASOUND_ARRAY
+        - SEISMIC_1_COMPONENT
+        - SEISMIC_3_COMPONENT
+        - SEISMIC_3_COMPONENT_ARRAY
+        - SEISMIC_ARRAY
+        - WEATHER
+    Location:
+      type: object
+      required:
+        - latitudeDegrees
+        - longitudeDegrees
+        - depthKm
+        - elevationKm
+      properties:
+        latitudeDegrees:
+          type: number
+          format: double
+        longitudeDegrees:
+          type: number
+          format: double
+        depthKm:
+          type: number
+          format: double
+        elevationKm:
+          type: number
+          format: double
+    Station:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        effectiveAt:
+          type: string
+          format: date-time
+        effectiveUntil:
+          type: string
+          format: date-time
+        effectiveForRequestTime:
+          type: string
+          format: date-time
+        description:
+          type: string
+        stationType:
+          $ref: '#/components/schemas/StationType'
+        location:
+          $ref: '#/components/schemas/Location'
+        allRawChannels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Channel'
+          minItems: 1
+        relativePositionsByChannel:
+          type: array
+          items:
+            type: object
+            properties:
+              channel:
+                $ref: '#/components/schemas/Channel'
+              relativePosition:
+                $ref: '#/components/schemas/RelativePosition'
+          minItems: 1
+        channelGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChannelGroup'
+    ChannelDataType:
+      type: string
+      enum:
+        - DIAGNOSTIC_SOH
+        - DIAGNOSTIC_WEATHER
+        - SEISMIC
+        - HYDROACOUSTIC
+        - INFRASOUND
+        - WEATHER
+    ChannelBandType:
+      type: string
+      enum:
+        - UNKNOWN
+        - ADMINISTRATIVE
+        - BROADBAND
+        - EXTREMELY_LONG_PERIOD
+        - EXTREMELY_SHORT_PERIOD
+        - HIGH_BROADBAND
+        - LONG_PERIOD
+        - MID_PERIOD
+        - OPAQUE
+        - PERIOD_GREATER_TEN_DAYS
+        - PERIOD_ORDER_ONE_TO_TEN_DAYS
+        - PERIOD_ORDER_TENTH_TO_ONE_DAY
+        - SAMPLE_RATE_1KHZ_TO_LESS_5KHZ_CORNER_GREATER_EQUAL_10SEC
+        - SAMPLE_RATE_1KHZ_TO_LESS_5KHZ_CORNER_LESS_10SEC
+        - SAMPLE_RATE_250HZ_TO_LESS_1KHZ_CORNER_GREATER_EQUAL_10SEC
+        - SAMPLE_RATE_250HZ_TO_LESS_1KHZ_CORNER_LESS_10SEC
+        - SHORT_PERIOD
+        - ULTRA_LONG_PERIOD
+        - VERY_LONG_PERIOD
+    ChannelInstrumentType:
+      type: string
+      enum:
+        - UNKNOWN
+        - ACCELEROMETER
+        - BOLOMETER
+        - CALIBRATION_INPUT
+        - CREEP_METER
+        - DERIVED
+        - ELECTRIC_POTENTIAL
+        - ELECTRONIC_TEST_POINT
+        - GEOPHONE
+        - GRAVIMETER
+        - HIGH_GAIN_SEISMOMETER
+        - HUMIDITY
+        - LINEAR_STRAIN
+        - LOW_GAIN_SEISMOMETER
+        - MAGNETOMETER
+        - MASS_POSITION_SEISMOMETER
+        - NON_SPECIFIC_INSTRUMENT
+        - PRESSURE
+        - RAINFALL
+        - ROTATIONAL_SENSOR
+        - SYNTHESIZED_BEAM
+        - TEMPERATURE
+        - TIDE
+        - TILT_METER
+        - VOLUMETRIC_STRAIN
+        - WATER_CURRENT
+        - WIND
+    ChannelOrientationType:
+      type: string
+      enum:
+        - UNKNOWN
+        - CABINET_SOURCE_1
+        - CABINET_SOURCE_2
+        - CABINET_SOURCE_3
+        - CABINET_SOURCE_4
+        - CALIBRATION_A
+        - CALIBRATION_B
+        - CALIBRATION_C
+        - CALIBRATION_D
+        - COHERENT_BEAM
+        - DOWN_HOLE
+        - EAST_WEST
+        - FK_3C
+        - FK_BEAM
+        - HYDROPHONE
+        - INCOHERENT_BEAM
+        - INFRASOUND
+        - INSIDE
+        - LATITUDINAL
+        - NORTH_SOUTH
+        - OPTIONAL_U
+        - OPTIONAL_V
+        - OPTIONAL_W
+        - ORIGIN_BEAM
+        - ORTHOGONAL_1
+        - ORTHOGONAL_2
+        - ORTHOGONAL_3
+        - OUTSIDE
+        - RADIAL
+        - TRANSVERSE
+        - TRANSVERSE_VERTICAL
+        - TRIAXIAL_A
+        - TRIAXIAL_B
+        - TRIAXIAL_C
+        - UNDERGROUND
+        - VERTICAL
+        - WIND_DIRECTION
+        - WIND_SPEED
+    Units:
+      type: string
+      enum:
+        - COUNTS
+        - COUNTS_PER_NANOMETER
+        - COUNTS_PER_PASCAL
+        - DECIBELS
+        - DEGREES
+        - DEGREES_PER_KILOMETER
+        - DEGREES_PER_SECOND
+        - HERTZ
+        - KILOMETERS
+        - KILOMETERS_PER_SECOND
+        - LOG_NANOMETERS
+        - MICROPASCALS
+        - MICROPASCALS_PER_COUNT
+        - MICROPASCALS_SQUARED_PER_SECOND
+        - NANOMETERS
+        - NANOMETERS_PER_COUNT
+        - NANOMETERS_PER_SECOND
+        - NANOMETERS_SQUARED_PER_SECOND
+        - ONE_OVER_DEGREES
+        - ONE_OVER_KILOMETERS
+        - PASCALS
+        - PASCALS_PER_COUNT
+        - PASCALS_SQUARED_PER_SECOND
+        - RADIANS
+        - SECONDS
+        - SECONDS_PER_DEGREE
+        - SECONDS_PER_DEGREE_KILOMETER
+        - SECONDS_PER_DEGREE_SQUARED
+        - SECONDS_PER_KILOMETER
+        - SECONDS_PER_KILOMETER_PER_DEGREE
+        - SECONDS_PER_KILOMETER_SQUARED
+        - SECONDS_PER_RADIAN
+        - UNITLESS
+    OrientationAngles:
+      type: object
+      properties:
+        horizontalAngleDeg:
+          type: number
+          format: double
+        verticalAngleDeg:
+          type: number
+          format: double
+    Channel:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        effectiveAt:
+          type: string
+          format: date-time
+        effectiveUntil:
+          type: string
+          format: date-time
+        effectiveForRequestTime:
+          type: string
+          format: date-time
+        canonicalName:
+          type: string
+        description:
+          type: string
+        station:
+          $ref: '#/components/schemas/Station'
+        channelDataType:
+          $ref: '#/components/schemas/ChannelDataType'
+        channelBandType:
+          $ref: '#/components/schemas/ChannelBandType'
+        channelInstrumentType:
+          $ref: '#/components/schemas/ChannelInstrumentType'
+        channelOrientationType:
+          $ref: '#/components/schemas/ChannelOrientationType'
+        channelOrientationCode:
+          type: string
+          minLength: 1
+          maxLength: 1
+        units:
+          $ref: '#/components/schemas/Units'
+        nominalSampleRateHz:
+          type: number
+          format: double
+        location:
+          $ref: '#/components/schemas/Location'
+        orientationAngles:
+          $ref: '#/components/schemas/OrientationAngles'
+        configuredInputs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Channel'
+          minItems: 1
+        processingDefinition:
+          $ref: '#/components/schemas/FieldMap'
+        processingMetadata:
+          type: array
+          items:
+            type: object
+            properties:
+              processingMetadataType:
+                $ref: '#/components/schemas/ChannelProcessingMetadataType'
+              value:
+                type: object
+        response:
+          $ref: '#/components/schemas/Response'
+    FieldMap:
+      type: object
+      additionalProperties:
+        type: object
+    ChannelProcessingMetadataType:
+      type: string
+      enum:
+        - BEAM_COHERENT
+        - BEAM_PHASE
+        - BEAM_SUMMATION
+        - BEAM_TYPE
+        - BRIDGED
+        - CHANNEL_GROUP
+        - EVENT_HYPOTHESIS_ID
+        - FILTER_CAUSALITY
+        - FILTER_TYPE
+        - LOCATION
+        - SIGNAL_DETECTION_HYPOTHESIS_ID
+        - STEERING_ANGLE_OF_INCIDENCE
+        - STEERING_BACK_AZIMUTH
+        - STEERING_SLOWNESS
+    DoubleValue:
+      type: object
+      required:
+        - value
+        - units
+      properties:
+        value:
+          type: number
+          format: double
+        standardDeviation:
+          type: number
+          format: double
+        units:
+          $ref: '#/components/schemas/Units'
+    Calibration:
+      type: object
+      required:
+        - calibrationPeriodSec
+        - calibrationTimeShift
+        - calibrationFactor
+      properties:
+        calibrationPeriodSec:
+          type: number
+          format: double
+        calibrationTimeShift:
+          type: string
+          format: duration
+        calibrationFactor:
+          $ref: '#/components/schemas/DoubleValue'
+    AmplitudePhaseResponse:
+      type: object
+      required:
+        - amplitude
+        - phase
+      properties:
+        amplitude:
+          $ref: '#/components/schemas/DoubleValue'
+        phase:
+          $ref: '#/components/schemas/DoubleValue'
+    FrequencyAmplitudePhase:
+      type: object
+      required:
+        - id
+        - frequenciesHz
+        - amplitudePhaseResponses
+      properties:
+        id:
+          type: string
+          format: uuid
+        nominalSampleRateHz:
+          type: number
+          format: double
+        nominalCalibration:
+          $ref: '#/components/schemas/Calibration'
+        frequenciesHz:
+          type: array
+          items:
+            type: number
+            format: double
+          minItems: 1
+        amplitudePhaseResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/AmplitudePhaseResponse'
+          minItems: 1
+    Response:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          format: uuid
+        effectiveAt:
+          type: string
+          format: date-time
+        effectiveUntil:
+          type: string
+          format: date-time
+        calibration:
+          $ref: '#/components/schemas/Calibration'
+        fapResponse:
+          $ref: '#/components/schemas/FrequencyAmplitudePhase'
+    RelativePosition:
+      type: object
+      required:
+        - northDisplacementKm
+        - eastDisplacementKm
+        - verticalDisplacementKm
+      properties:
+        northDisplacementKm:
+          type: number
+          format: double
+        eastDisplacementKm:
+          type: number
+          format: double
+        verticalDisplacementKm:
+          type: number
+          format: double
+    ChannelGroupType:
+      type: string
+      enum:
+        - PHYSICAL_SITE
+        - PROCESSING_GROUP
+    ChannelGroup:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        effectiveAt:
+          type: string
+          format: date-time
+        effectiveUntil:
+          type: string
+          format: date-time
+        effectiveForRequestTime:
+          type: string
+          format: date-time
+        description:
+          type: string
+        channelGroupType:
+          $ref: '#/components/schemas/ChannelGroupType'
+        location:
+          $ref: '#/components/schemas/Location'
+        channels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Channel'
+          minItems: 1
+    StationGroup:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        effectiveAt:
+          type: string
+          format: date-time
+        effectiveUntil:
+          type: string
+          format: date-time
+        effectiveForRequestTime:
+          type: string
+          format: date-time
+        description:
+          type: string
+        stations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Station'
+          minItems: 1
+    MagnitudeType:
+      type: string
+      enum:
+        - MB
+        - MB_CODA
+        - MB_MB
+        - MB_MLE
+        - MB_PG
+        - MB_REL_T
+        - ML
+        - MS
+        - MS_MLE
+        - MS_VMAX
+        - MW_CODA
