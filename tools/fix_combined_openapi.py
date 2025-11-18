@@ -87,6 +87,7 @@ def merge_docs(docs: list[dict]) -> dict:
     result.setdefault("paths", {})
     result.setdefault("components", {})
 
+    # Initialize standard components keys for OAS 3.0.x
     for key in [
         "schemas",
         "parameters",
@@ -97,9 +98,12 @@ def merge_docs(docs: list[dict]) -> dict:
         "examples",
         "links",
         "callbacks",
-        "pathItems",
     ]:
         result["components"].setdefault(key, {})
+    # Only OAS 3.1 supports components.pathItems; add conditionally
+    openapi_ver = str(result.get("openapi", "3.0.3"))
+    if openapi_ver.startswith("3.1"):
+        result["components"].setdefault("pathItems", {})
 
     # Merge subsequent documents
     for doc in docs[1:]:
@@ -133,6 +137,19 @@ def merge_docs(docs: list[dict]) -> dict:
                 if isinstance(s, dict) and s.get("url") not in existing_urls:
                     result["servers"].append(s)
                     existing_urls.add(s.get("url"))
+
+    # If using 3.0.x, ensure pathItems is not present (some validators flag it)
+    if not openapi_ver.startswith("3.1"):
+        result.get("components", {}).pop("pathItems", None)
+
+    # Optionally drop empty components sections to keep the file tidy
+    if "components" in result and isinstance(result["components"], dict):
+        for k in list(result["components"].keys()):
+            v = result["components"][k]
+            if isinstance(v, dict) and not v:
+                # keep critical ones (schemas, parameters, responses) even if empty
+                if k not in {"schemas", "parameters", "responses"}:
+                    result["components"].pop(k, None)
 
     return result
 

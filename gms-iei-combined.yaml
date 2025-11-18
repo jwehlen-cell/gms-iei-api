@@ -4859,10 +4859,3 @@ components:
             $ref: '#/components/schemas/ChannelSegment'
   parameters: {}
   responses: {}
-  requestBodies: {}
-  headers: {}
-  securitySchemes: {}
-  examples: {}
-  links: {}
-  callbacks: {}
-  pathItems: {}
