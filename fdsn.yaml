@@ -1,0 +1,576 @@
+openapi: 3.0.3
+info:
+  title: FDSN Web Services API
+  version: "1.2.0"
+  description: |
+    OpenAPI definition for core FDSN Web Service interfaces:
+      - fdsnws-dataselect v1.1 (time series / miniSEED)
+      - fdsnws-station v1.1 (metadata / StationXML)
+      - fdsnws-event v1.2 (events / QuakeML)
+
+    Based on:
+      - FDSN-WS-Specifications-1.2 (2019-04-02)
+      - FDSN-WS-Specification-Commonalities-1.2
+servers:
+  - url: https://example.org/fdsnws
+    description: Replace with your FDSN service base URL (e.g. https://service.example.org/fdsnws)
+
+paths:
+  /dataselect/1/query:
+    get:
+      summary: Retrieve waveform time series in miniSEED format
+      description: |
+        Implements fdsnws-dataselect 1.1 `query` method.
+        Returns time series data for specified channels and time ranges in miniSEED
+        or alternate formats as allowed by the `format` parameter.
+      parameters:
+        - $ref: '#/components/parameters/starttime'
+        - $ref: '#/components/parameters/endtime'
+        - $ref: '#/components/parameters/network'
+        - $ref: '#/components/parameters/station'
+        - $ref: '#/components/parameters/location'
+        - $ref: '#/components/parameters/channel'
+        - $ref: '#/components/parameters/formatDataselect'
+        - $ref: '#/components/parameters/nodata'
+        - $ref: '#/components/parameters/quality'
+        - $ref: '#/components/parameters/minimumlength'
+        - $ref: '#/components/parameters/longestonly'
+      responses:
+        '200':
+          description: Waveform data returned successfully
+          content:
+            application/vnd.fdsn.mseed:
+              schema:
+                type: string
+                format: binary
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '204':
+          description: No data match the selection (default nodata behaviour)
+        '404':
+          description: No data match the selection (if nodata=404 is requested)
+        '400':
+          description: Bad request (invalid parameter or value)
+        '413':
+          description: Request too large or would return too much data
+        '500':
+          description: Internal server error
+        '503':
+          description: Service temporarily unavailable
+    post:
+      summary: Retrieve waveform time series via POST selection list
+      description: |
+        Implements fdsnws-dataselect 1.1 `query` POST syntax.
+
+        POST body:
+          - A set of key=value lines for `quality`, `minimumlength`, `longestonly` (optional)
+          - Followed by one or more lines of:
+              NET STA LOC CHA STARTTIME ENDTIME
+      requestBody:
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: string
+              description: |
+                Selection list and optional key=value lines as defined in the
+                FDSN dataselect 1.1 specification.
+      responses:
+        '200':
+          description: Waveform data returned successfully
+          content:
+            application/vnd.fdsn.mseed:
+              schema:
+                type: string
+                format: binary
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '204':
+          description: No data match the selection
+        '404':
+          description: No data match the selection (if nodata=404 is requested)
+        '400':
+          description: Bad request
+        '413':
+          description: Request too large or would return too much data
+        '500':
+          description: Internal server error
+        '503':
+          description: Service temporarily unavailable
+
+  /station/1/query:
+    get:
+      summary: Retrieve station metadata
+      description: |
+        Implements fdsnws-station 1.1 `query` method.
+        Returns metadata in StationXML or alternate text formats based on the
+        `format` and `level` parameters.
+      parameters:
+        - $ref: '#/components/parameters/starttime'
+        - $ref: '#/components/parameters/endtime'
+        - $ref: '#/components/parameters/startbefore'
+        - $ref: '#/components/parameters/startafter'
+        - $ref: '#/components/parameters/endbefore'
+        - $ref: '#/components/parameters/endafter'
+        - $ref: '#/components/parameters/network'
+        - $ref: '#/components/parameters/station'
+        - $ref: '#/components/parameters/location'
+        - $ref: '#/components/parameters/channel'
+        - $ref: '#/components/parameters/minlatitude'
+        - $ref: '#/components/parameters/maxlatitude'
+        - $ref: '#/components/parameters/minlongitude'
+        - $ref: '#/components/parameters/maxlongitude'
+        - $ref: '#/components/parameters/latitude'
+        - $ref: '#/components/parameters/longitude'
+        - $ref: '#/components/parameters/minradius'
+        - $ref: '#/components/parameters/maxradius'
+        - $ref: '#/components/parameters/formatStation'
+        - $ref: '#/components/parameters/nodata'
+        - $ref: '#/components/parameters/level'
+        - $ref: '#/components/parameters/includerestricted'
+        - $ref: '#/components/parameters/includeavailability'
+        - $ref: '#/components/parameters/updatedafter'
+        - $ref: '#/components/parameters/matchtimeseries'
+      responses:
+        '200':
+          description: Station metadata returned successfully
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/StationXML'
+            text/plain:
+              schema:
+                type: string
+        '204':
+          description: No metadata match the selection
+        '404':
+          description: No metadata match the selection (if nodata=404 is requested)
+        '400':
+          description: Bad request
+        '413':
+          description: Request too large or would return too much data
+        '500':
+          description: Internal server error
+        '503':
+          description: Service temporarily unavailable
+
+  /event/1/query:
+    get:
+      summary: Retrieve event parameters in QuakeML or text
+      description: |
+        Implements fdsnws-event 1.2 `query` method.
+        Returns event origins, magnitudes, and related information in QuakeML
+        or text, with filtering by time, magnitude, depth, and region.
+      parameters:
+        - $ref: '#/components/parameters/starttime'
+        - $ref: '#/components/parameters/endtime'
+        - $ref: '#/components/parameters/minlatitude'
+        - $ref: '#/components/parameters/maxlatitude'
+        - $ref: '#/components/parameters/minlongitude'
+        - $ref: '#/components/parameters/maxlongitude'
+        - $ref: '#/components/parameters/latitude'
+        - $ref: '#/components/parameters/longitude'
+        - $ref: '#/components/parameters/minradius'
+        - $ref: '#/components/parameters/maxradius'
+        - $ref: '#/components/parameters/formatEvent'
+        - $ref: '#/components/parameters/nodata'
+        - $ref: '#/components/parameters/mindepth'
+        - $ref: '#/components/parameters/maxdepth'
+        - $ref: '#/components/parameters/minmagnitude'
+        - $ref: '#/components/parameters/maxmagnitude'
+        - $ref: '#/components/parameters/magnitudetype'
+        - $ref: '#/components/parameters/eventtype'
+        - $ref: '#/components/parameters/includeallorigins'
+        - $ref: '#/components/parameters/includeallmagnitudes'
+        - $ref: '#/components/parameters/includearrivals'
+        - $ref: '#/components/parameters/eventid'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/orderby'
+        - $ref: '#/components/parameters/contributor'
+        - $ref: '#/components/parameters/catalog'
+        - $ref: '#/components/parameters/updatedafter'
+      responses:
+        '200':
+          description: Event data returned successfully
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/QuakeML'
+            text/plain:
+              schema:
+                type: string
+        '204':
+          description: No events match the selection
+        '404':
+          description: No events match the selection (if nodata=404 is requested)
+        '400':
+          description: Bad request
+        '413':
+          description: Request too large or would return too much data
+        '500':
+          description: Internal server error
+        '503':
+          description: Service temporarily unavailable
+
+components:
+  parameters:
+    # Common time constraints
+    starttime:
+      name: starttime
+      in: query
+      required: false  # required in dataselect; kept optional here, enforce per-path if desired
+      schema:
+        type: string
+        format: date-time
+      description: |
+        Limit results to data on or after the specified UTC time (ISO 8601).
+    endtime:
+      name: endtime
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date-time
+      description: |
+        Limit results to data on or before the specified UTC time (ISO 8601).
+
+    startbefore:
+      name: startbefore
+      in: query
+      schema:
+        type: string
+        format: date-time
+      description: Select metadata starting strictly before this UTC time (fdsnws-station only).
+    startafter:
+      name: startafter
+      in: query
+      schema:
+        type: string
+        format: date-time
+      description: Select metadata starting strictly after this UTC time (fdsnws-station only).
+    endbefore:
+      name: endbefore
+      in: query
+      schema:
+        type: string
+        format: date-time
+      description: Select metadata ending strictly before this UTC time (fdsnws-station only).
+    endafter:
+      name: endafter
+      in: query
+      schema:
+        type: string
+        format: date-time
+      description: Select metadata ending strictly after this UTC time (fdsnws-station only).
+
+    # Channel constraints
+    network:
+      name: network
+      in: query
+      schema:
+        type: string
+      description: |
+        Comma-separated list of network codes. Supports * and ? wildcards.
+    station:
+      name: station
+      in: query
+      schema:
+        type: string
+      description: |
+        Comma-separated list of station codes. Supports * and ? wildcards.
+    location:
+      name: location
+      in: query
+      schema:
+        type: string
+      description: |
+        Comma-separated list of location identifiers.
+        Blank location identifiers may be encoded as "--".
+        Supports * and ? wildcards.
+    channel:
+      name: channel
+      in: query
+      schema:
+        type: string
+      description: |
+        Comma-separated list of SEED channel codes. Supports * and ? wildcards.
+
+    # Geographic constraints
+    minlatitude:
+      name: minlatitude
+      in: query
+      schema:
+        type: number
+        format: float
+      description: Minimum latitude in degrees.
+    maxlatitude:
+      name: maxlatitude
+      in: query
+      schema:
+        type: number
+        format: float
+      description: Maximum latitude in degrees.
+    minlongitude:
+      name: minlongitude
+      in: query
+      schema:
+        type: number
+        format: float
+      description: Minimum longitude in degrees.
+    maxlongitude:
+      name: maxlongitude
+      in: query
+      schema:
+        type: number
+        format: float
+      description: Maximum longitude in degrees.
+    latitude:
+      name: latitude
+      in: query
+      schema:
+        type: number
+        format: float
+      description: Center latitude for circular region (degrees).
+    longitude:
+      name: longitude
+      in: query
+      schema:
+        type: number
+        format: float
+      description: Center longitude for circular region (degrees).
+    minradius:
+      name: minradius
+      in: query
+      schema:
+        type: number
+        format: float
+      description: Minimum radius from (latitude, longitude) in degrees.
+    maxradius:
+      name: maxradius
+      in: query
+      schema:
+        type: number
+        format: float
+      description: Maximum radius from (latitude, longitude) in degrees.
+
+    # Output control
+    nodata:
+      name: nodata
+      in: query
+      schema:
+        type: string
+        enum: ["204", "404"]
+        default: "204"
+      description: HTTP status code to return when no data are found.
+    formatDataselect:
+      name: format
+      in: query
+      schema:
+        type: string
+        default: miniseed
+      description: |
+        Output format for dataselect. Default is "miniseed" (application/vnd.fdsn.mseed).
+    formatStation:
+      name: format
+      in: query
+      schema:
+        type: string
+        default: xml
+      description: |
+        Output format for station service. Typically "xml" (StationXML) or "text".
+    formatEvent:
+      name: format
+      in: query
+      schema:
+        type: string
+        default: xml
+      description: |
+        Output format for event service. Typically "xml" (QuakeML) or "text".
+
+    # Dataselect-specific
+    quality:
+      name: quality
+      in: query
+      schema:
+        type: string
+        enum: ["D", "R", "Q", "M", "B"]
+      description: |
+        SEED quality indicator. Handling is data-center dependent.
+    minimumlength:
+      name: minimumlength
+      in: query
+      schema:
+        type: number
+        format: float
+        minimum: 0
+      description: |
+        Minimum continuous segment length in seconds.
+    longestonly:
+      name: longestonly
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: |
+        If true, return only the longest continuous segment per channel.
+
+    # Station-specific
+    level:
+      name: level
+      in: query
+      schema:
+        type: string
+        enum: ["network", "station", "channel", "response"]
+        default: "station"
+      description: |
+        Detail level of station output (network/station/channel/response).
+    includerestricted:
+      name: includerestricted
+      in: query
+      schema:
+        type: boolean
+        default: true
+      description: Include restricted metadata if authorized.
+    includeavailability:
+      name: includeavailability
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: |
+        If true, include basic data availability information.
+    updatedafter:
+      name: updatedafter
+      in: query
+      schema:
+        type: string
+        format: date-time
+      description: |
+        Return only records updated after this UTC time.
+    matchtimeseries:
+      name: matchtimeseries
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: |
+        Limit station metadata to those with time series matching the time window.
+
+    # Event-specific
+    mindepth:
+      name: mindepth
+      in: query
+      schema:
+        type: number
+        format: float
+      description: Minimum event depth in kilometers.
+    maxdepth:
+      name: maxdepth
+      in: query
+      schema:
+        type: number
+        format: float
+      description: Maximum event depth in kilometers.
+    minmagnitude:
+      name: minmagnitude
+      in: query
+      schema:
+        type: number
+        format: float
+      description: Minimum event magnitude.
+    maxmagnitude:
+      name: maxmagnitude
+      in: query
+      schema:
+        type: number
+        format: float
+      description: Maximum event magnitude.
+    magnitudetype:
+      name: magnitudetype
+      in: query
+      schema:
+        type: string
+      description: Magnitude type to filter on (e.g., Mw, Ml).
+    eventtype:
+      name: eventtype
+      in: query
+      schema:
+        type: string
+      description: Event type filter (per FDSN event spec, e.g. earthquake, explosion).
+    includeallorigins:
+      name: includeallorigins
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: If true, include all origins for each event.
+    includeallmagnitudes:
+      name: includeallmagnitudes
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: If true, include all magnitudes for each event.
+    includearrivals:
+      name: includearrivals
+      in: query
+      schema:
+        type: boolean
+        default: false
+      description: If true, include phase arrival information.
+    eventid:
+      name: eventid
+      in: query
+      schema:
+        type: string
+      description: Filter by event identifier.
+    limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+      description: Maximum number of events to return.
+    offset:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+      description: |
+        Offset into the result set, useful for paging.
+    orderby:
+      name: orderby
+      in: query
+      schema:
+        type: string
+        enum: ["time", "time-asc", "magnitude", "magnitude-asc"]
+        default: "time"
+      description: Sort ordering of events.
+    contributor:
+      name: contributor
+      in: query
+      schema:
+        type: string
+      description: Filter by contributing agency code.
+    catalog:
+      name: catalog
+      in: query
+      schema:
+        type: string
+      description: Filter by event catalog identifier.
+
+  schemas:
+    StationXML:
+      type: string
+      description: StationXML document as defined by FDSN StationXML schema.
+    QuakeML:
+      type: string
+      description: QuakeML document as defined by the QuakeML 1.2 schema.
+      

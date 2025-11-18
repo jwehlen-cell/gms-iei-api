@@ -122,11 +122,13 @@
       "Event",
       "EventHypothesis",
       "EventsWithSignalDetectionsAndSegments",
+      "FeaturePrediction",
+      "LocationBehavior",
+      "LocationSolution",
       "ProcessingMask",
-      "QcSegmentVersion",
-      "SignalDetectionsWithChannelSegments"
+      "QcSegmentVersion"
     ],
-    "circularRefCount": 7,
+    "circularRefCount": 9,
     "maxNestingDepth": 3,
     "polymorphism": {
       "unionSchemaCount": 3,
@@ -158,7 +160,7 @@
     "title": "Event Operations API",
     "version": "1.0.6"
   },
-  "complexityScore": 42.6,
+  "complexityScore": 43.2,
   "complexityLabel": "Moderate",
-  "summary": "Spec: Event Operations API v1.0.6 | Paths: 15, Ops: 15 (POST:15) | Schemas: 77 (objects: 63, avgProps: 4.08, maxProps: 14) | Refs: 217, DistinctRefs: 99, Circular: 7 | MaxDepth: 3 | Poly: oneOf 15, anyOf 0, allOf 6, discrim 0 | Score: 42.6/100 (Moderate)"
+  "summary": "Spec: Event Operations API v1.0.6 | Paths: 15, Ops: 15 (POST:15) | Schemas: 77 (objects: 63, avgProps: 4.08, maxProps: 14) | Refs: 217, DistinctRefs: 99, Circular: 9 | MaxDepth: 3 | Poly: oneOf 15, anyOf 0, allOf 6, discrim 0 | Score: 43.2/100 (Moderate)"
 }
