@@ -496,6 +496,58 @@ def compute_metrics(spec: Dict[str, Any]) -> Dict[str, Any]:
     report["complexityLabel"] = label_for_score(score)
     report["summary"] = summary
 
+    # Waveform serialization detection heuristic
+    # Look for large numeric sample arrays that likely represent binary int32/float64 expanded to JSON.
+    sample_array_props: List[Dict[str, Any]] = []
+    binary_alt_present = False
+    # Keywords that suggest waveform sample arrays
+    sample_keys = {"samples","waveform","data","values"}
+    for ptr, sch in iter_schema_nodes(spec):
+        if not isinstance(sch, dict):
+            continue
+        props = sch.get("properties") if isinstance(sch.get("properties"), dict) else {}
+        for k, v in props.items():
+            if k.lower() in sample_keys and isinstance(v, dict):
+                # Match array<number>/<integer> without explicit binary/base64 encoding
+                items = v.get("items") if isinstance(v.get("items"), dict) else None
+                if v.get("type") == "array" and items and items.get("type") in {"number","integer"}:
+                    fmt = items.get("format")
+                    sample_array_props.append({"schemaPointer": ptr, "property": k, "itemType": items.get("type"), "itemFormat": fmt})
+        # Check for potential binary alternatives (presence of format byte/binary or contentEncoding base64)
+        if isinstance(props, dict):
+            for v in props.values():
+                if isinstance(v, dict):
+                    if v.get("format") in {"byte","binary"} or v.get("contentEncoding") == "base64":
+                        binary_alt_present = True
+    # Another indicator: media types offering application/octet-stream
+    paths_obj = spec.get("paths", {}) or {}
+    for pth, item in paths_obj.items():
+        if isinstance(item, dict):
+            for method, op in item.items():
+                if method.lower() in HTTP_METHODS and isinstance(op, dict):
+                    for section in ("requestBody","responses"):
+                        sec_obj = op.get(section)
+                        if isinstance(sec_obj, dict):
+                            content = sec_obj.get("content", {}) or {}
+                            if isinstance(content, dict):
+                                if any(mt.lower() == "application/octet-stream" for mt in content.keys()):
+                                    binary_alt_present = True
+    if sample_array_props:
+        expansion_factor_estimate = {
+            "int32": "~2.5x-4x",
+            "float64": "~3x-5x"
+        }
+        report["waveformSerialization"] = {
+            "issueDetected": True,
+            "sampleArrayProperties": sample_array_props,
+            "binaryAlternativePresent": binary_alt_present,
+            "expansionFactorEstimate": expansion_factor_estimate,
+            "precisionRiskFloat64": True,  # absence of guaranteed exact round-trip formatting
+            "recommendation": "Provide binary or base64 waveform blocks (application/octet-stream or base64) instead of large JSON numeric arrays; consider container formats (MiniSEED/Arrow)."
+        }
+    else:
+        report["waveformSerialization"] = {"issueDetected": False}
+
     return report
 
 
@@ -573,6 +625,18 @@ def _render_assessment_md(report: Dict[str, Any]) -> str:
     md.append("  5) Document normalization/masking/compat rules per endpoint.")
     md.append("  6) Establish single-point technical ownership for contract and versioning.")
     md.append("  7) Transition: maintain current endpoints; add resource-oriented ones; deprecate RPC after adoption.\n")
+
+    # Inject waveform serialization section if detected
+    wf = report.get("waveformSerialization", {})
+    if wf.get("issueDetected"):
+        md.append("## Waveform Serialization Issue")
+        md.append("- Detection: Large JSON arrays of numeric samples (properties: " + ", ".join(p["property"] for p in wf.get("sampleArrayProperties", [])) + ") without binary/base64 alternative.")
+        md.append(f"- Expansion: int32 {wf['expansionFactorEstimate']['int32']}, float64 {wf['expansionFactorEstimate']['float64']} size increase vs raw binary.")
+        md.append("- CPU/Parsing: Clients must parse and rehydrate all ASCII numbers into binary arrays.")
+        md.append("- Precision: Potential float64 round-trip formatting variance (no guaranteed canonical binary preservation).")
+        md.append("- Binary alternative present: " + ("Yes" if wf.get("binaryAlternativePresent") else "No"))
+        md.append("- Recommendation: " + wf.get("recommendation", "Provide binary transfer mode."))
+        md.append("")
 
     md.append("## Direct Answer")
     if not_feasible:

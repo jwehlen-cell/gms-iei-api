@@ -3,7 +3,7 @@
 ## Executive Summary
 - Conclusion: No — not a reasonable contractor handoff in current form.
 - Why: POST-centric contract mirrors internal class graphs; polymorphism without discriminators and circular references increase coupling, testing effort, and integration risk.
-- Indicators: ops 15 (POST:15), schemas 77 (objects 63), refs 217, circular 9, maxDepth 3, oneOf branches 15, discriminators 0, score 43.2/100.
+- Indicators: ops 15 (POST:15), schemas 77 (objects 63), refs 217, circular 7, maxDepth 3, oneOf branches 15, discriminators 0, score 42.6/100.
 
 ## 1. Real-World Implementability
 - Domain understandability: Dense, interrelated schemas with cycles require deep domain context.
@@ -39,6 +39,14 @@
   5) Document normalization/masking/compat rules per endpoint.
   6) Establish single-point technical ownership for contract and versioning.
   7) Transition: maintain current endpoints; add resource-oriented ones; deprecate RPC after adoption.
+
+## Waveform Serialization Issue
+- Detection: Large JSON arrays of numeric samples (properties: samples) without binary/base64 alternative.
+- Expansion: int32 ~2.5x-4x, float64 ~3x-5x size increase vs raw binary.
+- CPU/Parsing: Clients must parse and rehydrate all ASCII numbers into binary arrays.
+- Precision: Potential float64 round-trip formatting variance (no guaranteed canonical binary preservation).
+- Binary alternative present: No
+- Recommendation: Provide binary or base64 waveform blocks (application/octet-stream or base64) instead of large JSON numeric arrays; consider container formats (MiniSEED/Arrow).
 
 ## Direct Answer
 No — not a reasonable contractor handoff now; proceed with the recommended resource-oriented refactor and governance to reduce risk.

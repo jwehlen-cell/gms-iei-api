@@ -46,5 +46,8 @@
   },
   "complexityScore": 29.5,
   "complexityLabel": "Moderate",
-  "summary": "Spec: FDSN Web Services API v1.2.0 | Paths: 3, Ops: 4 (GET:3, POST:1) | Schemas: 2 (objects: 0, avgProps: 0.0, maxProps: 0) | Refs: 66, DistinctRefs: 2, Circular: 0 | MaxDepth: 0 | Poly: oneOf 0, anyOf 0, allOf 0, discrim 0 | Score: 29.5/100 (Moderate)"
+  "summary": "Spec: FDSN Web Services API v1.2.0 | Paths: 3, Ops: 4 (GET:3, POST:1) | Schemas: 2 (objects: 0, avgProps: 0.0, maxProps: 0) | Refs: 66, DistinctRefs: 2, Circular: 0 | MaxDepth: 0 | Poly: oneOf 0, anyOf 0, allOf 0, discrim 0 | Score: 29.5/100 (Moderate)",
+  "waveformSerialization": {
+    "issueDetected": false
+  }
 }
