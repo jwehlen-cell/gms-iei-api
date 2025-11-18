@@ -1,0 +1,50 @@
+{
+  "paths": {
+    "count": 3
+  },
+  "operations": {
+    "count": 4,
+    "methods": {
+      "get": 3,
+      "post": 1
+    },
+    "avgParameters": 16.0,
+    "maxParameters": 28
+  },
+  "schemas": {
+    "count": 2,
+    "objectCount": 0,
+    "avgProperties": 0.0,
+    "maxProperties": 0,
+    "refCount": 66,
+    "distinctRefTargets": [
+      "QuakeML",
+      "StationXML"
+    ],
+    "circularRefSchemas": [],
+    "circularRefCount": 0,
+    "maxNestingDepth": 0,
+    "polymorphism": {
+      "unionSchemaCount": 0,
+      "unionBranchCount": 0,
+      "maxUnionBranches": 0,
+      "allOfUsages": 0,
+      "discriminatorCount": 0,
+      "oneOfSchemaCount": 0,
+      "oneOfBranchCount": 0,
+      "anyOfSchemaCount": 0,
+      "anyOfBranchCount": 0,
+      "polymorphicRefCount": 0,
+      "distinctPolymorphicRefTargets": [],
+      "scannedSchemaNodes": 56
+    }
+  },
+  "meta": {
+    "openapiVersion": "3.0.3",
+    "title": "FDSN Web Services API",
+    "version": "1.2.0"
+  },
+  "complexityScore": 29.5,
+  "complexityLabel": "Moderate",
+  "summary": "Spec: FDSN Web Services API v1.2.0 | Paths: 3, Ops: 4 (GET:3, POST:1) | Schemas: 2 (objects: 0, avgProps: 0.0, maxProps: 0) | Refs: 66, DistinctRefs: 2, Circular: 0 | MaxDepth: 0 | Poly: oneOf 0, anyOf 0, allOf 0, discrim 0 | Score: 29.5/100 (Moderate)"
+}

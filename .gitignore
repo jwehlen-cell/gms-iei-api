@@ -17,3 +17,4 @@ __pycache__/
 # Generated complexity reports
 complexity-*.json
 !complexity-10-23*.json
+!complexity-fdsn.json
