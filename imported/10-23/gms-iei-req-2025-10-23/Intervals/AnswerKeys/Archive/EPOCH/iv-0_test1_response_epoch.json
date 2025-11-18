@@ -1,0 +1,203 @@
+{
+    "workflowId": {
+        "effectiveAt": 1546300800.0,
+        "name": "GMS"
+    },
+    "stages": [
+        {
+            "stageId": {
+                "effectiveAt": 1546300800.0,
+                "name": "Pre-AL1"
+            },
+            "duration": "PT5M",
+            "mode": "AUTOMATIC",
+            "sequences": [
+                {
+                    "sequenceId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "Pre-AL1 Seq"
+                    },
+                    "steps": [
+                        {
+                            "name": "Arrival Beam SP"
+                        },
+                        {
+                            "name": "Association"
+                        },
+                        {
+                            "name": "Conflict Resolution"
+                        },
+                        {
+                            "name": "Origin Beam SP"
+                        },
+                        {
+                            "name": "Partial Processing"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "stageId": {
+                "effectiveAt": 1546300800.0,
+                "name": "AL1"
+            },
+            "duration": "PT1H",
+            "mode": "INTERACTIVE",
+            "activities": [
+                {
+                    "analysisActivity": "EVENT_REVIEW",
+                    "activityId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "AL1 Event Review"
+                    }
+                },
+                {
+                    "analysisActivity": "SCAN",
+                    "activityId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "AL1 Scan"
+                    }
+                }
+            ]
+        },
+        {
+            "stageId": {
+                "effectiveAt": 1546300800.0,
+                "name": "Post-AL1"
+            },
+            "duration": "PT1H",
+            "mode": "AUTOMATIC",
+            "sequences": [
+                {
+                    "sequenceId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "Post-AL1 Seq"
+                    },
+                    "steps": [
+                        {
+                            "name": "Origin Beam SP"
+                        },
+                        {
+                            "name": "Origin Beam LP"
+                        },
+                        {
+                            "name": "Recall"
+                        },
+                        {
+                            "name": "Arrival Beam SP"
+                        },
+                        {
+                            "name": "Detection LP"
+                        },
+                        {
+                            "name": "Recall LP"
+                        },
+                        {
+                            "name": "Magnitude"
+                        },
+                        {
+                            "name": "Hydro EDP"
+                        },
+                        {
+                            "name": "HAE"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "stageId": {
+                "effectiveAt": 1546300800.0,
+                "name": "AL2"
+            },
+            "duration": "PT2H",
+            "mode": "INTERACTIVE",
+            "activities": [
+                {
+                    "analysisActivity": "EVENT_REVIEW",
+                    "activityId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "AL2 Event Review"
+                    }
+                },
+                {
+                    "analysisActivity": "SCAN",
+                    "activityId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "AL2 Scan"
+                    }
+                }
+            ]
+        },
+		{
+			"stageId": {
+				"name": "Post-AL2",
+				"effectiveAt": 1546300800.0
+			},
+			"duration": "PT2H",
+			"mode": "AUTOMATIC",
+			"sequences": [
+				{
+					"sequenceId": {
+						"name": "Post-AL2 Seq",
+						"effectiveAt": 1546300800.0
+					},
+					"steps": [
+						{
+							"name": "Origin Beam SP"
+						},
+						{
+							"name": "Origin Beam LP"
+						},
+						{
+							"name": "Recall"
+						},
+						{
+							"name": "Arrival Beam SP"
+						},
+						{
+							"name": "Detection LP"
+						},
+						{
+							"name": "Recall LP"
+						},
+						{
+							"name": "Magnitude"
+						},
+						{
+							"name": "Hydro EDP"
+						},
+						{
+							"name": "HAE"
+						}
+					]
+				}
+			]
+		},
+		{
+			"stageId": {
+				"name": "EVAL1",
+				"effectiveAt": 1546300800.0
+			},
+			"duration": "PT2H",
+			"mode": "INTERACTIVE",
+			"activities": [
+				{
+					"activityId": {
+						"name": "EVAL1 Event Review",
+						"effectiveAt": 1546300800.0
+					},
+					"analysisActivity": "EVENT_REVIEW"
+				},
+				{
+					"activityId": {
+						"name": "EVAL1 Scan",
+						"effectiveAt": 1546300800.0
+					},
+					"analysisActivity": "SCAN"
+				}
+			]
+		}
+    ]
+}

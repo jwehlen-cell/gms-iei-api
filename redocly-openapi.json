@@ -1,0 +1,1510 @@
+{
+  "totals": {
+    "errors": 114,
+    "warnings": 55,
+    "ignored": 0
+  },
+  "version": "2.11.1",
+  "problems": [
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1events/get/parameters/0/schema",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Common/OpenAPISpec/common-operations.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1events/get/responses/200/content/application~1json/schema/properties/events/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1events/get/responses/200/content/application~1msgpack/schema/properties/events/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1events~1{eventId}/get/parameters/1/schema",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Common/OpenAPISpec/common-operations.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1events~1{eventId}/get/responses/200/content/application~1json/schema",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1events~1{eventId}/get/responses/200/content/application~1msgpack/schema",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1events~1location/get/parameters/0/schema",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Common/OpenAPISpec/common-operations.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1events~1location/get/responses/200/content/application~1json/schema/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1events~1location/get/responses/200/content/application~1msgpack/schema/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1event~1query~1events-outside-range-signal-detections-inside-range/get/parameters/0/schema",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Common/OpenAPISpec/common-operations.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1event~1query~1events-outside-range-signal-detections-inside-range/get/responses/200/content/application~1json/schema/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1event~1query~1events-outside-range-signal-detections-inside-range/get/responses/200/content/application~1msgpack/schema/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1event~1query~1events-outside-range-signal-detections-inside-range/post/parameters/0/schema",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Common/OpenAPISpec/common-operations.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/EventsOutsideRangeWithSignalDetectionsInsideRangeRequest/properties/stageIds/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Intervals/OpenAPISpec/workflow-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/EventsOutsideRangeWithSignalDetectionsInsideRangeRequest/properties/stations/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/StationDefinition/OpenAPISpec/station-definition-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1event~1query~1events-outside-range-signal-detections-inside-range/post/responses/200/content/application~1json/schema/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1event~1query~1events-outside-range-signal-detections-inside-range/post/responses/200/content/application~1msgpack/schema/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1event~1with-detections-and-segments~1query~1time/get/parameters/0/schema",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Common/OpenAPISpec/common-operations.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/EventsWithSignalDetectionsAndSegments/properties/events/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/EventsWithSignalDetectionsAndSegments/properties/signalDetectionsWithChannelSegments",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-operations.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1event~1with-detections-and-segments~1query~1time/post/parameters/0/schema",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Common/OpenAPISpec/common-operations.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/EventsWithDetectionsAndSegmentsByTimeRequest/properties/stageIds/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Intervals/OpenAPISpec/workflow-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1event~1status-info~1query~1stage-id-and-events/post/parameters/0/schema",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Common/OpenAPISpec/common-operations.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/EventStatusInfoByStageIdAndEventsRequest/properties/events/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/EventStatusInfoByStageIdAndEventsRequest/properties/stageId",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Intervals/OpenAPISpec/workflow-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1event~1status-info~1query~1stage-id-and-events/post/responses/200/content/application~1json/schema/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1event~1status-info~1query~1stage-id-and-events/post/responses/200/content/application~1msgpack/schema/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1event~1status-info~1query~1stage-id-and-timerange/post/parameters/0/schema",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Common/OpenAPISpec/common-operations.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/EventStatusInfoByStageIdAndTimeRequest/properties/stageId",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Intervals/OpenAPISpec/workflow-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1event~1status-info~1query~1stage-id-and-timerange/post/responses/200/content/application~1json/schema/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1event~1status-info~1query~1stage-id-and-timerange/post/responses/200/content/application~1msgpack/schema/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1event~1status-info~1update/post/parameters/0/schema",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Common/OpenAPISpec/common-operations.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/EventStatusInfoUpdateRequest/properties/eventStatusInfo",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1event~1correlated-events~1query~1source-event-hypotheses/post/parameters/0/schema",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Common/OpenAPISpec/common-operations.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/CorrelatedEventsBySourceEventHypothesesRequest/properties/sourceEventHypotheses/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/CorrelatedEventsBySourceEventHypothesesRequest/properties/facetingDefinition",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Common/OpenAPISpec/common-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1event~1correlated-events~1query~1source-event-hypotheses/post/responses/200/content/application~1json/schema/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1event~1correlated-events~1query~1source-event-hypotheses/post/responses/200/content/application~1msgpack/schema/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1event~1update/post/parameters/0/schema",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Common/OpenAPISpec/common-operations.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/StoreEventsRequest/properties/events/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/StoreEventsRequest/properties/signalDetections/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/StoreEventsRequest/properties/channelSegments/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Waveform/OpenAPISpec/waveform-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/StoreEventsRequest/properties/stageId",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Intervals/OpenAPISpec/workflow-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/StoreEventResponse/properties/event",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/StoreEventResponse/properties/storeStatus",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Common/OpenAPISpec/common-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/StoreEventResponse/properties/signalDetections/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/StoreEventResponse/properties/channelSegments/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Waveform/OpenAPISpec/waveform-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/parameters/TimeFormat/schema",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Common/OpenAPISpec/common-operations.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "struct",
+      "severity": "error",
+      "message": "Expected type `array` but got `object`.",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/TimeStamp/examples",
+          "reportOnKey": false
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "struct",
+      "severity": "error",
+      "message": "Expected type `array` but got `object`.",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/FDSNChannelCode/examples",
+          "reportOnKey": false
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/CreationInfo/properties/stageId",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Intervals/OpenAPISpec/workflow-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/EventHypothesis/properties/creationInfo",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Common/OpenAPISpec/common-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/FeaturePrediction/properties/channel",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/StationDefinition/OpenAPISpec/station-definition-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/FeaturePredictionComponent/properties/value/oneOf/0",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/FeaturePredictionComponent/properties/value/oneOf/1",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/FeaturePredictionComponent/properties/value/oneOf/2",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/FeaturePredictionComponent/properties/value/oneOf/3",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/FeaturePredictionComponent/properties/value/oneOf/4",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/FeaturePrediction/properties/phase",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/FeaturePrediction/properties/predictionChannelSegment",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Waveform/OpenAPISpec/waveform-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/FeaturePrediction/properties/predictionType",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/FeaturePrediction/properties/predictedValue/oneOf/0",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/FeaturePrediction/properties/predictedValue/oneOf/1",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/FeaturePrediction/properties/predictedValue/oneOf/2",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/FeaturePrediction/properties/predictedValue/oneOf/3",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/FeaturePrediction/properties/predictedValue/oneOf/4",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/FeaturePrediction/properties/receiverLocation",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/StationDefinition/OpenAPISpec/station-definition-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/LocationBehavior/properties/measurement",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "struct",
+      "severity": "error",
+      "message": "Expected type `number` but got `boolean`.",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/LocationBehavior/properties/weight/exclusiveMinimum",
+          "reportOnKey": false
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "struct",
+      "severity": "error",
+      "message": "Expected type `number` but got `boolean`.",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/Ellipse/properties/semiMajorAxisLengthKm/exclusiveMinimum",
+          "reportOnKey": false
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "struct",
+      "severity": "error",
+      "message": "Expected type `number` but got `boolean`.",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/Ellipse/properties/semiMajorAxisTrendDeg/exclusiveMaximum",
+          "reportOnKey": false
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "struct",
+      "severity": "error",
+      "message": "Expected type `number` but got `boolean`.",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/Ellipse/properties/semiMinorAxisLengthKm/exclusiveMinimum",
+          "reportOnKey": false
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "struct",
+      "severity": "error",
+      "message": "Expected type `number` but got `boolean`.",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/Ellipsoid/properties/semiIntermediateAxisLengthKm/exclusiveMinimum",
+          "reportOnKey": false
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "struct",
+      "severity": "error",
+      "message": "Expected type `number` but got `boolean`.",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/Ellipsoid/properties/semiIntermediateAxisTrendDeg/exclusiveMaximum",
+          "reportOnKey": false
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "struct",
+      "severity": "error",
+      "message": "Expected type `number` but got `boolean`.",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/Ellipsoid/properties/semiMajorAxisLengthKm/exclusiveMinimum",
+          "reportOnKey": false
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "struct",
+      "severity": "error",
+      "message": "Expected type `number` but got `boolean`.",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/Ellipsoid/properties/semiMajorAxisTrendDeg/exclusiveMaximum",
+          "reportOnKey": false
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "struct",
+      "severity": "error",
+      "message": "Expected type `number` but got `boolean`.",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/Ellipsoid/properties/semiMinorAxisLengthKm/exclusiveMinimum",
+          "reportOnKey": false
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "struct",
+      "severity": "error",
+      "message": "Expected type `number` but got `boolean`.",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/Ellipsoid/properties/semiMinorAxisTrendDeg/exclusiveMaximum",
+          "reportOnKey": false
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "struct",
+      "severity": "error",
+      "message": "Expected type `number` but got `boolean`.",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/LocationUncertainty/properties/tt/exclusiveMinimum",
+          "reportOnKey": false
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "struct",
+      "severity": "error",
+      "message": "Expected type `number` but got `boolean`.",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/LocationUncertainty/properties/xx/exclusiveMinimum",
+          "reportOnKey": false
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "struct",
+      "severity": "error",
+      "message": "Expected type `number` but got `boolean`.",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/LocationUncertainty/properties/yy/exclusiveMinimum",
+          "reportOnKey": false
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "struct",
+      "severity": "error",
+      "message": "Expected type `number` but got `boolean`.",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/LocationUncertainty/properties/zz/exclusiveMinimum",
+          "reportOnKey": false
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/NetworkMagnitudeSolution/properties/magnitude",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Common/OpenAPISpec/common-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/StationMagnitudeSolution/properties/magnitude",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Common/OpenAPISpec/common-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/StationMagnitudeSolution/properties/measurement",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/StationMagnitudeSolution/properties/phase",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/StationMagnitudeSolution/properties/station",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/StationDefinition/OpenAPISpec/station-definition-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/EventHypothesis/properties/associatedSignalDetectionHypotheses/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/PreferredEventHypothesis/properties/stage",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Intervals/OpenAPISpec/workflow-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/Event/properties/rejectedSignalDetectionAssociations/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/EventStatusInfoId/properties/stageId",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Intervals/OpenAPISpec/workflow-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/EventCorrelationContext/properties/channels/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/StationDefinition/OpenAPISpec/station-definition-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/EventCorrelationContext/properties/station",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/StationDefinition/OpenAPISpec/station-definition-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/ChannelFilterDefinitionPair/properties/channel",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/StationDefinition/OpenAPISpec/station-definition-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/ChannelFilterDefinitionPair/properties/filterDefinition",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/StationDefinition/OpenAPISpec/station-definition-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/CorrelatedEventHypothesis/properties/similarEventChannelSegments/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Waveform/OpenAPISpec/waveform-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unresolved-refs",
+      "severity": "error",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/components/schemas/CorrelatedEventHypothesis/properties/sourceEventChannelSegments/items",
+          "reportOnKey": false
+        }
+      ],
+      "message": "Can't resolve $ref: ENOENT: no such file or directory '/Users/josephwehlen/Waveform/OpenAPISpec/waveform-coi.yaml'",
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1events/get",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1events~1{eventId}/get",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "openapi.yaml"
+          },
+          "pointer": "#/paths/~1events~1location/get",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    }
+  ]
+}

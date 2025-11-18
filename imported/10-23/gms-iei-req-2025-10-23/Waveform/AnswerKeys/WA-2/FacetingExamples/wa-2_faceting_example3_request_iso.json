@@ -1,0 +1,14 @@
+{
+  "startTime": "2019-01-05T18:25:00.000000Z",
+  "endTime": "2019-01-05T18:25:01.000000Z",
+  "channels": [
+    {
+      "name": "ASAR.AS01.SHZ"
+    }
+  ],
+  "facetingDefinition": {
+    "classType": "QcSegment",
+    "populated": false,
+    "facetingDefinitionByAttributeName": {}
+  }
+}

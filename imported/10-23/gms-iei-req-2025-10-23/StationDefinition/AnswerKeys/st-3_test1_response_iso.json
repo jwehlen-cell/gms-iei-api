@@ -1,0 +1,101 @@
+[
+  {
+    "canonicalName": "ASAR.AS01.sz",
+    "channelBandType": "SHORT_PERIOD",
+    "channelDataType": "SEISMIC",
+    "channelInstrumentType": "UNKNOWN",
+    "channelOrientationCode": "Z",
+    "channelOrientationType": "VERTICAL",
+    "configuredInputs": [],
+    "description": "SHORT-PERIOD_VERTICAL",
+    "effectiveAt": "1989-06-25T00:00:00.000000Z",
+    "effectiveForRequestTime": "2005-03-01T00:00:00.000000Z",
+    "effectiveUntil": "2005-06-14T00:00:00.000000Z",
+    "location": {
+      "depthKm": 0.03,
+      "elevationKm": 0.6215,
+      "latitudeDegrees": -23.663223,
+      "longitudeDegrees": 133.951996
+    },
+    "name": "ASAR.AS01.sz",
+    "nominalSampleRateHz": 20.0,
+    "orientationAngles": {
+      "horizontalAngleDeg": -1.0,
+      "verticalAngleDeg": 0.0
+    },
+    "processingDefinition": {},
+    "processingMetadata": {
+      "CHANNEL_GROUP": "AS01"
+    },
+    "response": {
+      "calibration": {
+        "calibrationFactor": {
+          "standardDeviation": 0.0,
+          "units": "NANOMETERS_PER_COUNT",
+          "value": 1.0
+        },
+        "calibrationPeriodSec": 1.0,
+        "calibrationTimeShift": "PT0S"
+      },
+      "effectiveAt": "1989-06-25T14:59:46.000000Z",
+      "effectiveUntil": "2005-03-17T00:00:00.000000Z",
+      "id": 210577
+    },
+    "station": {
+      "effectiveAt": "1989-06-25T00:00:00.000000Z",
+      "effectiveForRequestTime": "2005-03-01T00:00:00.000000Z",
+      "name": "ASAR"
+    },
+    "units": "NANOMETERS_PER_COUNT"
+  },
+  {
+    "canonicalName": "MKAR.MK31.BHN",
+    "channelBandType": "BROADBAND",
+    "channelDataType": "SEISMIC",
+    "channelInstrumentType": "HIGH_GAIN_SEISMOMETER",
+    "channelOrientationCode": "N",
+    "channelOrientationType": "NORTH_SOUTH",
+    "configuredInputs": [],
+    "description": "BROAD-BAND_NORTH",
+    "effectiveAt": "2004-10-15T00:00:00.000000Z",
+    "effectiveForRequestTime": "2030-01-01T00:00:00.000000Z",
+    "location": {
+      "depthKm": 0.03,
+      "elevationKm": 0.6176,
+      "latitudeDegrees": 46.793682,
+      "longitudeDegrees": 82.290565
+    },
+    "name": "MKAR.MK31.BHN",
+    "nominalSampleRateHz": 40.0,
+    "orientationAngles": {
+      "horizontalAngleDeg": 0.0,
+      "verticalAngleDeg": 90.0
+    },
+    "processingDefinition": {},
+    "processingMetadata": {
+      "CHANNEL_GROUP": "MK31"
+    },
+    "response": {
+      "calibration": {
+        "calibrationFactor": {
+          "standardDeviation": 0.0,
+          "units": "NANOMETERS_PER_COUNT",
+          "value": 1.0
+        },
+        "calibrationPeriodSec": 1.0,
+        "calibrationTimeShift": "PT0S"
+      },
+      "effectiveAt": "2016-08-05T12:00:00.000000Z",
+      "fapResponse": {
+        "id": 10506
+      },
+      "id": 10506
+    },
+    "station": {
+      "effectiveAt": "2000-04-01T00:00:00.000000Z",
+      "effectiveForRequestTime": "2030-01-01T00:00:00.000000Z",
+      "name": "MKAR"
+    },
+    "units": "NANOMETERS_PER_COUNT"
+  }
+]

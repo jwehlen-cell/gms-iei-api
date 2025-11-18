@@ -1,0 +1,4 @@
+sources=usndc
+quality=R
+format=JSON
+NET BDFB LOC BH1 1546704000.0 1546704600.0

@@ -1,0 +1,16 @@
+[
+  {
+    "startTime": 1546711200,
+    "definitionId": {
+      "effectiveAt": 1546300800,
+      "name": "Pre-AL1"
+    }
+  },
+  {
+    "startTime": 1546711200,
+    "definitionId": {
+      "effectiveAt": 1546300800,
+      "name": "AL1"
+    }
+  }
+]

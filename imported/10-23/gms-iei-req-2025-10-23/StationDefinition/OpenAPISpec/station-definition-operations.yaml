@@ -1,0 +1,371 @@
+openapi: 3.0.3
+info:
+  title: GMS Station Definition Data Fabric Operations
+  description: Defines the Data Fabric operations for the GMS Common Object Interface (COI) classes in the Station Definition domain.
+  version: 1.0.6
+
+paths:
+
+  /station-definition/station-group/query/names:
+    post:
+      summary: Retrieves the StationGroup objects with the provided (StationGroup entity name, effective time) pairs.
+      description: "Retrieves and returns each StationGroup entity version object matching any NameAndTime object in the collection provided in the request body. For each provided NameAndTime object, this operation finds the StationGroup entity version with: entity name matching the NameAndTime attribute name; the latest effectiveAt time equal to or earlier than the NameAndTime attribute effectiveTime; effectiveUntil time equal to or later than the NameAndTime attribute effectiveTime, or unpopulated effectiveUntilTime (which indicates the object is still effective). If the NameAndTime attribute effectiveTime is unpopulated, then this operation behaves as though its value is assigned to the current wall clock time. This operation populates the faceted attributes of each returned StationGroup object as described in the FacetingDefinition object provided in the request. If the FacetingDefinition object is unpopulated, this operation populates the faceted attributes of the StationGroup objects according to the defaults defined by the COI data model."
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: Set of NameAndTime objects, each containing a StationGroup entity name and an effective time.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NamesAndTimesRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation. Returns a StationGroup collection containing the StationGroup entity version objects matching the provided NameAndTime objects, populated according to the provided FacetingDefinition. The collection contains exactly one entry for each provided NameAndTime object.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/StationGroup'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/StationGroup'
+        '209':
+          description: Partially successful operation. Returns a StationGroup collection containing each StationGroup entity version object matching any of the provided NameAndTime objects and populated according to the provided FacetingDefinition. The collection does not include an entry for a provided NameAndTime object if no StationGroup entity exists with the provided name, or if the StationGroup entity exists but does not have a version effective at the requested time. Returns an empty collection if no StationGroup entity version objects match the query predicate.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/StationGroup'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/StationGroup'
+
+
+  /station-definition/station/query/names:
+    post:
+      summary: Retrieves the Station objects with the provided (Station entity name, effective time) pairs.
+      description: "Retrieves and returns each Station entity version object matching any NameAndTime object in the collection provided in the request body. For each provided NameAndTime object, this operation finds the Station entity version with: entity name matching the NameAndTime attribute name; the latest effectiveAt time equal to or earlier than the NameAndTime attribute effectiveTime; effectiveUntil time equal to or later than the NameAndTime attribute effectiveTime, or unpopulated effectiveUntilTime (which indicates the object is still effective). If the NameAndTime attribute effectiveTime is unpopulated, then this operation behaves as though its value is assigned to the current wall clock time. This operation populates the faceted attributes of each returned Station object as described in the FacetingDefinition object provided in the request. If the FacetingDefinition object is unpopulated, this operation populates the faceted attributes of the Station objects according to the defaults defined by the COI data model."
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: Set of NameAndTime objects, each containing a Station entity name and an effective time.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NamesAndTimesRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation. Returns a Station collection containing the Station entity version objects matching the provided NameAndTime objects, populated according to the provided FacetingDefinition. The collection contains exactly one entry for each provided NameAndTime object.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Station'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Station'
+        '209':
+          description: Partially successful operation. Returns a Station collection containing each Station entity version object matching any of the provided NameAndTime objects and populated according to the provided FacetingDefinition. The collection does not include an entry for a provided NameAndTime object if no Station entity exists with the provided name, or if the Station entity exists but does not have a version effective at the requested time. Returns an empty collection if no Station entity version objects match the query predicate.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Station'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Station'
+
+
+  /station-definition/channel/query/names:
+    post:
+      summary: Retrieves the Channel objects with the provided (Channel entity name, effective time) pairs.
+      description: "Retrieves and returns each Channel entity version object matching any NameAndTime object in the collection provided in the request body. For each provided NameAndTime object, this operation finds the Channel entity version with: entity name matching the NameAndTime attribute name; the latest effectiveAt time equal to or earlier than the NameAndTime attribute effectiveTime; effectiveUntil time equal to or later than the NameAndTime attribute effectiveTime, or unpopulated effectiveUntilTime (which indicates the object is still effective). If the NameAndTime attribute effectiveTime is unpopulated, then this operation behaves as though its value is assigned to the current wall clock time. This operation populates the faceted attributes of each returned Channel object as described in the FacetingDefinition object provided in the request. If the FacetingDefinition object is unpopulated, this operation populates the faceted attributes of the Channel objects according to the defaults defined by the COI data model."
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: Set of NameAndTime objects, each containing a Channel entity name and an effective time.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NamesAndTimesRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation. Returns a Channel collection containing the Channel entity version objects matching the provided NameAndTime objects, populated according to the provided FacetingDefinition. The collection contains exactly one entry for each provided NameAndTime object.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Channel'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Channel'
+        '209':
+          description: Partially successful operation. Returns a Channel collection containing each Channel entity version object matching any of the provided NameAndTime objects and populated according to the provided FacetingDefinition. The collection does not include an entry for a provided NameAndTime object if no Channel entity exists with the provided name, or if the Channel entity exists but does not have a version effective at the requested time. Returns an empty collection if no Channel entity version objects match the query predicate.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Channel'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Channel'
+
+  /station-definition/response/query/ids:
+    post:
+      summary: Retrieves the Response objects with the provided (Response entity id, effective time) pairs.
+      description: "Retrieves and returns each Response entity version object matching any UuidAndTime object provided in the request body. For each provided UuidAndTime object, this operation finds the Response entity version with: entity id matching the UuidAndTime attribute uuid; the latest effectiveAt time equal to or earlier than the UuidAndTime attribute effectiveTime; effectiveUntil time equal to or later than the UuidAndTime attribute effectiveTime, or unpopulated effectiveUntilTime (which indicates the object is still effective). If UuidAndTime attribute effectiveTime is unpopulated, then this operation behaves as though the client assigned its value to the current wall clock time. This operation populates the faceted attributes of each returned Response object as described in the FacetingDefinition object provided in the request. If the FacetingDefinition object is unpopulated, this operation populates the faceted attributes of the Response objects according to the defaults defined by the COI data model."
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: Set of UuidAndTime objects, each containing a Response entity identifier and an effective time.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UuidsAndTimesRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation. Returns a Response collection containing the Response entity version objects matching the provided UuidAndTime objects, populated according to the provided FacetingDefinition. The collection contains exactly one entry for each provided UuidAndTime object.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Response'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Response'
+        '209':
+          description: Partially successful operation. Returns a Response collection containing each Response entity version object matching any of the provided UuidAndTime objects and populated according to the provided FacetingDefinition. The collection does not include an entry for a provided UuidAndTime object if no Response entity exists with the provided UUID, or if the Response entity exists but does not have a version effective at the requested time. Returns an empty collection if no Response entity version objects match the query predicate.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Response'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'station-definition-coi.yaml#/components/schemas/Response'
+
+  /station-definition/channel/store:
+    post:
+      summary: Stores each provided Channel.
+      description: "Stores each provided Channel. Each Channel provided to this operation must be a populated instance and cannot be either an entity reference or an entity version reference. 
+        If the provided transient parameter is assigned to the boolean value 'true', then this operation may temporarily store each Channel object pending its association to another stored object (e.g. ChannelSegment, SignalDetection), 
+        at which time the DataFabric must persistently store the Channel. The DataFabric may eventually remove from the temporary storage a transiently stored Channel that is never associated to another stored object. 
+        If the provided transient parameter is assigned to the boolean value 'false', then this operation persistently stores each of the provided Channel objects. 
+        This operation will not update a previously stored Channel with new attribute values if a provided Channel object has the same identifier (name and effectiveAt) but different attribute values as the stored Channel, instead finding the provided Channel to be inconsistent with the previously stored Channel. 
+        This operation will successfully store a provided Channel if its identifier and attributes values exactly match a previously stored Channel. The way this operation stores the Channel to Station, Channel, and Response object associations must support the Channel query behavior. 
+        In particular, since the various objects may be updated with new versions on different cadences, it may be helpful to store the associations as references to the Station or Response entities rather than references to specific versions. 
+        (Future) This operation cascades storage to any Response object aggregated by value in a provided Channel object's response attribute. 
+        This Response storage has the same transient / persistent storage and update behavior as described for Channel objects."
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: A Channel collection and a flag indicating whether the storage is transient.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StoreChannelsRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation. Every provided Channel was stored successfully.
+          content:
+            application/json: {}
+            application/msgpack: {}
+        '209':
+          description: "Unable to store all or some of the provided Channel objects. The response body includes a StoreChannelResponse collection with an entry for each provided Channel.
+            If this operation successfully stores a provided Channel, then the StoreChannelResponse has a StoreStatus of SUCCESS and a Channel populated as an entity version reference.
+            If this operation does not store a provided Channel because it is inconsistent with a previously stored Channel object, then the StoreChannelResponse has a StoreStatus of CONFLICT and a populated instance of the previously stored Channel.
+            If the Channel was not able to be stored for a different reason, then the StoreChannelResponse has a StoreStatus of FAILURE and the Channel object is populated as an entity version reference."
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreChannelResponse'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreChannelResponse'
+
+
+  /station-definition/station/query/change-times:
+    post:
+      summary: Retrieves all of the times a Station entity, or any of its aggregated Station Definition entities (ChannelGroup, Channel, Response), were updated with new versions.
+      description: Retrieves an ordered collection of date-time values corresponding to every effective time when the Station provided in the query predicate, or any of its aggregated Station Definition objects (e.g. ChannelGroup, Channel, or Response), were updated with a new entity version within the time range provided in the query predicate. The provided time range is inclusive. One of the times in the output collection may occur before the startTime, corresponding to the final change affecting the Station entity version, or any of its aggregated Station Definition entities, that was in effect at the startTime. None of the times in the output collection occur after the endTime. The output collection is ordered by increasing time.
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: Station and time range
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StationChangeTimesRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation. Returns a date-time collection containing times when the Station, or any of its aggregated Station Definition entities (ChannelGroup, Channel, Response), were updated with new versions.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: date-time
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: date-time
+
+components:
+  schemas:
+
+    NamesAndTimesRequest:
+      type: object
+      required:
+        - namesAndTimes
+      properties:
+        namesAndTimes:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameAndTime'
+          minItems: 1
+        facetingDefinition:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/FacetingDefinition'
+
+    NameAndTime:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        effectiveAtTime:
+          type: string
+          # Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+
+    UuidsAndTimesRequest:
+      type: object
+      required:
+        - uuidsAndTimes
+      properties:
+        uuidsAndTimes:
+          type: array
+          items:
+            $ref: '#/components/schemas/UuidAndTime'
+          minItems: 1
+        facetingDefinition:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/FacetingDefinition'
+
+    UuidAndTime:
+      type: object
+      required:
+        - uuid
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        effectiveAtTime:
+          type: string
+          # Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+
+    StoreChannelsRequest:
+      type: object
+      required:
+        - channels
+        - transient
+      properties:
+        channels:
+          type: array
+          items:
+            $ref: 'station-definition-coi.yaml#/components/schemas/Channel'
+          minItems: 1
+        transient:
+          type: boolean
+
+    StoreChannelResponse:
+      type: object
+      required:
+        - channel
+        - storeStatus
+      properties:
+        channel:
+          $ref: 'station-definition-coi.yaml#/components/schemas/Channel'
+        storeStatus:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/StoreStatus'
+
+    StationChangeTimesRequest:
+      type: object
+      required:
+        - station
+        - startTime
+        - endTime
+      properties:
+        # May be populated as an entity reference, entity version reference, or fully populated version object.
+        station:
+          $ref: 'station-definition-coi.yaml#/components/schemas/Station'
+        #Constraint: startTime must be earlier than or equal to endTime
+        startTime:
+          type: string
+          # Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        endTime:
+          type: string
+          # Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time    

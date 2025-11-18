@@ -1,0 +1,19 @@
+openapi: 3.0.3
+info:
+  title: GMS Common Operation Schema
+  description: Defines a schema for objects shared by operations in multiple GMS Common Object Interface (COI) domains.
+  version: 1.0.0
+
+paths: {}
+
+components:
+  schemas:
+
+    TimeFormat:
+      type: string
+      enum:
+        #The Unix Timestamp (epoch time) format
+        - EPOCH
+        #The ISO-8601 Date and Time format
+        - ISO
+      description: Provided in an HTTP Header. Defines the format of date and time values in request and response objects. When not provided, the date and time values default to the ISO 8601 Date and Time format.   

@@ -1,0 +1,153 @@
+openapi: 3.0.3
+info:
+  title: GMS Common COI Schema
+  description: Defines a schema for shared GMS Common Object Interface (COI) classes used in multiple domains.
+  version: 1.0.7
+
+paths: {}
+
+components:
+  schemas:
+
+    FacetingDefinition:
+      type: object
+      required:
+        - classType
+        - facetingDefinitionByAttributeName
+      properties:
+        classType:
+          type: string
+        populated:
+          type: boolean
+        facetingDefinitionByAttributeName:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/FacetingDefinition'
+
+    Comment:
+      type: object
+      required:
+        - id
+        - author
+        - comment
+        - time
+      properties:
+        id:
+          type: string
+          format: uuid
+        author:
+          type: string
+        comment:
+          type: string
+        time:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+
+    FieldMap:
+      type: object          
+      additionalProperties:
+        type: object
+
+    DoubleValue:
+      type: object
+      required:
+        - value
+        - units
+      properties:
+        value:
+          type: number
+          format: double
+        standardDeviation:
+          type: number
+          format: double
+        units:
+           $ref: '#/components/schemas/Units'
+
+    InstantValue:
+      type: object
+      required:
+        - value
+      properties:
+        value:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        standardDeviation:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration    
+
+    DurationValue:
+      type: object
+      required:
+        - value
+      properties:
+        value:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        standardDeviation:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+             
+    Units:
+      type: string
+      enum:
+        -   COUNTS
+        -   COUNTS_PER_NANOMETER
+        -   COUNTS_PER_PASCAL
+        -   DECIBELS
+        -   DEGREES
+        -   DEGREES_PER_KILOMETER
+        -   DEGREES_PER_SECOND
+        -   HERTZ
+        -   KILOMETERS
+        -   KILOMETERS_PER_SECOND
+        -   LOG_NANOMETERS
+        -   MICROPASCALS
+        -   MICROPASCALS_PER_COUNT
+        -   MICROPASCALS_SQUARED_PER_SECOND
+        -   NANOMETERS
+        -   NANOMETERS_PER_COUNT
+        -   NANOMETERS_PER_SECOND
+        -   NANOMETERS_SQUARED_PER_SECOND
+        -   ONE_OVER_DEGREES
+        -   ONE_OVER_KILOMETERS
+        -   PASCALS
+        -   PASCALS_PER_COUNT
+        -   PASCALS_SQUARED_PER_SECOND
+        -   RADIANS
+        -   SECONDS
+        -   SECONDS_PER_DEGREE
+        -   SECONDS_PER_DEGREE_KILOMETER
+        -   SECONDS_PER_DEGREE_SQUARED
+        -   SECONDS_PER_KILOMETER
+        -   SECONDS_PER_KILOMETER_PER_DEGREE
+        -   SECONDS_PER_KILOMETER_SQUARED
+        -   SECONDS_PER_RADIAN
+        -   UNITLESS
+
+    StoreStatus:
+      type: string
+      enum:
+        - CONFLICT
+        - FAILURE
+        - SUCCESS
+
+    CreationInfo:
+      type: object
+      required:
+        - createdBy
+        - creationTime
+        - stageId
+      properties:
+        createdBy:
+          type: string
+        creationTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        stageId:
+          $ref: '../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'

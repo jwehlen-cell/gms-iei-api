@@ -1,0 +1,1941 @@
+[
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/events",
+			"get"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 33,
+				"character": 8
+			},
+			"end": {
+				"line": 184,
+				"character": 33
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/events",
+			"get"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 33,
+				"character": 8
+			},
+			"end": {
+				"line": 184,
+				"character": 33
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "invalid-ref",
+		"path": [
+			"paths",
+			"/events",
+			"get",
+			"parameters",
+			"0",
+			"schema",
+			"$ref"
+		],
+		"message": "ENOENT: no such file or directory, open '/Users/josephwehlen/Common/OpenAPISpec/common-operations.yaml'",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 55,
+				"character": 16
+			},
+			"end": {
+				"line": 55,
+				"character": 94
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "invalid-ref",
+		"path": [
+			"paths",
+			"/events",
+			"get",
+			"responses",
+			"200",
+			"content",
+			"application/json",
+			"schema",
+			"properties",
+			"events",
+			"items",
+			"$ref"
+		],
+		"message": "ENOENT: no such file or directory, open '/Users/josephwehlen/dev/gms-iei-api-repo/event-coi.yaml'",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 158,
+				"character": 28
+			},
+			"end": {
+				"line": 158,
+				"character": 68
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/events/{eventId}",
+			"get"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 186,
+				"character": 8
+			},
+			"end": {
+				"line": 214,
+				"character": 38
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/events/{eventId}",
+			"get"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 186,
+				"character": 8
+			},
+			"end": {
+				"line": 214,
+				"character": 38
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/events/location",
+			"get"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 216,
+				"character": 8
+			},
+			"end": {
+				"line": 326,
+				"character": 50
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/events/location",
+			"get"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 216,
+				"character": 8
+			},
+			"end": {
+				"line": 326,
+				"character": 50
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/stations",
+			"get"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 328,
+				"character": 8
+			},
+			"end": {
+				"line": 413,
+				"character": 30
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/stations",
+			"get"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 328,
+				"character": 8
+			},
+			"end": {
+				"line": 413,
+				"character": 30
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/event/query/events-outside-range-signal-detections-inside-range",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 415,
+				"character": 9
+			},
+			"end": {
+				"line": 469,
+				"character": 64
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/event/query/events-outside-range-signal-detections-inside-range",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 415,
+				"character": 9
+			},
+			"end": {
+				"line": 469,
+				"character": 64
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/event/query/events-outside-range-signal-detections-inside-range",
+			"get"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 470,
+				"character": 8
+			},
+			"end": {
+				"line": 540,
+				"character": 64
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/event/query/events-outside-range-signal-detections-inside-range",
+			"get"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 470,
+				"character": 8
+			},
+			"end": {
+				"line": 540,
+				"character": 64
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/event/with-detections-and-segments/query/time",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 542,
+				"character": 9
+			},
+			"end": {
+				"line": 601,
+				"character": 82
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/event/with-detections-and-segments/query/time",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 542,
+				"character": 9
+			},
+			"end": {
+				"line": 601,
+				"character": 82
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/event/with-detections-and-segments/query/time",
+			"get"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 602,
+				"character": 8
+			},
+			"end": {
+				"line": 656,
+				"character": 82
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/event/with-detections-and-segments/query/time",
+			"get"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 602,
+				"character": 8
+			},
+			"end": {
+				"line": 656,
+				"character": 82
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/event/status-info/query/stage-id-and-events",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 658,
+				"character": 9
+			},
+			"end": {
+				"line": 687,
+				"character": 74
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/event/status-info/query/stage-id-and-events",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 658,
+				"character": 9
+			},
+			"end": {
+				"line": 687,
+				"character": 74
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/event/status-info/query/stage-id-and-timerange",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 689,
+				"character": 9
+			},
+			"end": {
+				"line": 724,
+				"character": 74
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/event/status-info/query/stage-id-and-timerange",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 689,
+				"character": 9
+			},
+			"end": {
+				"line": 724,
+				"character": 74
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/event/status-info/update",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 726,
+				"character": 9
+			},
+			"end": {
+				"line": 746,
+				"character": 71
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/event/status-info/update",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 726,
+				"character": 9
+			},
+			"end": {
+				"line": 746,
+				"character": 71
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/event/correlated-events/query/source-event-hypotheses",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 748,
+				"character": 9
+			},
+			"end": {
+				"line": 792,
+				"character": 75
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/event/correlated-events/query/source-event-hypotheses",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 748,
+				"character": 9
+			},
+			"end": {
+				"line": 792,
+				"character": 75
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/event/update",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 794,
+				"character": 9
+			},
+			"end": {
+				"line": 909,
+				"character": 65
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/event/update",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 794,
+				"character": 9
+			},
+			"end": {
+				"line": 909,
+				"character": 65
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/fdsnws/dataselect/1/query",
+			"get"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 920,
+				"character": 8
+			},
+			"end": {
+				"line": 1098,
+				"character": 44
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-tag-defined",
+		"path": [
+			"paths",
+			"/fdsnws/dataselect/1/query",
+			"get",
+			"tags",
+			"0"
+		],
+		"message": "Operation tags must be defined in global tags.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 959,
+				"character": 10
+			},
+			"end": {
+				"line": 959,
+				"character": 27
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-valid-schema-example",
+		"path": [
+			"paths",
+			"/fdsnws/dataselect/1/query",
+			"get",
+			"parameters",
+			"6",
+			"schema",
+			"default"
+		],
+		"message": "\"default\" property must be equal to one of the allowed values: \"D\", \"R\", \"Q\", \"M\"",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 1062,
+				"character": 19
+			},
+			"end": {
+				"line": 1062,
+				"character": 22
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-valid-media-example",
+		"path": [
+			"paths",
+			"/fdsnws/dataselect/1/query",
+			"get",
+			"parameters",
+			"6",
+			"example"
+		],
+		"message": "\"example\" property must be equal to one of the allowed values: \"D\", \"R\", \"Q\", \"M\"",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 1063,
+				"character": 17
+			},
+			"end": {
+				"line": 1063,
+				"character": 20
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/fdsnws/dataselect/1/query",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 1099,
+				"character": 9
+			},
+			"end": {
+				"line": 1157,
+				"character": 34
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-tag-defined",
+		"path": [
+			"paths",
+			"/fdsnws/dataselect/1/query",
+			"post",
+			"tags",
+			"0"
+		],
+		"message": "Operation tags must be defined in global tags.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 1123,
+				"character": 10
+			},
+			"end": {
+				"line": 1123,
+				"character": 27
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/fdsnws/station/1/query",
+			"get"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 1163,
+				"character": 8
+			},
+			"end": {
+				"line": 1508,
+				"character": 44
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-tag-defined",
+		"path": [
+			"paths",
+			"/fdsnws/station/1/query",
+			"get",
+			"tags",
+			"0"
+		],
+		"message": "Operation tags must be defined in global tags.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 1216,
+				"character": 10
+			},
+			"end": {
+				"line": 1216,
+				"character": 27
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/fdsnws/event/1/query",
+			"get"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 1514,
+				"character": 8
+			},
+			"end": {
+				"line": 1941,
+				"character": 44
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "operation-tag-defined",
+		"path": [
+			"paths",
+			"/fdsnws/event/1/query",
+			"get",
+			"tags",
+			"0"
+		],
+		"message": "Operation tags must be defined in global tags.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 1542,
+				"character": 10
+			},
+			"end": {
+				"line": 1542,
+				"character": 27
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"parameters",
+			"TimeFormat"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 1944,
+				"character": 15
+			},
+			"end": {
+				"line": 1950,
+				"character": 92
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"parameters",
+			"StartTime"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 1951,
+				"character": 14
+			},
+			"end": {
+				"line": 1974,
+				"character": 57
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"parameters",
+			"EndTime"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 1975,
+				"character": 12
+			},
+			"end": {
+				"line": 1996,
+				"character": 38
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"parameters",
+			"Latitude"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 1997,
+				"character": 13
+			},
+			"end": {
+				"line": 2007,
+				"character": 22
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"parameters",
+			"Longitude"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2008,
+				"character": 14
+			},
+			"end": {
+				"line": 2018,
+				"character": 24
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"parameters",
+			"RadiusKm"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2019,
+				"character": 13
+			},
+			"end": {
+				"line": 2029,
+				"character": 20
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"parameters",
+			"StageIds"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2030,
+				"character": 13
+			},
+			"end": {
+				"line": 2041,
+				"character": 36
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"parameters",
+			"Limit"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2042,
+				"character": 10
+			},
+			"end": {
+				"line": 2052,
+				"character": 17
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"parameters",
+			"Offset"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2053,
+				"character": 11
+			},
+			"end": {
+				"line": 2062,
+				"character": 16
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"TimeStamp"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2064,
+				"character": 14
+			},
+			"end": {
+				"line": 2100,
+				"character": 63
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-schema",
+		"path": [
+			"components",
+			"schemas",
+			"TimeStamp",
+			"examples"
+		],
+		"message": "\"examples\" property must be array.",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2085,
+				"character": 15
+			},
+			"end": {
+				"line": 2100,
+				"character": 63
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"FDSNStationXML"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2104,
+				"character": 19
+			},
+			"end": {
+				"line": 2131,
+				"character": 4
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"FDSNQuakeML"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2132,
+				"character": 16
+			},
+			"end": {
+				"line": 2165,
+				"character": 4
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"FDSNMiniSEED"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2166,
+				"character": 17
+			},
+			"end": {
+				"line": 2186,
+				"character": 98
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"FDSNNetworkCode"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2188,
+				"character": 20
+			},
+			"end": {
+				"line": 2205,
+				"character": 19
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"FDSNStationCode"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2207,
+				"character": 20
+			},
+			"end": {
+				"line": 2223,
+				"character": 21
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"FDSNLocationCode"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2225,
+				"character": 21
+			},
+			"end": {
+				"line": 2241,
+				"character": 19
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"FDSNChannelCode"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2243,
+				"character": 20
+			},
+			"end": {
+				"line": 2292,
+				"character": 58
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-schema",
+		"path": [
+			"components",
+			"schemas",
+			"FDSNChannelCode",
+			"examples"
+		],
+		"message": "\"examples\" property must be array.",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2277,
+				"character": 15
+			},
+			"end": {
+				"line": 2292,
+				"character": 58
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"FacetingDefinition"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2293,
+				"character": 23
+			},
+			"end": {
+				"line": 2306,
+				"character": 59
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"Comment"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2307,
+				"character": 12
+			},
+			"end": {
+				"line": 2324,
+				"character": 27
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"FieldMap"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2325,
+				"character": 13
+			},
+			"end": {
+				"line": 2328,
+				"character": 20
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"DoubleValue"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2329,
+				"character": 16
+			},
+			"end": {
+				"line": 2342,
+				"character": 44
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"InstantValue"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2343,
+				"character": 17
+			},
+			"end": {
+				"line": 2353,
+				"character": 26
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"DurationValue"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2354,
+				"character": 18
+			},
+			"end": {
+				"line": 2364,
+				"character": 26
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"StoreStatus"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2401,
+				"character": 16
+			},
+			"end": {
+				"line": 2406,
+				"character": 15
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"CreationInfo"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2407,
+				"character": 17
+			},
+			"end": {
+				"line": 2420,
+				"character": 102
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "invalid-ref",
+		"path": [
+			"components",
+			"schemas",
+			"CreationInfo",
+			"properties",
+			"stageId",
+			"$ref"
+		],
+		"message": "ENOENT: no such file or directory, open '/Users/josephwehlen/Intervals/OpenAPISpec/workflow-coi.yaml'",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2420,
+				"character": 16
+			},
+			"end": {
+				"line": 2420,
+				"character": 102
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"TimeFormat"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2421,
+				"character": 15
+			},
+			"end": {
+				"line": 2428,
+				"character": 60
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "invalid-ref",
+		"path": [
+			"components",
+			"schemas",
+			"Event",
+			"properties",
+			"rejectedSignalDetectionAssociations",
+			"items",
+			"$ref"
+		],
+		"message": "ENOENT: no such file or directory, open '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-coi.yaml'",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2456,
+				"character": 18
+			},
+			"end": {
+				"line": 2456,
+				"character": 113
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "invalid-ref",
+		"path": [
+			"components",
+			"schemas",
+			"EventHypothesis",
+			"properties",
+			"creationInfo",
+			"$ref"
+		],
+		"message": "ENOENT: no such file or directory, open '/Users/josephwehlen/Common/OpenAPISpec/common-coi.yaml'",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2463,
+				"character": 16
+			},
+			"end": {
+				"line": 2463,
+				"character": 89
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-schema",
+		"path": [
+			"components",
+			"schemas",
+			"LocationBehavior",
+			"properties",
+			"weight",
+			"exclusiveMinimum"
+		],
+		"message": "\"exclusiveMinimum\" property must be number.",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2553,
+				"character": 28
+			},
+			"end": {
+				"line": 2553,
+				"character": 32
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-schema",
+		"path": [
+			"components",
+			"schemas",
+			"LocationUncertainty",
+			"properties",
+			"tt",
+			"exclusiveMinimum"
+		],
+		"message": "\"exclusiveMinimum\" property must be number.",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2611,
+				"character": 28
+			},
+			"end": {
+				"line": 2611,
+				"character": 32
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-schema",
+		"path": [
+			"components",
+			"schemas",
+			"LocationUncertainty",
+			"properties",
+			"xx",
+			"exclusiveMinimum"
+		],
+		"message": "\"exclusiveMinimum\" property must be number.",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2619,
+				"character": 28
+			},
+			"end": {
+				"line": 2619,
+				"character": 32
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-schema",
+		"path": [
+			"components",
+			"schemas",
+			"LocationUncertainty",
+			"properties",
+			"yy",
+			"exclusiveMinimum"
+		],
+		"message": "\"exclusiveMinimum\" property must be number.",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2633,
+				"character": 28
+			},
+			"end": {
+				"line": 2633,
+				"character": 32
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-schema",
+		"path": [
+			"components",
+			"schemas",
+			"LocationUncertainty",
+			"properties",
+			"zz",
+			"exclusiveMinimum"
+		],
+		"message": "\"exclusiveMinimum\" property must be number.",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2644,
+				"character": 28
+			},
+			"end": {
+				"line": 2644,
+				"character": 32
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-schema",
+		"path": [
+			"components",
+			"schemas",
+			"Ellipse",
+			"properties",
+			"semiMajorAxisLengthKm",
+			"exclusiveMinimum"
+		],
+		"message": "\"exclusiveMinimum\" property must be number.",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2678,
+				"character": 28
+			},
+			"end": {
+				"line": 2678,
+				"character": 32
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-schema",
+		"path": [
+			"components",
+			"schemas",
+			"Ellipse",
+			"properties",
+			"semiMajorAxisTrendDeg",
+			"exclusiveMaximum"
+		],
+		"message": "\"exclusiveMaximum\" property must be number.",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2684,
+				"character": 28
+			},
+			"end": {
+				"line": 2684,
+				"character": 32
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-schema",
+		"path": [
+			"components",
+			"schemas",
+			"Ellipse",
+			"properties",
+			"semiMinorAxisLengthKm",
+			"exclusiveMinimum"
+		],
+		"message": "\"exclusiveMinimum\" property must be number.",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2689,
+				"character": 28
+			},
+			"end": {
+				"line": 2689,
+				"character": 32
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-schema",
+		"path": [
+			"components",
+			"schemas",
+			"Ellipsoid",
+			"properties",
+			"semiIntermediateAxisLengthKm",
+			"exclusiveMinimum"
+		],
+		"message": "\"exclusiveMinimum\" property must be number.",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2721,
+				"character": 28
+			},
+			"end": {
+				"line": 2721,
+				"character": 32
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-schema",
+		"path": [
+			"components",
+			"schemas",
+			"Ellipsoid",
+			"properties",
+			"semiIntermediateAxisTrendDeg",
+			"exclusiveMaximum"
+		],
+		"message": "\"exclusiveMaximum\" property must be number.",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2732,
+				"character": 28
+			},
+			"end": {
+				"line": 2732,
+				"character": 32
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-schema",
+		"path": [
+			"components",
+			"schemas",
+			"Ellipsoid",
+			"properties",
+			"semiMajorAxisLengthKm",
+			"exclusiveMinimum"
+		],
+		"message": "\"exclusiveMinimum\" property must be number.",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2737,
+				"character": 28
+			},
+			"end": {
+				"line": 2737,
+				"character": 32
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-schema",
+		"path": [
+			"components",
+			"schemas",
+			"Ellipsoid",
+			"properties",
+			"semiMajorAxisTrendDeg",
+			"exclusiveMaximum"
+		],
+		"message": "\"exclusiveMaximum\" property must be number.",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2748,
+				"character": 28
+			},
+			"end": {
+				"line": 2748,
+				"character": 32
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-schema",
+		"path": [
+			"components",
+			"schemas",
+			"Ellipsoid",
+			"properties",
+			"semiMinorAxisLengthKm",
+			"exclusiveMinimum"
+		],
+		"message": "\"exclusiveMinimum\" property must be number.",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2753,
+				"character": 28
+			},
+			"end": {
+				"line": 2753,
+				"character": 32
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-schema",
+		"path": [
+			"components",
+			"schemas",
+			"Ellipsoid",
+			"properties",
+			"semiMinorAxisTrendDeg",
+			"exclusiveMaximum"
+		],
+		"message": "\"exclusiveMaximum\" property must be number.",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2764,
+				"character": 28
+			},
+			"end": {
+				"line": 2764,
+				"character": 32
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "invalid-ref",
+		"path": [
+			"components",
+			"schemas",
+			"FeaturePrediction",
+			"properties",
+			"channel",
+			"$ref"
+		],
+		"message": "ENOENT: no such file or directory, open '/Users/josephwehlen/StationDefinition/OpenAPISpec/station-definition-coi.yaml'",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2779,
+				"character": 16
+			},
+			"end": {
+				"line": 2779,
+				"character": 107
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "invalid-ref",
+		"path": [
+			"components",
+			"schemas",
+			"FeaturePrediction",
+			"properties",
+			"predictionChannelSegment",
+			"$ref"
+		],
+		"message": "ENOENT: no such file or directory, open '/Users/josephwehlen/Waveform/OpenAPISpec/waveform-coi.yaml'",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2790,
+				"character": 16
+			},
+			"end": {
+				"line": 2790,
+				"character": 95
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"EventStatusInfo"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 2888,
+				"character": 20
+			},
+			"end": {
+				"line": 2902,
+				"character": 50
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"CorrelatedEvents"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 3053,
+				"character": 21
+			},
+			"end": {
+				"line": 3069,
+				"character": 54
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	},
+	{
+		"code": "invalid-ref",
+		"path": [
+			"components",
+			"schemas",
+			"EventsWithSignalDetectionsAndSegments",
+			"properties",
+			"signalDetectionsWithChannelSegments",
+			"$ref"
+		],
+		"message": "ENOENT: no such file or directory, open '/Users/josephwehlen/SignalDetection/OpenAPISpec/signal-detection-operations.yaml'",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 3198,
+				"character": 16
+			},
+			"end": {
+				"line": 3198,
+				"character": 138
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/openapi.yaml"
+	}
+]

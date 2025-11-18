@@ -1,0 +1,25 @@
+{
+    "namesAndTimes": [
+        {
+            "name": "ASAR.AS01.SHZ",
+            "effectiveAtTime": "2019-01-05T00:00:00.000000Z"
+        }
+    ],
+    "facetingDefinition": {
+        "classType": "Channel",
+        "populated": true,
+        "facetingDefinitionByAttributeName": {
+            "responses": {
+                "classType": "Response",
+                "populated": true,
+                "facetingDefinitionByAttributeName": {
+                    "fapResponse": {
+                        "classType": "FrequencyAmplitudePhase",
+                        "populated": true,
+                        "facetingDefinitionByAttributeName": {}
+                    }
+                }
+            }
+        }
+    }
+}

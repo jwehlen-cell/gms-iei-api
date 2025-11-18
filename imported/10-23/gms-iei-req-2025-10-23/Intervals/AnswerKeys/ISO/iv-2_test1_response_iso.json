@@ -1,0 +1,704 @@
+[
+    {
+        "endTime": "2019-01-05T18:00:00.000000Z",
+        "processingStartTime": "2025-09-30T13:31:02.160000Z",
+        "processingEndTime": "2025-09-30T13:31:14.448000Z",
+        "storageTime": "2025-09-30T13:31:14.448000Z",
+        "modificationTime": "2025-09-30T13:31:14.448000Z",
+        "comments": [],
+        "status": "COMPLETE",
+        "intervalId": {
+            "startTime": "2019-01-05T17:55:00.000000Z",
+            "definitionId": {
+                "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                "name": "Pre-AL1"
+            }
+        },
+        "stageMetrics": {
+            "eventCount": 1,
+            "associatedSignalDetectionCount": 4,
+            "unassociatedSignalDetectionCount": 29,
+            "maxMagnitude": 3.83,
+            "maxMagnitudeType": "mb",
+            "percentWaveformsAvailable": 0.992848,
+            "waveformAvailabilityStationGroup": {
+                "name": "NDCSH",
+                "effectiveAt": "1970-01-01T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-01T00:00:00.000000Z"
+            }
+        },
+        "stageMode": "AUTOMATIC",
+        "sequenceIntervals": [
+            {
+                "endTime": "2019-01-05T18:00:00.000000Z",
+                "processingStartTime": "2025-09-30T13:31:12.400000Z",
+                "processingEndTime": "2025-09-30T13:31:14.447000Z",
+                "storageTime": "2025-09-30T13:31:12.400000Z",
+                "modificationTime": "2025-09-30T13:31:14.447000Z",
+                "comments": [],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-05T17:55:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "Pre-AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-05T17:55:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "Pre-AL1 Seq"
+                    }
+                },
+                "percentComplete": 1.0,
+                "lastExecutedStepName": "Look Forward Notification"
+            }
+        ]
+    },
+    {
+        "endTime": "2019-01-05T17:00:00.000000Z",
+        "processingStartTime": "2025-10-06T12:12:42.507000Z",
+        "processingEndTime": "2025-10-06T12:13:16.299000Z",
+        "storageTime": "2025-10-06T12:13:16.299000Z",
+        "modificationTime": "2025-10-06T12:13:16.299000Z",
+        "comments": [
+            {
+                "id": "3A0B11B91BB011A1E063CF44A10A1397",
+                "author": "oracle",
+                "time": "2025-06-24T00:00:00.000000Z",
+                "comment": "I Love Lucy"
+            }
+        ],
+        "status": "COMPLETE",
+        "intervalId": {
+            "startTime": "2019-01-05T16:00:00.000000Z",
+            "definitionId": {
+                "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                "name": "AL1"
+            }
+        },
+        "stageMetrics": {
+            "eventCount": 0,
+            "associatedSignalDetectionCount": 0,
+            "unassociatedSignalDetectionCount": 0,
+            "percentWaveformsAvailable": 0.986164,
+            "waveformAvailabilityStationGroup": {
+                "name": "NDCSH",
+                "effectiveAt": "1970-01-01T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-01T00:00:00.000000Z"
+            }
+        },
+        "stageMode": "INTERACTIVE",
+        "activityIntervals": [
+            {
+                "endTime": "2019-01-05T18:00:00.000000Z",
+                "processingStartTime": "2025-10-06T12:12:42.507000Z",
+                "processingEndTime": "2025-10-06T12:12:44.554000Z",
+                "storageTime": "2025-10-06T12:12:44.554000Z",
+                "modificationTime": "2025-10-06T12:12:44.554000Z",
+                "comments": [
+                    {
+                        "id": "3A0B11B91BB011A1E063CF44A10A1397",
+                        "author": "oracle",
+                        "time": "2025-06-24T00:00:00.000000Z",
+                        "comment": "I Love Lucy"
+                    }
+                ],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1 Event Review"
+                    }
+                }
+            },
+            {
+                "endTime": "2019-01-05T18:00:00.000000Z",
+                "processingStartTime": "2025-10-06T12:12:45.578000Z",
+                "processingEndTime": "2025-10-06T12:12:47.626000Z",
+                "storageTime": "2025-10-06T12:12:47.626000Z",
+                "modificationTime": "2025-10-06T12:12:47.626000Z",
+                "comments": [
+                    {
+                        "id": "3A0B11B91BB011A1E063CF44A10A1397",
+                        "author": "oracle",
+                        "time": "2025-06-24T00:00:00.000000Z",
+                        "comment": "I Love Lucy"
+                    }
+                ],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1 Central Alaska"
+                    }
+                }
+            },
+            {
+                "endTime": "2019-01-05T18:00:00.000000Z",
+                "processingStartTime": "2025-10-06T12:12:48.650000Z",
+                "processingEndTime": "2025-10-06T12:12:50.698000Z",
+                "storageTime": "2025-10-06T12:12:50.698000Z",
+                "modificationTime": "2025-10-06T12:12:50.698000Z",
+                "comments": [
+                    {
+                        "id": "3A0B11B91BB011A1E063CF44A10A1397",
+                        "author": "oracle",
+                        "time": "2025-06-24T00:00:00.000000Z",
+                        "comment": "I Love Lucy"
+                    }
+                ],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1 Mount St Helens"
+                    }
+                }
+            },
+            {
+                "endTime": "2019-01-05T18:00:00.000000Z",
+                "processingStartTime": "2025-10-06T12:12:51.722000Z",
+                "processingEndTime": "2025-10-06T12:12:53.770000Z",
+                "storageTime": "2025-10-06T12:12:53.770000Z",
+                "modificationTime": "2025-10-06T12:12:53.770000Z",
+                "comments": [
+                    {
+                        "id": "3A0B11B91BB011A1E063CF44A10A1397",
+                        "author": "oracle",
+                        "time": "2025-06-24T00:00:00.000000Z",
+                        "comment": "I Love Lucy"
+                    }
+                ],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1 California"
+                    }
+                }
+            },
+            {
+                "endTime": "2019-01-05T18:00:00.000000Z",
+                "processingStartTime": "2025-10-06T12:12:54.794000Z",
+                "processingEndTime": "2025-10-06T12:12:56.842000Z",
+                "storageTime": "2025-10-06T12:12:56.842000Z",
+                "modificationTime": "2025-10-06T12:12:56.842000Z",
+                "comments": [
+                    {
+                        "id": "3A0B11B91BB011A1E063CF44A10A1397",
+                        "author": "oracle",
+                        "time": "2025-06-24T00:00:00.000000Z",
+                        "comment": "I Love Lucy"
+                    }
+                ],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1 Yellowstone"
+                    }
+                }
+            },
+            {
+                "endTime": "2019-01-05T18:00:00.000000Z",
+                "processingStartTime": "2025-10-06T12:12:57.866000Z",
+                "processingEndTime": "2025-10-06T12:12:59.914000Z",
+                "storageTime": "2025-10-06T12:12:59.914000Z",
+                "modificationTime": "2025-10-06T12:12:59.914000Z",
+                "comments": [
+                    {
+                        "id": "3A0B11B91BB011A1E063CF44A10A1397",
+                        "author": "oracle",
+                        "time": "2025-06-24T00:00:00.000000Z",
+                        "comment": "I Love Lucy"
+                    }
+                ],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1 New Mexico"
+                    }
+                }
+            },
+            {
+                "endTime": "2019-01-05T18:00:00.000000Z",
+                "processingStartTime": "2025-10-06T12:13:00.938000Z",
+                "processingEndTime": "2025-10-06T12:13:02.986000Z",
+                "storageTime": "2025-10-06T12:13:02.986000Z",
+                "modificationTime": "2025-10-06T12:13:02.986000Z",
+                "comments": [
+                    {
+                        "id": "3A0B11B91BB011A1E063CF44A10A1397",
+                        "author": "oracle",
+                        "time": "2025-06-24T00:00:00.000000Z",
+                        "comment": "I Love Lucy"
+                    }
+                ],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1 New Madrid"
+                    }
+                }
+            },
+            {
+                "endTime": "2019-01-05T18:00:00.000000Z",
+                "processingStartTime": "2025-10-06T12:13:04.010000Z",
+                "processingEndTime": "2025-10-06T12:13:06.058000Z",
+                "storageTime": "2025-10-06T12:13:06.058000Z",
+                "modificationTime": "2025-10-06T12:13:06.058000Z",
+                "comments": [
+                    {
+                        "id": "3A0B11B91BB011A1E063CF44A10A1397",
+                        "author": "oracle",
+                        "time": "2025-06-24T00:00:00.000000Z",
+                        "comment": "I Love Lucy"
+                    }
+                ],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1 South Carolina"
+                    }
+                }
+            },
+            {
+                "endTime": "2019-01-05T18:00:00.000000Z",
+                "processingStartTime": "2025-10-06T12:13:07.082000Z",
+                "processingEndTime": "2025-10-06T12:13:09.130000Z",
+                "storageTime": "2025-10-06T12:13:09.130000Z",
+                "modificationTime": "2025-10-06T12:13:09.130000Z",
+                "comments": [
+                    {
+                        "id": "3A0B11B91BB011A1E063CF44A10A1397",
+                        "author": "oracle",
+                        "time": "2025-06-24T00:00:00.000000Z",
+                        "comment": "I Love Lucy"
+                    }
+                ],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1 Western US"
+                    }
+                }
+            },
+            {
+                "endTime": "2019-01-05T18:00:00.000000Z",
+                "processingStartTime": "2025-10-06T12:13:10.154000Z",
+                "processingEndTime": "2025-10-06T12:13:12.202000Z",
+                "storageTime": "2025-10-06T12:13:12.202000Z",
+                "modificationTime": "2025-10-06T12:13:12.202000Z",
+                "comments": [
+                    {
+                        "id": "3A0B11B91BB011A1E063CF44A10A1397",
+                        "author": "oracle",
+                        "time": "2025-06-24T00:00:00.000000Z",
+                        "comment": "I Love Lucy"
+                    }
+                ],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1 Eastern US"
+                    }
+                }
+            },
+            {
+                "endTime": "2019-01-05T18:00:00.000000Z",
+                "processingStartTime": "2025-10-06T12:13:13.226000Z",
+                "processingEndTime": "2025-10-06T12:13:15.274000Z",
+                "storageTime": "2025-10-06T12:13:15.274000Z",
+                "modificationTime": "2025-10-06T12:13:15.274000Z",
+                "comments": [
+                    {
+                        "id": "3A0B11B91BB011A1E063CF44A10A1397",
+                        "author": "oracle",
+                        "time": "2025-06-24T00:00:00.000000Z",
+                        "comment": "I Love Lucy"
+                    }
+                ],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL1 Unassociated Signal Detection"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "endTime": "2019-01-05T19:00:00.000000Z",
+        "processingStartTime": "2025-09-30T12:20:06.415000Z",
+        "processingEndTime": "2025-09-30T12:20:35.089000",
+        "storageTime": "2025-09-30T12:20:35.089000Z",
+        "modificationTime": "2025-09-30T12:20:35.089000Z",
+        "comments": [],
+        "status": "COMPLETE",
+        "intervalId": {
+            "startTime": "2019-01-05T18:00:00.000000Z",
+            "definitionId": {
+                "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                "name": "Post-AL1"
+            }
+        },
+        "stageMetrics": {
+            "eventCount": 0,
+            "associatedSignalDetectionCount": 0,
+            "unassociatedSignalDetectionCount": 0,
+            "percentWaveformsAvailable": 0.985849,
+            "waveformAvailabilityStationGroup": {
+                "name": "NDCSH",
+                "effectiveAt": "2011-09-09T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-01T00:00:00.000000Z"
+            }
+        },
+        "stageMode": "AUTOMATIC",
+        "sequenceIntervals": [
+            {
+                "endTime": "2019-01-05T19:00:00.000000Z",
+                "processingStartTime": "2025-09-30T12:20:33.040000",
+                "processingEndTime": "2025-09-30T12:20:35.088000",
+                "storageTime": "2025-09-30T12:20:33.040000Z",
+                "modificationTime": "2025-09-30T12:20:35.088000Z",
+                "comments": [],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-05T18:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2019-01-01T00:00:00.000000",
+                        "name": "Post-AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-05T18:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "Post-AL1 Seq"
+                    }
+                },
+                "percentComplete": 1.0,
+                "lastExecutedStepName": "Regional Amplitude"
+            }
+        ]
+    },
+    {
+        "endTime": "2019-01-05T18:00:00.000000Z",
+        "processingStartTime": "2025-10-06T12:17:57.898000Z",
+        "processingEndTime": "2025-10-06T12:18:13.259000Z",
+        "storageTime": "2025-10-06T12:18:13.259000Z",
+        "modificationTime": "2025-10-06T12:18:13.259000Z",
+        "comments": [
+            {
+                "id": "3A0B11B91BB311A1E063CF44A10A1397",
+                "author": "oracle",
+                "time": "2025-06-24T00:00:00.000000Z",
+                "comment": "Happiness can be found, even in the darkest of times,y"
+            },
+            {
+                "id": "3A0B11B91BB411A1E063CF44A10A1397",
+                "author": "oracle",
+                "time": "2025-06-24T00:00:00.000000Z",
+                "comment": "if one ony remembers to turn on the light. -Albus Percival Wulfric Brian Dumbledore"
+            }
+        ],
+        "status": "COMPLETE",
+        "intervalId": {
+            "startTime": "2019-01-05T16:00:00.000000Z",
+            "definitionId": {
+                "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                "name": "AL2"
+            }
+        },
+        "stageMetrics": {
+            "eventCount": 0,
+            "associatedSignalDetectionCount": 0,
+            "unassociatedSignalDetectionCount": 0,
+            "percentWaveformsAvailable": 0.986006,
+            "waveformAvailabilityStationGroup": {
+                "name": "NDCSH",
+                "effectiveAt": "1970-01-01T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-01T00:00:00.000000Z"
+            }
+        },
+        "stageMode": "INTERACTIVE",
+        "activityIntervals": [
+            {
+                "endTime": "2019-01-05T18:00:00.000000Z",
+                "processingStartTime": "2025-10-06T12:17:57.898000Z",
+                "processingEndTime": "2025-10-06T12:17:59.946000Z",
+                "storageTime": "2025-10-06T12:17:59.946000Z",
+                "modificationTime": "2025-10-06T12:17:59.946000Z",
+                "comments": [
+                    {
+                        "id": "3A0B11B91BB311A1E063CF44A10A1397",
+                        "author": "oracle",
+                        "time": "2025-06-24T00:00:00.000000Z",
+                        "comment": "Happiness can be found, even in the darkest of times,y"
+                    },
+                    {
+                        "id": "3A0B11B91BB411A1E063CF44A10A1397",
+                        "author": "oracle",
+                        "time": "2025-06-24T00:00:00.000000Z",
+                        "comment": "if one ony remembers to turn on the light. -Albus Percival Wulfric Brian Dumbledore"
+                    }
+                ],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL2"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL2 Event Review"
+                    }
+                }
+            },
+            {
+                "endTime": "2019-01-05T18:00:00.000000Z",
+                "processingStartTime": "2025-10-06T12:18:00.970000Z",
+                "processingEndTime": "2025-10-06T12:18:03.018000Z",
+                "storageTime": "2025-10-06T12:18:03.018000Z",
+                "modificationTime": "2025-10-06T12:18:03.018000Z",
+                "comments": [
+                    {
+                        "id": "3A0B11B91BB311A1E063CF44A10A1397",
+                        "author": "oracle",
+                        "time": "2025-06-24T00:00:00.000000Z",
+                        "comment": "Happiness can be found, even in the darkest of times,y"
+                    },
+                    {
+                        "id": "3A0B11B91BB411A1E063CF44A10A1397",
+                        "author": "oracle",
+                        "time": "2025-06-24T00:00:00.000000Z",
+                        "comment": "if one ony remembers to turn on the light. -Albus Percival Wulfric Brian Dumbledore"
+                    }
+                ],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL2"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL2 Pacific Ocean"
+                    }
+                }
+            },
+            {
+                "endTime": "2019-01-05T18:00:00.000000Z",
+                "processingStartTime": "2025-10-06T12:18:04.042000Z",
+                "processingEndTime": "2025-10-06T12:18:06.090000Z",
+                "storageTime": "2025-10-06T12:18:06.090000Z",
+                "modificationTime": "2025-10-06T12:18:06.090000Z",
+                "comments": [
+                    {
+                        "id": "3A0B11B91BB311A1E063CF44A10A1397",
+                        "author": "oracle",
+                        "time": "2025-06-24T00:00:00.000000Z",
+                        "comment": "Happiness can be found, even in the darkest of times,y"
+                    },
+                    {
+                        "id": "3A0B11B91BB411A1E063CF44A10A1397",
+                        "author": "oracle",
+                        "time": "2025-06-24T00:00:00.000000Z",
+                        "comment": "if one ony remembers to turn on the light. -Albus Percival Wulfric Brian Dumbledore"
+                    }
+                ],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL2"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL2 Atlantic Ocean"
+                    }
+                }
+            },
+            {
+                "endTime": "2019-01-05T18:00:00.000000Z",
+                "processingStartTime": "2025-10-06T12:18:07.114000Z",
+                "processingEndTime": "2025-10-06T12:18:09.162000Z",
+                "storageTime": "2025-10-06T12:18:09.162000Z",
+                "modificationTime": "2025-10-06T12:18:09.162000Z",
+                "comments": [
+                    {
+                        "id": "3A0B11B91BB311A1E063CF44A10A1397",
+                        "author": "oracle",
+                        "time": "2025-06-24T00:00:00.000000Z",
+                        "comment": "Happiness can be found, even in the darkest of times,y"
+                    },
+                    {
+                        "id": "3A0B11B91BB411A1E063CF44A10A1397",
+                        "author": "oracle",
+                        "time": "2025-06-24T00:00:00.000000Z",
+                        "comment": "if one ony remembers to turn on the light. -Albus Percival Wulfric Brian Dumbledore"
+                    }
+                ],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL2"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL2 Wyoming Infrasound"
+                    }
+                }
+            },
+            {
+                "endTime": "2019-01-05T18:00:00.000000Z",
+                "processingStartTime": "2025-10-06T12:18:10.186000Z",
+                "processingEndTime": "2025-10-06T12:18:12.234000Z",
+                "storageTime": "2025-10-06T12:18:12.234000Z",
+                "modificationTime": "2025-10-06T12:18:12.234000Z",
+                "comments": [
+                    {
+                        "id": "3A0B11B91BB311A1E063CF44A10A1397",
+                        "author": "oracle",
+                        "time": "2025-06-24T00:00:00.000000Z",
+                        "comment": "Happiness can be found, even in the darkest of times,y"
+                    },
+                    {
+                        "id": "3A0B11B91BB411A1E063CF44A10A1397",
+                        "author": "oracle",
+                        "time": "2025-06-24T00:00:00.000000Z",
+                        "comment": "if one ony remembers to turn on the light. -Albus Percival Wulfric Brian Dumbledore"
+                    }
+                ],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL2"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-05T16:00:00.000000Z",
+                    "definitionId": {
+                        "effectiveAt": "2025-01-01T00:00:00.000000Z",
+                        "name": "AL2 Unassociated Signal Detection"
+                    }
+                }
+            }
+        ]
+    }
+]

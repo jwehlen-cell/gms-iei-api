@@ -1,0 +1,236 @@
+[
+  {
+    "allRawChannels": [
+      {
+        "effectiveAt": "2007-03-06T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "AAK.AAK.BHZ"
+      },
+      {
+        "effectiveAt": "2007-03-06T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "AAK.AAK.BHN"
+      },
+      {
+        "effectiveAt": "2007-03-06T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "AAK.AAK.BHE"
+      }
+    ],
+    "channelGroups": [
+      {
+        "channelGroupType": "1_COMPONENT",
+        "channels": [
+          {
+            "canonicalName": "AAK.AAK.BHZ",
+            "channelBandType": "BROADBAND",
+            "channelDataType": "SEISMIC",
+            "channelInstrumentType": "HIGH_GAIN_SEISMOMETER",
+            "channelOrientationCode": "Z",
+            "channelOrientationType": "VERTICAL",
+            "configuredInputs": [],
+            "description": "BROAD_BAND_VERTICAL",
+            "effectiveAt": "2007-03-06T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.03,
+              "elevationKm": 1.645,
+              "latitudeDegrees": 42.639099,
+              "longitudeDegrees": 74.494202
+            },
+            "name": "AAK.AAK.BHZ",
+            "nominalSampleRateHz": 40.0,
+            "orientationAngles": {
+              "horizontalAngleDeg": -1.0,
+              "verticalAngleDeg": 0.0
+            },
+            "processingDefinition": {},
+            "processingMetadata": {
+              "CHANNEL_GROUP": "AAK"
+            },
+            "response": {
+              "calibration": {
+                "calibrationFactor": {
+                  "standardDeviation": 0.0,
+                  "units": "NANOMETERS_PER_COUNT",
+                  "value": 1.0
+                },
+                "calibrationPeriodSec": 1.0,
+                "calibrationTimeShift": "PT0S"
+              },
+              "effectiveAt": "2014-09-12T00:00:00.000000Z",
+              "fapResponse": {
+                "id": 9963
+              },
+              "id": 9963
+            },
+            "station": {
+              "effectiveAt": "2007-03-06T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "AAK"
+            },
+            "units": "NANOMETERS_PER_COUNT"
+          },
+          {
+            "canonicalName": "AAK.AAK.BHN",
+            "channelBandType": "BROADBAND",
+            "channelDataType": "SEISMIC",
+            "channelInstrumentType": "HIGH_GAIN_SEISMOMETER",
+            "channelOrientationCode": "N",
+            "channelOrientationType": "NORTH_SOUTH",
+            "configuredInputs": [],
+            "description": "BROAD_BAND_NORTH",
+            "effectiveAt": "2007-03-06T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.03,
+              "elevationKm": 1.645,
+              "latitudeDegrees": 42.639099,
+              "longitudeDegrees": 74.494202
+            },
+            "name": "AAK.AAK.BHN",
+            "nominalSampleRateHz": 40.0,
+            "orientationAngles": {
+              "horizontalAngleDeg": 0.0,
+              "verticalAngleDeg": 90.0
+            },
+            "processingDefinition": {},
+            "processingMetadata": {
+              "CHANNEL_GROUP": "AAK"
+            },
+            "response": {
+              "calibration": {
+                "calibrationFactor": {
+                  "standardDeviation": 0.0,
+                  "units": "NANOMETERS_PER_COUNT",
+                  "value": 1.0
+                },
+                "calibrationPeriodSec": 1.0,
+                "calibrationTimeShift": "PT0S"
+              },
+              "effectiveAt": "2014-09-12T00:00:00.000000Z",
+              "fapResponse": {
+                "id": 9964
+              },
+              "id": 9964
+            },
+            "station": {
+              "effectiveAt": "2007-03-06T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "AAK"
+            },
+            "units": "NANOMETERS_PER_COUNT"
+          },
+          {
+            "canonicalName": "AAK.AAK.BHE",
+            "channelBandType": "BROADBAND",
+            "channelDataType": "SEISMIC",
+            "channelInstrumentType": "HIGH_GAIN_SEISMOMETER",
+            "channelOrientationCode": "E",
+            "channelOrientationType": "EAST_WEST",
+            "configuredInputs": [],
+            "description": "BROAD_BAND_EAST",
+            "effectiveAt": "2007-03-06T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.03,
+              "elevationKm": 1.645,
+              "latitudeDegrees": 42.639099,
+              "longitudeDegrees": 74.494202
+            },
+            "name": "AAK.AAK.BHE",
+            "nominalSampleRateHz": 40.0,
+            "orientationAngles": {
+              "horizontalAngleDeg": 90.0,
+              "verticalAngleDeg": 90.0
+            },
+            "processingDefinition": {},
+            "processingMetadata": {
+              "CHANNEL_GROUP": "AAK"
+            },
+            "response": {
+              "calibration": {
+                "calibrationFactor": {
+                  "standardDeviation": 0.0,
+                  "units": "NANOMETERS_PER_COUNT",
+                  "value": 1.0
+                },
+                "calibrationPeriodSec": 1.0,
+                "calibrationTimeShift": "PT0S"
+              },
+              "effectiveAt": "2014-09-12T00:00:00.000000Z",
+              "fapResponse": {
+                "id": 9965
+              },
+              "id": 9965
+            },
+            "station": {
+              "effectiveAt": "2007-03-06T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "AAK"
+            },
+            "units": "NANOMETERS_PER_COUNT"
+          }
+        ],
+        "effectiveAt": "2007-03-06T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "location": {
+          "depthKm": 0.03,
+          "elevationKm": 1.645,
+          "latitudeDegrees": 42.639099,
+          "longitudeDegrees": 74.494202
+        },
+        "name": "AAK"
+      }
+    ],
+    "description": "Ala-Archa,_Kyrgyzstan",
+    "effectiveAt": "2007-03-06T00:00:00.000000Z",
+    "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+    "location": {
+      "depthKm": 0.0,
+      "elevationKm": 1.645,
+      "latitudeDegrees": 42.639099,
+      "longitudeDegrees": 74.494202
+    },
+    "name": "AAK",
+    "relativePositionsByChannel": [
+      {
+        "channel": {
+          "effectiveAt": "2007-03-06T00:00:00.000000Z",
+          "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+          "name": "AAK.AAK.BHZ"
+        },
+        "relativePosition": {
+          "eastDisplacementKm": 0.0,
+          "northDisplacementKm": 0.0,
+          "verticalDisplacementKm": -0.03
+        }
+      },
+      {
+        "channel": {
+          "effectiveAt": "2007-03-06T00:00:00.000000Z",
+          "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+          "name": "AAK.AAK.BHN"
+        },
+        "relativePosition": {
+          "eastDisplacementKm": 0.0,
+          "northDisplacementKm": 0.0,
+          "verticalDisplacementKm": -0.03
+        }
+      },
+      {
+        "channel": {
+          "effectiveAt": "2007-03-06T00:00:00.000000Z",
+          "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+          "name": "AAK.AAK.BHE"
+        },
+        "relativePosition": {
+          "eastDisplacementKm": 0.0,
+          "northDisplacementKm": 0.0,
+          "verticalDisplacementKm": -0.03
+        }
+      }
+    ],
+    "stationType": "SEISMIC"
+  }
+]

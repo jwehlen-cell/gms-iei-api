@@ -1,0 +1,297 @@
+[
+    {
+        "endTime": 1546736400.0,
+        "processingStartTime": 1546733100.0,
+        "processingEndTime": 1546733100.0,
+        "storageTime": 1546733100.0,
+        "modificationTime": 1546733100.0,
+        "comments": [],
+        "status": "COMPLETE",
+        "intervalId": {
+            "startTime": 1546732800.0,
+            "definitionId": {
+                "effectiveAt": 1546300800.0,
+                "name": "Auto Post-AL1"
+            }
+        },
+        "stageMetrics": {
+            "eventCount": 0,
+            "associatedSignalDetectionCount": 0,
+            "unassociatedSignalDetectionCount": 0,
+            "percentWaveformsAvailable": 0,
+            "waveformAvailabilityStationGroup": {
+                "name": "Primary",
+                "effectiveAt": "TBD",
+                "effectiveForRequestTime": 1728345600.0
+            }
+        },
+        "stageMode": "AUTOMATIC",
+        "sequenceIntervals": [
+            {
+                "endTime": 1546736400.0,
+                "processingStartTime": 1546733100.0,
+                "processingEndTime": 1546733100.0,
+                "storageTime": 1546733100.0,
+                "modificationTime": 1546733100.0,
+                "comments": [],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": 1546732800.0,
+                    "definitionId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "Auto Post-AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": 1546732800.0,
+                    "definitionId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "Auto Post-AL1 Seq"
+                    }
+                },
+                "percentComplete": 1.0
+            }
+        ]
+    },
+    {
+        "endTime": 1546735200.0,
+        "processingStartTime": 1546735800.0,
+        "processingEndTime": 1546735800.0,
+        "storageTime": 1546735800.0,
+        "modificationTime": 1546735800.0,
+        "comments": [],
+        "status": "FAILED",
+        "intervalId": {
+            "startTime": 1546734900.0,
+            "definitionId": {
+                "effectiveAt": 1546300800.0,
+                "name": "Auto Network"
+            }
+        },
+        "stageMetrics": {
+            "eventCount": 0,
+            "associatedSignalDetectionCount": 0,
+            "unassociatedSignalDetectionCount": 0,
+            "percentWaveformsAvailable": 0,
+            "waveformAvailabilityStationGroup": {
+                "name": "Primary",
+                "effectiveAt": "TBD",
+                "effectiveForRequestTime": 1728345600.0
+            }
+        },
+        "stageMode": "AUTOMATIC",
+        "sequenceIntervals": [
+            {
+                "endTime": 1546735200.0,
+                "processingStartTime": 1546735800.0,
+                "processingEndTime": 1546735800.0,
+                "storageTime": 1546735800.0,
+                "modificationTime": 1546735800.0,
+                "comments": [],
+                "status": "FAILED",
+                "intervalId": {
+                    "startTime": 1546734900.0,
+                    "definitionId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "Auto Network"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": 1546734900.0,
+                    "definitionId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "Auto Network Seq"
+                    }
+                },
+                "percentComplete": 0.0
+            }
+        ]
+    },
+    {
+        "endTime": 1546735500.0,
+        "processingStartTime": 1546735800.0,
+        "processingEndTime": 1546735800.0,
+        "storageTime": 1546735800.0,
+        "modificationTime": 1546735800.0,
+        "comments": [],
+        "status": "FAILED",
+        "intervalId": {
+            "startTime": 1546735200.0,
+            "definitionId": {
+                "effectiveAt": 1546300800.0,
+                "name": "Auto Network"
+            }
+        },
+        "stageMetrics": {
+            "eventCount": 0,
+            "associatedSignalDetectionCount": 0,
+            "unassociatedSignalDetectionCount": 0,
+            "percentWaveformsAvailable": 0,
+            "waveformAvailabilityStationGroup": {
+                "name": "Primary",
+                "effectiveAt": "TBD",
+                "effectiveForRequestTime": 1728345600.0
+            }
+        },
+        "stageMode": "AUTOMATIC",
+        "sequenceIntervals": [
+            {
+                "endTime": 1546735500.0,
+                "processingStartTime": 1546735800.0,
+                "processingEndTime": 1546735800.0,
+                "storageTime": 1546735800.0,
+                "modificationTime": 1546735800.0,
+                "comments": [],
+                "status": "FAILED",
+                "intervalId": {
+                    "startTime": 1546735200.0,
+                    "definitionId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "Auto Network"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": 1546735200.0,
+                    "definitionId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "Auto Network Seq"
+                    }
+                },
+                "percentComplete": 0.0
+            }
+        ]
+    },
+    {
+        "endTime": 1546740000.0,
+        "processingStartTime": 1546740300.0,
+        "processingEndTime": 1546740300.0,
+        "storageTime": 1546740300.0,
+        "modificationTime": 1546740300.0,
+        "comments": [],
+        "status": "IN_PROGRESS",
+        "intervalId": {
+            "startTime": 1546736400.0,
+            "definitionId": {
+                "effectiveAt": 1546300800.0,
+                "name": "AL1"
+            }
+        },
+        "stageMetrics": {
+            "eventCount": 0,
+            "associatedSignalDetectionCount": 0,
+            "unassociatedSignalDetectionCount": 0,
+            "percentWaveformsAvailable": 0,
+            "waveformAvailabilityStationGroup": {
+                "name": "Primary",
+                "effectiveAt": "TBD",
+                "effectiveForRequestTime": 1728345600.0
+            }
+        },
+        "stageMode": "INTERACTIVE",
+        "activityIntervals": [
+            {
+                "endTime": 1546740000.0,
+                "processingStartTime": 1546740300.0,
+                "processingEndTime": 1546740300.0,
+                "storageTime": 1546740300.0,
+                "modificationTime": 1546740300.0,
+                "comments": [],
+                "status": "IN_PROGRESS",
+                "intervalId": {
+                    "startTime": 1546736400.0,
+                    "definitionId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": 1546736400.0,
+                    "definitionId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "AL1 Event Review"
+                    }
+                },
+                "activeAnalystIds": []
+            },
+            {
+                "endTime": 1546740000.0,
+                "processingStartTime": 1546740300.0,
+                "processingEndTime": 1546740300.0,
+                "storageTime": 1546740300.0,
+                "modificationTime": 1546740300.0,
+                "comments": [],
+                "status": "IN_PROGRESS",
+                "intervalId": {
+                    "startTime": 1546736400.0,
+                    "definitionId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": 1546736400.0,
+                    "definitionId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "AL1 Scan"
+                    }
+                },
+                "activeAnalystIds": []
+            }
+        ]
+    },
+    {
+        "endTime": 1546740000.0,
+        "processingStartTime": 1546740300.0,
+        "processingEndTime": 1546740300.0,
+        "storageTime": 1546740300.0,
+        "modificationTime": 1546740300.0,
+        "comments": [],
+        "status": "IN_PROGRESS",
+        "intervalId": {
+            "startTime": 1546736400.0,
+            "definitionId": {
+                "effectiveAt": 1546300800.0,
+                "name": "Auto Post-AL1"
+            }
+        },
+        "stageMetrics": {
+            "eventCount": 0,
+            "associatedSignalDetectionCount": 0,
+            "unassociatedSignalDetectionCount": 0,
+            "percentWaveformsAvailable": 0,
+            "waveformAvailabilityStationGroup": {
+                "name": "AuxDel",
+                "effectiveAt": "TBD",
+                "effectiveForRequestTime": 1728345600.0
+            }
+        },
+        "stageMode": "AUTOMATIC",
+        "sequenceIntervals": [
+            {
+                "endTime": 1546740000.0,
+                "processingStartTime": 1546740300.0,
+                "processingEndTime": 1546740300.0,
+                "storageTime": 1546740300.0,
+                "modificationTime": 1546740300.0,
+                "comments": [],
+                "status": "IN_PROGRESS",
+                "intervalId": {
+                    "startTime": 1546736400.0,
+                    "definitionId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "Auto Post-AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": 1546736400.0,
+                    "definitionId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "Auto Post-AL1 Seq"
+                    }
+                },
+                "percentComplete": 0.333333,
+                "lastExecutedStepName": "Recall"
+            }
+        ]
+    }
+]

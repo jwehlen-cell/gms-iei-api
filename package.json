@@ -1,0 +1,25 @@
+{
+  "name": "gms-iei-api-repo",
+  "version": "1.0.0",
+  "description": "This repository provides a **unified OpenAPI 3.0 specification** for the GMS IEI API with interactive documentation powered by **Swagger UI** and **ReDoc**, automatically deployed via **GitHub Pages**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwehlen-cell/gms-iei-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jwehlen-cell/gms-iei-api/issues"
+  },
+  "homepage": "https://github.com/jwehlen-cell/gms-iei-api#readme",
+  "devDependencies": {
+    "@redocly/cli": "^2.11.1",
+    "@stoplight/spectral-cli": "^6.15.0"
+  }
+}

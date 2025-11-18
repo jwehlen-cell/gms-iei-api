@@ -1,0 +1,136 @@
+[
+    {
+        "endTime": "2019-01-05T18:05:00Z",
+        "processingStartTime": "2019-01-05T19:15:15Z",
+        "processingEndTime": "2019-01-05T19:17:23Z",
+        "storageTime": "2019-01-05T19:15:01Z",
+        "modificationTime": "2019-01-05T19:17:23Z",
+        "comments": [],
+        "status": "COMPLETE",
+        "intervalId": {
+            "startTime": "2019-01-05T18:00:00Z",
+            "definitionId": {
+                "effectiveAt": "2019-01-01T00:00:00Z",
+                "name": "Auto Network"
+            }
+        },
+        "stageMetrics": {
+            "eventCount": 0,
+            "associatedSignalDetectionCount": 1,
+            "unassociatedSignalDetectionCount": 33,
+            "percentWaveformsAvailable": 0.00293,
+            "waveformAvailabilityStationGroup": {
+                "name": "Primary",
+                "effectiveAt": "TBD",
+                "effectiveForRequestTime": "2024-10-08T00:00:00.000Z"
+            }
+        },
+        "stageMode": "AUTOMATIC",
+        "sequenceIntervals": [
+            {
+                "endTime": "2019-01-05T18:05:00Z",
+                "processingStartTime": "2019-01-05T19:15:15Z",
+                "processingEndTime": "2019-01-05T19:17:23Z",
+                "storageTime": "2019-01-05T19:15:01Z",
+                "modificationTime": "2019-01-05T19:17:23Z",
+                "comments": [],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-05T18:00:00Z",
+                    "definitionId": {
+                        "effectiveAt": "2019-01-01T00:00:00Z",
+                        "name": "Auto Network"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-05T18:00:00Z",
+                    "definitionId": {
+                        "effectiveAt": "2019-01-01T00:00:00Z",
+                        "name": "Auto Network Seq"
+                    }
+                },
+                "percentComplete": 1.0
+            }
+        ]
+    },
+    {
+        "endTime": "2019-01-05T19:00:00Z",
+        "processingStartTime": "2019-01-05T19:25:32Z",
+        "processingEndTime": "2019-01-05T21:12:03Z",
+        "storageTime": "2019-01-05T18:05:00Z",
+        "modificationTime": "2019-01-05T18:05:00Z",
+        "comments": [],
+        "status": "COMPLETE",
+        "intervalId": {
+            "startTime": "2019-01-05T18:00:00Z",
+            "definitionId": {
+                "effectiveAt": "2019-01-01T00:00:00Z",
+                "name": "AL1"
+            }
+        },
+        "stageMetrics": {
+            "eventCount": 14,
+            "associatedSignalDetectionCount": 189,
+            "unassociatedSignalDetectionCount": 550,
+            "maxMagnitude": 5.7398,
+            "percentWaveformsAvailable": 0.03604,
+            "waveformAvailabilityStationGroup": {
+                "name": "Primary",
+                "effectiveAt": "TBD",
+                "effectiveForRequestTime": "2024-10-08T00:00:00.000Z"
+            },
+            "maxMagnitudeType": "MS"
+        },
+        "stageMode": "INTERACTIVE",
+        "activityIntervals": [
+            {
+                "endTime": "2019-01-05T19:00:00Z",
+                "processingStartTime": "2019-01-05T19:25:32Z",
+                "processingEndTime": "2019-01-05T21:12:03Z",
+                "storageTime": "2019-01-05T18:05:00Z",
+                "modificationTime": "2019-01-05T18:05:00Z",
+                "comments": [],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-05T18:00:00Z",
+                    "definitionId": {
+                        "effectiveAt": "2019-01-01T00:00:00Z",
+                        "name": "AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-05T18:00:00Z",
+                    "definitionId": {
+                        "effectiveAt": "2019-01-01T00:00:00Z",
+                        "name": "AL1 Event Review"
+                    }
+                },
+                "activeAnalystIds": []
+            },
+            {
+                "endTime": "2019-01-05T19:00:00Z",
+                "processingStartTime": "2019-01-05T19:25:32Z",
+                "processingEndTime": "2019-01-05T21:12:03Z",
+                "storageTime": "2019-01-05T18:05:00Z",
+                "modificationTime": "2019-01-05T18:05:00Z",
+                "comments": [],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-05T18:00:00Z",
+                    "definitionId": {
+                        "effectiveAt": "2019-01-01T00:00:00Z",
+                        "name": "AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-05T18:00:00Z",
+                    "definitionId": {
+                        "effectiveAt": "2019-01-01T00:00:00Z",
+                        "name": "AL1 Scan"
+                    }
+                },
+                "activeAnalystIds": []
+            }
+        ]
+    }
+]

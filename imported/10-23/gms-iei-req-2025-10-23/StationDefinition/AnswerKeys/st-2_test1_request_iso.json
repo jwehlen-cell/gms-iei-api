@@ -1,0 +1,16 @@
+{
+    "namesAndTimes": [
+        {
+            "name": "NDCSH",
+            "effectiveAtTime": "2019-01-04T00:00:00.000000Z"
+        },
+        {
+            "name": "IS_WYO",
+            "effectiveAtTime": "2019-01-04T00:00:00.000000Z"
+        },
+        {
+            "name": "GARBAGE",
+            "effectiveAtTime": "2019-01-04T00:00:00.000000Z"
+        }
+    ]
+}

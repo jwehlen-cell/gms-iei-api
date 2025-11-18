@@ -1,0 +1,20 @@
+{
+  "startTime": 1546712700.000000,
+  "endTime": 1546712705.000000,
+  "channels": [
+    {
+      "name": "ASAR.AS01.SHZ"
+    }
+  ],
+  "facetingDefinition": {
+    "classType": "QcSegment",
+    "populated": true,
+    "facetingDefinitionByAttributeName": {
+      "versionHistory": {
+        "classType": "QcSegmentVersion",
+        "populated": true,
+        "facetingDefinitionByAttributeName": {}
+      }
+    }
+  }
+}

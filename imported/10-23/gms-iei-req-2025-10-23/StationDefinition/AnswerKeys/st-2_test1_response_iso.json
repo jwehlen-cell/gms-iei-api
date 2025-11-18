@@ -1,0 +1,765 @@
+[
+  {
+    "description": "Stations in NDCSH",
+    "effectiveAt": "2000-01-01T00:00:00.000000",
+    "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+    "name": "NDCSH",
+    "stations": [
+      {
+        "effectiveAt": "2007-03-06T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "AAK"
+      },
+      {
+        "effectiveAt": "2005-03-24T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "AFI"
+      },
+      {
+        "effectiveAt": "2002-03-08T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "AKASG"
+      },
+      {
+        "effectiveAt": "2005-10-17T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "AKTO"
+      },
+      {
+        "effectiveAt": "2000-08-10T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "ANMO"
+      },
+      {
+        "effectiveAt": "2008-03-11T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "APG"
+      },
+      {
+        "effectiveAt": "1998-06-03T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "ARCES"
+      },
+      {
+        "effectiveAt": "2018-09-13T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "ARTI"
+      },
+      {
+        "effectiveAt": "2005-06-14T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "ASAR"
+      },
+      {
+        "effectiveAt": "2002-04-09T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "ASF"
+      },
+      {
+        "effectiveAt": "2004-12-02T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "ATAH"
+      },
+      {
+        "effectiveAt": "2005-03-17T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "ATD"
+      },
+      {
+        "effectiveAt": "2005-01-11T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "BATI"
+      },
+      {
+        "effectiveAt": "1994-01-31T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "BBB"
+      },
+      {
+        "effectiveAt": "2007-01-31T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "BBTS"
+      },
+      {
+        "effectiveAt": "2003-08-29T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "BDFB"
+      },
+      {
+        "effectiveAt": "2014-08-11T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "BELG"
+      },
+      {
+        "effectiveAt": "1994-05-25T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "BJT"
+      },
+      {
+        "effectiveAt": "2003-08-29T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "BORG"
+      },
+      {
+        "effectiveAt": "2002-07-19T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "BOSA"
+      },
+      {
+        "effectiveAt": "2011-03-09T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "BRDH"
+      },
+      {
+        "effectiveAt": "2002-01-17T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "BRTR"
+      },
+      {
+        "effectiveAt": "2002-07-06T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "BVAR"
+      },
+      {
+        "effectiveAt": "2012-12-05T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "CFA"
+      },
+      {
+        "effectiveAt": "1986-07-17T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "CMAR"
+      },
+      {
+        "effectiveAt": "2005-11-24T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "CMIG"
+      },
+      {
+        "effectiveAt": "2002-04-23T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "CPUP"
+      },
+      {
+        "effectiveAt": "2003-11-01T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "CTA"
+      },
+      {
+        "effectiveAt": "2007-04-11T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "DAV"
+      },
+      {
+        "effectiveAt": "2002-07-25T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "DAVOX"
+      },
+      {
+        "effectiveAt": "1995-04-10T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "DBIC"
+      },
+      {
+        "effectiveAt": "1994-09-26T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "DLBC"
+      },
+      {
+        "effectiveAt": "2002-12-01T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "DZM"
+      },
+      {
+        "effectiveAt": "2005-11-08T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "EIL"
+      },
+      {
+        "effectiveAt": "2008-11-25T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "EKA"
+      },
+      {
+        "effectiveAt": "1996-07-17T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "ELK"
+      },
+      {
+        "effectiveAt": "2002-02-21T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "ESDC"
+      },
+      {
+        "effectiveAt": "1993-11-18T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "FINES"
+      },
+      {
+        "effectiveAt": "2002-08-01T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "FITZ"
+      },
+      {
+        "effectiveAt": "1992-01-01T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "FRB"
+      },
+      {
+        "effectiveAt": "2018-07-04T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "FURI"
+      },
+      {
+        "effectiveAt": "2002-06-06T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "GERES"
+      },
+      {
+        "effectiveAt": "1991-07-12T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "GNI"
+      },
+      {
+        "effectiveAt": "2005-08-07T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "GUMO"
+      },
+      {
+        "effectiveAt": "2002-12-16T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "HFS"
+      },
+      {
+        "effectiveAt": "1996-05-09T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "HIA"
+      },
+      {
+        "effectiveAt": "2005-03-21T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "HNR"
+      },
+      {
+        "effectiveAt": "2003-04-09T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "IDI"
+      },
+      {
+        "effectiveAt": "1977-04-01T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "ILAR"
+      },
+      {
+        "effectiveAt": "1993-01-01T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "INK"
+      },
+      {
+        "effectiveAt": "2009-12-02T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "JAY"
+      },
+      {
+        "effectiveAt": "2016-12-19T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "JCJ"
+      },
+      {
+        "effectiveAt": "1997-01-01T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "JHJ"
+      },
+      {
+        "effectiveAt": "2009-01-07T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "JKA"
+      },
+      {
+        "effectiveAt": "2003-10-10T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "JMIC"
+      },
+      {
+        "effectiveAt": "2009-01-21T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "JNU"
+      },
+      {
+        "effectiveAt": "1995-04-13T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "JOW"
+      },
+      {
+        "effectiveAt": "1995-04-23T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "JTS"
+      },
+      {
+        "effectiveAt": "2007-03-09T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "KAPI"
+      },
+      {
+        "effectiveAt": "2008-10-08T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "KBZ"
+      },
+      {
+        "effectiveAt": "2005-04-18T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "KDAK"
+      },
+      {
+        "effectiveAt": "2006-05-09T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "KEST"
+      },
+      {
+        "effectiveAt": "2012-07-10T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "KIRV"
+      },
+      {
+        "effectiveAt": "2010-11-17T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "KLR"
+      },
+      {
+        "effectiveAt": "2002-03-06T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "KMBO"
+      },
+      {
+        "effectiveAt": "2011-09-14T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "KOWA"
+      },
+      {
+        "effectiveAt": "2013-03-17T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "KRVT"
+      },
+      {
+        "effectiveAt": "2002-01-17T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "KSRS"
+      },
+      {
+        "effectiveAt": "2007-11-15T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "KURK"
+      },
+      {
+        "effectiveAt": "2008-11-25T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "KVAR"
+      },
+      {
+        "effectiveAt": "2002-07-05T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "LBTB"
+      },
+      {
+        "effectiveAt": "2007-06-21T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "LEM"
+      },
+      {
+        "effectiveAt": "1995-05-09T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "LPAZ"
+      },
+      {
+        "effectiveAt": "2006-03-22T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "LPIG"
+      },
+      {
+        "effectiveAt": "2008-09-11T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "LSZ"
+      },
+      {
+        "effectiveAt": "1999-12-20T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "LVC"
+      },
+      {
+        "effectiveAt": "2010-07-20T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "MA2"
+      },
+      {
+        "effectiveAt": "2004-12-08T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "MATP"
+      },
+      {
+        "effectiveAt": "1995-04-10T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "MAW"
+      },
+      {
+        "effectiveAt": "2007-06-26T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "MBAR"
+      },
+      {
+        "effectiveAt": "2012-03-22T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "MDP"
+      },
+      {
+        "effectiveAt": "2005-06-30T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "MDT"
+      },
+      {
+        "effectiveAt": "2005-03-01T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "MJAR"
+      },
+      {
+        "effectiveAt": "2000-04-01T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "MKAR"
+      },
+      {
+        "effectiveAt": "2008-09-01T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "MLR"
+      },
+      {
+        "effectiveAt": "2003-01-24T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "MMAI"
+      },
+      {
+        "effectiveAt": "2007-04-26T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "MSKU"
+      },
+      {
+        "effectiveAt": "2014-12-10T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "MSVF"
+      },
+      {
+        "effectiveAt": "2008-03-11T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "NEW"
+      },
+      {
+        "effectiveAt": "2006-07-13T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "NNA"
+      },
+      {
+        "effectiveAt": "1995-10-29T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "NOA"
+      },
+      {
+        "effectiveAt": "2010-11-17T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "NRIK"
+      },
+      {
+        "effectiveAt": "1997-09-17T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "NVAR"
+      },
+      {
+        "effectiveAt": "2003-02-09T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "NWAO"
+      },
+      {
+        "effectiveAt": "1989-03-01T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "OBN"
+      },
+      {
+        "effectiveAt": "2001-09-04T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "OPO"
+      },
+      {
+        "effectiveAt": "2008-01-10T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "PALK"
+      },
+      {
+        "effectiveAt": "2003-09-02T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "PCRV"
+      },
+      {
+        "effectiveAt": "1995-07-15T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "PDAR"
+      },
+      {
+        "effectiveAt": "2006-10-18T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "PETK"
+      },
+      {
+        "effectiveAt": "2006-06-20T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "PFO"
+      },
+      {
+        "effectiveAt": "2002-09-04T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "PLCA"
+      },
+      {
+        "effectiveAt": "2003-06-11T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "PMG"
+      },
+      {
+        "effectiveAt": "2006-06-22T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "PMSA"
+      },
+      {
+        "effectiveAt": "2009-02-23T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "PPT"
+      },
+      {
+        "effectiveAt": "2005-11-16T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "PSI"
+      },
+      {
+        "effectiveAt": "2009-11-09T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "PTGA"
+      },
+      {
+        "effectiveAt": "2002-12-29T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "QSPA"
+      },
+      {
+        "effectiveAt": "2005-03-16T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "RAO"
+      },
+      {
+        "effectiveAt": "1997-10-29T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "RAR"
+      },
+      {
+        "effectiveAt": "2009-09-03T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "RCBR"
+      },
+      {
+        "effectiveAt": "2007-09-06T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "RES"
+      },
+      {
+        "effectiveAt": "2001-08-05T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "ROSC"
+      },
+      {
+        "effectiveAt": "2004-11-30T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "RPN"
+      },
+      {
+        "effectiveAt": "2002-02-04T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "RPZ"
+      },
+      {
+        "effectiveAt": "1994-07-20T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "SADO"
+      },
+      {
+        "effectiveAt": "2003-05-07T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "SCHQ"
+      },
+      {
+        "effectiveAt": "2004-03-11T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "SDV"
+      },
+      {
+        "effectiveAt": "2006-11-28T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "SEY"
+      },
+      {
+        "effectiveAt": "2005-10-19T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "SFJD"
+      },
+      {
+        "effectiveAt": "2015-04-04T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "SHEM"
+      },
+      {
+        "effectiveAt": "2010-03-29T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "SIJI"
+      },
+      {
+        "effectiveAt": "2000-05-18T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "SIV"
+      },
+      {
+        "effectiveAt": "1993-05-26T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "SJG"
+      },
+      {
+        "effectiveAt": "2004-05-11T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "SNAA"
+      },
+      {
+        "effectiveAt": "2000-09-01T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "SONM"
+      },
+      {
+        "effectiveAt": "1992-11-06T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "SPITS"
+      },
+      {
+        "effectiveAt": "2015-02-04T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "STKA"
+      },
+      {
+        "effectiveAt": "2002-05-14T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "SUR"
+      },
+      {
+        "effectiveAt": "2003-09-20T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "TEIG"
+      },
+      {
+        "effectiveAt": "2005-09-29T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "TGY"
+      },
+      {
+        "effectiveAt": "2010-06-02T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "TIXI"
+      },
+      {
+        "effectiveAt": "1995-05-15T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "TKL"
+      },
+      {
+        "effectiveAt": "2009-10-28T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "TLY"
+      },
+      {
+        "effectiveAt": "2005-09-27T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "TORD"
+      },
+      {
+        "effectiveAt": "1999-06-14T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "TSUM"
+      },
+      {
+        "effectiveAt": "1995-03-29T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "TXAR"
+      },
+      {
+        "effectiveAt": "2003-05-07T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "ULM"
+      },
+      {
+        "effectiveAt": "1990-10-09T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "URZ"
+      },
+      {
+        "effectiveAt": "2003-08-28T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "USHA"
+      },
+      {
+        "effectiveAt": "2008-10-13T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "USRK"
+      },
+      {
+        "effectiveAt": "2000-01-01T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "VAE"
+      },
+      {
+        "effectiveAt": "2002-12-18T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "VNDA"
+      },
+      {
+        "effectiveAt": "2002-12-06T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "VRAC"
+      },
+      {
+        "effectiveAt": "1999-07-01T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "WRA"
+      },
+      {
+        "effectiveAt": "2006-09-06T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "WSAR"
+      },
+      {
+        "effectiveAt": "2009-10-28T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "YAK"
+      },
+      {
+        "effectiveAt": "1994-07-24T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "YBH"
+      },
+      {
+        "effectiveAt": "2014-01-13T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "YKA"
+      },
+      {
+        "effectiveAt": "1991-12-12T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "ZAL"
+      },
+      {
+        "effectiveAt": "2006-10-13T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "name": "ZALV"
+      }
+    ]
+  }
+]

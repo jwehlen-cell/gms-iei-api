@@ -1,0 +1,289 @@
+openapi: 3.0.3
+info:
+  title: GMS Waveform Data Fabric Operations
+  description: Defines the Data Fabric operations for the GMS Common Object Interface (COI) classes in the Waveform domain.
+  version: 1.0.9
+
+paths:
+
+  /waveform/qcsegment/query/channels-timerange:
+    post:
+      summary: Retrieves QcSegment objects for the provided channels in the given timerange (inclusive). Uses the optionally provided changed since time to return only QcSegment objects that have changed on or after this time.
+      description: "Retrieves and returns all QcSegment objects within the time range provided in the request and with an associated Channel within the collection provided in the request. 
+        A QcSegment is within the timerange provided by the request if the QcSegment entity's current (latest version) QcSegmentVersion is within the time range. 
+        A QcSegmentVersion is within the time range if the QcSegmentVersion object's startTime is before or at the request's endTime and the QcSegmentVersion object's endTime is after or at the request's startTime. 
+        If the changedSinceTime is present, returns only QcSegment objects stored on or after the changedSinceTime that also meet the other criteria of the query.
+        This operation populates the faceted attributes of the QcSegment according to the FacetingDefinition object in the request. 
+        If the FacetingDefinition object is unpopulated, this operation populates the faceted attributes of the QcSegment according to the defaults defined by the COI data model, except that if changedSinceTime is present it will populate each QcSegmentVersion that was stored on or after that changedSinceTime rather than only the latest QcSegmentVersion."
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: A request with a start time, end time, collection of channels, and optionally a FacetingDefinition.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChannelsTimeRangeRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation. Returns a collection of QcSegment objects populated according to the FacetingDefinition or the specified COI default faceting if the FacetingDefinition was unpopulated.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'waveform-coi.yaml#/components/schemas/QcSegment'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: 'waveform-coi.yaml#/components/schemas/QcSegment'
+
+  /waveform/query/event-beams-by-stations-and-timerange:
+    post:
+      summary: Finds Event beam Waveforms for the provided Station collection and time range.
+      description: This operation finds and returns the Event beam Waveform ChannelSegment objects for the Station collection and time range provided in the query predicate. This operation only returns Event beam Waveform ChannelSegment objects created for EventHypothesis objects preferred for one of the entries in the provided Stage collection. This operation only returns Waveform ChannelSegment objects created for EventHypothesis objects occurring in the time range provided in the query predicate. An EventHypothesis occurs in a time range if it contains a peferredLocationSolution with time occurring in the time range beginning at startTime and ending at endTime (both startTime and endTime inclusive; a value exactly equal to one of these bounds is in the time range). If the provided request includes a populated changedSinceTime, then this operation only returns  Event beam Waveform ChannelSegment objects which were stored on or after the provided time. The ChannelSegmentsByEventHypothesis response is a map with EventHypothesis objects for the keys (populated as id-only reference instances) mapped to Event beam Waveform ChannelSegment collections for the values. It maps EventHypothesis objects to Event beam Waveform ChannelSegment objects created for the EventHypothesis. Each returned ChannelSegment object's Timeseries collection contains either Waveform or WfdiscWaveformClaimCheck objects. This operation uses the provided FacetingDefinition to determine how to populate faceted attributes in the ChannelSegment objects (e.g. associated Channel ; maskedBy ProcessingMask collection). The provided Station objects are populated as entity references.
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: A StationsTimeRangeRequest object.
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/StationsTimeRangeRequest'
+      responses:
+        '200':
+          description: A map of EventHypothesis objects to ChannelSegment collections
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelSegmentsByEventHypothesis'
+            application/msgpack:
+              schema:
+                $ref: '#/components/schemas/ChannelSegmentsByEventHypothesis'
+
+  /waveform/qcsegment/update:
+    post:
+      summary: Stores the provided QcSegment objects, updating a QcSegment object if it was previously stored.
+      description: "Stores the provided QcSegment objects. To store a QcSegment object, 
+        atomically checks that the provided QcSegment object is consistent with the QcSegment object previously stored in the database 
+        and updates the QcSegment object in the database with the provided QcSegment. 
+        The provided QcSegment is consistent with the QcSegment object stored in the database 
+        if either no QcSegment object exists in the database with the same id as the provided QcSegment 
+        or the stored QcSegment in the database with the same id as the provided QcSegment has 
+        all of the QcSegmentVersion objects in its versionHistory contained within the provided QcSegment object's versionHistory. 
+        The provided QcSegment will have one or more new QcSegmentVersion objects in addition to the QcSegmentVersion objects 
+        associated to the currently stored QcSegment; 
+        these QcSegmentVersion objects must all be versions with an effectiveAt after the stored QcSegment object's associated QcSegmentVersion objects' effectiveAt fields.
+        The consistency check and update for a single QcSegment must be atomic so that if the same QcSegment 
+        is updated simultaneously by different users with two different latest QcSegmentVersions, 
+        one update is rejected and no inconsistency occurs. 
+        For every successfully stored or updated object, sets the object's storage time to the current wall clock time."  
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: An StoreQcSegmentsRequest object.
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/StoreQcSegmentsRequest'
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json: {}
+            application/msgpack: {}
+        '209':
+          description: "Unable to update all or some of the provided QcSegment objects. 
+            A collection of StoreQcSegmentResponse objects.
+            If the QcSegment was not stored due to a conflict with the previously stored QcSegment, storeStatus is set to CONFLICT 
+            and qcSegment is set to the previously stored, fully populated QcSegment.
+            If the QcSegment was not stored for a different reason, storeStatus is set to FAILURE, and the qcSegment is set to the provided QcSegment populated as an id-only instance.
+            If the QcSegment was stored, storedStatus is set to SUCCESS and the qcSegment is set to the provided QcSegment populated as an id-only instance."
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreQcSegmentResponse'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreQcSegmentResponse'
+
+  /waveform/channel-segment/store:
+    post:
+      summary: Stores the ChannelSegment objects in the provided ChannelSegment collection.
+      description: "For each ChannelSegment object in the provided ChannelSegment, stores that ChannelSegment object 
+        along with the associated maskedBy ProcessingMask objects and the derived Channel in the ChannelSegment object's ChannelSegmentDescriptor.
+        The provided ChannelSegment objects may include any of the TimeseriesTypes.
+        Previously stored ChannelSegment objects with the same Channel and time range as the ChannelSegment to be stored are not replaced or updated.
+        Instead, a new ChannelSegment object will be stored based on the unique creationTime.
+        The ChannelSegment is uniquely identified by its id attribute consisting of a startTime, endTime, creationTime, and Channel.
+        For the Channel in the ChannelSegment object's id, if that Channel was not stored, stores that Channel.
+        The Data Fabric will typically have previously received the derived Channel objects through a Channel storage request-response service operation.
+        For each Channel in that Channel's configuredInputs, recursively repeats the process of storing the Channel, 
+        storing the Channel if it is not already stored and iterating through that Channel object's configuredInputs.
+        Recursively ensures that all Channel objects that were the original Channel object or in the configuredInputs of a Channel object were stored.
+        This operation stores each ProcessingMask in the ChannelSegment object's maskedBy collection that is not already stored.
+        For every successfully stored or updated object, sets the object's storage time to the current wall-clock time."
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: An StoreChannelSegmentsRequest object.
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/StoreChannelSegmentsRequest'
+      responses:
+        '200':
+          description: All ChannelSegment objects were successfully stored.
+          content:
+            application/json: {}
+            application/msgpack: {}
+        '209':
+          description: Returns a collection of all ChannelSegment objects that were not successfully stored as id-only instances.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoreChannelSegmentsResponse'
+            application/msgpack:
+              schema:
+                $ref: '#/components/schemas/StoreChannelSegmentsResponse'
+components:
+  schemas:
+
+    ChannelsTimeRangeRequest:
+      type: object
+      required:
+        - startTime
+        - endTime
+        - channels
+      properties:
+        startTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        endTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        changedSinceTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        channels:
+          type: array
+          items:
+            $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Channel'
+          minItems: 1
+        facetingDefinition:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/FacetingDefinition'
+
+    StationsTimeRangeRequest:
+      type: object
+      required:
+        - stations
+        - startTime
+        - endTime
+        - stageIds
+      properties:
+        stations:
+          type: array
+          minItems: 1
+          items:
+            $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Station'
+        startTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        endTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        stageIds:
+          type: array
+          items:
+            $ref: '../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'
+          minItems: 1
+        changedSinceTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        facetingDefinition:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/FacetingDefinition'
+
+    ChannelSegmentsByEventHypothesis:
+      type: object
+      required:
+        - channelSegments
+        - eventHypothesis
+      properties:
+        channelSegments:
+          type: array
+          minItems: 1
+          items:
+            $ref: 'waveform-coi.yaml#/components/schemas/ChannelSegment'
+        eventHypothesis:
+          $ref: '../../Event/OpenAPISpec/event-coi.yaml#/components/schemas/EventHypothesis'
+
+    StoreQcSegmentsRequest:
+      type: object
+      required:
+       - qcSegments
+      properties:
+        qcSegments:
+          type: array
+          items:
+            $ref: 'waveform-coi.yaml#/components/schemas/QcSegment'
+
+    StoreQcSegmentResponse:
+      type: object
+      required:
+       - qcSegment
+       - storeStatus
+      properties:
+        qcSegment:
+          $ref: 'waveform-coi.yaml#/components/schemas/QcSegment'
+        storeStatus:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/StoreStatus'
+                
+    StoreChannelSegmentsRequest:
+      type: object
+      required:
+        - channelSegments
+      properties:
+        channelSegments:
+          type: array
+          items:
+            $ref: 'waveform-coi.yaml#/components/schemas/ChannelSegment'
+
+    StoreChannelSegmentsResponse:
+      type: object
+      required:
+        - unsuccessfulChannelSegments
+      properties:
+        unsuccessfulChannelSegments:
+          type: array
+          items:
+            $ref: 'waveform-coi.yaml#/components/schemas/ChannelSegment'

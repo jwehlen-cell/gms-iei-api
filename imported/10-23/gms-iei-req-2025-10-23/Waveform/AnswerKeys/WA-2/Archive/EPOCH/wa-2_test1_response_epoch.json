@@ -1,0 +1,32 @@
+[
+  {
+    "channel": {
+      "name": "VNDA.VNDAB.BHN"
+    },
+    "id": "3AC0569D1C3E0FD7E063CF44A10A218E",
+    "versionHistory": [
+      {
+        "category": "WAVEFORM",
+        "channel": {
+          "effectiveAt": 1040169600.000000,
+           "name": "VNDA.VNDAB.BHN"
+        },
+        "createdBy": "detpro:som",
+        "discoveredOn": [],
+        "endTime": 1546725600.000000,
+        "id": {
+          "effectiveAt": 1546725600.0250000,
+          "parentQcSegmentId": "3AC0569D1C3E0FD7E063CF44A10A218E"
+        },
+        "rationale": "",
+        "rejected": false,
+        "startTime": 1546714800.000000,
+        "type": "GAP",
+        "stageId": {
+          "name": "Pre-AL1",
+          "effectiveAt": 1546300800.000000
+        }
+      }
+    ]
+  }
+]

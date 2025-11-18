@@ -1,0 +1,548 @@
+[
+    {
+        "key": {
+            "effectiveAt": 1546300800.0,
+            "name": "Auto Network"
+        },
+        "value": [
+            {
+                "endTime": 1546711200.0,
+                "processingStartTime": 1546712413.0,
+                "processingEndTime": 1546712730.0,
+                "storageTime": 1546712400.0,
+                "modificationTime": 1546712730.0,
+                "comments": [],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": 1546710900.0,
+                    "definitionId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "Auto Network"
+                    }
+                },
+                "stageMetrics": {},
+                "stageMode": "AUTOMATIC",
+                "sequenceIntervals": [
+                    {
+                        "endTime": 1546711200.0,
+                        "processingStartTime": 1546712413.0,
+                        "processingEndTime": 1546712730.0,
+                        "storageTime": 1546712400.0,
+                        "modificationTime": 1546712730.0,
+                        "comments": [],
+                        "status": "COMPLETE",
+                        "intervalId": {
+                            "startTime": 1546710900.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "Auto Network"
+                            }
+                        },
+                        "stageIntervalId": {
+                            "startTime": 1546710900.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "Auto Network Seq"
+                            }
+                        },
+                        "percentComplete": 1.0
+                    }
+                ]
+            },
+            {
+                "endTime": 1546711500.0,
+                "processingStartTime": 1546715715.0,
+                "processingEndTime": 1546715843.0,
+                "storageTime": 1546715701.0,
+                "modificationTime": 1546715843.0,
+                "comments": [],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": 1546711200.0,
+                    "definitionId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "Auto Network"
+                    }
+                },
+                "stageMetrics": {},
+                "stageMode": "AUTOMATIC",
+                "sequenceIntervals": [
+                    {
+                        "endTime": 1546711500.0,
+                        "processingStartTime": 1546715715.0,
+                        "processingEndTime": 1546715843.0,
+                        "storageTime": 1546715701.0,
+                        "modificationTime": 1546715843.0,
+                        "comments": [],
+                        "status": "COMPLETE",
+                        "intervalId": {
+                            "startTime": 1546711200.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "Auto Network"
+                            }
+                        },
+                        "stageIntervalId": {
+                            "startTime": 1546711200.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "Auto Network Seq"
+                            }
+                        },
+                        "percentComplete": 1.0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "key": {
+            "effectiveAt": 1546300800.0,
+            "name": "AL1"
+        },
+        "value": [
+            {
+                "endTime": 1546711200.0,
+                "processingStartTime": 1546707900.0,
+                "processingEndTime": 1546707900.0,
+                "storageTime": 1546707900.0,
+                "modificationTime": 1546707900.0,
+                "comments": [],
+                "status": "NOT_STARTED",
+                "intervalId": {
+                    "startTime": 1546707600.0,
+                    "definitionId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "AL1"
+                    }
+                },
+                "stageMetrics": {
+                    "eventCount": 8,
+                    "associatedSignalDetectionCount": 61,
+                    "unassociatedSignalDetectionCount": 327,
+                    "maxMagnitude": 4.2197,
+                    "percentWaveformsAvailable": 0.03518,
+                    "waveformAvailabilityStationGroup": {
+                        "name": "Primary",
+                        "effectiveAt": "TBD",
+                        "effectiveForRequestTime": 1728345600.0
+                    },
+                    "maxMagnitudeType": "MB"
+                },
+                "stageMode": "INTERACTIVE",
+                "activityIntervals": [
+                    {
+                        "endTime": 1546711200.0,
+                        "processingStartTime": 1546707900.0,
+                        "processingEndTime": 1546707900.0,
+                        "storageTime": 1546707900.0,
+                        "modificationTime": 1546707900.0,
+                        "comments": [],
+                        "status": "NOT_STARTED",
+                        "intervalId": {
+                            "startTime": 1546707600.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "AL1"
+                            }
+                        },
+                        "stageIntervalId": {
+                            "startTime": 1546707600.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "AL1 Event Review"
+                            }
+                        },
+                        "activeAnalystIds": []
+                    },
+                    {
+                        "endTime": 1546711200.0,
+                        "processingStartTime": 1546707900.0,
+                        "processingEndTime": 1546707900.0,
+                        "storageTime": 1546707900.0,
+                        "modificationTime": 1546707900.0,
+                        "comments": [],
+                        "status": "NOT_STARTED",
+                        "intervalId": {
+                            "startTime": 1546707600.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "AL1"
+                            }
+                        },
+                        "stageIntervalId": {
+                            "startTime": 1546707600.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "AL1 Scan"
+                            }
+                        },
+                        "activeAnalystIds": []
+                    }
+                ]
+            },
+            {
+                "endTime": 1546714800.0,
+                "processingStartTime": 1546716332.0,
+                "processingEndTime": 1546722723.0,
+                "storageTime": 1546711500.0,
+                "modificationTime": 1546711500.0,
+                "comments": [],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": 1546711200.0,
+                    "definitionId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "AL1"
+                    }
+                },
+                "stageMetrics": {
+                    "eventCount": 14,
+                    "associatedSignalDetectionCount": 189,
+                    "unassociatedSignalDetectionCount": 550,
+                    "maxMagnitude": 5.7398,
+                    "percentWaveformsAvailable": 0.03604,
+                    "waveformAvailabilityStationGroup": {
+                        "name": "Primary",
+                        "effectiveAt": "TBD",
+                        "effectiveForRequestTime": 1728345600.0
+                    },
+                    "maxMagnitudeType": "MS"
+                },
+                "stageMode": "INTERACTIVE",
+                "activityIntervals": [
+                    {
+                        "endTime": 1546714800.0,
+                        "processingStartTime": 1546716332.0,
+                        "processingEndTime": 1546722723.0,
+                        "storageTime": 1546711500.0,
+                        "modificationTime": 1546711500.0,
+                        "comments": [],
+                        "status": "COMPLETE",
+                        "intervalId": {
+                            "startTime": 1546711200.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "AL1"
+                            }
+                        },
+                        "stageIntervalId": {
+                            "startTime": 1546711200.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "AL1 Event Review"
+                            }
+                        },
+                        "activeAnalystIds": []
+                    },
+                    {
+                        "endTime": 1546714800.0,
+                        "processingStartTime": 1546716332.0,
+                        "processingEndTime": 1546722723.0,
+                        "storageTime": 1546711500.0,
+                        "modificationTime": 1546711500.0,
+                        "comments": [],
+                        "status": "COMPLETE",
+                        "intervalId": {
+                            "startTime": 1546711200.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "AL1"
+                            }
+                        },
+                        "stageIntervalId": {
+                            "startTime": 1546711200.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "AL1 Scan"
+                            }
+                        },
+                        "activeAnalystIds": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "key": {
+            "effectiveAt": 1546300800.0,
+            "name": "Auto Post-AL1"
+        },
+        "value": [
+            {
+                "endTime": 1546711200.0,
+                "processingStartTime": 1546707900.0,
+                "processingEndTime": 1546707900.0,
+                "storageTime": 1546707900.0,
+                "modificationTime": 1546707900.0,
+                "comments": [],
+                "status": "NOT_STARTED",
+                "intervalId": {
+                    "startTime": 1546707600.0,
+                    "definitionId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "Auto Post-AL1"
+                    }
+                },
+                "stageMetrics": {
+                    "eventCount": 0,
+                    "associatedSignalDetectionCount": 189,
+                    "unassociatedSignalDetectionCount": 550,
+                    "percentWaveformsAvailable": 0.04717,
+                    "waveformAvailabilityStationGroup": {
+                        "name": "AuxDel",
+                        "effectiveAt": "TBD",
+                        "effectiveForRequestTime": 1728345600.0
+                    }
+                },
+                "stageMode": "AUTOMATIC",
+                "sequenceIntervals": [
+                    {
+                        "endTime": 1546711200.0,
+                        "processingStartTime": 1546707900.0,
+                        "processingEndTime": 1546707900.0,
+                        "storageTime": 1546707900.0,
+                        "modificationTime": 1546707900.0,
+                        "comments": [],
+                        "status": "NOT_STARTED",
+                        "intervalId": {
+                            "startTime": 1546707600.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "Auto Post-AL1"
+                            }
+                        },
+                        "stageIntervalId": {
+                            "startTime": 1546707600.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "Auto Post-AL1 Seq"
+                            }
+                        },
+                        "percentComplete": 0.0
+                    }
+                ]
+            },
+            {
+                "endTime": 1546714800.0,
+                "processingStartTime": 1546723292.0,
+                "processingEndTime": 1546723443.0,
+                "storageTime": 1546711500.0,
+                "modificationTime": 1546711505.0,
+                "comments": [],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": 1546711200.0,
+                    "definitionId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "Auto Post-AL1"
+                    }
+                },
+                "stageMetrics": {
+                    "eventCount": 0,
+                    "associatedSignalDetectionCount": 189,
+                    "unassociatedSignalDetectionCount": 550,
+                    "percentWaveformsAvailable": 0.04717,
+                    "waveformAvailabilityStationGroup": {
+                        "name": "AuxDel",
+                        "effectiveAt": "TBD",
+                        "effectiveForRequestTime": 1728345600.0
+                    }
+                },
+                "stageMode": "AUTOMATIC",
+                "sequenceIntervals": [
+                    {
+                        "endTime": 1546714800.0,
+                        "processingStartTime": 1546723292.0,
+                        "processingEndTime": 1546723443.0,
+                        "storageTime": 1546711500.0,
+                        "modificationTime": 1546711505.0,
+                        "comments": [],
+                        "status": "COMPLETE",
+                        "intervalId": {
+                            "startTime": 1546711200.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "Auto Post-AL1"
+                            }
+                        },
+                        "stageIntervalId": {
+                            "startTime": 1546711200.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "Auto Post-AL1 Seq"
+                            }
+                        },
+                        "percentComplete": 1.0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "key": {
+            "effectiveAt": 1546300800.0,
+            "name": "AL2"
+        },
+        "value": [
+            {
+                "endTime": 1546711200.0,
+                "processingStartTime": 1546719338.0,
+                "processingEndTime": 1546722642.0,
+                "storageTime": 1546704300.0,
+                "modificationTime": 1546704300.0,
+                "comments": [],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": 1546704000.0,
+                    "definitionId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "AL2"
+                    }
+                },
+                "stageMetrics": {
+                    "eventCount": 0,
+                    "associatedSignalDetectionCount": 0,
+                    "unassociatedSignalDetectionCount": 0,
+                    "percentWaveformsAvailable": 0.0485,
+                    "waveformAvailabilityStationGroup": {
+                        "name": "AuxDel",
+                        "effectiveAt": "TBD",
+                        "effectiveForRequestTime": 1728345600.0
+                    }
+                },
+                "stageMode": "INTERACTIVE",
+                "activityIntervals": [
+                    {
+                        "endTime": 1546711200.0,
+                        "processingStartTime": 1546719338.0,
+                        "processingEndTime": 1546722642.0,
+                        "storageTime": 1546704300.0,
+                        "modificationTime": 1546704300.0,
+                        "comments": [],
+                        "status": "COMPLETE",
+                        "intervalId": {
+                            "startTime": 1546704000.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "AL2"
+                            }
+                        },
+                        "stageIntervalId": {
+                            "startTime": 1546704000.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "AL2 Event Review"
+                            }
+                        },
+                        "activeAnalystIds": []
+                    },
+                    {
+                        "endTime": 1546711200.0,
+                        "processingStartTime": 1546719338.0,
+                        "processingEndTime": 1546722642.0,
+                        "storageTime": 1546704300.0,
+                        "modificationTime": 1546704300.0,
+                        "comments": [],
+                        "status": "COMPLETE",
+                        "intervalId": {
+                            "startTime": 1546704000.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "AL2"
+                            }
+                        },
+                        "stageIntervalId": {
+                            "startTime": 1546704000.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "AL2 Scan"
+                            }
+                        },
+                        "activeAnalystIds": []
+                    }
+                ]
+            },
+            {
+                "endTime": 1546718400.0,
+                "processingStartTime": 1546726585.0,
+                "processingEndTime": 1546723730.0,
+                "storageTime": 1546711500.0,
+                "modificationTime": 1546711500.0,
+                "comments": [],
+                "status": "IN_PROGRESS",
+                "intervalId": {
+                    "startTime": 1546711200.0,
+                    "definitionId": {
+                        "effectiveAt": 1546300800.0,
+                        "name": "AL2"
+                    }
+                },
+                "stageMetrics": {
+                    "eventCount": 4,
+                    "associatedSignalDetectionCount": 360,
+                    "unassociatedSignalDetectionCount": 36,
+                    "maxMagnitude": 5.7398,
+                    "percentWaveformsAvailable": 0.0591,
+                    "waveformAvailabilityStationGroup": {
+                        "name": "AuxDel",
+                        "effectiveAt": "TBD",
+                        "effectiveForRequestTime": 1728345600.0
+                    },
+                    "maxMagnitudeType": "MS"
+                },
+                "stageMode": "INTERACTIVE",
+                "activityIntervals": [
+                    {
+                        "endTime": 1546718400.0,
+                        "processingStartTime": 1546726585.0,
+                        "processingEndTime": 1546723730.0,
+                        "storageTime": 1546711500.0,
+                        "modificationTime": 1546711500.0,
+                        "comments": [],
+                        "status": "IN_PROGRESS",
+                        "intervalId": {
+                            "startTime": 1546711200.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "AL2"
+                            }
+                        },
+                        "stageIntervalId": {
+                            "startTime": 1546711200.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "AL2 Event Review"
+                            }
+                        },
+                        "activeAnalystIds": []
+                    },
+                    {
+                        "endTime": 1546718400.0,
+                        "processingStartTime": 1546726585.0,
+                        "processingEndTime": 1546723730.0,
+                        "storageTime": 1546711500.0,
+                        "modificationTime": 1546711500.0,
+                        "comments": [],
+                        "status": "IN_PROGRESS",
+                        "intervalId": {
+                            "startTime": 1546711200.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "AL2"
+                            }
+                        },
+                        "stageIntervalId": {
+                            "startTime": 1546711200.0,
+                            "definitionId": {
+                                "effectiveAt": 1546300800.0,
+                                "name": "AL2 Scan"
+                            }
+                        },
+                        "activeAnalystIds": []
+                    }
+                ]
+            }
+        ]
+    }
+]

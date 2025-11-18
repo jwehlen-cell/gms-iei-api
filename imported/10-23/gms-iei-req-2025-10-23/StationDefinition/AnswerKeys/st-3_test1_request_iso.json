@@ -1,0 +1,16 @@
+{
+  "namesAndTimes": [
+    {
+      "name": "ASAR.AS01.sz",
+      "effectiveAtTime": "2005-03-01T00:00:00.000000Z"
+    },
+    {
+      "name": "MKAR.MK31.BHN",
+      "effectiveAtTime": "2030-01-01T00:00:00.000000Z"
+    },
+    {
+      "name": "GAR.BAG.EEE",
+      "effectiveAtTime": "2019-01-05T00:00:00.000000Z"
+    }
+  ]
+}

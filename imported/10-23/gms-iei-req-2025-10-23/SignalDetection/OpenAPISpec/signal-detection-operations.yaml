@@ -1,0 +1,172 @@
+openapi: 3.0.3
+info:
+  title: GMS Signal Detection COI schema
+  description: Defines a schema for the GMS Common Object Interface (COI) classes in the Signal Detection domain.
+  version: 1.0.6
+
+paths:
+  /signal-detection/detection-with-channel-segments/query/stations-timerange:
+    post:
+      summary: Find SignalDetection objects with ChannelSegments by Stations and Time
+      description: "This operation finds and returns the SignalDetection objects detected by any provided Station within the provided time range. 
+        A SignalDetection occurs in the provided time range if its current SignalDetectionHypothesis has ARRIVAL_TIME FeatureMeasurement value within the provided time range. 
+        This operation populates each returned SignalDetection with all of its SignalDetectionHypothesis objects created in any provided Stage. 
+        This operation does not return any SignalDetection with an entry in the provided excludedSignalDetections collection. 
+        This operation returns a SignalDetectionsWithChannelSegments object combining the loaded SignalDetection and SignalDetectionHypothesis objects, along with a ChannelSegment collection containing each measuredChannelSegment and analysisWaveform in each FeatureMeasurement in each returned SignalDetectionHypothesis. 
+        Within the returned ChannelSegment objects, this operation populates the ProcessingMask objects in the maskedBy collection, leaving the ProcessingMask attribute maskedQcSegmentVersions attributes populated with identifier-only QcSegmentVersion instances.
+        If the changedSinceTime is present in the request, returns SignalDetection objects that meet the above criteria and have SignalDetectionHypothesis objects that have been added at or after the changedSinceTime.
+        If the changedSinceTime is present, only the SignalDetectionHypothesis objects added at or after the changedSinceTime are fully populated, all other SignalDetectionHypothesis objects are populated as id-only instances."
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DetectionsWithSegmentsByStationsAndTimeRequest'
+      responses:
+        '200':
+          description: A SignalDetectionsWithChannelSegments object combining the loaded SignalDetection and SignalDetectionHypothesis objects, along with a ChannelSegment collection containing each measuredChannelSegment and analysisWaveform in each FeatureMeasurement in each returned SignalDetectionHypothesis.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignalDetectionsWithChannelSegments'
+            application/msgpack:
+              schema:
+                $ref: '#/components/schemas/SignalDetectionsWithChannelSegments'
+
+  /signal-detection/update:
+    post:
+      summary: Stores the provided SignalDetection and ChannelSegment objects, updating a SignalDetection object if it was previously stored.
+      description: "Stores the provided SignalDetection objects, updating any SignalDetection object that was previously stored, and stores the associated ChannelSegment objects associated to the SignalDetection objects through the FeatureMeasurement attributes measuredChannelSegment and analysisWaveform. If a SignalDetection was previously stored, checks that the new version of the SignalDetection is consistent with the previously stored version. The new version is consistent with the previously stored version if all SignalDetectionHypothesis objects in the previously stored version's ordered signalDetectionHypothesis collection created in the provided Stage are contained within the new version's ordered signalDetectionHypothesis collection and any new SignalDetectionHypothesis objects in the new version's collection occur after the previous version's SignalDetectionHypothesis objects created in the provided Stage. If the SignalDetection is not consistent with the previously stored version, does not store it. SignalDetection objects are not partially stored; either the entire SignalDetection aggregate is stored or nothing is stored. For a given SignalDetection, the check for consistency and storage of the aggregate SignalDetection is atomic to prevent a race condition from happening if two storage requests simultaneously attempt to store two versions of the same SignalDetection with inconsistent ordered SignalDetectionHypothesis collections. 
+        When storing a SignalDetection, determines which SignalDetectionHypothesis objects in its ordered signalDetectionHypotheses collection have not been previously stored and stores those SignalDetectionHypothesis objects. Stores the SignalDetection aggregate by storing the SignalDetection (when updating a previously stored SignalDetection, this only requires updating the signalDetectionHypothesis collection to include the new SignalDetectionHypothesis objects), the new SignalDetectionHypothesis objects, the FeatureMeasurement objects in the SignalDetectionHypothesis object's featureMeasurements collection, the FilterDefinition objects in the SignalDetectionHypothesis object's filterById mapping, the Channel object in the FeatureMeasurement object's channel attribute, the associated ChannelSegment objects in the FeatureMeasurement objects' measuredChannelSegment attribute and analysisWaveform WaveformAndFilterDefinition object, and the Channel in the FeatureMeasurement objects' analysisWaveform WaveformAndFilterDefinition object's ChannelSegment. The FeatureMeasurement objects to be stored will typically be associated with derived Channel objects. The DataFabric will typically have previously received these associated derived Channel objects through a Channel storage request-response operation.
+        The associated ChannelSegment objects for the FeatureMeasurement objects are provided separately within the request to prevent duplication as multiple FeatureMeasurement objects can share the same ChannelSegment. The aggregate SignalDetection should only be stored if its associated ChannelSegment objects were successfully stored. The parentSignalDetectionHypothesis of a SignalDetectionHypothesis (if present) will have been previously stored or will be contained within the current SignalDetection object's signalDetectionHypotheses collection.
+        If the DataFabric stored all of the SignalDetection objects then the response is empty. Otherwise, the response includes a collection of StoreSignalDetectionResponse objects. If a SignalDetection was not stored due to a conflict with the previously stored SignalDetection, storeStatus is set to CONFLICT, the signalDetection is set to the previously stored, fully populated SignalDetection with all ChannelSegment objects populated as id-only instances, and the channelSegments collection is set to the collection of all ChannelSegment objects (populated objects) associated with the SignalDetection. If the SignalDetection was not stored for a different reason, storeStatus is set to FAILURE, the signalDetection is set to the provided SignalDetection populated as an id-only instance, and the channelSegments collection is empty. If the SignalDetection was stored, storedStatus is set to SUCCESS, the signalDetection is set to the provided SignalDetection populated as an id-only instance, and the channelSegments collection is empty.
+        See endpoint /signal-detection/update for a ChannelSegment storage description."
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: A StoreSignalDetectionsRequest object. This object includes the current stage WorkflowDefinitionId as this information can be used to determine where to store a SignalDetection.
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/StoreSignalDetectionsRequest'
+      responses:
+        '200':
+          description: All SignalDetection objects were successfully stored.
+          content:
+            application/json: {}
+            application/msgpack: {}
+        '209':
+          description: "Unable to update all or some of the provided SignalDetection objects. 
+            A collection of StoreSignalDetectionResponse objects including an entry for each SignalDetection provided in the request.
+            If a SignalDetection was not stored due to a conflict with the previously stored SignalDetection, storeStatus is set to CONFLICT, the signalDetection is set to the previously stored, fully populated SignalDetection with SignalDetectionHypothesis objects fully populated and with all ChannelSegment objects populated as id-only instances, and the channelSegments collection is set to the collection of all ChannelSegment objects (populated objects) associated with the SignalDetection.
+            If the SignalDetection was not stored for a different reason, storeStatus is set to FAILURE, the signalDetection is set to the provided SignalDetection populated as an id-only instance, and the channelSegments collection is empty.
+            If the SignalDetection was stored, storedStatus is set to SUCCESS, the signalDetection is set to the provided SignalDetection populated as an id-only instance, and the channelSegments collection is empty."
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreSignalDetectionResponse'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreSignalDetectionResponse'
+
+components:
+  schemas:
+    DetectionsWithSegmentsByStationsAndTimeRequest:
+      type: object
+      required:
+        - endTime
+        - excludedSignalDetections
+        - stageIds
+        - startTime
+        - stations      
+      properties:
+        endTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        excludedSignalDetections:
+          type: array
+          items:
+            $ref: 'signal-detection-coi.yaml#/components/schemas/SignalDetection'
+        stageIds:
+          type: array
+          items:
+            $ref: '../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'
+          minItems: 1
+        startTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        changedSinceTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        stations:
+          type: array
+          items:
+            $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Station'
+          minItems: 1
+
+    SignalDetectionsWithChannelSegments:
+      type: object
+      required:
+        - channelSegments
+        - signalDetections
+      properties:
+        channelSegments:
+          type: array
+          items:
+            $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment'
+        signalDetections:
+          type: array
+          items:
+            $ref: 'signal-detection-coi.yaml#/components/schemas/SignalDetection'
+
+    StoreSignalDetectionsRequest:
+      type: object
+      required:
+        - signalDetections
+        - channelSegments
+        - stageId
+      properties:
+        signalDetections:
+          type: array
+          items:
+            $ref: 'signal-detection-coi.yaml#/components/schemas/SignalDetection'
+          minItems: 1
+        channelSegments:
+          type: array
+          items:
+            $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment'
+        stageId:
+          $ref: '../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'
+
+    StoreSignalDetectionResponse:
+      type: object
+      required:
+       - signalDetection
+       - channelSegments
+       - storeStatus
+      properties:
+        signalDetection:
+          $ref: 'signal-detection-coi.yaml#/components/schemas/SignalDetection'
+        channelSegments:
+          type: array
+          items:
+            $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment'
+        storeStatus:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/StoreStatus'

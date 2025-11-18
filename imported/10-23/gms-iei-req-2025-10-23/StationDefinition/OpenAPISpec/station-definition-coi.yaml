@@ -1,0 +1,1363 @@
+openapi: 3.0.3
+info:
+  title: GMS Station Definition COI schema
+  description: Defines a schema for the GMS Common Object Interface (COI) classes in the Station Definition domain.
+  version: 1.0.7
+
+paths: {}
+
+components:
+  schemas:
+
+    StationGroup:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        effectiveAt:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        effectiveUntil:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        effectiveForRequestTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        description:
+          type: string
+        stations:
+          type: array
+          items: 
+            $ref: '#/components/schemas/Station'
+          minItems: 1
+
+    Station:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        effectiveAt:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        effectiveUntil:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        effectiveForRequestTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        description:
+          type: string
+        stationType:
+          $ref: '#/components/schemas/StationType'
+        location:
+          $ref: '#/components/schemas/Location'
+        allRawChannels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Channel'
+          minItems: 1
+        relativePositionsByChannel:
+          type: array
+          items:
+            type: object
+            properties:
+              channel:
+                $ref: '#/components/schemas/Channel'
+              relativePosition:
+                $ref: '#/components/schemas/RelativePosition'
+          minItems: 1
+        channelGroups:
+          type: array
+          items: 
+            $ref: '#/components/schemas/ChannelGroup'
+     
+    ChannelGroup:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        effectiveAt:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        effectiveUntil:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        effectiveForRequestTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        description:
+          type: string
+        channelGroupType:
+          $ref: '#/components/schemas/ChannelGroupType'
+        location:
+          $ref: '#/components/schemas/Location'
+        channels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Channel'
+          minItems: 1
+          
+    Channel:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        effectiveAt:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        effectiveUntil:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        effectiveForRequestTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        canonicalName:
+          type: string
+        description:
+          type: string
+        station:
+         $ref: '#/components/schemas/Station'
+        channelDataType:
+          $ref: '#/components/schemas/ChannelDataType'
+        channelBandType:
+          $ref: '#/components/schemas/ChannelBandType'
+        channelInstrumentType:
+          $ref: '#/components/schemas/ChannelInstrumentType'
+        channelOrientationType:
+          $ref: '#/components/schemas/ChannelOrientationType'
+        channelOrientationCode:
+          type: string
+          minLength: 1
+          maxLength: 1
+        units:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/Units'
+        nominalSampleRateHz:
+          type: number
+          format: double
+        location:
+          $ref: '#/components/schemas/Location'
+        orientationAngles:
+          $ref: '#/components/schemas/OrientationAngles'
+        configuredInputs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Channel'
+          minItems: 1
+        processingDefinition:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/FieldMap'
+        processingMetadata:
+          type: array
+          items:
+            type: object
+            properties:
+              processingMetadataType:
+                $ref: '#/components/schemas/ChannelProcessingMetadataType'
+              value:
+                type: object
+        response:
+          $ref: '#/components/schemas/Response'
+
+    Response:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          format: uuid
+        effectiveAt:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        effectiveUntil:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        calibration:
+          $ref: '#/components/schemas/Calibration'
+        fapResponse:
+          $ref: '#/components/schemas/FrequencyAmplitudePhase'
+
+    Calibration:
+      type: object
+      required:
+        - calibrationPeriodSec
+        - calibrationTimeShift
+        - calibrationFactor
+      properties:
+        calibrationPeriodSec:
+          type: number
+          format: double
+        calibrationTimeShift:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        calibrationFactor:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DoubleValue'
+    
+    FrequencyAmplitudePhase:
+      type: object
+      required:
+        - id
+        - frequenciesHz
+        - amplitudePhaseResponses
+      properties:
+        id:
+          type: string
+          format: uuid
+        nominalSampleRateHz:
+          type: number
+          format: double
+        nominalCalibration:
+          $ref: '#/components/schemas/Calibration'
+        frequenciesHz:
+          type: array
+          items:
+            type: number
+            format: double
+          minItems: 1
+        amplitudePhaseResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/AmplitudePhaseResponse'   
+          minItems: 1   
+
+    AmplitudePhaseResponse:
+      type: object
+      required:
+        - amplitude
+        - phase
+      properties:
+        amplitude:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DoubleValue'
+        phase:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DoubleValue'
+
+          
+    RelativePosition:
+      type: object
+      required:
+        - northDisplacementKm
+        - eastDisplacementKm
+        - verticalDisplacementKm
+      properties:
+        northDisplacementKm:
+          type: number
+          format: double
+        eastDisplacementKm:
+          type: number
+          format: double
+        verticalDisplacementKm:
+          type: number
+          format: double
+    
+    Location:
+      type: object
+      required:
+        - latitudeDegrees
+        - longitudeDegrees
+        - depthKm
+        - elevationKm
+      properties: 
+        latitudeDegrees:
+          type: number
+          format: double
+        longitudeDegrees:
+          type: number
+          format: double
+        depthKm:
+          type: number
+          format: double
+        elevationKm:
+          type: number
+          format: double
+    
+    OrientationAngles:
+      type: object
+      properties:
+        horizontalAngleDeg:
+          type: number
+          format: double
+        verticalAngleDeg:
+          type: number
+          format: double          
+
+    StationType:
+      type: string
+      enum:
+        -   HYDROACOUSTIC
+        -   HYDROACOUSTIC_ARRAY
+        -   INFRASOUND
+        -   INFRASOUND_ARRAY
+        -   SEISMIC_1_COMPONENT
+        -   SEISMIC_3_COMPONENT
+        -   SEISMIC_3_COMPONENT_ARRAY
+        -   SEISMIC_ARRAY
+        -   WEATHER
+
+    ChannelGroupType:
+      type: string
+      enum:
+        -   PHYSICAL_SITE
+        -   PROCESSING_GROUP
+
+    ChannelDataType:
+      type: string
+      enum:
+        -   DIAGNOSTIC_SOH
+        -   DIAGNOSTIC_WEATHER
+        -   SEISMIC
+        -   HYDROACOUSTIC
+        -   INFRASOUND
+        -   WEATHER
+        
+    ChannelBandType:
+      type: string
+      enum:
+        -   UNKNOWN
+        -   ADMINISTRATIVE
+        -   BROADBAND
+        -   EXTREMELY_LONG_PERIOD
+        -   EXTREMELY_SHORT_PERIOD
+        -   HIGH_BROADBAND
+        -   LONG_PERIOD
+        -   MID_PERIOD
+        -   OPAQUE
+        -   PERIOD_GREATER_TEN_DAYS
+        -   PERIOD_ORDER_ONE_TO_TEN_DAYS
+        -   PERIOD_ORDER_TENTH_TO_ONE_DAY
+        -   SAMPLE_RATE_1KHZ_TO_LESS_5KHZ_CORNER_GREATER_EQUAL_10SEC
+        -   SAMPLE_RATE_1KHZ_TO_LESS_5KHZ_CORNER_LESS_10SEC
+        -   SAMPLE_RATE_250HZ_TO_LESS_1KHZ_CORNER_GREATER_EQUAL_10SEC
+        -   SAMPLE_RATE_250HZ_TO_LESS_1KHZ_CORNER_LESS_10SEC
+        -   SHORT_PERIOD
+        -   ULTRA_LONG_PERIOD
+        -   VERY_LONG_PERIOD
+            
+    ChannelInstrumentType:
+      type: string
+      enum:
+        -   UNKNOWN
+        -   ACCELEROMETER
+        -   BOLOMETER
+        -   CALIBRATION_INPUT
+        -   CREEP_METER
+        -   DERIVED
+        -   ELECTRIC_POTENTIAL
+        -   ELECTRONIC_TEST_POINT
+        -   GEOPHONE
+        -   GRAVIMETER
+        -   HIGH_GAIN_SEISMOMETER
+        -   HUMIDITY
+        -   LINEAR_STRAIN
+        -   LOW_GAIN_SEISMOMETER
+        -   MAGNETOMETER
+        -   MASS_POSITION_SEISMOMETER
+        -   NON_SPECIFIC_INSTRUMENT
+        -   PRESSURE
+        -   RAINFALL
+        -   ROTATIONAL_SENSOR
+        -   SYNTHESIZED_BEAM
+        -   TEMPERATURE
+        -   TIDE
+        -   TILT_METER
+        -   VOLUMETRIC_STRAIN
+        -   WATER_CURRENT
+        -   WIND
+        
+    ChannelOrientationType:
+      type: string
+      enum:
+        -   UNKNOWN
+        -   CABINET_SOURCE_1
+        -   CABINET_SOURCE_2
+        -   CABINET_SOURCE_3
+        -   CABINET_SOURCE_4
+        -   CALIBRATION_A
+        -   CALIBRATION_B
+        -   CALIBRATION_C
+        -   CALIBRATION_D
+        -   COHERENT_BEAM
+        -   DOWN_HOLE
+        -   EAST_WEST
+        -   FK_3C
+        -   FK_BEAM
+        -   HYDROPHONE
+        -   INCOHERENT_BEAM
+        -   INFRASOUND
+        -   INSIDE
+        -   LATITUDINAL
+        -   NORTH_SOUTH
+        -   OPTIONAL_U
+        -   OPTIONAL_V
+        -   OPTIONAL_W
+        -   ORIGIN_BEAM
+        -   ORTHOGONAL_1
+        -   ORTHOGONAL_2
+        -   ORTHOGONAL_3
+        -   OUTSIDE
+        -   RADIAL
+        -   TRANSVERSE
+        -   TRANSVERSE_VERTICAL
+        -   TRIAXIAL_A
+        -   TRIAXIAL_B
+        -   TRIAXIAL_C
+        -   UNDERGROUND
+        -   VERTICAL
+        -   WIND_DIRECTION
+        -   WIND_SPEED
+        
+    ChannelProcessingMetadataType:
+      type: string
+      enum: 
+        -   BEAM_COHERENT
+        -   BEAM_PHASE
+        -   BEAM_SUMMATION
+        -   BEAM_TYPE
+        -   BRIDGED
+        -   CHANNEL_GROUP
+        -   EVENT_HYPOTHESIS_ID
+        -   FILTER_CAUSALITY
+        -   FILTER_TYPE
+        -   LOCATION
+        -   SIGNAL_DETECTION_HYPOTHESIS_ID
+        -   STEERING_ANGLE_OF_INCIDENCE
+        -   STEERING_BACK_AZIMUTH
+        -   STEERING_SLOWNESS
+
+    # Masked derived Channel definitions
+    # 
+    ProcessingMaskDefinition:
+      type: object
+      required:
+        - appliedQcSegmentCategoryAndTypes
+        - maskedSectionMaxDropDuration
+        - maskedSectionDropThreshold
+        - maskedSegmentMergeThreshold
+        - processingOperation
+        - waveformMaskingDefinition
+      properties:
+        appliedQcSegmentCategoryAndTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/QcSegmentCategoryAndType'
+        maskedSectionMaxDropDuration:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        maskedSectionDropThreshold:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 100.0
+        maskedSegmentMergeThreshold:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        processingOperation:
+          $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ProcessingOperation'
+        waveformMaskingDefinition:
+          $ref: '#/components/schemas/WaveformMaskingDefinition'
+
+    QcSegmentCategoryAndType:
+      type: object
+      required:
+        - category
+      properties:
+        category:
+          $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/QcSegmentCategory'
+        type:
+          $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/QcSegmentType'
+
+    WaveformMaskingDefinition:
+      type: object
+      required:
+        - maskMode
+      properties:
+        interpolationThreshold:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        maskMode:
+          $ref: '#/components/schemas/MaskMode'
+
+    MaskMode:
+      type: string
+      enum:
+        - DROP
+        - FIX_BY_INTERPOLATION
+        - ZERO_FILL
+
+    # Demeaned derived Channel definitions
+    # 
+    DemeaningDefinition:
+      type: object
+      required:
+        - meanType
+        - includeInterpolatedSamples
+      properties:
+        meanType:
+          $ref: '#/components/schemas/MeanType'
+        includeInterpolatedSamples:
+          type: boolean
+
+    MeanType:
+      type: string
+      enum:
+        - ARITHMETIC
+
+    # Tapered derived Channel definitions
+    # 
+    TaperDefinition:
+      type: object
+      required:
+        - taperDirection
+        - taperDuration
+        - taperFunction
+        - taperType
+      properties:
+        taperDirection:
+          $ref: '#/components/schemas/TaperDirection'
+        taperDuration:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        taperFunction:
+          $ref: '#/components/schemas/TaperFunction'
+        taperType:
+          $ref: '#/components/schemas/TaperType'
+
+    TaperDirection:
+      type: string
+      enum:
+        - BOTH
+        - FORWARD
+        - REVERSE
+
+    TaperFunction:
+      type: string
+      enum:
+        - BLACKMAN
+        - COSINE
+        - HAMMING
+        - HANNING
+        - PARZEN
+        - WELCH
+
+    TaperType:
+      type: string
+      enum:
+        - ENDPOINT
+        - PROCESSING_MASK
+
+    # Filtered derived Channel definitions
+    # 
+    FilterDefinition:
+      type: object
+      required:
+        - filterDescription
+        - name
+      properties:
+        comments:
+          type: string
+        filterDescription:
+          oneOf:
+            - $ref: '#/components/schemas/LinearFilterDescription'
+            - $ref: '#/components/schemas/AutoregressiveFilterDescription'
+            - $ref: '#/components/schemas/PhaseMatchFilterDescription'
+            - $ref: '#/components/schemas/CascadeFilterDescription'
+        name:
+          type: string
+
+    FilterDescription:
+      type: object
+      required:
+        - causal
+        - filterType
+        - correctGroupDelay
+      properties:
+        causal:
+          type: boolean
+        comments:
+          type: string
+        filterType:
+          $ref: '#/components/schemas/FilterType'
+        correctGroupDelay:
+          type: boolean
+        response:
+          $ref: '#/components/schemas/FrequencyAmplitudePhase'
+
+    FilterType:
+      type: string
+      enum:
+        - AUTOREGRESSIVE
+        - CASCADE
+        - LINEAR
+        - PHASE_MATCH
+
+    LinearFilterDescription:
+      allOf:
+        - $ref: '#/components/schemas/FilterDescription'
+        - type: object
+          required:
+            - linearFilterType
+            - order
+            - passbandType
+            - zeroPhase
+          properties:
+            highFrequencyHz:
+              type: number
+              format: double
+              minimum: 0.0
+              exclusiveMinimum: true
+            lowFrequencyHz:
+              type: number
+              format: double
+              minimum: 0.0
+            linearFilterType:
+              $ref: '#/components/schemas/LinearFilterType'
+            order:
+              type: integer
+              minimum: 1
+            parameters:
+              oneOf:
+                - $ref: '#/components/schemas/FirFilterParameters'
+                - $ref: '#/components/schemas/IirFilterParameters'
+            passbandType:
+              $ref: '#/components/schemas/PassbandType'
+            zeroPhase:
+              type: boolean
+
+    LinearFilterParameters:
+      type: object
+      required:
+        - groupDelaySec
+        - sampleRateHz
+        - sampleRateToleranceHz
+      properties:
+        groupDelaySec:
+          type: number
+          format: double
+          minimum: 0.0
+        sampleRateHz:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        sampleRateToleranceHz:
+          type: number
+          format: double
+          minimum: 0.0
+
+    FirFilterParameters:
+      allOf:
+        - $ref: '#/components/schemas/LinearFilterParameters'
+        - type: object
+          required:
+            - transferFunctionBCoefficients
+          properties:
+            transferFunctionBCoefficients:
+              type: array
+              minItems: 1
+              items:
+                type: number
+                format: double
+
+    IirFilterParameters:
+      allOf:
+        - $ref: '#/components/schemas/LinearFilterParameters'
+        - type: object
+          required:
+            - sosDenominatorCoefficients
+            - sosNumeratorCoefficients
+          properties:
+            sosDenominatorCoefficients:
+              type: array
+              minItems: 3
+              items:
+                type: number
+                format: double
+            sosNumeratorCoefficients:
+              type: array
+              minItems: 3
+              items:
+                type: number
+                format: double
+
+    LinearFilterType:
+      type: string
+      enum:
+        - FIR_HAMMING
+        - FIR_OTHER
+        - IIR_BUTTERWORTH
+        - IIR_OTHER
+
+    PassbandType:
+      type: string
+      enum:
+        - BAND_PASS
+        - BAND_REJECT
+        - HIGH_PASS
+        - LOW_PASS
+
+    AutoregressiveFilterDescription:
+      allOf:
+        - $ref: '#/components/schemas/FilterDescription'
+        - type: object
+          required:
+            - autoregressiveFilterType
+            - autoregressiveType
+            - noiseWindowDuration
+            - noiseWindowOffset
+            - order
+            - signalWindowOffset
+          properties:
+            autoregressiveFilterType:
+              $ref: '#/components/schemas/AutoregressiveFilterType'
+            autoregressiveType:
+              $ref: '#/components/schemas/AutoregressiveType'
+            noiseWindowDuration:
+              type: string
+              #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+              format: duration
+            noiseWindowOffset:
+              type: string
+              #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+              format: duration
+            order:
+              type: integer
+              minimum: 1
+            parameters:
+                oneOf:
+                  - $ref: '#/components/schemas/AutoregressiveFilterParameters'
+                  - $ref: '#/components/schemas/AdaptiveAutoregressiveFilterParameters'
+            signalWindowDuration:
+              type: string
+              #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+              format: duration
+            signalWindowOffset:
+              type: string
+              #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+              format: duration           
+
+    AutoregressiveFilterType:
+      type: string
+      enum:
+        - ADAPTIVE
+        - NON_ADAPTIVE
+
+    AutoregressiveType:
+      type: string
+      enum:
+        - N
+        - N_SQUARED
+
+    BaseAutoregressiveFilterParameters:
+      type: object
+      required:
+        - sampleRateHz
+        - sampleRateToleranceHz
+      properties:
+        sampleRateHz:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        sampleRateToleranceHz:
+          type: number
+          format: double
+          minimum: 0.0
+
+    AutoregressiveFilterParameters:
+      allOf:
+        - $ref: '#/components/schemas/BaseAutoregressiveFilterParameters'
+        - type: object
+          required:
+            - coefficients
+            - noiseWindow
+          properties:
+            coefficients:
+              type: array
+              minItems: 1
+              items:
+                type: number
+                format: double
+            noiseWindow:
+              $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegmentDescriptor'
+
+    AdaptiveAutoregressiveFilterParameters:
+      allOf:
+        - $ref: '#/components/schemas/BaseAutoregressiveFilterParameters'
+        - type: object
+
+    PhaseMatchFilterDescription:
+      allOf:
+        - $ref: '#/components/schemas/FilterDescription'
+        - type: object
+          required:
+            - dispersionModelName
+            - frequencyTaperFunction
+            - highFrequencyHz
+            - highFrequencyTaperWidthHz
+            - lowFrequencyHz
+            - lowFrequencyTaperWidthHz
+            - numFrequencies
+            - phase
+            - referencePeriod
+          properties:
+            dispersionModelName:
+              type: string
+            frequencyTaperFunction:
+              $ref: '#/components/schemas/TaperFunction'
+            highFrequencyHz:
+              type: number
+              format: double
+              minimum: 0.0
+              exclusiveMinimum: true
+            highFrequencyTaperWidthHz:
+              type: number
+              format: double
+              minimum: 0.0
+              exclusiveMinimum: true
+            lowFrequencyHz:
+              type: number
+              format: double
+              minimum: 0.0
+            lowFrequencyTaperWidthHz:
+              type: number
+              format: double
+              minimum: 0.0
+              exclusiveMinimum: true
+            numFrequencies:
+              type: integer
+              minimum: 1
+            parameters:
+              $ref: '#/components/schemas/PhaseMatchFilterParameters'
+            phase:
+              $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/PhaseType'
+            referencePeriod:
+              type: string
+              #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+              format: duration
+
+    PhaseMatchFilterParameters:
+      type: object
+      required:
+        - receiverLocation
+        - sourceLocation
+      properties:
+        receiverLocation:
+          $ref: '#/components/schemas/Location'
+        sourceLocation:
+          $ref: '../../Event/OpenAPISpec/event-coi.yaml#/components/schemas/EventLocation'
+
+    CascadeFilterDescription:
+      allOf:
+        - $ref: '#/components/schemas/FilterDescription'
+        - type: object
+          required:
+            - filterDescriptions
+          properties:
+            filterDescriptions:
+              type: array
+              minItems: 2
+              items:
+                $ref: '#/components/schemas/FilterDescription'
+            parameters:
+              $ref: '#/components/schemas/CascadeFilterParameters'
+
+    CascadeFilterParameters:
+      type: object
+      required:
+        - sampleRateHz
+        - sampleRateToleranceHz
+      properties:
+        groupDelaySec:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        sampleRateHz:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        sampleRateToleranceHz:
+          type: number
+          format: double
+          minimum: 0.0
+
+    # Rotated derived Channel definitions
+    # 
+    RotationDefinition:
+      type: object
+      required:
+        - rotationDescription
+        - rotationParameters
+      properties:
+        rotationDescription:
+          $ref: '#/components/schemas/RotationDescription'
+        rotationParameters:
+          $ref: '#/components/schemas/RotationParameters'
+
+    RotationDescription:
+      type: object
+      required:
+        - phase
+        - rotationType
+        - samplingType
+        - twoDimensional
+      properties:
+        phase:
+          $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/PhaseType'
+        rotationType:
+          $ref: '#/components/schemas/RotationType'
+        samplingType:
+          $ref: '#/components/schemas/SamplingType'
+        twoDimensional:
+          type: boolean
+
+    RotationParameters:
+      type: object
+      required:
+        - locationToleranceKm
+        - orientationAngleToleranceDeg
+        - receiverToSourceAzimuthDeg
+        - sampleRateHz
+        - sampleRateToleranceHz
+      properties:
+        angleOfIncidenceDeg:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 90.0
+        locationToleranceKm:
+          type: number
+          format: double
+          minimum: 0.0
+        orientationAngleToleranceDeg:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 360.0
+        receiverToSourceAzimuthDeg:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 360.0
+        sampleRateHz:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        sampleRateToleranceHz:
+          type: number
+          format: double
+          minimum: 0.0
+
+    SamplingType:
+      type: string
+      enum:
+        - INTERPOLATED
+        - NEAREST_SAMPLE
+
+    RotationType:
+      type: string
+      enum:
+        - AMPLITUDE
+        - FK
+        - SIGNAL_DETECTION
+
+    # Beamed derived Channel definitions
+    # 
+    BeamDefinition:
+      type: object
+      required:
+        - beamDescription
+        - beamParameters
+      properties:
+        beamDescription:
+          $ref: '#/components/schemas/BeamDescription'
+        beamParameters:
+          $ref: '#/components/schemas/BeamParameters'
+
+    BeamDescription:
+      type: object
+      required:
+        - beamSummation
+        - beamType
+        - phase
+        - samplingType
+        - twoDimensional
+      properties:
+        beamSummation:
+          $ref: '#/components/schemas/BeamSummationType'
+        beamType:
+          $ref: '#/components/schemas/BeamType'
+        phase:
+          $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/PhaseType'
+        samplingType:
+          $ref: '#/components/schemas/SamplingType'
+        twoDimensional:
+          type: boolean
+
+    BeamSummationType:
+      type: string
+      enum:
+        - COHERENT
+        - INCOHERENT
+        - RMS
+
+    BeamType:
+      type: string
+      enum:
+        - AMPLITUDE
+        - CONTINUOUS_LOCATION
+        - EVENT
+        - FK
+        - SIGNAL_DETECTION
+
+    BeamParameters:
+      type: object
+      required:
+        - channelWeights
+        - minWaveformsToBeam
+        - orientationAngleToleranceDeg
+        - receiverToSourceAzimuthDeg
+        - sampleRateHz
+        - sampleRateToleranceHz
+        - slownessSecPerDeg
+      properties:
+        channelWeights:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/WeightByChannel'           
+        eventHypothesis:
+          $ref: '../../Event/OpenAPISpec/event-coi.yaml#/components/schemas/EventHypothesis'
+        minWaveformsToBeam:
+          type: integer
+          minimum: 2
+        orientationAngleToleranceDeg:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 360.0
+        receiverToSourceAzimuthDeg:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 360.0
+        sampleRateHz:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        sampleRateToleranceHz:
+          type: number
+          format: double
+          minimum: 0.0
+        signalDetectionHypothesis:
+          $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/SignalDetectionHypothesis'
+        slownessSecPerDeg:
+          type: number
+          format: double
+          minimum: 0.0
+        sourceLocation:
+          $ref: '#/components/schemas/Location'
+
+    WeightByChannel:
+      type: object
+      required:
+        - channel
+        - weight
+      properties:
+        channel:
+          $ref: '#/components/schemas/Channel'
+        weight:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 1.0
+
+    # FK derived Channel definitions
+    # 
+    FkSpectraDefinition:
+      type: object
+      required:
+        - fkSpectrumWindow
+        - normalizeWaveforms
+        - minimumWaveformsForSpectra
+        - orientationAngleToleranceDeg
+        - phase
+        - slownessGrid
+        - spectrumStepDuration
+        - twoDimensional
+        - type
+        - waveformSampleRate
+      properties:
+        demeaningDefinition:
+          $ref: '#/components/schemas/DemeaningDefinition'
+        fkSpectrumWindow:
+          $ref: '#/components/schemas/FkSpectrumWindow'
+        normalizeWaveforms:
+          type: boolean
+        minimumWaveformsForSpectra:
+          type: integer
+          minimum: 1
+        orientationAngleToleranceDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 360
+        phase:
+          $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/PhaseType'
+        slownessGrid:
+          $ref: '#/components/schemas/SlownessGrid'
+        spectrumStepDuration:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        twoDimensional:
+          type: boolean
+        type:
+          $ref: '#/components/schemas/FkType'
+        waveformSampleRate:
+          $ref: '#/components/schemas/FkWaveformSampleRate'
+
+    FkSpectraDefinitionArray:
+      allOf:
+        - $ref: '#/components/schemas/FkSpectraDefinition'
+        - type: object
+          required:
+            - channelWeights
+            - fkFrequencyRange
+            - fkUncertaintyDefinition
+          properties:
+            channelWeights:
+              type: array
+              minItems: 1
+              items:
+                $ref: '#/components/schemas/WeightByChannel'
+            fftTaperDefinition:
+              $ref: '#/components/schemas/TaperDefinition'
+            fkFrequencyRange:
+              $ref: '#/components/schemas/FkFrequencyRange'
+            fkUncertaintyDefinition:
+              $ref: '#/components/schemas/FkUncertaintyDefinition'
+
+    FkSpectraDefinition3c:
+      allOf:
+        - $ref: '#/components/schemas/FkSpectraDefinition'
+        - type: object
+          required:
+            - applyHilbertTransform
+            - locationToleranceKm
+            - mediumVelocityKmPerSec
+          properties:
+            applyHilbertTransform:
+              type: boolean
+            locationToleranceKm:
+              type: number
+              format: double
+              minimum: 0.0
+            mediumVelocityKmPerSec:
+              type: number
+              format: double
+              minimum: 0.0
+
+    FkType:
+      type: string
+      enum:
+        - FK_3C
+        - FK_ARRAY
+
+    FkFrequencyRange:
+      type: object
+      required:
+        - lowFrequencyHz
+        - highFrequencyHz
+      properties:
+        lowFrequencyHz:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        highFrequencyHz:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+
+    FkWaveformSampleRate:
+      type: object
+      required:
+        - waveformSampleRateHz
+        - waveformSampleRateToleranceHz
+      properties:
+        waveformSampleRateHz:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        waveformSampleRateToleranceHz:
+          type: number
+          format: double
+          minimum: 0.0
+
+    FkUncertaintyDefinition:
+      type: object
+      required:
+        - fkUncertaintyOption
+      properties:
+        empiricalUncertaintyDefinition:
+          $ref: '#/components/schemas/EmpiricalUncertaintyDefinition'
+        exponentialSignalCoherenceUncertaintyDefinition:
+          $ref: '#/components/schemas/ExponentialSignalCoherenceUncertaintyDefinition'
+        fkUncertaintyOption:
+          $ref: '#/components/schemas/FkUncertaintyOption'
+
+    FkUncertaintyOption:
+      type: string
+      enum:
+        - EMPIRICAL
+        - EXPONENTIAL
+        - OBSERVED_SIGNAL_COHERENCE
+        - PERFECT_SIGNAL_COHERENCE
+
+    EmpiricalUncertaintyDefinition:
+      type: object
+      required:
+        - modelUncertainty
+        - wavenumberUncertainty
+      properties:
+        modelUncertainty:
+          type: number
+          format: double
+        wavenumberUncertainty:
+          type: number
+          format: double
+
+    ExponentialSignalCoherenceUncertaintyDefinition:
+      type: object
+      required:
+        - decayConstant
+        - exponentialConstant
+      properties:
+        decayConstant:
+          type: number
+          format: double
+        exponentialConstant:
+          type: number
+          format: double
+
+    FkSpectrumWindow:
+      type: object
+      required:
+        - duration
+        - lead
+      properties:
+        duration:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        lead:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+
+    SlownessGrid:
+      type: object
+      required:
+        - maxSlowness
+        - numPoints
+      properties:
+        maxSlowness:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        numPoints:
+          type: integer
+          minimum: 1
+
+    # Spectrogram derived Channel definitions
+    #
+    SpectrogramDefinition:
+      type: object
+      required:
+        - numFrequencyBins
+        - spectrumWindowDefinition
+      properties:
+        numFrequencyBins:
+          type: integer
+          minimum: 1
+        spectrumWindowDefinition:
+          $ref: '#/components/schemas/SlidingWindowDefinition'
+        windowTaperDefinition:
+          $ref: '#/components/schemas/TaperDefinition'
+
+    SlidingWindowDefinition:
+      type: object
+      required:
+        - stepDuration
+        - windowDuration
+      properties:
+        stepDuration:
+          type: string
+          # Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        windowDuration:
+          type: string
+          # Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+
+    # Power Spectral Density derived Channel definitions
+    #
+    PowerSpectralDensitiesDefinition:
+      type: object
+      required:
+        - powerSpectralDensityDescription
+        - psdSampleWindowDefinition
+      properties:
+        powerSpectralDensityDescription:
+          $ref: '#/components/schemas/PowerSpectralDensityDescription'
+        psdSampleWindowDefinition:
+          $ref: '#/components/schemas/SlidingWindowDefinition'
+
+    PowerSpectralDensityDescription:
+      type: object
+      required:
+        - numFrequencyBins
+        - smoothingKernelSize
+        - spectrumWindowDefinition
+      properties:
+        numFrequencyBins:
+          type: integer
+          minimum: 1
+        smoothingKernelSize:
+          type: integer
+          minimum: 1
+        spectrumWindowDefinition:
+          $ref: '#/components/schemas/SlidingWindowDefinition'
+        windowTaperDefinition:
+          $ref: '#/components/schemas/TaperDefinition'

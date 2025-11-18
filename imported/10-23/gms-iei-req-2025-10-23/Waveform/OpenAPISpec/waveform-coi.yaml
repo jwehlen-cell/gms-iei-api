@@ -1,0 +1,423 @@
+openapi: 3.0.3
+info:
+  title: GMS Waveform COI schema
+  description: Defines a schema for the GMS Common Object Interface (COI) classes in the Waveform domain.
+  version: 1.0.8
+
+paths: {}
+
+components:
+  schemas:
+
+    ChannelSegment:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          $ref: '#/components/schemas/ChannelSegmentDescriptor'
+        timeseriesType:
+          $ref: '#/components/schemas/TimeseriesType'
+        units:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/Units'
+        maskedBy:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProcessingMask'
+        timeseries:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/Waveform'
+              - $ref: '#/components/schemas/WfdiscWaveformClaimCheck'
+              - $ref: '#/components/schemas/FkSpectra'
+              - $ref: '#/components/schemas/Spectrogram'
+              - $ref: '#/components/schemas/PowerSpectralDensities'
+          minItems: 1
+
+    ChannelSegmentDescriptor:
+      type: object
+      required:
+        - startTime
+        - endTime
+        - creationTime
+        - channel
+      properties:
+        startTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        endTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        creationTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        channel:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Channel'
+
+    TimeseriesType:
+      type: string
+      enum:
+        - DETECTION_FEATURE_MAP
+        - FK_SPECTRA
+        - POWER_SPECTRAL_DENSITIES
+        - SPECTROGRAM
+        - WAVEFORM
+        - WFDISC_WAVEFORM_CLAIM_CHECK
+
+    BaseTimeseries:
+      type: object
+      required:
+        - startTime
+        - endTime        
+      properties:
+        startTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        endTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time        
+    
+    #Timeseries have the specializations Waveform, FkSpectra, and DetectionFeatureMap. For now, only this generalized Timeseries should be implemented, specializations will be provided later if needed.
+    Timeseries:
+      allOf:
+        - $ref: '#/components/schemas/BaseTimeseries'
+      type: object
+      required:
+        - sampleRateHz
+        - sampleCount
+      properties:
+        sampleRateHz:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        sampleCount:
+          type: number
+          format: integer
+
+    Waveform:
+      allOf:
+        - $ref: '#/components/schemas/Timeseries'
+      type: object
+      required:
+        - samples
+      properties:
+        samples:
+          type: array
+          items:
+            type: number
+            format: float
+
+    WfdiscWaveformClaimCheck:
+      allOf:
+        - $ref: '#/components/schemas/BaseTimeseries'
+      type: object
+      required:
+        - wfids      
+      properties:
+        wfids:
+          type: array
+          items:
+            type: integer
+            format: int64
+          minItems: 1                        
+
+    ProcessingMask:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          format: uuid
+        effectiveAt:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time        
+        startTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        endTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        processingOperation:
+          $ref: '#/components/schemas/ProcessingOperation'
+        appliedToRawChannel:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Channel'
+        maskedQcSegmentVersions:
+          type: array
+          items:
+            $ref: '#/components/schemas/QcSegmentVersion'
+          minItems: 1
+
+    QcSegment:
+      required:
+        - id
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        channel:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Channel'
+        versionHistory:
+          #This collection is ordered by the QcSegmentVerion object's QcSegmentVersionId effectiveAt times in ascending order.
+          type: array
+          items:
+            $ref: '#/components/schemas/QcSegmentVersion'
+          minItems: 1
+
+    QcSegmentVersion:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          $ref: '#/components/schemas/QcSegmentVersionId'
+        channel:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Channel'
+        category:
+          $ref: '#/components/schemas/QcSegmentCategory'
+        type:
+          $ref: '#/components/schemas/QcSegmentType'
+        startTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        endTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        createdBy:
+          type: string
+        rejected:
+          type: boolean
+        rationale:
+          type: string
+        stageId:
+          $ref: '../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'
+        discoveredOn:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChannelSegment'
+
+    QcSegmentVersionId:
+      type: object
+      properties:
+        parentQcSegmentId:
+          type: string
+          format: uuid
+        effectiveAt:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+
+    QcSegmentCategory:
+      type: string
+      enum:
+        - ANALYST_DEFINED
+        - DATA_AUTHENTICATION
+        - LONG_TERM
+        - STATION_SOH
+        - UNPROCESSED
+        - WAVEFORM
+
+    QcSegmentType:
+      type: string
+      enum:
+        - AGGREGATE
+        - CALIBRATION
+        - FLAT
+        - GAP
+        - NOISY
+        - SENSOR_PROBLEM
+        - SPIKE
+        - STATION_PROBLEM
+        - STATION_SECURITY
+        - TIMING
+
+    ProcessingOperation:
+      type: string
+      enum:
+        - AMPLITUDE_MEASUREMENT
+        - DISPLAY_FILTER
+        - EVENT_BEAM
+        - FK_BEAM
+        - FK_SPECTRA
+        - POWER_SPECTRAL_DENSITY
+        - ROTATION
+        - SIGNAL_DETECTION_BEAM
+        - SPECTROGRAM
+        - VIRTUAL_BEAM
+
+    FkSpectra:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Timeseries'
+      required:
+        - samples
+      properties:
+        fkSpectraMetadata:
+          $ref: '#/components/schemas/FkSpectraMetadata'
+        samples:
+          type: array
+          items:
+            $ref: '#/components/schemas/FkSpectrum'
+          minItems: 1
+
+    FkSpectraMetadata:
+      type: object
+      required:
+        - fkSpectrumWindow
+        - slownessGrid
+        - phase
+      properties:
+        fkSpectrumWindow:
+          $ref: '#/components/schemas/FkSpectrumWindow'
+        slownessGrid:
+          $ref: '#/components/schemas/SlownessGrid'
+        phase:
+          $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/PhaseType'
+
+    FkSpectrumWindow:
+      type: object
+      required:
+        - duration
+        - lead
+      properties:
+        duration:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+          minimum: 0.0
+          exclusiveMinimum: true
+        lead:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+          minimum: 0.0
+
+    SlownessGrid:
+      type: object
+      required:
+        - maxSlowness
+        - numPoints
+      properties:
+        maxSlowness:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        # the value of numPoints must be odd as it includes the origin point with an equal amount of points on each side.
+        numPoints:
+          type: number
+          format: integer
+          minimum: 1
+      
+    FkSpectrum:
+      type: object
+      properties:
+        fstat:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: float
+        power:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: float
+        fkQual:
+          type: number
+          format: double
+        fkAttributes:
+          $ref: '#/components/schemas/FkAttributes'
+
+    FkAttributes:
+      type: object
+      required:
+        - peakFstat
+        - peakPower
+        - receiverToSourceAzimuth
+        - slowness
+      properties:
+        peakFstat:
+          type: number
+          format: float
+        peakPower:
+          type: number
+          format: float
+        receiverToSourceAzimuth:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DoubleValue'
+          minimum: 0
+          maximum: 360
+        slowness:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DoubleValue'
+
+    Spectrogram:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Timeseries'
+      required:
+        - frequencyBins
+        - spectra
+      properties:
+        frequencyBins:
+          $ref: '#/components/schemas/FrequencyBins'
+        spectra:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: float
+
+    PowerSpectralDensities:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Timeseries'
+      required:
+        - powerSpectralDensities
+        - frequencyBins
+      properties:
+        powerSpectralDensities:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: float
+        frequencyBins:
+          $ref: '#/components/schemas/FrequencyBins'
+
+    FrequencyBins:
+      type: object
+      required:
+        - maxCenterFrequencyHz
+        - minCenterFrequencyHz
+        - numFrequencyBins
+      properties:
+        maxCenterFrequencyHz:
+          type: number
+          format: double
+          minimum: 0
+          exclusiveMinimum: true
+        minCenterFrequencyHz:
+          type: number
+          format: double
+          minimum: 0
+        numFrequencyBins:
+          type: integer
+          minimum: 1

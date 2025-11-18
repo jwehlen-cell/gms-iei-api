@@ -1,0 +1,30 @@
+[
+  {
+    "startTime": "2019-01-05T17:55:00.000000Z",
+    "definitionId": {
+      "effectiveAt": "2025-01-01T00:00:00.000000Z",
+      "name": "Pre-AL1"
+    }
+  },
+  {
+    "startTime": "2019-01-05T16:00:00.000000Z",
+    "definitionId": {
+      "effectiveAt": "2025-01-01T00:00:00.000000Z",
+      "name": "AL1"
+    }
+  },
+  {
+    "startTime": "2019-01-05T18:00:00.000000Z",
+    "definitionId": {
+      "effectiveAt": "2025-01-01T00:00:00.000000Z",
+      "name": "Post-AL1"
+    }
+  },
+  {
+    "startTime": "2019-01-05T16:00:00.000000Z",
+    "definitionId": {
+      "effectiveAt": "2025-01-01T00:00:00.000000Z",
+      "name": "AL2"
+    }
+  }
+]

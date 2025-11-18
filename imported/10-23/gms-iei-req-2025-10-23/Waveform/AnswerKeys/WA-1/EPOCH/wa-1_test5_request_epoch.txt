@@ -1,0 +1,4 @@
+sources=usndc
+quality=R
+format=JSON
+NET GARB LOC AGE 1274313600.0 1272589200.0

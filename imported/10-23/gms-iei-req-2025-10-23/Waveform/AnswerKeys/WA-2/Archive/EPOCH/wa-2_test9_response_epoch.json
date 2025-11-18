@@ -1,0 +1,230 @@
+[
+  {
+    "channel": {
+      "name": "ASAR.AS01.SHZ"
+    },
+    "id": "3AC0569D17700FD7E063CF44A10A218E",
+    "versionHistory": [
+      {
+        "category": "WAVEFORM",
+        "channel": {
+          "effectiveAt": 1546300800.000000,
+          "name": "ASAR.AS01.SHZ"
+        },
+        "createdBy": "DETPRO",
+        "discoveredOn": [],
+        "endTime": 1546712703.000000,
+        "id": {
+          "effectiveAt": 1546718400.000000,
+          "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+        },
+        "rationale": "",
+        "rejected": false,
+        "stageId": {
+          "effectiveAt": 1546300800.000000,
+          "name": "Pre-AL1"
+        },
+        "startTime": 1546712700.000000,
+        "type": "GAP"
+      },
+      {
+        "category": "WAVEFORM",
+        "channel": {
+          "effectiveAt": 1546300800.000000,
+          "name": "ASAR.AS01.SHZ"
+        },
+        "createdBy": "DETPRO",
+        "discoveredOn": [],
+        "endTime": 1546712705.000000,
+        "id": {
+          "effectiveAt": 1546718401.000000,
+          "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+        },
+        "rationale": "Lengthened the gap",
+        "rejected": false,
+        "stageId": {
+          "effectiveAt": 1546300800.000000,
+          "name": "Pre-AL1"
+        },
+        "startTime": 1546712700.000000,
+        "type": "GAP"
+      },
+      {
+        "category": "WAVEFORM",
+        "channel": {
+          "effectiveAt": 1546300800.000000,
+          "name": "ASAR.AS01.SHZ"
+        },
+        "createdBy": "DETPRO",
+        "discoveredOn": [],
+        "endTime": 1546712704.000000,
+        "id": {
+          "effectiveAt": 1546718402.000000,
+          "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+        },
+        "rationale": "Shortened the gap",
+        "rejected": false,
+        "stageId": {
+          "effectiveAt": 1546300800.000000,
+          "name": "Pre-AL1"
+        },
+        "startTime": 1546712700.000000,
+        "type": "GAP"
+      },
+      {
+        "category": "WAVEFORM",
+        "channel": {
+          "effectiveAt": 1546300800.000000,
+          "name": "ASAR.AS01.SHZ"
+        },
+        "createdBy": "DETPRO",
+        "discoveredOn": [],
+        "endTime": 1546712704.000000,
+        "id": {
+          "effectiveAt": 1546718403.000000,
+          "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+        },
+        "rationale": "No longer a gap",
+        "rejected": false,
+        "stageId": {
+          "effectiveAt": 1546300800.000000,
+          "name": "Pre-AL1"
+        },
+        "startTime": 1546712700.000000,
+        "type": "AGGREGATE"
+      },
+      {
+        "category": "WAVEFORM",
+        "channel": {
+          "effectiveAt": 1546300800.000000,
+          "name": "ASAR.AS01.SHZ"
+        },
+        "createdBy": "DETPRO",
+        "discoveredOn": [],
+        "endTime": 1546712704.000000,
+        "id": {
+          "effectiveAt": 1546718404.000000,
+          "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+        },
+        "rationale": "Back to a gap",
+        "rejected": false,
+        "stageId": {
+          "effectiveAt": 1546300800.000000,
+          "name": "Pre-AL1"
+        },
+        "startTime": 1546712700.000000,
+        "type": "GAP"
+      },
+      {
+        "category": "STATION_SOH",
+        "channel": {
+          "effectiveAt": 1546300800.000000,
+          "name": "ASAR.AS01.SHZ"
+        },
+        "createdBy": "DETPRO",
+        "discoveredOn": [],
+        "endTime": 1546712704.000000,
+        "id": {
+          "effectiveAt": 1546718405.000000,
+          "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+        },
+        "rationale": "No longer a gap again",
+        "rejected": false,
+        "stageId": {
+          "effectiveAt": 1546300800.000000,
+          "name": "Pre-AL1"
+        },
+        "startTime": 1546712700.000000,
+        "type": "CALIBRATION"
+      },
+      {
+        "category": "WAVEFORM",
+        "channel": {
+          "effectiveAt": 1546300800.000000,
+          "name": "ASAR.AS01.SHZ"
+        },
+        "createdBy": "DETPRO",
+        "discoveredOn": [],
+        "endTime": 1546712704.000000,
+        "id": {
+          "effectiveAt": 1546718406.000000,
+          "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+        },
+        "rationale": "Back to a gap again",
+        "rejected": false,
+        "stageId": {
+          "effectiveAt": 1546300800.000000,
+          "name": "Pre-AL1"
+        },
+        "startTime": 1546712700.000000,
+        "type": "GAP"
+      },
+      {
+        "category": "ANALYST_DEFINED",
+        "channel": {
+          "effectiveAt": 1546300800.000000,
+          "name": "ASAR.AS01.SHZ"
+        },
+        "createdBy": "al1:nmcmaho",
+        "discoveredOn": [],
+        "endTime": 1546712714.000000,
+        "id": {
+          "effectiveAt": 1546718407.000000,
+          "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+        },
+        "rationale": "Fickle analyst",
+        "rejected": false,
+        "stageId": {
+          "effectiveAt": 1546300800.000000,
+          "name": "AL1"
+        },
+        "startTime": 1546712700.000000,
+        "type": "GAP"
+      },
+      {
+        "category": "ANALYST_DEFINED",
+        "channel": {
+          "effectiveAt": 1546300800.000000,
+          "name": "ASAR.AS01.SHZ"
+        },
+        "createdBy": "al1:nmcmaho",
+        "discoveredOn": [],
+        "endTime": 1546712724.000000,
+        "id": {
+          "effectiveAt": 1546718408.000000,
+          "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+        },
+        "rationale": "Ficklier analyst",
+        "rejected": false,
+        "stageId": {
+          "effectiveAt": 1546300800.000000,
+          "name": "AL1"
+        },
+        "startTime": 1546712700.000000,
+        "type": "GAP"
+      },
+      {
+        "category": "WAVEFORM",
+        "channel": {
+          "effectiveAt": 1546300800.000000,
+          "name": "ASAR.AS01.SHZ"
+        },
+        "createdBy": "al2:mharris",
+        "discoveredOn": [],
+        "endTime": 1546712703.000000,
+        "id": {
+          "effectiveAt": 1546718409.000000,
+          "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+        },
+        "rationale": "OG version",
+        "rejected": false,
+        "stageId": {
+          "effectiveAt": 1546300800.000000,
+          "name": "AL2"
+        },
+        "startTime": 1546712700.000000,
+        "type": "GAP"
+      }
+    ]
+  }
+]

@@ -1,0 +1,65 @@
+[
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"InteractiveAnalysisStageInterval"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 124,
+				"character": 37
+			},
+			"end": {
+				"line": 137,
+				"character": 26
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/imported/10-23/openapi-10-23-bundled.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"AutomaticProcessingStageInterval"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 156,
+				"character": 37
+			},
+			"end": {
+				"line": 167,
+				"character": 25
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/imported/10-23/openapi-10-23-bundled.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"Workflow"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 183,
+				"character": 13
+			},
+			"end": {
+				"line": 197,
+				"character": 21
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/imported/10-23/openapi-10-23-bundled.yaml"
+	}
+]

@@ -1,0 +1,12 @@
+{
+  "startTime": "2019-01-05T16:10:38.000000Z",
+  "endTime": "2019-01-05T16:12:31.000000Z",
+  "channels": [
+    {
+      "name": "LPAZ.LPAZB.BHE"
+    },
+    {
+      "name": "KVAR.KIV3.SHZ"
+    }
+  ]
+}

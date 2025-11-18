@@ -1,0 +1,30 @@
+{
+  "startTime": 1546710900.0,
+  "endTime": 1546711500.0,
+  "stageIds": [
+    {
+      "effectiveAt": 1546300800.0,
+      "name": "Pre-AL1"
+    },
+    {
+      "effectiveAt": 1546300800.0,
+      "name": "AL1"
+    },
+    {
+      "effectiveAt": 1546300800.0,
+      "name": "Post-AL1"
+    },
+    {
+      "effectiveAt": 1546300800.0,
+      "name": "AL2"
+    },
+    {
+      "effectiveAt": 1546300800.0,
+      "name": "Post-AL2"
+    },
+    {
+      "effectiveAt": 1546300800.0,
+      "name": "EVAL1"
+    }
+  ]
+}

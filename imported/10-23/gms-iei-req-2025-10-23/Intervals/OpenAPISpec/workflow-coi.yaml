@@ -1,0 +1,291 @@
+openapi: 3.0.3
+info:
+  title: GMS Workflow COI schema
+  description: Defines a schema for the GMS Common Object Interface (COI) classes in the Workflow domain.
+  version: 1.0.6
+
+paths: {}       
+
+components:
+  schemas:                   
+    
+    Interval:
+      required:
+        - endTime
+        - storageTime
+        - modificationTime
+        - status
+        - intervalId
+      type: object
+      properties:
+        endTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        processingStartTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        processingEndTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        storageTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        modificationTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        comments:
+          type: array
+          items:
+            $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/Comment'
+        status:
+          $ref: '#/components/schemas/IntervalStatus'
+        intervalId:
+          $ref: '#/components/schemas/IntervalId'
+          
+    IntervalId:
+      type: object
+      required:
+        - startTime
+        - definitionId
+      properties:
+        startTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        definitionId:
+          $ref: '#/components/schemas/WorkflowDefinitionId'
+          
+    WorkflowDefinitionId:
+      type: object
+      required:
+        - effectiveAt
+        - name
+      properties:
+        effectiveAt:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        name:
+          type: string
+
+    IntervalStatus:
+      type: string
+      enum:
+        - NOT_STARTED
+        - IN_PROGRESS
+        - NOT_COMPLETE
+        - COMPLETE
+        - FAILED
+        - SKIPPED
+        
+    StageInterval:
+      allOf:
+        - $ref: '#/components/schemas/Interval'
+        - type: object
+          required:
+            - stageMode
+          properties:
+            stageMetrics:
+              $ref: '#/components/schemas/StageMetrics'
+            stageMode:
+              $ref: '#/components/schemas/StageMode'
+
+    StageMode:
+      type: string
+      enum:
+        - INTERACTIVE
+        - AUTOMATIC
+
+    StageMetrics:
+      type: object
+      required:
+        - eventCount
+        - associatedSignalDetectionCount
+        - unassociatedSignalDetectionCount
+        - percentWaveformsAvailable
+        - waveformAvailabilityStationGroup
+      properties:
+        eventCount:
+          type: integer
+        associatedSignalDetectionCount:
+          type: integer
+        unassociatedSignalDetectionCount:
+          type: integer
+        maxMagnitude:
+          type: number
+          format: double
+        percentWaveformsAvailable:
+          type: number
+          format: double
+        # Either a version reference or populated instance
+        waveformAvailabilityStationGroup:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/StationGroup'
+        maxMagnitudeType:
+          $ref: '../../Event/OpenAPISpec/event-coi.yaml#/components/schemas/MagnitudeType'
+          
+    InteractiveAnalysisStageInterval:
+      allOf:
+        - $ref: '#/components/schemas/StageInterval'
+        - type: object
+          required:
+            - activityIntervals
+          properties:
+            activityIntervals:
+              type: array
+              items:
+                $ref: '#/components/schemas/ActivityInterval'
+              minItems: 1
+            completedAnalystId:
+              type: string
+                
+    ActivityInterval:
+      allOf:
+        - $ref: '#/components/schemas/Interval'
+        - type: object
+          required:
+            - stageIntervalId
+            - activeAnalystIds
+          properties:
+            stageIntervalId:
+              $ref: '#/components/schemas/IntervalId'
+            activeAnalystIds:
+              type: array
+              items:
+                type: string
+            reservedAnalystId:
+              type: string
+            completedAnalystId:
+              type: string
+    
+    AutomaticProcessingStageInterval:
+      allOf:
+        - $ref: '#/components/schemas/StageInterval'
+        - type: object
+          required:
+            - sequenceIntervals
+          properties:
+            sequenceIntervals:
+              type: array
+              items:
+                $ref: '#/components/schemas/ProcessingSequenceInterval'
+              minItems: 1
+                
+    ProcessingSequenceInterval:
+      allOf:
+        - $ref: '#/components/schemas/Interval'
+        - type: object
+          required:
+            - stageIntervalId
+            - percentComplete
+          properties:
+            stageIntervalId:
+              $ref: '#/components/schemas/IntervalId'
+            percentComplete:
+              type: number
+              format: double
+            lastExecutedStepName:
+              type: string
+    
+    Workflow:
+      type: object
+      required:
+        - workflowId
+        - stages
+      properties:
+        workflowId:
+          $ref: '#/components/schemas/WorkflowDefinitionId'
+        stages:
+          #ordered list 
+          type: array
+          items:
+            oneOf:
+            - $ref: '#/components/schemas/AutomaticProcessingStage'
+            - $ref: '#/components/schemas/InteractiveAnalysisStage'
+          minItems: 1
+          
+    Stage:
+      type: object
+      required:
+        - stageId
+        - duration
+        - mode
+      properties:
+        stageId:
+          $ref: '#/components/schemas/WorkflowDefinitionId'
+        duration:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        mode:
+          $ref: '#/components/schemas/StageMode'
+          
+    AutomaticProcessingStage:
+      allOf:
+        - $ref: '#/components/schemas/Stage'
+        - type: object
+          required:
+            - sequences
+          properties:
+            # Ordered list
+            sequences:
+              type: array
+              items:
+                $ref: '#/components/schemas/ProcessingSequence'
+              minItems: 1
+    
+    ProcessingSequence:
+      required:
+        - sequenceId
+        - steps
+      properties:
+        sequenceId:
+          $ref: '#/components/schemas/WorkflowDefinitionId'
+        # Ordered list
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProcessingStep'
+          minItems: 1
+    
+    ProcessingStep:
+      required:
+        - name
+      properties:
+        name:
+          type: string
+      
+    InteractiveAnalysisStage:
+      allOf:
+        - $ref: '#/components/schemas/Stage'
+        - type: object
+          required:
+            - activities
+          properties:
+            activities:
+              type: array
+              items:
+                $ref: '#/components/schemas/Activity'
+              minItems: 1
+                
+    Activity:
+      type: object
+      required:
+        - analysisActivity
+        - activityId
+      properties:
+        analysisActivity:
+          $ref: '#/components/schemas/AnalysisActivity'
+        activityId:
+          $ref: '#/components/schemas/WorkflowDefinitionId'
+          
+    AnalysisActivity:
+      type: string
+      enum:
+        - EVENT_REVIEW
+        - SCAN      
+    

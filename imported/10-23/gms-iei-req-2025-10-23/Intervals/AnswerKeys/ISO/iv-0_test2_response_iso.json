@@ -1,0 +1,287 @@
+{
+	"workflowId": {
+		"name": "GMS",
+		"effectiveAt": "2025-01-01T00:00:00Z"
+	},
+    "stages": [
+		{
+			"stageId": {
+				"name": "Pre-AL1",
+				"effectiveAt": "2025-01-01T00:00:00Z"
+			},
+			"duration": "PT5M",
+			"mode": "AUTOMATIC",
+			"sequences": [
+				{
+					"sequenceId": {
+						"name": "Pre-AL1 Seq",
+						"effectiveAt": "2025-01-01T00:00:00Z"
+					},
+					"steps": [
+						{
+							"name": "Partial Processing"
+						},
+						{
+							"name": "Association"
+						},
+						{
+							"name": "Conflict Resolution"
+						},
+						{
+							"name": "Origin Beam SP"
+						},
+						{
+							"name": "Arrival Beam SP"
+						}
+					]
+				}
+			]
+		},
+		{
+			"stageId": {
+				"name": "AL1",
+				"effectiveAt": "2025-01-01T00:00:00Z"
+			},
+			"duration": "PT1H",
+			"mode": "INTERACTIVE",
+			"activities": [
+				{
+					"activityId": {
+						"name": "AL1 Event Review",
+						"effectiveAt": "2025-01-01T00:00:00Z"
+					},
+					"analysisActivity": "EVENT_REVIEW"
+				},
+				{
+					"activityId": {
+						"name": "AL1 Central Alaska",
+						"effectiveAt": "2025-01-01T00:00:00Z"
+					},
+					"analysisActivity": "SCAN"
+				},
+				{
+					"activityId": {
+						"name": "AL1 Mount St Helens",
+						"effectiveAt": "2025-01-01T00:00:00Z"
+					},
+					"analysisActivity": "SCAN"
+				},
+				{
+					"activityId": {
+						"name": "AL1 California",
+						"effectiveAt": "2025-01-01T00:00:00Z"
+					},
+					"analysisActivity": "SCAN"
+				},
+				{
+					"activityId": {
+						"name": "AL1 YellowStone",
+						"effectiveAt": "2025-01-01T00:00:00Z"
+					},
+					"analysisActivity": "SCAN"
+				},
+				{
+					"activityId": {
+						"name": "AL1 New Mexico",
+						"effectiveAt": "2025-01-01T00:00:00Z"
+					},
+					"analysisActivity": "SCAN"
+				},
+				{
+					"activityId": {
+						"name": "AL1 New Madrid",
+						"effectiveAt": "2025-01-01T00:00:00Z"
+					},
+					"analysisActivity": "SCAN"
+				},
+				{
+					"activityId": {
+						"name": "AL1 South Carolina",
+						"effectiveAt": "2025-01-01T00:00:00Z"
+					},
+					"analysisActivity": "SCAN"
+				},
+				{
+					"activityId": {
+						"name": "AL1 Western US",
+						"effectiveAt": "2025-01-01T00:00:00Z"
+					},
+					"analysisActivity": "SCAN"
+				},
+				{
+					"activityId": {
+						"name": "AL1 Eastern US",
+						"effectiveAt": "2025-01-01T00:00:00Z"
+					},
+					"analysisActivity": "SCAN"
+				},
+				{
+					"activityId": {
+						"name": "AL1 Unassociated Signal Detection",
+						"effectiveAt": "2025-01-01T00:00:00Z"
+					},
+					"analysisActivity": "SCAN"
+				}
+			]
+		},
+        {
+			"stageId": {
+				"name": "Post-AL1",
+				"effectiveAt": "2025-01-01T00:00:00Z"
+			},
+			"duration": "PT1H",
+			"mode": "AUTOMATIC",
+			"sequences": [
+				{
+					"sequenceId": {
+						"name": "Post-AL1 Seq",
+						"effectiveAt": "2025-01-01T00:00:00Z"
+					},
+					"steps": [
+						{
+							"name": "Origin Beam SP"
+						},
+						{
+							"name": "Origin Beam LP"
+						},
+						{
+							"name": "Recall"
+						},
+						{
+							"name": "Arrival Beam SP"
+						},
+						{
+							"name": "Detection LP"
+						},
+						{
+							"name": "Recall LP"
+						},
+						{
+							"name": "Magnitude"
+						},
+						{
+							"name": "Hydro EDP"
+						},
+						{
+							"name": "HAE"
+						}
+					]
+				}
+			]
+		},
+		{
+			"stageId": {
+				"name": "AL2",
+				"effectiveAt": "2025-01-01T00:00:00Z"
+			},
+			"duration": "PT2H",
+			"mode": "INTERACTIVE",
+			"activities": [
+				{
+					"activityId": {
+						"name": "AL2 Event Review",
+						"effectiveAt": "2025-01-01T00:00:00Z"
+					},
+					"analysisActivity": "EVENT_REVIEW"
+				},
+				{
+					"activityId": {
+						"name": "AL2 Pacific Ocean",
+						"effectiveAt": "2025-01-01T00:00:00Z"
+					},
+					"analysisActivity": "SCAN"
+				},
+				{
+					"activityId": {
+						"name": "AL2 Atlantic Ocean",
+						"effectiveAt": "2025-01-01T00:00:00Z"
+					},
+					"analysisActivity": "SCAN"
+				},
+				{
+					"activityId": {
+						"name": "AL2 Wyoming Infrasound",
+						"effectiveAt": "2025-01-01T00:00:00Z"
+					},
+					"analysisActivity": "SCAN"
+				},
+				{
+					"activityId": {
+						"name": "AL2 Unassociated Signal Detection",
+						"effectiveAt": "2025-01-01T00:00:00Z"
+					},
+					"analysisActivity": "SCAN"
+				}
+			]
+		},
+        {
+			"stageId": {
+				"name": "Post-AL2",
+				"effectiveAt": "2025-01-01T00:00:00Z"
+			},
+			"duration": "PT2H",
+			"mode": "AUTOMATIC",
+			"sequences": [
+				{
+					"sequenceId": {
+						"name": "Post-AL2 Seq",
+						"effectiveAt": "2025-01-01T00:00:00Z"
+					},
+					"steps": [
+						{
+							"name": "Origin Beam SP"
+						},
+						{
+							"name": "Origin Beam LP"
+						},
+						{
+							"name": "Recall"
+						},
+						{
+							"name": "Arrival Beam SP"
+						},
+						{
+							"name": "Detection LP"
+						},
+						{
+							"name": "Recall LP"
+						},
+						{
+							"name": "Magnitude"
+						},
+						{
+							"name": "Hydro EDP"
+						},
+						{
+							"name": "HAE"
+						}
+					]
+				}
+			]
+		},
+        {
+			"stageId": {
+				"name": "EVAL1",
+				"effectiveAt": "2025-01-01T00:00:00Z"
+			},
+			"duration": "PT2H",
+			"mode": "INTERACTIVE",
+			"activities": [
+				{
+					"activityId": {
+						"name": "EVAL1 Event Review",
+						"effectiveAt": "2025-01-01T00:00:00Z"
+					},
+					"analysisActivity": "EVENT_REVIEW"
+				},
+				{
+					"activityId": {
+						"name": "EVAL1 Scan",
+						"effectiveAt": "2025-01-01T00:00:00Z"
+					},
+					"analysisActivity": "SCAN"
+				}
+			]
+		}
+	]
+}

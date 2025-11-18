@@ -1,0 +1,245 @@
+openapi: 3.0.3
+info:
+  title: GMS Workflow Data Fabric Operations
+  description: Defines the Data Fabric operations for the GMS Common Object Interface (COI) classes in the Workflow domain. The term "StageInterval object" refers to any StageInterval specialization, including InteractiveAnalysisStageInterval objects and AutomaticProcessingStageInterval objects.
+  version: 1.0.5
+
+paths:
+
+  /workflow/query/time:
+    post:
+      summary: Retrieves the Workflow in effect at the provided time, or for the current time if no time is provided. The Workflow that is effective for a provided time is the Workflow with the latest effectiveAt time that is earlier than or equal to the provided time.
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: A date-time value
+        content:
+          application/json:
+            schema:
+              type: string
+              #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+              format: date-time
+        required: false
+      responses:
+        '200':
+          description: Successful operation. Response includes a Workflow object.
+          content:
+            application/json:
+              schema:
+                $ref: 'workflow-coi.yaml#/components/schemas/Workflow'
+                
+  /workflow/interval/stage/query/stage-ids-timerange:
+    post:
+      summary: Retrieves the StageInterval objects from every provided Stage which overlap the provided time interval (inclusive). Uses the optionally provided changed since time to filter the StageInterval objects by their storage times.
+      description: Finds and returns the StageInterval objects with identifiers matching any of the Stage identifiers in the provided collection which overlap the provided time range (inclusive). If the provided request includes a populated changedSinceTime, then this operation only returns StageInterval objects which were stored on or after the provided time or which include associated Interval or StageMetrics objects which were stored on or after the provided time.
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: Set of WorkflowDefinitionId, start time, end time, and optional changed since time.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StageIntervalsByStageIdsAndTimeRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation. Returns lists of StageInterval objects, sorted by ascending start time, mapped to each provided WorkflowDefinitionId (IntervalId.WorkflowDefinitionId). Every StageInterval object associated to the same WorkflowDefinitionId have the same type. The map does not include an entry for a provided WorkflowDefinitionId if no StageInterval objects for the corresponding Stage overlap the provided time interval. Returns an empty map if no StageInterval objects match the query predicate.
+          content:
+            application/json:
+              schema:
+               $ref: '#/components/schemas/StageIntervalHistoryByStageId'
+            application/msgpack:
+              schema:
+               $ref: '#/components/schemas/StageIntervalHistoryByStageId'
+               
+  /workflow/interval/stage/query/ids:
+    post:
+      summary: Queries for a collection of StageInterval objects by their IntervalId identifiers.
+      description: Uses the provided list of StageInterval identifiers (IntervalId objects) to retrieve the corresponding StageInterval list.
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: A list of IntervalId objects.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: 'workflow-coi.yaml#/components/schemas/IntervalId'
+        required: true
+      responses:
+        '200':
+          description: Successful operation. Returns a StageInterval list corresponding to the provided list of IntervalId objects.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  oneOf:
+                  - $ref: 'workflow-coi.yaml#/components/schemas/AutomaticProcessingStageInterval'
+                  - $ref: 'workflow-coi.yaml#/components/schemas/InteractiveAnalysisStageInterval'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  oneOf:
+                  - $ref: 'workflow-coi.yaml#/components/schemas/AutomaticProcessingStageInterval'
+                  - $ref: 'workflow-coi.yaml#/components/schemas/InteractiveAnalysisStageInterval'
+        '209':
+          description: Partially successful operation. Returns a StageInterval list corresponding to some but not all of the provided IntervalId objects.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  oneOf:
+                  - $ref: 'workflow-coi.yaml#/components/schemas/AutomaticProcessingStageInterval'
+                  - $ref: 'workflow-coi.yaml#/components/schemas/InteractiveAnalysisStageInterval'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  oneOf:
+                  - $ref: 'workflow-coi.yaml#/components/schemas/AutomaticProcessingStageInterval'
+                  - $ref: 'workflow-coi.yaml#/components/schemas/InteractiveAnalysisStageInterval'
+            
+  /workflow/interval/stage/update:
+    post:
+      summary: Stores the provided StageInterval objects, updating previously stored objects.
+      description: "Persistently stores each StageInterval in the collection included in the request, updating any objects 
+        that have previously been stored. Also stores or updates the ProcessingSequenceInterval collection within the 
+        provided AutomaticProcessingStageInterval objects and the ActivityInterval collection within the provided 
+        InteractiveAnalysisStageInterval objects. While storing the objects, updates each Interval object's 
+        storageTime attribute to the current system time. The provided StageInterval objects do not include their 
+        associated StageMetrics. If a StageInterval was previously stored, this operation checks that the new version of 
+        the StageInterval is consistent with the previously stored version and only stores the object if they are consistent. 
+        The new StageInterval version is consistent with the previously stored version if both objects have storageTime 
+        attributes with the same value and if all of the new StageInterval object's aggregated Interval objects also have 
+        storageTime attributes with the same value as the previously stored versions of the same Interval objects. This 
+        operation does not partially store StageInterval objects; it either stores the entire StageInterval aggregate or leaves 
+        the persistent data unchanged. For each StageInterval, this operation atomically checks for consistency and stores the 
+        object to prevent a race condition from occurring when two storage requests simultaneously attempt to store two 
+        versions of the same StageInterval."
+      parameters:
+        - in: header
+          name: time-format
+          required: false
+          schema:
+            $ref: '../../Common/OpenAPISpec/common-operations.yaml#/components/schemas/TimeFormat'
+      requestBody:
+        description: A list of StageInterval objects.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateStageIntervalsRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json: {}
+        '209':
+          description: "Unable to update all or some of the provided StageInterval objects. 
+            A StoreStageIntervalResponse collection with an entry for each StageInterval provided in the request. A StoreStageIntervalResponse always includes a StageInterval object's intervalId and its other attributes are populated based on whether this operation successfully stored the StageInterval. 
+            If this operation successfully stored the StageInterval, the corresponding StoreStageIntervalResponse has a StoreStatus of SUCCESS and the StageInterval is unpopulated.
+            If this operation did not store the StageInterval because it was not consistent with the previously stored StageInterval, the corresponding StoreStageIntervalResponse has a StoreStatus of CONFLICT and the StageInterval object is populated with the currently stored StageInterval, including its aggregated Interval collection.
+            If this operation did not store the StageInterval for a different reason, the corresponding StoreStageIntervalResponse has a StoreStatus of FAILURE and the StageInterval is unpopulated."
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreStageIntervalResponse'
+            application/msgpack:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreStageIntervalResponse'
+
+components:
+  schemas:
+  
+    StageIntervalsByStageIdsAndTimeRequest:
+      type: object
+      required:
+        - startTime
+        - endTime
+        - stageIds
+      properties:
+        startTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        #Constraint: startTime must be before endTime
+        endTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        stageIds:
+          type: array
+          items:
+            $ref: 'workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'
+          minItems: 1
+        changedSinceTime:
+          type: string
+          #Based on the header parameter time-format, this time may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+            
+    StageIntervalHistoryByStageId:
+      type: array
+      items:
+        type: object
+        required:
+          - key
+          - value
+        properties:
+          key:
+            $ref: 'workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'
+          value:
+            type: array
+            # Can be any specialization of StageInterval. Ordered by startTime.
+            items:
+              oneOf:
+                - $ref: 'workflow-coi.yaml#/components/schemas/AutomaticProcessingStageInterval'
+                - $ref: 'workflow-coi.yaml#/components/schemas/InteractiveAnalysisStageInterval'
+              
+    UpdateStageIntervalsRequest:
+      type: object
+      required:
+        - stageIntervals
+      properties:
+        stageIntervals:
+          type: array
+          # Can be any specialization of StageInterval
+          items:
+            oneOf:
+                - $ref: 'workflow-coi.yaml#/components/schemas/AutomaticProcessingStageInterval'
+                - $ref: 'workflow-coi.yaml#/components/schemas/InteractiveAnalysisStageInterval'
+
+    StoreStageIntervalResponse:
+      type: object
+      required:
+       - stageIntervalId
+       - storeStatus
+      properties:
+        stageInterval:
+          # Can be any specialization of StageInterval
+          oneOf:
+            - $ref: 'workflow-coi.yaml#/components/schemas/AutomaticProcessingStageInterval'
+            - $ref: 'workflow-coi.yaml#/components/schemas/InteractiveAnalysisStageInterval'
+        stageIntervalId:
+          $ref: 'workflow-coi.yaml#/components/schemas/IntervalId'
+        storeStatus:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/StoreStatus'

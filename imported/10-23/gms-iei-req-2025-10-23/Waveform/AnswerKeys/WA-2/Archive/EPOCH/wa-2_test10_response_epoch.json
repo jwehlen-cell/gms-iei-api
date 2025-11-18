@@ -1,0 +1,62 @@
+[
+    {
+        "channel": {
+            "name": "LPAZ.LPAZB.BHE"
+        },
+        "id": "3AC0569BDBEF0FD7E063CF44A10A218E",
+        "versionHistory": [
+            {
+                "category": "WAVEFORM",
+                "channel": {
+                    "effectiveAt": 1030320000.000000,
+                    "name": "LPAZ.LPAZB.BHE"
+                },
+                "createdBy": "detpro:som",
+                "discoveredOn": [],
+                "endTime": 1546704638.450000,
+                "id": {
+                    "effectiveAt": 1546704638.450000,
+                    "parentQcSegmentId": "3AC0569BDBEF0FD7E063CF44A10A218E"
+                },
+                "rationale": "",
+                "rejected": false,
+                "startTime": 1546704638.275000,
+                "type": "GAP",
+                "stageId": {
+                    "name": "Pre-AL1",
+                    "effectiveAt": 1546300800.000000
+                }
+            }
+        ]
+    },
+    {
+        "channel": {
+            "name": "KVAR.KIV3.SHZ"
+        },
+        "id": "3AC0569BDB5F0FD7E063CF44A10A218E",
+        "versionHistory": [
+            {
+                "category": "WAVEFORM",
+                "channel": {
+                    "effectiveAt": 1227571200.000000,
+                    "name": "KVAR.KIV3.SHZ"
+                },
+                "createdBy": "detpro:som",
+                "discoveredOn": [],
+                "endTime": 1546704750.125000000,
+                "id": {
+                    "effectiveAt": 1546704750.125000000,
+                    "parentQcSegmentId": "3AC0569BDB5F0FD7E063CF44A10A218E"
+                },
+                "rationale": "",
+                "rejected": false,
+                "startTime": 1546704649.900000,
+                "type": "GAP",
+                "stageId": {
+                    "name": "Pre-AL1",
+                    "effectiveAt": 1546300800.000000
+                }
+            }
+        ]
+    }
+]

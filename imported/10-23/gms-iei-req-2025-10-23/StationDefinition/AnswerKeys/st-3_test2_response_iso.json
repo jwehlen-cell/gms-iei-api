@@ -1,0 +1,5566 @@
+[
+  {
+    "canonicalName": "ASAR.AS01.SHZ",
+    "channelBandType": "SHORT_PERIOD",
+    "channelDataType": "SEISMIC",
+    "channelInstrumentType": "HIGH_GAIN_SEISMOMETER",
+    "channelOrientationCode": "Z",
+    "channelOrientationType": "VERTICAL",
+    "configuredInputs": [],
+    "description": "SHORT-PERIOD_VERTICAL",
+    "effectiveAt": "2005-06-14T00:00:00.000000Z",
+    "effectiveForRequestTime": "2019-01-05T00:00:00.000000Z",
+    "location": {
+      "depthKm": 0.0274,
+      "elevationKm": 0.6215,
+      "latitudeDegrees": -23.663223,
+      "longitudeDegrees": 133.951996
+    },
+    "name": "ASAR.AS01.SHZ",
+    "nominalSampleRateHz": 20.0,
+    "orientationAngles": {
+      "horizontalAngleDeg": -1.0,
+      "verticalAngleDeg": 0.0
+    },
+    "processingDefinition": {},
+    "processingMetadata": {
+      "CHANNEL_GROUP": "AS01"
+    },
+    "response": {
+      "calibration": {
+        "calibrationFactor": {
+          "standardDeviation": 0.0,
+          "units": "NANOMETERS_PER_COUNT",
+          "value": 1.0
+        },
+        "calibrationPeriodSec": 1.0,
+        "calibrationTimeShift": "PT0S"
+      },
+      "effectiveAt": "2018-11-15T15:00:00.000000Z",
+      "fapResponse": {
+        "amplitudePhaseResponses": [
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.361014e+54
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570907
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.673558e+54
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57091
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.008501e+54
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570913
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.367448e+54
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570915
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.75212e+54
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570918
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.164361e+54
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570921
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.606147e+54
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570924
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.079594e+54
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570927
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.586972e+54
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57093
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.130712e+54
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570933
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.713421e+54
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570936
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.337891e+54
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57094
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.000712e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570943
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.07243e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570946
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.149289e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57095
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.231656e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570953
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.319925e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570957
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.414521e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570961
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.515897e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570965
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.624538e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570969
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.740964e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570973
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.865735e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570977
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.999448e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570981
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.142744e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570985
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.296309e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57099
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.46088e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570994
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.637246e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.570999
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.826251e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571003
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.028802e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571008
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.245869e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571013
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.478493e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571018
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.727788e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571024
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.99495e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571029
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.281259e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571034
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.588086e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57104
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.916904e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571045
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.269287e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571051
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.646924e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571057
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.051626e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571063
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.485332e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57107
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.95012e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571076
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.448219e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571082
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.982015e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571089
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.554068e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571096
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.167118e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571103
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.824103e+55
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57111
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.052817e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571117
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.12827e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571125
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.209131e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571133
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.295786e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57114
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.388652e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571149
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.488174e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571157
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.594828e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571165
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.709125e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571174
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.831614e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571183
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.962882e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571192
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.103557e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571201
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.254314e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57121
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.415875e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57122
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.589015e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57123
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.774564e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57124
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.97341e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57125
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.186508e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571261
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.414877e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571272
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.659614e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571283
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.92189e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571294
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.202962e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571306
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.504179e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571318
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.826983e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57133
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.172921e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571342
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.543652e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571355
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.940953e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571368
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.366727e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571381
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.823015e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571395
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.312005e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571409
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.836039e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571423
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.39763e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571438
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.999468e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571453
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.644439e+56
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571468
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.033563e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571484
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.107636e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.5715
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.187018e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571516
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.272089e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571533
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.363257e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57155
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.460958e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571568
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.565661e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571586
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.677869e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571604
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.798118e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571623
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.926985e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571643
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.065087e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571662
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.213087e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571683
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.371694e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571703
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.541668e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571724
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.723823e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571746
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.919033e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571768
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.128233e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571791
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.352427e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571814
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.592687e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571838
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.850167e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571862
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.126099e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571887
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.421807e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571913
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.738708e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571939
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.07832e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571965
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.442271e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.571993
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.832306e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57202
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.250294e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572049
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.698238e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572078
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.178286e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572108
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.692737e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572139
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.244058e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57217
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.83489e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572202
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.468067e+57
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572235
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.014662e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572269
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.087381e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572303
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.165311e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572338
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.248826e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572374
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.338326e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572411
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.434241e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572449
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.53703e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572487
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.647185e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572527
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.765235e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572567
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.891746e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572608
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.027323e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572651
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.172617e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572694
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.328323e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572738
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.495189e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572784
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.674013e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57283
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.865654e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572877
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.071029e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572926
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.291123e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.572976
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.52699e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.573027
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.779762e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.573079
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.050649e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.573132
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.34095e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.573186
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.652056e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.573242
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.985459e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.573299
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.342756e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.573358
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.725659e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.573418
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.136005e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.573479
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.575759e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.573541
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.04703e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.573605
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.552075e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.573671
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.093316e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.573738
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.673347e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.573807
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.294948e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.573877
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.961097e+58
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.573949
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.067499e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.574022
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.144004e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.574098
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.225993e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.574175
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.313857e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.574254
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.408018e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.574334
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.508928e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.574417
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.61707e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.574501
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.732962e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.574588
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.85716e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.574676
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.990259e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.574767
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.132897e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57486
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.285758e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.574955
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.449574e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.575052
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.62513e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.575151
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.813269e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.575253
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.01489e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.575357
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.230962e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.575463
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.46252e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.575572
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.710672e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.575683
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.97661e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.575797
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.261607e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.575914
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.567029e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.576034
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.89434e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.576156
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.24511e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.576281
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.621019e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.576409
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.023869e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57654
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.45559e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.576674
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.918253e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.576811
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.414075e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.576952
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.945431e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.577095
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.51487e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.577242
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.12512e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.577393
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.779106e+59
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.577547
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.047996e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.577704
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.123105e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.577866
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.203597e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.578031
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.289857e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.5782
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.3823e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.578372
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.481369e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.578549
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.587537e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.57873
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.701315e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.578915
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.823247e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.579105
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.953918e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.579299
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.093955e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.579497
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.244028e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.5797
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.404856e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.579908
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.577212e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.580121
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.761921e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.580339
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.959868e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.580561
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.172002e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.580789
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.39934e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.581023
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.642972e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.581261
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.904066e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.581506
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.183873e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.581756
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.483734e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.582011
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.805088e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.582273
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.149474e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.582541
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.518543e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.582815
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.914065e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.583096
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.337936e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.583383
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.792187e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.583677
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.278997e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.583978
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.800699e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.584285
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.359793e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.5846
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.958962e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.584922
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.601077e+60
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.585252
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.028922e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.58559
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.102668e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.585935
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.1817e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.586289
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.266397e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.58665
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.357165e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.58702
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.45444e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.587399
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.558686e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.587787
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.670406e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.588184
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.790133e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.58859
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.918442e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.589005
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.055949e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.58943
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.203313e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.589865
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.36124e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.590311
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.530488e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.590767
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.711869e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.591233
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.906252e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.59171
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.11457e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.592199
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.337821e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.592698
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.577077e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.59321
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.833485e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.593733
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.108274e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.594269
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.402764e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.594817
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.718366e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.595379
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.056595e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.595953
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.419074e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.59654
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.80754e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.597142
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.223858e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.597757
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.670026e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.598387
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.148184e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.599032
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.660627e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.599692
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.209814e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.600367
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.79838e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.601058
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.429151e+61
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.601765
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.010515e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.602489
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.082963e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.60323
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.160606e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.603988
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.243818e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.604764
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.332997e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.605558
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.428572e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.60637
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.531001e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.607202
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.640778e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.608053
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.758428e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.608925
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.884517e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.609816
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.019651e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.610729
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.164479e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.611663
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.319697e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.612619
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.48605e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.613598
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.664339e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.614599
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.855419e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.615624
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.06021e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.616673
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.279696e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.617747
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.514933e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.618846
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.767052e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.619972
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.037266e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.621123
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.326874e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.622302
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.63727e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.623508
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.969948e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.624743
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.326509e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.626008
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.708671e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.627302
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.118272e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.628626
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.557287e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.629982
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.02783e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.63137
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.532169e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.632791
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.072734e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.634246
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.652133e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.635735
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.273158e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.637259
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.938807e+62
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.63882
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.065229e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.640418
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.141705e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.642054
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.223679e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.643728
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.311546e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.645443
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.40573e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.647198
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.506688e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.648996
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.614906e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.650836
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.73091e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.652721
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.85526e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.654651
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.988558e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.656627
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.131451e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.65865
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.28463e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.660722
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.448839e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.662844
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.624874e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.665018
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.813591e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.667243
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.015904e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.669523
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.232799e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.671858
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.46533e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.674249
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.714629e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.676699
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.981909e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.679209
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.268475e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.681779
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.575722e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.684413
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.905152e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.687111
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.258374e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.689876
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.637115e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.692709
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.043229e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.695611
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.478704e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.698586
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.945678e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.701634
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.446442e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.704759
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.983457e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.707961
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.559365e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.711243
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.177001e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.714608
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.839414e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.718058
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.054987e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.721595
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.131189e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.725222
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.212923e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.728941
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.300596e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.732755
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.394643e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.736668
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.49553e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.740681
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.603762e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.744798
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.719877e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.749022
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.844455e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.753356
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.978122e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.757805
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.121546e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.76237
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.275448e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.767057
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.440604e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.771869
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.617847e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.776811
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.808071e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.781885
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.012243e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.787097
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.231397e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.792452
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.46665e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.797954
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.719201e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.803609
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.990343e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.809421
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.281465e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.815396
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.594064e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.82154
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.929751e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.82786
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.290261e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.834361
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.677461e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.841051
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.093365e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.847937
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.540139e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.855025
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.020119e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.862324
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.535821e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.869843
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.089956e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.877589
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.685446e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.885573
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.325441e+64
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.893804
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.001334e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.902291
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.075279e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.911047
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.154775e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.920082
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.240247e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.929409
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.332153e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.93904
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.430988e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.948988
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.537284e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.959269
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.651617e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.969897
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.774605e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.980889
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.906915e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -1.992261
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.049267e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.004031
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.202433e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.016219
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.367247e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.028844
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.544605e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.041928
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.73547e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.055494
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.940877e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.069565
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.161938e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.084167
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.399844e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.099326
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.655869e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.115071
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.931377e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.131431
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.227824e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.148438
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.546757e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.166124
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.889822e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.184523
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.25876e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.203672
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.65541e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.223608
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.081701e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.24437
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.539652e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.265997
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.031359e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.28853
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.558985e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.312012
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.124744e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.336484
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.730873e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.361988
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.379611e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.388566
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.007316e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.416258
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.081362e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.445101
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.1603e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.475131
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.244307e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.506378
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.333536e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.538867
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.428104e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.572617
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.528088e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.607635
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.633511e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.643923
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.744338e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.681468
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.860466e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.720243
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.981718e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.760208
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.107835e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.801306
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.23848e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.843463
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.373234e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.886588
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.5116e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.930571
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.653018e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -2.975287
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.79687e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -3.020596
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.942506e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -3.066346
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.089254e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": -3.112372
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.236449e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 3.124678
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.38345e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 3.078605
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.529665e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 3.032766
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.674564e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.987324
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.817699e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.942435
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.958709e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.898243
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.097331e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.854878
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.233398e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.812453
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.366839e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.771065
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.497671e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.730791
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.625993e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.691694
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.751978e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.653818
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.875857e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.617193
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.997915e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.581835
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.118477e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.547748
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.237898e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.514924
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.356552e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.483348
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.474823e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.452996
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.593092e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.423839
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.71173e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.395844
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.831084e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.368972
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 5.951473e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.343186
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.073173e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.318442
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.196413e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.294701
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.321377e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.271918
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.448198e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.250053
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.576967e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.229065
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.707747e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.208913
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.840588e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.189557
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 6.975553e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.170961
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.112735e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.153089
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.252287e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.135904
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.394439e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.119374
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.539499e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.103468
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.68785e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.088156
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.839926e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.073408
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 7.996159e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.059198
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.15693e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.0455
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.322504e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.032289
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.492973e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.019544
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.668234e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 2.007241
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 8.847997e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.995362
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.03185e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.983885
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.219374e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.972794
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.410282e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.96207
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.604571e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.951698
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.802614e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.941662
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.000516e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.931948
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.021324e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.922541
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.042786e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.91343
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.064978e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.904601
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.087915e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.896043
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.11154e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.887744
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.135738e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.879696
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.160374e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.871887
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.185356e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.864309
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.210689e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.856952
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.236504e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.849808
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.263022e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.842869
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.290476e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.836128
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.318989e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.829577
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.348496e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.823209
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.378751e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.817019
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.409447e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.810999
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.440412e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.805144
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.471759e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.799448
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.503887e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.793905
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.53726e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.788512
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.572094e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.783262
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.608148e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.778151
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.644844e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.773175
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.681704e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.768329
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.718812e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.763609
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.756871e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.759011
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.796671e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.754532
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.838335e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.750167
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.881075e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.745914
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.923886e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.741769
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.966659e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.737728
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.010511e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.733789
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.056679e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.729949
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.104979e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.726205
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.153789e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.722554
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.202043e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.718993
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.250913e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.71552
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.302515e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.712133
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.356787e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.708829
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.411169e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.705605
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.464567e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.70246
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.519749e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.699392
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.578971e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.696398
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.639178e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.693476
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.697382e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.690625
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.758781e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.687842
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.824446e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.685127
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.85996e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.682476
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.788459e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.679889
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.536952e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.677363
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.095321e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.674897
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.528293e+67
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.67249
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 9.446469e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.67014
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 4.606615e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.667846
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 1.559497e+66
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.665606
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 2.752606e+65
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.663419
+            }
+          },
+          {
+            "amplitude": {
+              "units": "COUNTS_PER_NANOMETER",
+              "value": 3.54924e+63
+            },
+            "phase": {
+              "units": "DEGREES",
+              "value": 1.661283
+            }
+          }
+        ],
+        "frequenciesHz": [
+          0.0001,
+          0.000102334,
+          0.0001047225,
+          0.0001071668,
+          0.0001096681,
+          0.0001122277,
+          0.0001148472,
+          0.0001175277,
+          0.0001202708,
+          0.000123078,
+          0.0001259506,
+          0.0001288904,
+          0.0001318987,
+          0.0001349772,
+          0.0001381276,
+          0.0001413516,
+          0.0001446507,
+          0.0001480269,
+          0.0001514819,
+          0.0001550175,
+          0.0001586357,
+          0.0001623382,
+          0.0001661273,
+          0.0001700047,
+          0.0001739726,
+          0.0001780332,
+          0.0001821885,
+          0.0001864409,
+          0.0001907924,
+          0.0001952456,
+          0.0001998026,
+          0.0002044661,
+          0.0002092383,
+          0.000214122,
+          0.0002191197,
+          0.000224234,
+          0.0002294676,
+          0.0002348235,
+          0.0002403043,
+          0.000245913,
+          0.0002516527,
+          0.0002575263,
+          0.0002635371,
+          0.0002696881,
+          0.0002759826,
+          0.0002824241,
+          0.000289016,
+          0.0002957617,
+          0.0003026648,
+          0.0003097291,
+          0.0003169582,
+          0.0003243561,
+          0.0003319266,
+          0.0003396739,
+          0.0003476019,
+          0.000355715,
+          0.0003640175,
+          0.0003725137,
+          0.0003812083,
+          0.0003901058,
+          0.0003992109,
+          0.0004085286,
+          0.0004180637,
+          0.0004278214,
+          0.0004378069,
+          0.0004480254,
+          0.0004584824,
+          0.0004691835,
+          0.0004801343,
+          0.0004913407,
+          0.0005028087,
+          0.0005145444,
+          0.000526554,
+          0.0005388438,
+          0.0005514206,
+          0.0005642908,
+          0.0005774615,
+          0.0005909396,
+          0.0006047322,
+          0.0006188468,
+          0.0006332908,
+          0.000648072,
+          0.0006631981,
+          0.0006786773,
+          0.0006945178,
+          0.000710728,
+          0.0007273165,
+          0.0007442922,
+          0.0007616642,
+          0.0007794416,
+          0.0007976339,
+          0.0008162509,
+          0.0008353023,
+          0.0008547985,
+          0.0008747496,
+          0.0008951665,
+          0.0009160598,
+          0.0009374409,
+          0.0009593209,
+          0.0009817117,
+          0.001004625,
+          0.001028073,
+          0.001052069,
+          0.001076624,
+          0.001101753,
+          0.001127468,
+          0.001153783,
+          0.001180713,
+          0.001208271,
+          0.001236472,
+          0.001265332,
+          0.001294865,
+          0.001325087,
+          0.001356015,
+          0.001387665,
+          0.001420053,
+          0.001453198,
+          0.001487115,
+          0.001521825,
+          0.001557345,
+          0.001593694,
+          0.001630891,
+          0.001668956,
+          0.00170791,
+          0.001747773,
+          0.001788566,
+          0.001830312,
+          0.001873032,
+          0.001916748,
+          0.001961486,
+          0.002007267,
+          0.002054117,
+          0.002102061,
+          0.002151123,
+          0.002201331,
+          0.002252711,
+          0.002305289,
+          0.002359095,
+          0.002414157,
+          0.002470504,
+          0.002528166,
+          0.002587174,
+          0.002647559,
+          0.002709354,
+          0.002772591,
+          0.002837304,
+          0.002903527,
+          0.002971296,
+          0.003040646,
+          0.003111616,
+          0.003184242,
+          0.003258562,
+          0.003334618,
+          0.003412449,
+          0.003492096,
+          0.003573602,
+          0.003657011,
+          0.003742366,
+          0.003829714,
+          0.0039191,
+          0.004010573,
+          0.004104181,
+          0.004199973,
+          0.004298001,
+          0.004398317,
+          0.004500975,
+          0.004606029,
+          0.004713535,
+          0.004823549,
+          0.004936132,
+          0.005051342,
+          0.005169242,
+          0.005289893,
+          0.00541336,
+          0.005539709,
+          0.005669007,
+          0.005801323,
+          0.005936727,
+          0.006075292,
+          0.00621709,
+          0.006362198,
+          0.006510694,
+          0.006662655,
+          0.006818162,
+          0.0069773,
+          0.007140151,
+          0.007306804,
+          0.007477346,
+          0.007651869,
+          0.007830465,
+          0.00801323,
+          0.008200261,
+          0.008391656,
+          0.008587519,
+          0.008787954,
+          0.008993067,
+          0.009202967,
+          0.009417766,
+          0.009637579,
+          0.009862522,
+          0.01009272,
+          0.01032828,
+          0.01056935,
+          0.01081604,
+          0.01106848,
+          0.01132683,
+          0.0115912,
+          0.01186174,
+          0.01213859,
+          0.01242191,
+          0.01271184,
+          0.01300854,
+          0.01331216,
+          0.01362287,
+          0.01394083,
+          0.01426621,
+          0.01459919,
+          0.01493993,
+          0.01528864,
+          0.01564548,
+          0.01601064,
+          0.01638434,
+          0.01676675,
+          0.01715809,
+          0.01755856,
+          0.01796838,
+          0.01838777,
+          0.01881694,
+          0.01925614,
+          0.01970558,
+          0.02016551,
+          0.02063618,
+          0.02111783,
+          0.02161073,
+          0.02211512,
+          0.0226313,
+          0.02315951,
+          0.02370006,
+          0.02425323,
+          0.0248193,
+          0.02539859,
+          0.0259914,
+          0.02659804,
+          0.02721885,
+          0.02785414,
+          0.02850426,
+          0.02916956,
+          0.02985038,
+          0.0305471,
+          0.03126007,
+          0.03198969,
+          0.03273634,
+          0.03350041,
+          0.03428231,
+          0.03508247,
+          0.0359013,
+          0.03673925,
+          0.03759675,
+          0.03847427,
+          0.03937226,
+          0.04029122,
+          0.04123163,
+          0.04219398,
+          0.0431788,
+          0.0441866,
+          0.04521792,
+          0.04627332,
+          0.04735335,
+          0.04845859,
+          0.04958962,
+          0.05074705,
+          0.0519315,
+          0.05314359,
+          0.05438397,
+          0.05565331,
+          0.05695227,
+          0.05828155,
+          0.05964185,
+          0.0610339,
+          0.06245845,
+          0.06391624,
+          0.06540806,
+          0.0669347,
+          0.06849697,
+          0.0700957,
+          0.07173175,
+          0.07340598,
+          0.07511929,
+          0.0768726,
+          0.07866682,
+          0.08050292,
+          0.08238187,
+          0.08430468,
+          0.08627237,
+          0.08828599,
+          0.0903466,
+          0.09245531,
+          0.09461324,
+          0.09682153,
+          0.09908137,
+          0.1013939,
+          0.1037605,
+          0.1061823,
+          0.1086606,
+          0.1111968,
+          0.1137921,
+          0.1164481,
+          0.119166,
+          0.1219473,
+          0.1247936,
+          0.1277063,
+          0.130687,
+          0.1337373,
+          0.1368587,
+          0.1400531,
+          0.1433219,
+          0.1466671,
+          0.1500903,
+          0.1535935,
+          0.1571784,
+          0.1608469,
+          0.1646012,
+          0.168443,
+          0.1723745,
+          0.1763977,
+          0.1805149,
+          0.1847281,
+          0.1890397,
+          0.193452,
+          0.1979672,
+          0.2025878,
+          0.2073162,
+          0.212155,
+          0.2171068,
+          0.2221741,
+          0.2273597,
+          0.2326663,
+          0.2380968,
+          0.243654,
+          0.2493409,
+          0.2551606,
+          0.2611161,
+          0.2672106,
+          0.2734474,
+          0.2798297,
+          0.286361,
+          0.2930447,
+          0.2998844,
+          0.3068838,
+          0.3140465,
+          0.3213764,
+          0.3288774,
+          0.3365535,
+          0.3444087,
+          0.3524473,
+          0.3606735,
+          0.3690917,
+          0.3777064,
+          0.3865221,
+          0.3955436,
+          0.4047757,
+          0.4142232,
+          0.4238913,
+          0.433785,
+          0.4439097,
+          0.4542706,
+          0.4648734,
+          0.4757236,
+          0.4868271,
+          0.4981898,
+          0.5098176,
+          0.5217169,
+          0.5338938,
+          0.546355,
+          0.5591071,
+          0.5721568,
+          0.585511,
+          0.599177,
+          0.6131619,
+          0.6274732,
+          0.6421186,
+          0.6571058,
+          0.6724427,
+          0.6881377,
+          0.704199,
+          0.7206351,
+          0.7374549,
+          0.7546673,
+          0.7722814,
+          0.7903066,
+          0.8087525,
+          0.8276289,
+          0.846946,
+          0.8667139,
+          0.8869432,
+          0.9076446,
+          0.9288292,
+          0.9505083,
+          0.9726934,
+          0.9953962,
+          1.018629,
+          1.042404,
+          1.066734,
+          1.091632,
+          1.117111,
+          1.143184,
+          1.169866,
+          1.197171,
+          1.225114,
+          1.253708,
+          1.28297,
+          1.312915,
+          1.343558,
+          1.374917,
+          1.407008,
+          1.439848,
+          1.473454,
+          1.507845,
+          1.543038,
+          1.579053,
+          1.615909,
+          1.653624,
+          1.69222,
+          1.731717,
+          1.772136,
+          1.813498,
+          1.855825,
+          1.899141,
+          1.943467,
+          1.988828,
+          2.035248,
+          2.082751,
+          2.131362,
+          2.181109,
+          2.232016,
+          2.284112,
+          2.337424,
+          2.39198,
+          2.447809,
+          2.504942,
+          2.563407,
+          2.623238,
+          2.684465,
+          2.747121,
+          2.811239,
+          2.876854,
+          2.944,
+          3.012714,
+          3.083031,
+          3.15499,
+          3.228628,
+          3.303985,
+          3.381101,
+          3.460016,
+          3.540774,
+          3.623416,
+          3.707988,
+          3.794533,
+          3.883098,
+          3.97373,
+          4.066478,
+          4.161391,
+          4.258518,
+          4.357913,
+          4.459628,
+          4.563716,
+          4.670234,
+          4.779239,
+          4.890787,
+          5.004939,
+          5.121755,
+          5.241298,
+          5.363631,
+          5.48882,
+          5.61693,
+          5.74803,
+          5.88219,
+          6.019482,
+          6.159978,
+          6.303753,
+          6.450884,
+          6.601449,
+          6.755528,
+          6.913204,
+          7.074559,
+          7.239681,
+          7.408657,
+          7.581576,
+          7.758532,
+          7.939618,
+          8.12493,
+          8.314568,
+          8.508632,
+          8.707225,
+          8.910453,
+          9.118425,
+          9.331251,
+          9.549045,
+          9.771921,
+          10.0
+        ],
+        "id": 11850,
+        "nominalCalibration": {
+          "calibrationFactor": {
+            "standardDeviation": 0.0,
+            "units": "NANOMETERS_PER_COUNT",
+            "value": 1.0
+          },
+          "calibrationPeriodSec": 1.0,
+          "calibrationTimeShift": "PT0S"
+        },
+        "nominalSampleRateHz": 20.0
+      },
+      "id": 11850
+    },
+    "station": {
+      "effectiveAt": "2005-06-14T00:00:00.000000Z",
+      "effectiveForRequestTime": "2019-01-05T00:00:00.000000Z",
+      "name": "ASAR"
+    },
+    "units": "NANOMETERS_PER_COUNT"
+  }
+]

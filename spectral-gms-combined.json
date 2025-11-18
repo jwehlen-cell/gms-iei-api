@@ -1,0 +1,1430 @@
+[
+	{
+		"code": "oas3-api-servers",
+		"path": [],
+		"message": "OpenAPI \"servers\" must be present and non-empty array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 0,
+				"character": 0
+			},
+			"end": {
+				"line": 4860,
+				"character": 15
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "info-contact",
+		"path": [
+			"info"
+		],
+		"message": "Info object must have \"contact\" object.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 1,
+				"character": 5
+			},
+			"end": {
+				"line": 5,
+				"character": 16
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/event/query/events-outside-range-signal-detections-inside-range",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 8,
+				"character": 9
+			},
+			"end": {
+				"line": 62,
+				"character": 52
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/event/query/events-outside-range-signal-detections-inside-range",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 8,
+				"character": 9
+			},
+			"end": {
+				"line": 62,
+				"character": 52
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/event/with-detections-and-segments/query/time",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 64,
+				"character": 9
+			},
+			"end": {
+				"line": 121,
+				"character": 82
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/event/with-detections-and-segments/query/time",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 64,
+				"character": 9
+			},
+			"end": {
+				"line": 121,
+				"character": 82
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/event/status-info/query/stage-id-and-events",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 123,
+				"character": 9
+			},
+			"end": {
+				"line": 152,
+				"character": 62
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/event/status-info/query/stage-id-and-events",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 123,
+				"character": 9
+			},
+			"end": {
+				"line": 152,
+				"character": 62
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/event/status-info/query/stage-id-and-timerange",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 154,
+				"character": 9
+			},
+			"end": {
+				"line": 189,
+				"character": 62
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/event/status-info/query/stage-id-and-timerange",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 154,
+				"character": 9
+			},
+			"end": {
+				"line": 189,
+				"character": 62
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/event/status-info/update",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 191,
+				"character": 9
+			},
+			"end": {
+				"line": 211,
+				"character": 71
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/event/status-info/update",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 191,
+				"character": 9
+			},
+			"end": {
+				"line": 211,
+				"character": 71
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/event/correlated-events/query/source-event-hypotheses",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 213,
+				"character": 9
+			},
+			"end": {
+				"line": 255,
+				"character": 63
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/event/correlated-events/query/source-event-hypotheses",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 213,
+				"character": 9
+			},
+			"end": {
+				"line": 255,
+				"character": 63
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/event/update",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 257,
+				"character": 9
+			},
+			"end": {
+				"line": 371,
+				"character": 65
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/event/update",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 257,
+				"character": 9
+			},
+			"end": {
+				"line": 371,
+				"character": 65
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-description",
+		"path": [
+			"paths",
+			"/workflow/query/time",
+			"post"
+		],
+		"message": "Operation \"description\" must be present and non-empty string.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 373,
+				"character": 9
+			},
+			"end": {
+				"line": 398,
+				"character": 53
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/workflow/query/time",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 373,
+				"character": 9
+			},
+			"end": {
+				"line": 398,
+				"character": 53
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/workflow/query/time",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 373,
+				"character": 9
+			},
+			"end": {
+				"line": 398,
+				"character": 53
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/workflow/interval/stage/query/stage-ids-timerange",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 400,
+				"character": 9
+			},
+			"end": {
+				"line": 439,
+				"character": 74
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/workflow/interval/stage/query/stage-ids-timerange",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 400,
+				"character": 9
+			},
+			"end": {
+				"line": 439,
+				"character": 74
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/workflow/interval/stage/query/ids",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 441,
+				"character": 9
+			},
+			"end": {
+				"line": 497,
+				"character": 81
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/workflow/interval/stage/query/ids",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 441,
+				"character": 9
+			},
+			"end": {
+				"line": 497,
+				"character": 81
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/workflow/interval/stage/update",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 499,
+				"character": 9
+			},
+			"end": {
+				"line": 564,
+				"character": 73
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/workflow/interval/stage/update",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 499,
+				"character": 9
+			},
+			"end": {
+				"line": 564,
+				"character": 73
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/signal-detection/detection-with-channel-segments/query/stations-timerange",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 566,
+				"character": 9
+			},
+			"end": {
+				"line": 612,
+				"character": 80
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/signal-detection/detection-with-channel-segments/query/stations-timerange",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 566,
+				"character": 9
+			},
+			"end": {
+				"line": 612,
+				"character": 80
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/signal-detection/update",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 614,
+				"character": 9
+			},
+			"end": {
+				"line": 719,
+				"character": 75
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/signal-detection/update",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 614,
+				"character": 9
+			},
+			"end": {
+				"line": 719,
+				"character": 75
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/station-definition/station-group/query/names",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 721,
+				"character": 9
+			},
+			"end": {
+				"line": 788,
+				"character": 59
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/station-definition/station-group/query/names",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 721,
+				"character": 9
+			},
+			"end": {
+				"line": 788,
+				"character": 59
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/station-definition/station/query/names",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 790,
+				"character": 9
+			},
+			"end": {
+				"line": 857,
+				"character": 54
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/station-definition/station/query/names",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 790,
+				"character": 9
+			},
+			"end": {
+				"line": 857,
+				"character": 54
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/station-definition/channel/query/names",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 859,
+				"character": 9
+			},
+			"end": {
+				"line": 926,
+				"character": 54
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/station-definition/channel/query/names",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 859,
+				"character": 9
+			},
+			"end": {
+				"line": 926,
+				"character": 54
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/station-definition/response/query/ids",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 928,
+				"character": 9
+			},
+			"end": {
+				"line": 994,
+				"character": 55
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/station-definition/response/query/ids",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 928,
+				"character": 9
+			},
+			"end": {
+				"line": 994,
+				"character": 55
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/station-definition/channel/store",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 996,
+				"character": 9
+			},
+			"end": {
+				"line": 1064,
+				"character": 67
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/station-definition/channel/store",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 996,
+				"character": 9
+			},
+			"end": {
+				"line": 1064,
+				"character": 67
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/station-definition/station/query/change-times",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 1066,
+				"character": 9
+			},
+			"end": {
+				"line": 1110,
+				"character": 35
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/station-definition/station/query/change-times",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 1066,
+				"character": 9
+			},
+			"end": {
+				"line": 1110,
+				"character": 35
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/waveform/qcsegment/query/channels-timerange",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 1112,
+				"character": 9
+			},
+			"end": {
+				"line": 1160,
+				"character": 56
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/waveform/qcsegment/query/channels-timerange",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 1112,
+				"character": 9
+			},
+			"end": {
+				"line": 1160,
+				"character": 56
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/waveform/query/event-beams-by-stations-and-timerange",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 1162,
+				"character": 9
+			},
+			"end": {
+				"line": 1209,
+				"character": 77
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/waveform/query/event-beams-by-stations-and-timerange",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 1162,
+				"character": 9
+			},
+			"end": {
+				"line": 1209,
+				"character": 77
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/waveform/qcsegment/update",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 1211,
+				"character": 9
+			},
+			"end": {
+				"line": 1271,
+				"character": 69
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/waveform/qcsegment/update",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 1211,
+				"character": 9
+			},
+			"end": {
+				"line": 1271,
+				"character": 69
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-operationId",
+		"path": [
+			"paths",
+			"/waveform/channel-segment/store",
+			"post"
+		],
+		"message": "Operation must have \"operationId\".",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 1273,
+				"character": 9
+			},
+			"end": {
+				"line": 1323,
+				"character": 73
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "operation-tags",
+		"path": [
+			"paths",
+			"/waveform/channel-segment/store",
+			"post"
+		],
+		"message": "Operation must have non-empty \"tags\" array.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 1273,
+				"character": 9
+			},
+			"end": {
+				"line": 1323,
+				"character": 73
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "no-$ref-siblings",
+		"path": [
+			"components",
+			"schemas",
+			"CorrelatedEvents",
+			"properties",
+			"sourceEventHypothesis",
+			"type"
+		],
+		"message": "$ref must not be placed next to any other properties",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2101,
+				"character": 16
+			},
+			"end": {
+				"line": 2101,
+				"character": 22
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "no-$ref-siblings",
+		"path": [
+			"components",
+			"schemas",
+			"CorrelatedEventHypothesis",
+			"properties",
+			"eventCorrelationContext",
+			"type"
+		],
+		"message": "$ref must not be placed next to any other properties",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2126,
+				"character": 16
+			},
+			"end": {
+				"line": 2126,
+				"character": 22
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "no-$ref-siblings",
+		"path": [
+			"components",
+			"schemas",
+			"CorrelatedEventHypothesis",
+			"properties",
+			"similarEventHypothesis",
+			"type"
+		],
+		"message": "$ref must not be placed next to any other properties",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2134,
+				"character": 16
+			},
+			"end": {
+				"line": 2134,
+				"character": 22
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "no-$ref-siblings",
+		"path": [
+			"components",
+			"schemas",
+			"EventCorrelationContext",
+			"properties",
+			"station",
+			"type"
+		],
+		"message": "$ref must not be placed next to any other properties",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2154,
+				"character": 16
+			},
+			"end": {
+				"line": 2154,
+				"character": 22
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "no-$ref-siblings",
+		"path": [
+			"components",
+			"schemas",
+			"ChannelFilterDefinitionPair",
+			"properties",
+			"channel",
+			"type"
+		],
+		"message": "$ref must not be placed next to any other properties",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2167,
+				"character": 16
+			},
+			"end": {
+				"line": 2167,
+				"character": 22
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "no-$ref-siblings",
+		"path": [
+			"components",
+			"schemas",
+			"ChannelFilterDefinitionPair",
+			"properties",
+			"filterDefinition",
+			"type"
+		],
+		"message": "$ref must not be placed next to any other properties",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2170,
+				"character": 16
+			},
+			"end": {
+				"line": 2170,
+				"character": 22
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "no-$ref-siblings",
+		"path": [
+			"components",
+			"schemas",
+			"CorrelatedEventsBySourceEventHypothesesRequest",
+			"properties",
+			"facetingDefinition",
+			"type"
+		],
+		"message": "$ref must not be placed next to any other properties",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 2283,
+				"character": 16
+			},
+			"end": {
+				"line": 2283,
+				"character": 22
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"PhasePropagationType"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 3004,
+				"character": 25
+			},
+			"end": {
+				"line": 3010,
+				"character": 23
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"FirstMotionType"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 3011,
+				"character": 20
+			},
+			"end": {
+				"line": 3016,
+				"character": 21
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"ProcessingMaskDefinition"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 3498,
+				"character": 29
+			},
+			"end": {
+				"line": 3526,
+				"character": 64
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"RotationDefinition"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 3912,
+				"character": 23
+			},
+			"end": {
+				"line": 3921,
+				"character": 57
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"BeamDefinition"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 3986,
+				"character": 19
+			},
+			"end": {
+				"line": 3995,
+				"character": 53
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"FkSpectraDefinitionArray"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 4131,
+				"character": 29
+			},
+			"end": {
+				"line": 4150,
+				"character": 64
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"FkSpectraDefinition3c"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 4151,
+				"character": 26
+			},
+			"end": {
+				"line": 4169,
+				"character": 24
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"SpectrogramDefinition"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 4278,
+				"character": 26
+			},
+			"end": {
+				"line": 4290,
+				"character": 54
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "oas3-unused-component",
+		"path": [
+			"components",
+			"schemas",
+			"PowerSpectralDensitiesDefinition"
+		],
+		"message": "Potentially unused component has been detected.",
+		"severity": 1,
+		"range": {
+			"start": {
+				"line": 4303,
+				"character": 37
+			},
+			"end": {
+				"line": 4312,
+				"character": 62
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "no-$ref-siblings",
+		"path": [
+			"components",
+			"schemas",
+			"FkAttributes",
+			"properties",
+			"receiverToSourceAzimuth",
+			"minimum"
+		],
+		"message": "$ref must not be placed next to any other properties",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 4700,
+				"character": 19
+			},
+			"end": {
+				"line": 4700,
+				"character": 20
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	},
+	{
+		"code": "no-$ref-siblings",
+		"path": [
+			"components",
+			"schemas",
+			"FkAttributes",
+			"properties",
+			"receiverToSourceAzimuth",
+			"maximum"
+		],
+		"message": "$ref must not be placed next to any other properties",
+		"severity": 0,
+		"range": {
+			"start": {
+				"line": 4701,
+				"character": 19
+			},
+			"end": {
+				"line": 4701,
+				"character": 22
+			}
+		},
+		"source": "/Users/josephwehlen/dev/gms-iei-api-repo/gms-iei-combined.yaml"
+	}
+]

@@ -13,3 +13,7 @@ __pycache__/
 # Editor/backup artifacts
 *.bak
 *.fixed.yaml
+
+# Generated complexity reports
+complexity-*.json
+!complexity-10-23*.json

@@ -1,0 +1,759 @@
+openapi: 3.0.3
+info:
+  title: GMS Event COI schema
+  description: Defines a schema for the GMS Common Object Interface (COI) classes in the Event domain.
+  version: 1.0.9
+
+paths: {}
+
+components:
+  schemas:
+    Event:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          format: uuid
+        monitoringOrganization:
+          type: string
+        eventHypotheses:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventHypothesis'
+          minItems: 1
+        finalEventHypothesisHistory:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventHypothesis'
+        preferredEventHypothesisByStage:
+          type: array
+          items:
+            $ref: '#/components/schemas/PreferredEventHypothesis'
+          minItems: 1
+        rejectedSignalDetectionAssociations:
+          type: array
+          items:
+            $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/SignalDetection'
+
+    EventHypothesis:
+      type: object
+      required:
+        - id
+      properties:
+        creationInfo:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/CreationInfo'
+        rejected:
+          type: boolean
+        preferredLocationSolution:
+          $ref: '#/components/schemas/LocationSolution'
+        parentEventHypotheses:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventHypothesis'
+        locationSolutions:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocationSolution'
+          minItems: 1
+        id:
+          $ref: '#/components/schemas/EventHypothesisId'
+        deleted:
+          type: boolean
+        associatedSignalDetectionHypotheses:
+          type: array
+          items:
+            $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/SignalDetectionHypothesis'
+
+    LocationSolution:
+      type: object
+      required:
+        - id
+      properties:
+        featurePredictions:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeaturePrediction'
+        id:
+          type: string
+          format: uuid
+        location:
+          $ref: '#/components/schemas/EventLocation'
+        locationBehaviors:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocationBehavior'
+        locationRestraint:
+          $ref: '#/components/schemas/LocationRestraint'
+        locationUncertainty:
+          $ref: '#/components/schemas/LocationUncertainty'
+        networkMagnitudeSolutions:
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkMagnitudeSolution'
+        ellipseIntersectionRegions:
+          type: array
+          items:
+            $ref: "#/components/schemas/GeographicRegionId"
+        epicenterGeographicRegions:
+          type: array
+          items:
+            $ref: "#/components/schemas/GeographicRegionId"
+
+    GeographicRegionId:
+      type: object
+      required:
+        - id
+        - effectiveAt
+      properties:
+        id:
+          type: string
+          format: uuid
+        effectiveAt:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+
+    LocationBehavior:
+      type: object
+      required:
+        - defining
+        - definingInfo
+        - measurement
+      properties:
+        defining:
+          type: boolean
+        definingInfo:
+          $ref: '#/components/schemas/DefiningInfo'
+        measurement:
+          $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/FeatureMeasurement'
+        prediction:
+          $ref: '#/components/schemas/FeaturePrediction'
+        residual:
+          type: number
+          format: double
+        weight:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+
+    LocationRestraint:
+      type: object
+      required:
+        - depthRestraintType
+        - epicenterRestraintType
+        - timeRestraintType
+      properties:
+        depthRestraintKm:
+          type: number
+          format: double
+          minimum: -100.0
+          maximum: 1000.0
+        depthRestraintReason:
+          $ref: '#/components/schemas/DepthRestraintReason'
+        depthRestraintType:
+          $ref: '#/components/schemas/RestraintType'
+        epicenterRestraintType:
+          $ref: '#/components/schemas/RestraintType'
+        latitudeRestraintDegrees:
+          type: number
+          format: double
+          minimum: -90.0
+          maximum: 90.0
+        longitudeRestraintDegrees:
+          type: number
+          format: double
+          minimum: -180.0
+          maximum: 180.0
+        restrainer:
+          $ref: '#/components/schemas/RestrainerType'
+        timeRestraint:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        timeRestraintType:
+          $ref: '#/components/schemas/RestraintType'
+
+    LocationUncertainty:
+      type: object
+      required:
+        - ellipses
+        - ellipsoids
+      properties:
+        ellipses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Ellipse'
+        ellipsoids:
+          type: array
+          items:
+            $ref: '#/components/schemas/Ellipsoid'
+        stdDevTravelTimeResiduals:
+          type: number
+          format: double
+          minimum: 0
+        tt:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        xt:
+          type: number
+          format: double
+        xx:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        xy:
+          type: number
+          format: double
+        xz:
+          type: number
+          format: double
+        yt:
+          type: number
+          format: double
+        yy:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        yz:
+          type: number
+          format: double
+        zt:
+          type: number
+          format: double
+        zz:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+
+    Ellipse:
+      type: object
+      required:
+        - aprioriStandardError
+        - confidenceLevel
+        - kWeight
+        - scalingFactorType
+      properties:
+        aprioriStandardError:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 1000
+        confidenceLevel:
+          type: number
+          format: double
+          minimum: 0.5
+          maximum: 1.0
+        depthUncertaintyKm:
+          type: number
+          format: double
+          minimum: 0
+          description: Uncertainty in the LocationSolution depth.
+        kWeight:
+          type: number
+          format: double
+          minimum: 0
+        scalingFactorType:
+          $ref: '#/components/schemas/ScalingFactorType'
+        semiMajorAxisLengthKm:
+          type: number
+          format: double
+          minimum: 0
+          exclusiveMinimum: true
+        semiMajorAxisTrendDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 360
+          exclusiveMaximum: true
+        semiMinorAxisLengthKm:
+          type: number
+          format: double
+          minimum: 0
+          exclusiveMinimum: true
+        timeUncertainty:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+
+    Ellipsoid:
+      type: object
+      required:
+        - aprioriStandardError
+        - confidenceLevel
+        - kWeight
+        - scalingFactorType
+      properties:
+        aprioriStandardError:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 1000
+        confidenceLevel:
+          type: number
+          format: double
+          minimum: 0.5
+          maximum: 1.0
+        kWeight:
+          type: number
+          format: double
+          minimum: 0
+        scalingFactorType:
+          $ref: '#/components/schemas/ScalingFactorType'
+        semiIntermediateAxisLengthKm:
+          type: number
+          format: double
+          minimum: 0
+          exclusiveMinimum: true
+        semiIntermediateAxisPlungeDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 90
+        semiIntermediateAxisTrendDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 360
+          exclusiveMaximum: true
+        semiMajorAxisLengthKm:
+          type: number
+          format: double
+          minimum: 0
+          exclusiveMinimum: true
+        semiMajorAxisPlungeDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 90
+        semiMajorAxisTrendDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 360
+          exclusiveMaximum: true
+        semiMinorAxisLengthKm:
+          type: number
+          format: double
+          minimum: 0
+          exclusiveMinimum: true
+        semiMinorAxisPlungeDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 90
+        semiMinorAxisTrendDeg:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 360
+          exclusiveMaximum: true
+        timeUncertainty:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+
+    FeaturePrediction:
+      type: object
+      required:
+        - extrapolated
+        - featurePredictionComponents
+        - phase
+        - predictionType
+        - predictedValue
+        - receiverLocation
+      properties:
+        channel:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Channel'
+        extrapolated:
+          type: boolean
+        featurePredictionComponents:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeaturePredictionComponent'
+          minItems: 1
+        phase:
+          $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/PhaseType'
+        predictionChannelSegment:
+          $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment'
+        predictionType:
+          $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/FeatureMeasurementType'
+        predictedValue:
+          oneOf:
+            - $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/AmplitudeMeasurementValue'
+            - $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/ArrivalTimeMeasurementValue'
+            - $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/NumericMeasurementValue'
+            - $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/EnumeratedMeasurementValue'
+            - $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/DurationMeasurementValue'
+        receiverLocation:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Location'
+        sourceLocation:
+          $ref: '#/components/schemas/EventLocation'
+
+    FeaturePredictionComponent:
+      type: object
+      required:
+        - extrapolated
+        - predictedComponentType
+        - value
+      properties:
+        earthModel:
+          type: string
+        extrapolated:
+          type: boolean
+        predictedComponentType:
+          $ref: '#/components/schemas/FeaturePredictionComponentType'
+        value:
+          oneOf:
+            - $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/AmplitudeMeasurementValue'
+            - $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/ArrivalTimeMeasurementValue'
+            - $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/NumericMeasurementValue'
+            - $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/EnumeratedMeasurementValue'
+            - $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/DurationMeasurementValue'
+
+    NetworkMagnitudeSolution:
+      type: object
+      required:
+        - networkMagnitudeBehaviors
+        - type
+        - status
+      properties:
+        magnitude:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DoubleValue'
+        networkMagnitudeBehaviors:
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkMagnitudeBehavior'
+          minItems: 1
+        type:
+          $ref: '#/components/schemas/MagnitudeType'
+        status:
+          $ref: '#/components/schemas/NetworkMagnitudeStatus'
+
+    NetworkMagnitudeBehavior:
+      type: object
+      required:
+        - defining
+        - definingInfo
+        - stationMagnitudeSolution
+      properties:
+        defining:
+          type: boolean
+        definingInfo:
+          $ref: '#/components/schemas/DefiningInfo'
+        residual:
+          type: number
+          format: double
+        stationMagnitudeSolution:
+          $ref: '#/components/schemas/StationMagnitudeSolution'
+        weight:
+          type: number
+          format: double
+          minimum: 0
+
+    StationMagnitudeSolution:
+      type: object
+      required:
+        - attenuationModel
+        - phase
+        - station
+        - type
+      properties:
+        attenuationModel:
+          type: string
+        magnitude:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DoubleValue'
+        measurement:
+          $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/FeatureMeasurement'
+        modelCorrection:
+          type: number
+          format: double
+        phase:
+          $ref: '../../SignalDetection/OpenAPISpec/signal-detection-coi.yaml#/components/schemas/PhaseType'
+        station:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Station'
+        stationCorrection:
+          type: number
+          format: double
+        type:
+          $ref: '#/components/schemas/MagnitudeType'
+
+    EventStatusInfo:
+      type: object
+      required:
+        - id
+        - activeAnalystIds
+        - eventStatus       
+      properties:
+        id:
+          $ref: "#/components/schemas/EventStatusInfoId"
+        activeAnalystIds:
+          type: array
+          items:
+            type: string
+        eventStatus:
+          $ref: '#/components/schemas/EventStatus'    
+
+    EventStatusInfoId:
+      type: object
+      required:
+        - stageId
+        - event
+      properties:
+        stageId:
+          $ref: '../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'
+        event:
+          $ref: '#/components/schemas/Event'
+
+    FeaturePredictionComponentType:
+      type: string
+      enum:
+        - AZIMUTH_PATH_CORRECTION
+        - BASEMODEL_PREDICTION
+        - BULK_STATIC_STATION_CORRECTION
+        - ELEVATION_CORRECTION
+        - ELLIPTICITY_CORRECTION
+        - MASTER_EVENT_CORRECTION
+        - SLOWNESS_PATH_CORRECTION
+        - SOURCE_DEPENDENT_CORRECTION
+        - TRAVEL_TIME_PATH_CORRECTION
+        - UNCERTAINTY_DISTANCE_DEPENDENT
+        - UNCERTAINTY_PATH_DEPENDENT
+        - UNCERTAINTY_STATION_PHASE_DEPENDENT
+
+    ScalingFactorType:
+      type: string
+      enum:
+        - CONFIDENCE
+        - COVERAGE
+        - K_WEIGHTED
+
+    RestraintType:
+      type: string
+      enum:
+        - FIXED
+        - UNRESTRAINED
+
+    DepthRestraintReason:
+      type: string
+      enum:
+        - FIXED_AT_DEPTH_FOUND_USING_DEPTH_PHASE_MEASUREMENTS
+        - FIXED_AT_STANDARD_DEPTH
+        - FIXED_AT_SURFACE
+        - OTHER
+
+    RestrainerType:
+      type: string
+      enum:
+        - FIXED_BY_ANALYST
+        - FIXED_BY_CONFIGURATION
+        - FIXED_BY_LOCATOR
+        - UNKNOWN
+
+    PreferredEventHypothesis:
+      type: object
+      required:
+        - preferred
+        - preferredBy
+        - stage
+      properties:
+        preferred:
+          $ref: '#/components/schemas/EventHypothesis'
+        preferredBy:
+          type: string
+        stage:
+          $ref: '../../Intervals/OpenAPISpec/workflow-coi.yaml#/components/schemas/WorkflowDefinitionId'
+
+    EventHypothesisId:
+      type: object
+      required:
+        - eventId
+        - hypothesisId
+      properties:
+        eventId:
+          type: string
+          format: uuid
+        hypothesisId:
+          type: string
+          format: uuid
+
+    EventLocation:
+      type: object
+      required:
+        - latitudeDegrees
+        - longitudeDegrees
+        - depthKm
+        - time
+      properties:
+        latitudeDegrees:
+          type: number
+          format: double
+          minimum: -90
+          maximum: 90
+        longitudeDegrees:
+          type: number
+          format: double
+          minimum: -180
+          maximum: 180
+        depthKm:
+          type: number
+          format: double
+        time:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+
+    MagnitudeType:
+      type: string
+      enum:
+        - MB
+        - MB_CODA
+        - MB_MB
+        - MB_MLE
+        - MB_PG
+        - MB_REL_T
+        - ML
+        - MS
+        - MS_MLE
+        - MS_VMAX
+        - MW_CODA
+
+    NetworkMagnitudeStatus:
+      type: string
+      enum:
+        - DID_NOT_CONVERGE
+        - TOO_FEW_DEFINING_STA_MAG
+        - VALID
+        - OTHER_FAILURE
+
+    DefiningInfo:
+      type: object
+      required:
+        - analystOverrideAllowed
+        - requestedDefining
+        - setBy
+        - systemOverrideAllowed
+      properties:
+        analystOverrideAllowed:
+          type: boolean
+        requestedDefining:
+          type: boolean
+        setBy:
+          $ref: '#/components/schemas/DefinerType'
+        systemOverrideAllowed:
+          type: boolean
+
+    DefinerType:
+      type: string
+      enum:
+        - ALGORITHM_OVERRIDE
+        - ANALYST_OVERRIDE
+        - CONFIGURATION_FORCED
+        - DEFAULT
+
+    EventStatus:
+      type: string
+      enum:
+        - NOT_STARTED
+        - IN_PROGRESS
+        - NOT_COMPLETE
+        - COMPLETE
+
+    CorrelatedEvents:
+      type: object
+      required:
+        - correlatedEventHypotheses
+        - scanType
+        - sourceEventHypothesis
+      properties:
+        correlatedEventHypotheses:
+          type: array
+          items:
+            $ref: '#/components/schemas/CorrelatedEventHypothesis'
+          minItems: 1
+        scanType:
+          $ref: '#/components/schemas/CorrelatedEventScanType'
+        sourceEventHypothesis:
+          type: object
+          $ref: '#/components/schemas/EventHypothesis'
+
+    CorrelatedEventScanType:
+      type: string
+      enum:
+        - AUTOMATIC
+        - REFERENCE
+        - USER
+
+    CorrelatedEventHypothesis:
+      type: object
+      required:
+        - correlationCoefficient
+        - correlationReferenceTime
+        - eventCorrelationContext
+        - similarEventChannelSegments
+        - similarEventHypothesis
+        - sourceEventChannelSegments
+      properties:
+        correlationCoefficient:
+          type: number
+          format: double
+        correlationReferenceTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        eventCorrelationContext:
+          type: object
+          $ref: '#/components/schemas/EventCorrelationContext'
+        similarEventChannelSegments:
+          type: array
+          items:
+            $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment'
+          minItems: 1
+        similarEventHypothesis:
+          type: object
+          $ref: '#/components/schemas/EventHypothesis'
+        sourceEventChannelSegments:
+          type: array
+          items:
+            $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment'
+          minItems: 1
+
+    EventCorrelationContext:
+      type: object
+      required:
+        - channels
+        - station
+        - waveformConditioningByChannel
+      properties:
+        channels:
+          type: array
+          items:
+            $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Channel'
+          minItems: 1
+        station:
+          type: object
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Station'
+        waveformConditioningByChannel:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChannelFilterDefinitionPair'
+
+    ChannelFilterDefinitionPair:
+      type: object
+      required:
+        - channel
+        - filterDefinition
+      properties:
+        channel:
+          type: object
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Channel'
+        filterDefinition:
+          type: object
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/FilterDefinition'

@@ -1,0 +1,30 @@
+{
+  "startTime": "2019-01-05T17:55:00.000Z",
+  "endTime": "2019-01-05T18:05:00.000Z",
+  "stageIds": [
+    {
+      "effectiveAt": "2019-01-01T00:00:00.000Z",
+      "name": "Pre-AL1"
+    },
+    {
+      "effectiveAt": "2019-01-01T00:00:00.000Z",
+      "name": "AL1"
+    },
+    {
+      "effectiveAt": "2019-01-01T00:00:00.000Z",
+      "name": "Post-AL1"
+    },
+    {
+      "effectiveAt": "2019-01-01T00:00:00.000Z",
+      "name": "AL2"
+    },
+    {
+      "effectiveAt": "2019-01-01T00:00:00.000Z",
+      "name": "Post-AL2"
+    },
+    {
+      "effectiveAt": "2019-01-01T00:00:00.000Z",
+      "name": "EVAL1"
+    }
+  ]
+}

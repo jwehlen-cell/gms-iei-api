@@ -57,18 +57,40 @@
     ],
     "circularRefSchemas": [
       "Channel",
-      "ChannelGroup",
       "StageInterval",
       "StageMetrics",
       "Station",
       "StationGroup"
     ],
-    "circularRefCount": 6,
-    "maxNestingDepth": 3
+    "circularRefCount": 5,
+    "maxNestingDepth": 3,
+    "polymorphism": {
+      "unionSchemaCount": 1,
+      "unionBranchCount": 2,
+      "maxUnionBranches": 2,
+      "allOfUsages": 14,
+      "discriminatorCount": 0,
+      "oneOfSchemaCount": 1,
+      "oneOfBranchCount": 2,
+      "anyOfSchemaCount": 0,
+      "anyOfBranchCount": 0,
+      "polymorphicRefCount": 6,
+      "distinctPolymorphicRefTargets": [
+        "ActivityInterval",
+        "AutomaticProcessingStage",
+        "InteractiveAnalysisStage",
+        "ProcessingSequenceInterval",
+        "StageInterval"
+      ],
+      "scannedSchemaNodes": 42
+    }
   },
   "meta": {
     "openapiVersion": "3.0.3",
     "title": "GMS Workflow COI schema",
     "version": "1.0.6"
-  }
+  },
+  "complexityScore": 23.2,
+  "complexityLabel": "Low",
+  "summary": "Spec: GMS Workflow COI schema v1.0.6 | Paths: 0, Ops: 0 () | Schemas: 42 (objects: 21, avgProps: 4.81, maxProps: 20) | Refs: 60, DistinctRefs: 39, Circular: 5 | MaxDepth: 3 | Poly: oneOf 2, anyOf 0, allOf 14, discrim 0 | Score: 23.2/100 (Low)"
 }

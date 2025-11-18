@@ -1,0 +1,409 @@
+openapi: 3.0.3
+info:
+  title: GMS Signal Detection COI schema
+  description: Defines a schema for the GMS Common Object Interface (COI) classes in the Signal Detection domain.
+  version: 1.0.3
+
+paths: {}
+
+components:
+  schemas:
+
+    SignalDetection:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          format: uuid
+        signalDetectionHypotheses:
+          type: array
+          items:
+            $ref: '#/components/schemas/SignalDetectionHypothesis'
+          minItems: 1
+        station:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Station'
+
+    SignalDetectionHypothesis:
+      type: object
+      required:
+        - id
+      properties:
+        creationInfo:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/CreationInfo'
+        deleted:
+          type: boolean
+        featureMeasurements:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeatureMeasurement'
+          minItems: 2
+        filterByFilterDefinitionUsage:
+          type: array
+          items:
+            type: object
+            required:
+              - key
+              - value
+            properties:
+              key:
+                $ref: '#/components/schemas/FilterDefinitionUsage'
+              value:
+                type: string
+                format: uuid
+        filterById:
+          type: array
+          items:
+            type: object
+            required:
+              - key
+              - value
+            properties:
+              key:
+                type: string
+                format: uuid
+              value:
+                $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/FilterDefinition'
+        id:
+          $ref: '#/components/schemas/SignalDetectionHypothesisId'
+        monitoringOrganization:
+          type: string
+        parentSignalDetectionHypothesis:
+          $ref: '#/components/schemas/SignalDetectionHypothesis'
+        station:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Station'
+  
+    SignalDetectionHypothesisId:
+      type: object
+      required:
+        - id
+        - signalDetectionId
+      properties:
+        id:
+          type: string
+          format: uuid
+        signalDetectionId:
+          type: string
+          format: uuid
+
+    FeatureMeasurement:
+      type: object
+      required:
+        - channel
+        - featureMeasurementType
+        - id
+        - measurementValue
+      properties:
+        analysisWaveform:
+          $ref: '#/components/schemas/WaveformAndFilterDefinition'
+        channel:
+          $ref: '../../StationDefinition/OpenAPISpec/station-definition-coi.yaml#/components/schemas/Channel'
+        featureMeasurementType:
+          $ref: '#/components/schemas/FeatureMeasurementType'
+        id:
+          type: string
+          format: uuid
+        measuredChannelSegment:
+          $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment'
+        measurementValue:
+          oneOf:
+            - $ref: '#/components/schemas/AmplitudeMeasurementValue'
+            - $ref: '#/components/schemas/ArrivalTimeMeasurementValue'
+            - $ref: '#/components/schemas/NumericMeasurementValue'
+            - $ref: '#/components/schemas/EnumeratedMeasurementValue'
+            - $ref: '#/components/schemas/DurationMeasurementValue'
+        snr:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DoubleValue'
+
+    WaveformAndFilterDefinition:
+      type: object
+      properties:
+        waveform:
+          $ref: '../../Waveform/OpenAPISpec/waveform-coi.yaml#/components/schemas/ChannelSegment'
+        filterId:
+          type: string
+          format: uuid
+      required:
+        - waveform      
+
+    FilterDefinitionUsage:
+      type: string
+      enum:
+        - AMPLITUDE
+        - DETECTION
+        - ONSET
+        - FK
+     
+    AmplitudeMeasurementValue:
+      type: object
+      required:
+        - amplitude
+        - units      
+      properties:
+        amplitude:
+          type: number
+          format: double
+          minimum: 0.0
+          exclusiveMinimum: true
+        clipped:
+          type: boolean
+        measurementTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        measurementWindowDuration:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        measurementWindowStart:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        period:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a numeric duration (in seconds).
+          format: duration
+        units:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/Units'
+
+    ArrivalTimeMeasurementValue:
+      type: object
+      required:
+        - arrivalTime       
+      properties:
+        arrivalTime:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/InstantValue'
+        travelTime:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DurationValue'
+
+    DurationMeasurementValue:
+      type: object
+      properties:
+        duration:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DurationValue'
+        startTime:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/InstantValue'
+      required:
+        - duration
+        - startTime
+
+    EnumeratedMeasurementValue:
+      type: object
+      required:
+        - value 
+      properties:
+        confidence:
+          type: number
+          format: double
+          minimum: 0.0
+          maximum: 1.0
+        referenceTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+        value:
+          oneOf:
+            - $ref: '#/components/schemas/PhaseType'
+
+    NumericMeasurementValue:
+      type: object
+      required:
+        - measuredValue
+      properties:
+        measuredValue:
+          $ref: '../../Common/OpenAPISpec/common-coi.yaml#/components/schemas/DoubleValue'
+        referenceTime:
+          type: string
+          #Based on the HTTP header parameter time-format, this value may instead be formatted as a Unix epoch timestamp.
+          format: date-time
+
+    FeatureMeasurementType:
+      type: string
+      enum:
+        - AMPLITUDE_A5_OVER_2
+        - AMPLITUDE_ALR_OVER_2
+        - AMPLITUDE_ANL_OVER_2
+        - AMPLITUDE_ANP_OVER_2
+        - ARRIVAL_TIME
+        - EMERGENCE_ANGLE
+        - LONG_PERIOD_FIRST_MOTION
+        - PHASE
+        - RECEIVER_TO_SOURCE_AZIMUTH
+        - RECTILINEARITY
+        - ROOT_MEAN_SQUARE
+        - SHORT_PERIOD_FIRST_MOTION
+        - SLOWNESS
+        - SOURCE_TO_RECEIVER_AZIMUTH
+        - SOURCE_TO_RECEIVER_DISTANCE
+
+    PhaseType:
+      type: string
+      enum:
+        - H
+        - I
+        - IPx
+        - Is
+        - It
+        - Iw
+        - Ix
+        - L
+        - Lg
+        - LQ
+        - LR
+        - N
+        - nLR
+        - nNL
+        - NP
+        - nP
+        - NP_1
+        - P
+        - P3KP
+        - P3KPbc
+        - P3KPbc_B
+        - P3KPdf
+        - P3KPdf_B
+        - P4KP
+        - P4KPbc
+        - P4KPdf
+        - P4KPdf_B
+        - P5KP
+        - P5KPbc
+        - P5KPbc_B
+        - P5KPdf
+        - P5KPdf_B
+        - P5KPdf_C
+        - P7KP
+        - P7KPbc
+        - P7KPbc_B
+        - P7KPbc_C
+        - P7KPdf
+        - P7KPdf_B
+        - P7KPdf_C
+        - P7KPdf_D
+        - Pb
+        - PcP
+        - PcS
+        - Pdiff
+        - Pg
+        - PKhKP
+        - PKiKP
+        - PKKP
+        - PKKPab
+        - PKKPbc
+        - PKKPdf
+        - PKKS
+        - PKKSab
+        - PKKSbc
+        - PKKSdf
+        - PKP
+        - PKP2
+        - PKP2ab
+        - PKP2bc
+        - PKP2df
+        - PKP3
+        - PKP3ab
+        - PKP3bc
+        - PKP3df
+        - PKP3df_B
+        - PKPab
+        - PKPbc
+        - PKPdf
+        - PKPPKP
+        - PKS
+        - PKSab
+        - PKSbc
+        - PKSdf
+        - PmP
+        - Pn
+        - PnPn
+        - pP
+        - PP
+        - PP_1
+        - PP_B
+        - pPdiff
+        - pPKiKP
+        - pPKP
+        - pPKPab
+        - pPKPbc
+        - pPKPdf
+        - PPP
+        - PPP_B
+        - PPS
+        - PPS_B
+        - pS
+        - PS
+        - PS_1
+        - pSdiff
+        - pSKS
+        - pSKSac
+        - pSKSdf
+        - Px
+        - Rg
+        - S
+        - Sb
+        - ScP
+        - ScS
+        - Sdiff
+        - Sg
+        - SKiKP
+        - SKKP
+        - SKKPab
+        - SKKPbc
+        - SKKPdf
+        - SKKS
+        - SKKSac
+        - SKKSac_B
+        - SKKSdf
+        - SKP
+        - SKPab
+        - SKPbc
+        - SKPdf
+        - SKS
+        - SKS2
+        - SKS2ac
+        - SKS2df
+        - SKSac
+        - SKSdf
+        - SKSSKS
+        - Sn
+        - SnSn
+        - sP
+        - SP
+        - SP_1
+        - sPdiff
+        - sPKiKP
+        - sPKP
+        - sPKPab
+        - sPKPbc
+        - sPKPdf
+        - sS
+        - SS
+        - SS_B
+        - sSdiff
+        - sSKS
+        - sSKSac
+        - sSKSdf
+        - SSS
+        - SSS_B
+        - Sx
+        - T
+        - tx
+        - Tx
+        - UNKNOWN
+        - UNSET
+
+    PhasePropagationType:
+      type: string
+      enum:
+        - HYDROACOUSTIC
+        - INFRASOUND
+        - SEISMIC_BODY
+        - SEISMIC_SURFACE
+
+    FirstMotionType:
+      type: string
+      enum:
+        - COMPRESSION
+        - DILATION
+        - INDETERMINATE

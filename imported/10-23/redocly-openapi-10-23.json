@@ -1,0 +1,55 @@
+{
+  "totals": {
+    "errors": 0,
+    "warnings": 3,
+    "ignored": 0
+  },
+  "version": "2.11.1",
+  "problems": [
+    {
+      "ruleId": "no-server-example.com",
+      "severity": "warn",
+      "message": "Server `url` should not point to example.com or localhost.",
+      "location": [
+        {
+          "source": {
+            "ref": "imported/10-23/openapi-10-23-bundled.yaml"
+          },
+          "pointer": "#/servers/0/url",
+          "reportOnKey": false
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "no-server-example.com",
+      "severity": "warn",
+      "message": "Server `url` should not point to example.com or localhost.",
+      "location": [
+        {
+          "source": {
+            "ref": "imported/10-23/openapi-10-23-bundled.yaml"
+          },
+          "pointer": "#/servers/1/url",
+          "reportOnKey": false
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unused-components",
+      "severity": "warn",
+      "message": "Component: \"Workflow\" is never used.",
+      "location": [
+        {
+          "source": {
+            "ref": "imported/10-23/openapi-10-23-bundled.yaml"
+          },
+          "pointer": "#/components/schemas/Workflow",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    }
+  ]
+}

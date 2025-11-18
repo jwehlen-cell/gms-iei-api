@@ -1,0 +1,24 @@
+{
+  "startTime": 1546704000.000000,
+  "endTime": 1546725600.000000,
+  "channels": [
+    {
+      "name": "ILAR.IL01.SHZ"
+    },
+    {
+      "name": "ILAR.IL02.SHZ"
+    },
+    {
+      "name": "ILAR.IL03.SHZ"
+    },
+    {
+      "name": "ILAR.IL31.BHZ"
+    },
+    {
+      "name": "ILAR.IL31.BHE"
+    },
+    {
+      "name": "ILAR.IL31.BHN"
+    }
+  ]
+}

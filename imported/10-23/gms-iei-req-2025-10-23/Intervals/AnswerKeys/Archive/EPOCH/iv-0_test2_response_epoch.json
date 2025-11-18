@@ -1,0 +1,287 @@
+{
+    "workflowId": {
+        "name": "GMS",
+        "effectiveAt": 1735689600.0
+    },
+    "stages": [
+        {
+            "stageId": {
+                "name": "Pre-AL1",
+                "effectiveAt": 1735689600.0
+            },
+            "duration": "PT5M",
+            "mode": "AUTOMATIC",
+            "sequences": [
+                {
+                    "sequenceId": {
+                        "name": "Pre-AL1 Seq",
+                        "effectiveAt": 1735689600.0
+                    },
+                    "steps": [
+                        {
+                            "name": "Partial Processing"
+                        },
+                        {
+                            "name": "Association"
+                        },
+                        {
+                            "name": "Conflict Resolution"
+                        },
+                        {
+                            "name": "Origin Beam SP"
+                        },
+                        {
+                            "name": "Arrival Beam SP"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "stageId": {
+                "name": "AL1",
+                "effectiveAt": 1735689600.0
+            },
+            "duration": "PT1H",
+            "mode": "INTERACTIVE",
+            "activities": [
+                {
+                    "activityId": {
+                        "name": "AL1 Event Review",
+                        "effectiveAt": 1735689600.0
+                    },
+                    "analysisActivity": "EVENT_REVIEW"
+                },
+                {
+                    "activityId": {
+                        "name": "AL1 Central Alaska",
+                        "effectiveAt": 1735689600.0
+                    },
+                    "analysisActivity": "SCAN"
+                },
+                {
+                    "activityId": {
+                        "name": "AL1 Mount St Helens",
+                        "effectiveAt": 1735689600.0
+                    },
+                    "analysisActivity": "SCAN"
+                },
+                {
+                    "activityId": {
+                        "name": "AL1 California",
+                        "effectiveAt": 1735689600.0
+                    },
+                    "analysisActivity": "SCAN"
+                },
+                {
+                    "activityId": {
+                        "name": "AL1 YellowStone",
+                        "effectiveAt": 1735689600.0
+                    },
+                    "analysisActivity": "SCAN"
+                },
+                {
+                    "activityId": {
+                        "name": "AL1 New Mexico",
+                        "effectiveAt": 1735689600.0
+                    },
+                    "analysisActivity": "SCAN"
+                },
+                {
+                    "activityId": {
+                        "name": "AL1 New Madrid",
+                        "effectiveAt": 1735689600.0
+                    },
+                    "analysisActivity": "SCAN"
+                },
+                {
+                    "activityId": {
+                        "name": "AL1 South Carolina",
+                        "effectiveAt": 1735689600.0
+                    },
+                    "analysisActivity": "SCAN"
+                },
+                {
+                    "activityId": {
+                        "name": "AL1 Western US",
+                        "effectiveAt": 1735689600.0
+                    },
+                    "analysisActivity": "SCAN"
+                },
+                {
+                    "activityId": {
+                        "name": "AL1 Eastern US",
+                        "effectiveAt": 1735689600.0
+                    },
+                    "analysisActivity": "SCAN"
+                },
+                {
+                    "activityId": {
+                        "name": "AL1 Unassociated Signal Detection",
+                        "effectiveAt": 1735689600.0
+                    },
+                    "analysisActivity": "SCAN"
+                }
+            ]
+        },
+        {
+            "stageId": {
+                "name": "Post-AL1",
+                "effectiveAt": 1735689600.0
+            },
+            "duration": "PT1H",
+            "mode": "AUTOMATIC",
+            "sequences": [
+                {
+                    "sequenceId": {
+                        "name": "Post-AL1 Seq",
+                        "effectiveAt": 1735689600.0
+                    },
+                    "steps": [
+                        {
+                            "name": "Origin Beam SP"
+                        },
+                        {
+                            "name": "Origin Beam LP"
+                        },
+                        {
+                            "name": "Recall"
+                        },
+                        {
+                            "name": "Arrival Beam SP"
+                        },
+                        {
+                            "name": "Detection LP"
+                        },
+                        {
+                            "name": "Recall LP"
+                        },
+                        {
+                            "name": "Magnitude"
+                        },
+                        {
+                            "name": "Hydro EDP"
+                        },
+                        {
+                            "name": "HAE"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "stageId": {
+                "name": "AL2",
+                "effectiveAt": 1735689600.0
+            },
+            "duration": "PT2H",
+            "mode": "INTERACTIVE",
+            "activities": [
+                {
+                    "activityId": {
+                        "name": "AL2 Event Review",
+                        "effectiveAt": 1735689600.0
+                    },
+                    "analysisActivity": "EVENT_REVIEW"
+                },
+                {
+                    "activityId": {
+                        "name": "AL2 Pacific Ocean",
+                        "effectiveAt": 1735689600.0
+                    },
+                    "analysisActivity": "SCAN"
+                },
+                {
+                    "activityId": {
+                        "name": "AL2 Atlantic Ocean",
+                        "effectiveAt": 1735689600.0
+                    },
+                    "analysisActivity": "SCAN"
+                },
+                {
+                    "activityId": {
+                        "name": "AL2 Wyoming Infrasound",
+                        "effectiveAt": 1735689600.0
+                    },
+                    "analysisActivity": "SCAN"
+                },
+                {
+                    "activityId": {
+                        "name": "AL2 Unassociated Signal Detection",
+                        "effectiveAt": 1735689600.0
+                    },
+                    "analysisActivity": "SCAN"
+                }
+            ]
+        },
+		{
+			"stageId": {
+				"name": "Post-AL2",
+				"effectiveAt": 1735689600.0
+			},
+			"duration": "PT2H",
+			"mode": "AUTOMATIC",
+			"sequences": [
+				{
+					"sequenceId": {
+						"name": "Post-AL2 Seq",
+						"effectiveAt": 1735689600.0
+					},
+					"steps": [
+						{
+							"name": "Origin Beam SP"
+						},
+						{
+							"name": "Origin Beam LP"
+						},
+						{
+							"name": "Recall"
+						},
+						{
+							"name": "Arrival Beam SP"
+						},
+						{
+							"name": "Detection LP"
+						},
+						{
+							"name": "Recall LP"
+						},
+						{
+							"name": "Magnitude"
+						},
+						{
+							"name": "Hydro EDP"
+						},
+						{
+							"name": "HAE"
+						}
+					]
+				}
+			]
+		},
+		{
+			"stageId": {
+				"name": "EVAL1",
+				"effectiveAt": 1735689600.0
+			},
+			"duration": "PT2H",
+			"mode": "INTERACTIVE",
+			"activities": [
+				{
+					"activityId": {
+						"name": "EVAL1 Event Review",
+						"effectiveAt": 1735689600.0
+					},
+					"analysisActivity": "EVENT_REVIEW"
+				},
+				{
+					"activityId": {
+						"name": "EVAL1 Scan",
+						"effectiveAt": 1735689600.0
+					},
+					"analysisActivity": "SCAN"
+				}
+			]
+		}
+    ]
+}

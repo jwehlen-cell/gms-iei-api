@@ -1,0 +1,4 @@
+sources=usndc
+quality=R
+format=JSON
+NET WR9 LOC BHZ 2010-05-20T23:53:00.000 2010-05-21T00:04:00.000

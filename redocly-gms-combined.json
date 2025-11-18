@@ -1,0 +1,1180 @@
+{
+  "totals": {
+    "errors": 24,
+    "warnings": 54,
+    "ignored": 0
+  },
+  "version": "2.11.1",
+  "problems": [
+    {
+      "ruleId": "no-empty-servers",
+      "severity": "error",
+      "message": "Servers must be present.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/openapi",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1event~1query~1events-outside-range-signal-detections-inside-range/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1event~1with-detections-and-segments~1query~1time/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1event~1status-info~1query~1stage-id-and-events/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1event~1status-info~1query~1stage-id-and-timerange/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1event~1status-info~1update/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1event~1correlated-events~1query~1source-event-hypotheses/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1event~1update/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1workflow~1query~1time/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1workflow~1interval~1stage~1query~1stage-ids-timerange/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1workflow~1interval~1stage~1query~1ids/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1workflow~1interval~1stage~1update/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1signal-detection~1detection-with-channel-segments~1query~1stations-timerange/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1signal-detection~1update/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1station-definition~1station-group~1query~1names/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1station-definition~1station~1query~1names/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1station-definition~1channel~1query~1names/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1station-definition~1response~1query~1ids/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1station-definition~1channel~1store/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1station-definition~1station~1query~1change-times/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1waveform~1qcsegment~1query~1channels-timerange/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1waveform~1query~1event-beams-by-stations-and-timerange/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1waveform~1qcsegment~1update/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "security-defined",
+      "severity": "error",
+      "message": "Every operation should have security defined on it or on the root level.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1waveform~1channel-segment~1store/post",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "info-license",
+      "severity": "warn",
+      "message": "Info object should contain `license` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/info",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1event~1query~1events-outside-range-signal-detections-inside-range/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1event~1query~1events-outside-range-signal-detections-inside-range/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1event~1with-detections-and-segments~1query~1time/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1event~1with-detections-and-segments~1query~1time/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1event~1status-info~1query~1stage-id-and-events/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1event~1status-info~1query~1stage-id-and-events/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1event~1status-info~1query~1stage-id-and-timerange/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1event~1status-info~1query~1stage-id-and-timerange/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1event~1status-info~1update/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1event~1status-info~1update/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1event~1correlated-events~1query~1source-event-hypotheses/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1event~1correlated-events~1query~1source-event-hypotheses/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1event~1update/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1event~1update/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1workflow~1query~1time/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1workflow~1query~1time/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1workflow~1interval~1stage~1query~1stage-ids-timerange/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1workflow~1interval~1stage~1query~1stage-ids-timerange/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1workflow~1interval~1stage~1query~1ids/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1workflow~1interval~1stage~1query~1ids/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1workflow~1interval~1stage~1update/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1workflow~1interval~1stage~1update/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1signal-detection~1detection-with-channel-segments~1query~1stations-timerange/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1signal-detection~1detection-with-channel-segments~1query~1stations-timerange/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1signal-detection~1update/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1signal-detection~1update/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1station-definition~1station-group~1query~1names/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1station-definition~1station-group~1query~1names/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1station-definition~1station~1query~1names/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1station-definition~1station~1query~1names/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1station-definition~1channel~1query~1names/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1station-definition~1channel~1query~1names/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1station-definition~1response~1query~1ids/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1station-definition~1response~1query~1ids/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1station-definition~1channel~1store/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1station-definition~1channel~1store/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1station-definition~1station~1query~1change-times/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1station-definition~1station~1query~1change-times/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1waveform~1qcsegment~1query~1channels-timerange/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1waveform~1qcsegment~1query~1channels-timerange/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1waveform~1query~1event-beams-by-stations-and-timerange/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1waveform~1query~1event-beams-by-stations-and-timerange/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1waveform~1qcsegment~1update/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1waveform~1qcsegment~1update/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-operationId",
+      "severity": "warn",
+      "message": "Operation object should contain `operationId` field.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1waveform~1channel-segment~1store/post/operationId",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "operation-4xx-response",
+      "severity": "warn",
+      "message": "Operation must have at least one `4XX` response.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/paths/~1waveform~1channel-segment~1store/post/responses",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unused-components",
+      "severity": "warn",
+      "message": "Component: \"PhasePropagationType\" is never used.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/components/schemas/PhasePropagationType",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unused-components",
+      "severity": "warn",
+      "message": "Component: \"FirstMotionType\" is never used.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/components/schemas/FirstMotionType",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unused-components",
+      "severity": "warn",
+      "message": "Component: \"ProcessingMaskDefinition\" is never used.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/components/schemas/ProcessingMaskDefinition",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unused-components",
+      "severity": "warn",
+      "message": "Component: \"RotationDefinition\" is never used.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/components/schemas/RotationDefinition",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unused-components",
+      "severity": "warn",
+      "message": "Component: \"BeamDefinition\" is never used.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/components/schemas/BeamDefinition",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unused-components",
+      "severity": "warn",
+      "message": "Component: \"SpectrogramDefinition\" is never used.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/components/schemas/SpectrogramDefinition",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    },
+    {
+      "ruleId": "no-unused-components",
+      "severity": "warn",
+      "message": "Component: \"PowerSpectralDensitiesDefinition\" is never used.",
+      "location": [
+        {
+          "source": {
+            "ref": "gms-iei-combined.yaml"
+          },
+          "pointer": "#/components/schemas/PowerSpectralDensitiesDefinition",
+          "reportOnKey": true
+        }
+      ],
+      "suggest": []
+    }
+  ]
+}

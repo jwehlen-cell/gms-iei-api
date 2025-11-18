@@ -1,0 +1,37 @@
+{
+    "namesAndTimes": [
+        {
+            "name": "AAK",
+            "effectiveAtTime": "2019-01-04T00:00:00.000000Z"
+        }
+    ],
+    "facetingDefinition": {
+        "classType": "Station",
+        "populated": true,
+        "facetingDefinitionByAttributeName": {
+            "channelGroups": {
+                "classType": "ChannelGroup",
+                "populated": true,
+                "facetingDefinitionByAttributeName": {
+                    "channels": {
+                        "classType": "Channel",
+                        "populated": true,
+                        "facetingDefinitionByAttributeName": {
+                            "responses": {
+                                "classType": "Response",
+                                "populated": true,
+                                "facetingDefinitionByAttributeName": {
+                                    "fapresponse": {
+                                        "classType": "FrequencyAmplitudePhase",
+                                        "populated": false,
+                                        "facetingDefinitionByAttributeName": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

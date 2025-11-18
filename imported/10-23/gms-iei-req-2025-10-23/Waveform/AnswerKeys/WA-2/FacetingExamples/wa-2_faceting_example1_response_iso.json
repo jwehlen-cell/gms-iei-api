@@ -1,0 +1,230 @@
+[
+  {
+    "channel": {
+      "name": "ASAR.AS01.SHZ"
+    },
+    "id": "3AC0569D17700FD7E063CF44A10A218E",
+    "versionHistory": [
+      {
+        "category": "WAVEFORM",
+        "channel": {
+          "effectiveAt": "2019-01-05T00:00:00.000000Z",
+          "name": "ASAR.AS01.SHZ"
+        },
+        "createdBy": "DETPRO",
+        "discoveredOn": [],
+        "endTime": "2019-01-05T18:25:03.000000Z",
+        "id": {
+          "effectiveAt": "2019-01-05T20:00:00.000000Z",
+          "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+        },
+        "rationale": "-",
+        "rejected": false,
+        "stageId": {
+          "effectiveAt": "2019-01-01T00:00:00.000000Z",
+          "name": "Pre-AL1"
+        },
+        "startTime": "2019-01-05T18:25:00.000000Z",
+        "type": "GAP"
+      },
+      {
+        "category": "WAVEFORM",
+        "channel": {
+          "effectiveAt": "2019-01-05T00:00:00.000000Z",
+          "name": "ASAR.AS01.SHZ"
+        },
+        "createdBy": "DETPRO",
+        "discoveredOn": [],
+        "endTime": "2019-01-05T18:25:05.000000Z",
+        "id": {
+          "effectiveAt": "2019-01-05T20:00:01.000Z",
+          "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+        },
+        "rationale": "Lengthened the gap",
+        "rejected": false,
+        "stageId": {
+          "effectiveAt": "2019-01-01T00:00:00.000000Z",
+          "name": "Pre-AL1"
+        },
+        "startTime": "2019-01-05T18:25:00.000000Z",
+        "type": "GAP"
+      },
+      {
+        "category": "WAVEFORM",
+        "channel": {
+          "effectiveAt": "2019-01-05T00:00:00.000000Z",
+          "name": "ASAR.AS01.SHZ"
+        },
+        "createdBy": "DETPRO",
+        "discoveredOn": [],
+        "endTime": "2019-01-05T18:25:04.000000Z",
+        "id": {
+          "effectiveAt": "2019-01-05T20:00:02.000Z",
+          "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+        },
+        "rationale": "Shortened the gap",
+        "rejected": false,
+        "stageId": {
+          "effectiveAt": "2019-01-01T00:00:00.000000Z",
+          "name": "Pre-AL1"
+        },
+        "startTime": "2019-01-05T18:25:00.000000Z",
+        "type": "GAP"
+      },
+      {
+        "category": "WAVEFORM",
+        "channel": {
+          "effectiveAt": "2019-01-05T00:00:00.000000Z",
+          "name": "ASAR.AS01.SHZ"
+        },
+        "createdBy": "DETPRO",
+        "discoveredOn": [],
+        "endTime": "2019-01-05T18:25:04.000000Z",
+        "id": {
+          "effectiveAt": "2019-01-05T20:00:03.000Z",
+          "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+        },
+        "rationale": "No longer a gap",
+        "rejected": false,
+        "stageId": {
+          "effectiveAt": "2019-01-01T00:00:00.000000Z",
+          "name": "Pre-AL1"
+        },
+        "startTime": "2019-01-05T18:25:00.000000Z",
+        "type": "AGGREGATE"
+      },
+      {
+        "category": "WAVEFORM",
+        "channel": {
+          "effectiveAt": "2019-01-05T00:00:00.000000Z",
+          "name": "ASAR.AS01.SHZ"
+        },
+        "createdBy": "DETPRO",
+        "discoveredOn": [],
+        "endTime": "2019-01-05T18:25:04.000000Z",
+        "id": {
+          "effectiveAt": "2019-01-05T20:00:04.000Z",
+          "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+        },
+        "rationale": "Back to a gap",
+        "rejected": false,
+        "stageId": {
+          "effectiveAt": "2019-01-01T00:00:00.000000Z",
+          "name": "Pre-AL1"
+        },
+        "startTime": "2019-01-05T18:25:00.000000Z",
+        "type": "GAP"
+      },
+      {
+        "category": "STATION_SOH",
+        "channel": {
+          "effectiveAt": "2019-01-05T00:00:00.000000Z",
+          "name": "ASAR.AS01.SHZ"
+        },
+        "createdBy": "DETPRO",
+        "discoveredOn": [],
+        "endTime": "2019-01-05T18:25:04.000000Z",
+        "id": {
+          "effectiveAt": "2019-01-05T20:00:05.000Z",
+          "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+        },
+        "rationale": "No longer a gap again",
+        "rejected": false,
+        "stageId": {
+          "effectiveAt": "2019-01-01T00:00:00.000000Z",
+          "name": "Pre-AL1"
+        },
+        "startTime": "2019-01-05T18:25:00.000000Z",
+        "type": "CALIBRATION"
+      },
+      {
+        "category": "WAVEFORM",
+        "channel": {
+          "effectiveAt": "2019-01-05T00:00:00.000000Z",
+          "name": "ASAR.AS01.SHZ"
+        },
+        "createdBy": "DETPRO",
+        "discoveredOn": [],
+        "endTime": "2019-01-05T18:25:04.000000Z",
+        "id": {
+          "effectiveAt": "2019-01-05T20:00:06.000Z",
+          "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+        },
+        "rationale": "Back to a gap again",
+        "rejected": false,
+        "stageId": {
+          "effectiveAt": "2019-01-01T00:00:00.000000Z",
+          "name": "Pre-AL1"
+        },
+        "startTime": "2019-01-05T18:25:00.000000Z",
+        "type": "GAP"
+      },
+      {
+        "category": "ANALYST_DEFINED",
+        "channel": {
+          "effectiveAt": "2019-01-05T00:00:00.000000Z",
+          "name": "ASAR.AS01.SHZ"
+        },
+        "createdBy": "al1:nmcmaho",
+        "discoveredOn": [],
+        "endTime": "2019-01-05T18:25:14.000000Z",
+        "id": {
+          "effectiveAt": "2019-01-05T20:00:07.000Z",
+          "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+        },
+        "rationale": "Fickle analyst",
+        "rejected": false,
+        "stageId": {
+          "effectiveAt": "2019-01-01T00:00:00.000000Z",
+          "name": "AL1"
+        },
+        "startTime": "2019-01-05T18:25:00.000000Z",
+        "type": "GAP"
+      },
+      {
+        "category": "ANALYST_DEFINED",
+        "channel": {
+          "effectiveAt": "2019-01-05T00:00:00.000000Z",
+          "name": "ASAR.AS01.SHZ"
+        },
+        "createdBy": "al1:nmcmaho",
+        "discoveredOn": [],
+        "endTime": "2019-01-05T18:25:24.000000Z",
+        "id": {
+          "effectiveAt": "2019-01-05T20:00:08.000Z",
+          "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+        },
+        "rationale": "Ficklier analyst",
+        "rejected": false,
+        "stageId": {
+          "effectiveAt": "2019-01-01T00:00:00.000000Z",
+          "name": "AL1"
+        },
+        "startTime": "2019-01-05T18:25:00.000000Z",
+        "type": "GAP"
+      },
+      {
+        "category": "WAVEFORM",
+        "channel": {
+          "effectiveAt": "2005-06-14T00:00:00.000000Z",
+          "name": "ASAR.AS01.SHZ"
+        },
+        "createdBy": "al2:mharris",
+        "discoveredOn": [],
+        "endTime": "2019-01-05T18:25:03.000000Z",
+        "id": {
+          "effectiveAt": "2019-01-05T20:00:09.000Z",
+          "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+        },
+        "rationale": "OG version",
+        "rejected": false,
+        "stageId": {
+          "effectiveAt": "2019-01-01T00:00:00.000000Z",
+          "name": "AL2"
+        },
+        "startTime": "2019-01-05T18:25:00.000000Z",
+        "type": "GAP"
+      }
+    ]
+  }
+]

@@ -1,0 +1,86 @@
+[
+    {
+        "channel": {
+            "name": "VNDA.VNDAB.BHN"
+        },
+        "id": "3AC0569D17700FD7E063CF44A10A218E",
+        "versionHistory": [
+            {
+                "id": {
+                    "effectiveAt": 1546718400.000000,
+                    "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+                }
+            },
+            {
+                "id": {
+                    "effectiveAt": 1546718401.000000,
+                    "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+                }
+            },
+            {
+                "id": {
+                    "effectiveAt": 1546718402.000000,
+                    "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+                }
+            },
+            {
+                "id": {
+                    "effectiveAt": 1546718403.000000,
+                    "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+                }
+            },
+            {
+                "id": {
+                    "effectiveAt": 1546718404.000000,
+                    "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+                }
+            },
+            {
+                "id": {
+                    "effectiveAt": 1546718405.000000,
+                    "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+                }
+            },
+            {
+                "id": {
+                    "effectiveAt": 1546718406.000000,
+                    "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+                }
+            },
+            {
+                "id": {
+                    "effectiveAt": 1546718407.000000,
+                    "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+                }
+            },
+            {
+                "id": {
+                    "effectiveAt": 1546718408.000000,
+                    "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+                }
+            },
+            {
+                "category": "WAVEFORM",
+                "channel": {
+                    "effectiveAt": 1118707200.000000,
+                    "name": "ASAR.AS01.SHZ"
+                },
+                "createdBy": "al2:mharris",
+                "discoveredOn": [],
+                "endTime": 1546712703.000000,
+                "id": {
+                    "effectiveAt": 1546718409.000000,
+                    "parentQcSegmentId": "3AC0569D17700FD7E063CF44A10A218E"
+                },
+                "rationale": "OG version",
+                "rejected": false,
+                "startTime": 1546712700.000000,
+                "type": "GAP",
+                "stageId": {
+                    "name": "AL2",
+                    "effectiveAt": 1546300800.000000
+                }
+            }
+        ]
+    }
+]

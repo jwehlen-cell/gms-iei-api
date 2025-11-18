@@ -1,0 +1,1195 @@
+[
+  {
+    "description": "Stations used to scan New Madrid",
+    "effectiveAt": "2000-01-01T00:00:00.000000",
+    "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+    "name": "NM_Scan",
+    "stations": [
+      {
+        "allRawChannels": [
+          {
+            "effectiveAt": "2010-08-14T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "PDAR.PD07.SHZ"
+          },
+          {
+            "effectiveAt": "2010-08-16T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "PDAR.PD12.SHZ"
+          },
+          {
+            "effectiveAt": "2010-08-14T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "PDAR.PD02.SHZ"
+          },
+          {
+            "effectiveAt": "2010-08-18T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "PDAR.PD09.SHZ"
+          },
+          {
+            "effectiveAt": "2010-08-18T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "PDAR.PD01.SHZ"
+          },
+          {
+            "effectiveAt": "2010-08-13T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "PDAR.PD03.SHZ"
+          },
+          {
+            "effectiveAt": "2010-08-11T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "PDAR.PD06.SHZ"
+          },
+          {
+            "effectiveAt": "2010-08-19T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "PDAR.PD04.SHZ"
+          },
+          {
+            "effectiveAt": "2010-08-18T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "PDAR.PD13.SHZ"
+          },
+          {
+            "effectiveAt": "2010-08-12T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "PDAR.PD08.SHZ"
+          },
+          {
+            "effectiveAt": "2010-08-16T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "PDAR.PD11.SHZ"
+          },
+          {
+            "effectiveAt": "2010-08-12T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "PDAR.PD32.SHZ"
+          },
+          {
+            "effectiveAt": "2010-08-12T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "PDAR.PD32.SHN"
+          },
+          {
+            "effectiveAt": "2010-08-12T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "PDAR.PD32.SHE"
+          },
+          {
+            "effectiveAt": "2010-08-17T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "PDAR.PD10.SHZ"
+          },
+          {
+            "effectiveAt": "2010-08-18T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "PDAR.PD05.SHZ"
+          },
+          {
+            "effectiveAt": "2010-08-11T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "PDAR.PD31.BHZ"
+          },
+          {
+            "effectiveAt": "2010-08-11T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "PDAR.PD31.BHE"
+          },
+          {
+            "effectiveAt": "2010-08-11T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "PDAR.PD31.BHN"
+          }
+        ],
+        "channelGroups": [
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2010-08-14T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "PDAR.PD07.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-08-23T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0381,
+              "elevationKm": 2.3405,
+              "latitudeDegrees": 42.770042,
+              "longitudeDegrees": -109.545128
+            },
+            "name": "PD07"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2010-08-16T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "PDAR.PD12.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-08-23T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0381,
+              "elevationKm": 2.1689,
+              "latitudeDegrees": 42.755211,
+              "longitudeDegrees": -109.562988
+            },
+            "name": "PD12"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2010-08-14T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "PDAR.PD02.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-08-23T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0381,
+              "elevationKm": 2.2069,
+              "latitudeDegrees": 42.778179,
+              "longitudeDegrees": -109.566299
+            },
+            "name": "PD02"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2010-08-18T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "PDAR.PD09.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-08-23T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0381,
+              "elevationKm": 2.1732,
+              "latitudeDegrees": 42.761887,
+              "longitudeDegrees": -109.56691
+            },
+            "name": "PD09"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2010-08-18T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "PDAR.PD01.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-08-23T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0381,
+              "elevationKm": 2.1924,
+              "latitudeDegrees": 42.776501,
+              "longitudeDegrees": -109.583138
+            },
+            "name": "PD01"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2010-08-13T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "PDAR.PD03.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-08-23T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "effectiveUntil": "2025-03-14T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0381,
+              "elevationKm": 2.2863,
+              "latitudeDegrees": 42.775822,
+              "longitudeDegrees": -109.5495
+            },
+            "name": "PD03"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2010-08-11T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "PDAR.PD06.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-08-23T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0381,
+              "elevationKm": 2.2102,
+              "latitudeDegrees": 42.76675,
+              "longitudeDegrees": -109.558128
+            },
+            "name": "PD06"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2010-08-19T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "PDAR.PD04.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-08-23T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "effectiveUntil": "2025-03-14T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0381,
+              "elevationKm": 2.1724,
+              "latitudeDegrees": 42.766022,
+              "longitudeDegrees": -109.574265
+            },
+            "name": "PD04"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2010-08-18T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "PDAR.PD13.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-08-23T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "effectiveUntil": "2025-03-14T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0381,
+              "elevationKm": 2.2337,
+              "latitudeDegrees": 42.755371,
+              "longitudeDegrees": -109.549133
+            },
+            "name": "PD13"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2010-08-12T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "PDAR.PD08.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-08-23T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0381,
+              "elevationKm": 2.1716,
+              "latitudeDegrees": 42.758968,
+              "longitudeDegrees": -109.583435
+            },
+            "name": "PD08"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2010-08-16T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "PDAR.PD11.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-08-23T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "effectiveUntil": "2025-03-14T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0381,
+              "elevationKm": 2.1723,
+              "latitudeDegrees": 42.752651,
+              "longitudeDegrees": -109.576805
+            },
+            "name": "PD11"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2010-08-12T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "PDAR.PD32.SHZ"
+              },
+              {
+                "effectiveAt": "2010-08-12T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "PDAR.PD32.SHN"
+              },
+              {
+                "effectiveAt": "2010-08-12T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "PDAR.PD32.SHE"
+              }
+            ],
+            "effectiveAt": "2000-08-02T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.003,
+              "elevationKm": 2.2134,
+              "latitudeDegrees": 42.767036,
+              "longitudeDegrees": -109.558167
+            },
+            "name": "PD32"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2010-08-17T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "PDAR.PD10.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-08-23T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0381,
+              "elevationKm": 2.1989,
+              "latitudeDegrees": 42.759506,
+              "longitudeDegrees": -109.556847
+            },
+            "name": "PD10"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2010-08-18T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "PDAR.PD05.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-08-23T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0381,
+              "elevationKm": 2.1851,
+              "latitudeDegrees": 42.770481,
+              "longitudeDegrees": -109.56646
+            },
+            "name": "PD05"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2010-08-11T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "PDAR.PD31.BHZ"
+              },
+              {
+                "effectiveAt": "2010-08-11T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "PDAR.PD31.BHE"
+              },
+              {
+                "effectiveAt": "2010-08-11T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "PDAR.PD31.BHN"
+              }
+            ],
+            "effectiveAt": "1995-07-15T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "effectiveUntil": "2025-03-14T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0457,
+              "elevationKm": 2.2145,
+              "latitudeDegrees": 42.767376,
+              "longitudeDegrees": -109.557907
+            },
+            "name": "PD31"
+          }
+        ],
+        "description": "Pinedale,_Wyoming:_USA_array_element",
+        "effectiveAt": "1995-07-15T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "effectiveUntil": "2025-03-14T00:00:00.000000Z",
+        "location": {
+          "depthKm": 0.0,
+          "elevationKm": 2.2145,
+          "latitudeDegrees": 42.767376,
+          "longitudeDegrees": -109.557907
+        },
+        "name": "PDAR",
+        "relativePositionsByChannel": [
+          {
+            "channel": {
+              "effectiveAt": "2010-08-14T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "PDAR.PD07.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": 1.0462,
+              "northDisplacementKm": 0.2966,
+              "verticalDisplacementKm": 0.0879
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2010-08-16T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "PDAR.PD12.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": -0.4162,
+              "northDisplacementKm": -1.3519,
+              "verticalDisplacementKm": -0.0837
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2010-08-14T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "PDAR.PD02.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": -0.6876,
+              "northDisplacementKm": 1.201,
+              "verticalDisplacementKm": -0.0457
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2010-08-18T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "PDAR.PD09.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": -0.7374,
+              "northDisplacementKm": -0.6099,
+              "verticalDisplacementKm": -0.0794
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2010-08-18T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "PDAR.PD01.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": -2.0662,
+              "northDisplacementKm": 1.0144,
+              "verticalDisplacementKm": -0.0602
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2010-08-13T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "PDAR.PD03.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": 0.6931,
+              "northDisplacementKm": 0.953,
+              "verticalDisplacementKm": 0.0337
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2010-08-11T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "PDAR.PD06.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": -0.0182,
+              "northDisplacementKm": -0.0692,
+              "verticalDisplacementKm": -0.0424
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2010-08-19T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "PDAR.PD04.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": -1.3395,
+              "northDisplacementKm": -0.1501,
+              "verticalDisplacementKm": -0.0802
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2010-08-18T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "PDAR.PD13.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": 0.721,
+              "northDisplacementKm": -1.324,
+              "verticalDisplacementKm": -0.0189
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2010-08-12T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "PDAR.PD08.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": -2.0907,
+              "northDisplacementKm": -0.9341,
+              "verticalDisplacementKm": -0.081
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2010-08-16T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "PDAR.PD11.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": -1.5483,
+              "northDisplacementKm": -1.6359,
+              "verticalDisplacementKm": -0.0803
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2010-08-12T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "PDAR.PD32.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": -0.0215,
+              "northDisplacementKm": -0.0376,
+              "verticalDisplacementKm": -0.0041
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2010-08-12T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "PDAR.PD32.SHN"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": -0.0215,
+              "northDisplacementKm": -0.0376,
+              "verticalDisplacementKm": -0.0041
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2010-08-12T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "PDAR.PD32.SHE"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": -0.0215,
+              "northDisplacementKm": -0.0376,
+              "verticalDisplacementKm": -0.0041
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2010-08-17T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "PDAR.PD10.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": 0.0866,
+              "northDisplacementKm": -0.8745,
+              "verticalDisplacementKm": -0.0537
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2010-08-18T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "PDAR.PD05.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": -0.7002,
+              "northDisplacementKm": 0.3454,
+              "verticalDisplacementKm": -0.0675
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2010-08-11T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "PDAR.PD31.BHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": 0.0,
+              "northDisplacementKm": 0.0,
+              "verticalDisplacementKm": -0.0457
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2010-08-11T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "PDAR.PD31.BHE"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": 0.0,
+              "northDisplacementKm": 0.0,
+              "verticalDisplacementKm": -0.0457
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2010-08-11T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "PDAR.PD31.BHN"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": 0.0,
+              "northDisplacementKm": 0.0,
+              "verticalDisplacementKm": -0.0457
+            }
+          }
+        ],
+        "stationType": "SEISMIC_ARRAY"
+      },
+      {
+        "allRawChannels": [
+          {
+            "effectiveAt": "2006-08-09T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "TKL.TKL.BHE"
+          },
+          {
+            "effectiveAt": "2006-08-09T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "TKL.TKL.BHZ"
+          },
+          {
+            "effectiveAt": "2006-08-09T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "TKL.TKL.BHN"
+          }
+        ],
+        "channelGroups": [
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2006-08-09T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "TKL.TKL.BHE"
+              },
+              {
+                "effectiveAt": "2006-08-09T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "TKL.TKL.BHZ"
+              },
+              {
+                "effectiveAt": "2006-08-09T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "TKL.TKL.BHN"
+              }
+            ],
+            "effectiveAt": "1995-05-15T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0,
+              "elevationKm": 0.351,
+              "latitudeDegrees": 35.658001,
+              "longitudeDegrees": -83.774002
+            },
+            "name": "TKL"
+          }
+        ],
+        "description": "Tuckaleechee_Caverns,_Tennessee",
+        "effectiveAt": "1995-05-15T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "location": {
+          "depthKm": 0.0,
+          "elevationKm": 0.351,
+          "latitudeDegrees": 35.658001,
+          "longitudeDegrees": -83.774002
+        },
+        "name": "TKL",
+        "relativePositionsByChannel": [
+          {
+            "channel": {
+              "effectiveAt": "2006-08-09T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "TKL.TKL.BHE"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": 0.0,
+              "northDisplacementKm": 0.0,
+              "verticalDisplacementKm": 0.0
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2006-08-09T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "TKL.TKL.BHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": 0.0,
+              "northDisplacementKm": 0.0,
+              "verticalDisplacementKm": 0.0
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2006-08-09T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "TKL.TKL.BHN"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": 0.0,
+              "northDisplacementKm": 0.0,
+              "verticalDisplacementKm": 0.0
+            }
+          }
+        ],
+        "stationType": "SEISMIC"
+      },
+      {
+        "allRawChannels": [
+          {
+            "effectiveAt": "2006-02-15T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "TXAR.TX02.SHZ"
+          },
+          {
+            "effectiveAt": "2006-06-16T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "TXAR.TX04.SHZ"
+          },
+          {
+            "effectiveAt": "2006-02-15T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "TXAR.TX06.SHZ"
+          },
+          {
+            "effectiveAt": "2006-02-14T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "TXAR.TX07.SHZ"
+          },
+          {
+            "effectiveAt": "2006-02-15T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "TXAR.TX09.SHZ"
+          },
+          {
+            "effectiveAt": "2006-02-22T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "TXAR.TX01.SHZ"
+          },
+          {
+            "effectiveAt": "2006-02-16T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "TXAR.TX31.BHE"
+          },
+          {
+            "effectiveAt": "2006-02-16T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "TXAR.TX31.BHZ"
+          },
+          {
+            "effectiveAt": "2006-02-16T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "TXAR.TX31.BHN"
+          },
+          {
+            "effectiveAt": "2006-02-15T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "TXAR.TX08.SHZ"
+          },
+          {
+            "effectiveAt": "2006-02-16T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "TXAR.TX10.SHZ"
+          },
+          {
+            "effectiveAt": "2006-02-16T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "name": "TXAR.TX03.SHZ"
+          }
+        ],
+        "channelGroups": [
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2006-02-15T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "TXAR.TX02.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-03-29T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "effectiveUntil": "2025-03-10T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0061,
+              "elevationKm": 0.9653,
+              "latitudeDegrees": 29.329927,
+              "longitudeDegrees": -103.65799
+            },
+            "name": "TX02"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2006-06-16T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "TXAR.TX04.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-03-29T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "effectiveUntil": "2025-03-10T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0061,
+              "elevationKm": 0.9972,
+              "latitudeDegrees": 29.339912,
+              "longitudeDegrees": -103.667282
+            },
+            "name": "TX04"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2006-02-15T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "TXAR.TX06.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-03-29T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "effectiveUntil": "2025-03-10T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0061,
+              "elevationKm": 0.9395,
+              "latitudeDegrees": 29.318987,
+              "longitudeDegrees": -103.682037
+            },
+            "name": "TX06"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2006-02-14T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "TXAR.TX07.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-03-29T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "effectiveUntil": "2025-03-10T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0061,
+              "elevationKm": 1.0697,
+              "latitudeDegrees": 29.340406,
+              "longitudeDegrees": -103.688972
+            },
+            "name": "TX07"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2006-02-15T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "TXAR.TX09.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-03-29T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "effectiveUntil": "2025-03-10T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0061,
+              "elevationKm": 0.9883,
+              "latitudeDegrees": 29.343681,
+              "longitudeDegrees": -103.660233
+            },
+            "name": "TX09"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2006-02-22T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "TXAR.TX01.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-04-03T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "effectiveUntil": "2025-03-10T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0061,
+              "elevationKm": 0.9968,
+              "latitudeDegrees": 29.333973,
+              "longitudeDegrees": -103.667686
+            },
+            "name": "TX01"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2006-02-16T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "TXAR.TX31.BHE"
+              },
+              {
+                "effectiveAt": "2006-02-16T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "TXAR.TX31.BHZ"
+              },
+              {
+                "effectiveAt": "2006-02-16T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "TXAR.TX31.BHN"
+              }
+            ],
+            "effectiveAt": "1998-10-30T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "effectiveUntil": "2025-03-10T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.1006,
+              "elevationKm": 0.9914,
+              "latitudeDegrees": 29.334257,
+              "longitudeDegrees": -103.667686
+            },
+            "name": "TX31"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2006-02-15T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "TXAR.TX08.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-03-29T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "effectiveUntil": "2025-03-10T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0061,
+              "elevationKm": 1.0445,
+              "latitudeDegrees": 29.350891,
+              "longitudeDegrees": -103.676888
+            },
+            "name": "TX08"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2006-02-16T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "TXAR.TX10.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-03-29T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "effectiveUntil": "2025-03-10T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0061,
+              "elevationKm": 1.0341,
+              "latitudeDegrees": 29.330454,
+              "longitudeDegrees": -103.703453
+            },
+            "name": "TX10"
+          },
+          {
+            "channelGroupType": "1_COMPONENT",
+            "channels": [
+              {
+                "effectiveAt": "2006-02-16T00:00:00.000000Z",
+                "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+                "name": "TXAR.TX03.SHZ"
+              }
+            ],
+            "effectiveAt": "1995-03-29T00:00:00.000000Z",
+            "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+            "effectiveUntil": "2025-03-10T00:00:00.000000Z",
+            "location": {
+              "depthKm": 0.0061,
+              "elevationKm": 0.9965,
+              "latitudeDegrees": 29.331354,
+              "longitudeDegrees": -103.674332
+            },
+            "name": "TX03"
+          }
+        ],
+        "description": "TXAR_Array,_Texas",
+        "effectiveAt": "1995-03-29T00:00:00.000000Z",
+        "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+        "location": {
+          "depthKm": 0.0,
+          "elevationKm": 0.9914,
+          "latitudeDegrees": 29.334257,
+          "longitudeDegrees": -103.667686
+        },
+        "name": "TXAR",
+        "relativePositionsByChannel": [
+          {
+            "channel": {
+              "effectiveAt": "2006-02-15T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "TXAR.TX02.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": 0.9415,
+              "northDisplacementKm": -0.4797,
+              "verticalDisplacementKm": -0.0095
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2006-06-16T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "TXAR.TX04.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": 0.0389,
+              "northDisplacementKm": 0.6266,
+              "verticalDisplacementKm": -0.0003
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2006-02-15T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "TXAR.TX06.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": -1.3941,
+              "northDisplacementKm": -1.6919,
+              "verticalDisplacementKm": -0.058
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2006-02-14T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "TXAR.TX07.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": -2.0668,
+              "northDisplacementKm": 0.6816,
+              "verticalDisplacementKm": 0.0722
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2006-02-15T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "TXAR.TX09.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": 0.7232,
+              "northDisplacementKm": 1.0444,
+              "verticalDisplacementKm": 0.0125
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2006-02-22T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "TXAR.TX01.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": -0.0005,
+              "northDisplacementKm": -0.0316,
+              "verticalDisplacementKm": -0.0007
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2006-02-16T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "TXAR.TX31.BHE"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": 0.0,
+              "northDisplacementKm": 0.0,
+              "verticalDisplacementKm": -0.071
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2006-02-16T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "TXAR.TX31.BHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": 0.0,
+              "northDisplacementKm": 0.0,
+              "verticalDisplacementKm": -0.071
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2006-02-16T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "TXAR.TX31.BHN"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": 0.0,
+              "northDisplacementKm": 0.0,
+              "verticalDisplacementKm": -0.1006
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2006-02-15T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "TXAR.TX08.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": -0.8934,
+              "northDisplacementKm": 1.8432,
+              "verticalDisplacementKm": 0.0705
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2006-02-16T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "TXAR.TX10.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": -3.4729,
+              "northDisplacementKm": -0.4209,
+              "verticalDisplacementKm": 0.0575
+            }
+          },
+          {
+            "channel": {
+              "effectiveAt": "2006-02-16T00:00:00.000000Z",
+              "effectiveForRequestTime": "2019-01-04T00:00:00.000000Z",
+              "name": "TXAR.TX03.SHZ"
+            },
+            "relativePosition": {
+              "eastDisplacementKm": -0.6453,
+              "northDisplacementKm": -0.3216,
+              "verticalDisplacementKm": 0.0195
+            }
+          }
+        ],
+        "stationType": "SEISMIC_ARRAY"
+      }
+    ]
+  }
+]

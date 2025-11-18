@@ -1,0 +1,62 @@
+[
+    {
+        "channel": {
+            "name": "LPAZ.LPAZB.BHE"
+        },
+        "id": "3AC0569BDBEF0FD7E063CF44A10A218E",
+        "versionHistory": [
+            {
+                "category": "WAVEFORM",
+                "channel": {
+                    "effectiveAt": "2002-08-26T00:00:00.000000Z",
+                    "name": "LPAZ.LPAZB.BHE"
+                },
+                "createdBy": "detpro:som",
+                "discoveredOn": [],
+                "endTime": "2019-01-05T16:10:38.450000Z",
+                "id": {
+                    "effectiveAt": "2019-01-05T16:10:38.450000Z",
+                    "parentQcSegmentId": "3AC0569BDBEF0FD7E063CF44A10A218E"
+                },
+                "rationale": "",
+                "rejected": false,
+                "startTime": "2019-01-05T16:10:38.275000Z",
+                "type": "GAP",
+                "stageId": {
+                    "name": "Pre-AL1",
+                    "effectiveAt": "2019-01-01T00:00:00.000000Z"
+                }
+            }
+        ]
+    },
+    {
+        "channel": {
+            "name": "KVAR.KIV3.SHZ"
+        },
+        "id": "3AC0569BDB5F0FD7E063CF44A10A218E",
+        "versionHistory": [
+            {
+                "category": "WAVEFORM",
+                "channel": {
+                    "effectiveAt": "2008-11-25T00:00:00.000000Z",
+                    "name": "KVAR.KIV3.SHZ"
+                },
+                "createdBy": "detpro:som",
+                "discoveredOn": [],
+                "endTime": "2019-01-05T16:12:30.125000Z",
+                "id": {
+                    "effectiveAt": "2019-01-05T16:12:30.125000Z",
+                    "parentQcSegmentId": "3AC0569BDB5F0FD7E063CF44A10A218E"
+                },
+                "rationale": "",
+                "rejected": false,
+                "startTime": "2019-01-05T16:10:49.900000Z",
+                "type": "GAP",
+                "stageId": {
+                    "name": "Pre-AL1",
+                    "effectiveAt": "2019-01-01T00:00:00.000000Z"
+                }
+            }
+        ]
+    }
+]

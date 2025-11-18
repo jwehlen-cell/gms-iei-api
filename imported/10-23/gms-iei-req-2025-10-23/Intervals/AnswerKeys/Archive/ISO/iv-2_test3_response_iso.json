@@ -1,0 +1,297 @@
+[
+    {
+        "endTime": "2019-01-06T01:00:00Z",
+        "processingStartTime": "2019-01-06T00:05:00Z",
+        "processingEndTime": "2019-01-06T00:05:00Z",
+        "storageTime": "2019-01-06T00:05:00Z",
+        "modificationTime": "2019-01-06T00:05:00Z",
+        "comments": [],
+        "status": "COMPLETE",
+        "intervalId": {
+            "startTime": "2019-01-06T00:00:00Z",
+            "definitionId": {
+                "effectiveAt": "2019-01-01T00:00:00Z",
+                "name": "Auto Post-AL1"
+            }
+        },
+        "stageMetrics": {
+            "eventCount": 0,
+            "associatedSignalDetectionCount": 0,
+            "unassociatedSignalDetectionCount": 0,
+            "percentWaveformsAvailable": 0,
+            "waveformAvailabilityStationGroup": {
+                "name": "Primary",
+                "effectiveAt": "TBD",
+                "effectiveForRequestTime": "2024-10-08T00:00:00.000Z"
+            }
+        },
+        "stageMode": "AUTOMATIC",
+        "sequenceIntervals": [
+            {
+                "endTime": "2019-01-06T01:00:00Z",
+                "processingStartTime": "2019-01-06T00:05:00Z",
+                "processingEndTime": "2019-01-06T00:05:00Z",
+                "storageTime": "2019-01-06T00:05:00Z",
+                "modificationTime": "2019-01-06T00:05:00Z",
+                "comments": [],
+                "status": "COMPLETE",
+                "intervalId": {
+                    "startTime": "2019-01-06T00:00:00Z",
+                    "definitionId": {
+                        "effectiveAt": "2019-01-01T00:00:00Z",
+                        "name": "Auto Post-AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-06T00:00:00Z",
+                    "definitionId": {
+                        "effectiveAt": "2019-01-01T00:00:00Z",
+                        "name": "Auto Post-AL1 Seq"
+                    }
+                },
+                "percentComplete": 1.0
+            }
+        ]
+    },
+    {
+        "endTime": "2019-01-06T00:40:00Z",
+        "processingStartTime": "2019-01-06T00:50:00Z",
+        "processingEndTime": "2019-01-06T00:50:00Z",
+        "storageTime": "2019-01-06T00:50:00Z",
+        "modificationTime": "2019-01-06T00:50:00Z",
+        "comments": [],
+        "status": "FAILED",
+        "intervalId": {
+            "startTime": "2019-01-06T00:35:00Z",
+            "definitionId": {
+                "effectiveAt": "2019-01-01T00:00:00Z",
+                "name": "Auto Network"
+            }
+        },
+        "stageMetrics": {
+            "eventCount": 0,
+            "associatedSignalDetectionCount": 0,
+            "unassociatedSignalDetectionCount": 0,
+            "percentWaveformsAvailable": 0,
+            "waveformAvailabilityStationGroup": {
+                "name": "Primary",
+                "effectiveAt": "TBD",
+                "effectiveForRequestTime": "2024-10-08T00:00:00.000Z"
+            }
+        },
+        "stageMode": "AUTOMATIC",
+        "sequenceIntervals": [
+            {
+                "endTime": "2019-01-06T00:40:00Z",
+                "processingStartTime": "2019-01-06T00:50:00Z",
+                "processingEndTime": "2019-01-06T00:50:00Z",
+                "storageTime": "2019-01-06T00:50:00Z",
+                "modificationTime": "2019-01-06T00:50:00Z",
+                "comments": [],
+                "status": "FAILED",
+                "intervalId": {
+                    "startTime": "2019-01-06T00:35:00Z",
+                    "definitionId": {
+                        "effectiveAt": "2019-01-01T00:00:00Z",
+                        "name": "Auto Network"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-06T00:35:00Z",
+                    "definitionId": {
+                        "effectiveAt": "2019-01-01T00:00:00Z",
+                        "name": "Auto Network Seq"
+                    }
+                },
+                "percentComplete": 0.0
+            }
+        ]
+    },
+    {
+        "endTime": "2019-01-06T00:45:00Z",
+        "processingStartTime": "2019-01-06T00:50:00Z",
+        "processingEndTime": "2019-01-06T00:50:00Z",
+        "storageTime": "2019-01-06T00:50:00Z",
+        "modificationTime": "2019-01-06T00:50:00Z",
+        "comments": [],
+        "status": "FAILED",
+        "intervalId": {
+            "startTime": "2019-01-06T00:40:00Z",
+            "definitionId": {
+                "effectiveAt": "2019-01-01T00:00:00Z",
+                "name": "Auto Network"
+            }
+        },
+        "stageMetrics": {
+            "eventCount": 0,
+            "associatedSignalDetectionCount": 0,
+            "unassociatedSignalDetectionCount": 0,
+            "percentWaveformsAvailable": 0,
+            "waveformAvailabilityStationGroup": {
+                "name": "Primary",
+                "effectiveAt": "TBD",
+                "effectiveForRequestTime": "2024-10-08T00:00:00.000Z"
+            }
+        },
+        "stageMode": "AUTOMATIC",
+        "sequenceIntervals": [
+            {
+                "endTime": "2019-01-06T00:45:00Z",
+                "processingStartTime": "2019-01-06T00:50:00Z",
+                "processingEndTime": "2019-01-06T00:50:00Z",
+                "storageTime": "2019-01-06T00:50:00Z",
+                "modificationTime": "2019-01-06T00:50:00Z",
+                "comments": [],
+                "status": "FAILED",
+                "intervalId": {
+                    "startTime": "2019-01-06T00:40:00Z",
+                    "definitionId": {
+                        "effectiveAt": "2019-01-01T00:00:00Z",
+                        "name": "Auto Network"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-06T00:40:00Z",
+                    "definitionId": {
+                        "effectiveAt": "2019-01-01T00:00:00Z",
+                        "name": "Auto Network Seq"
+                    }
+                },
+                "percentComplete": 0.0
+            }
+        ]
+    },
+    {
+        "endTime": "2019-01-06T02:00:00Z",
+        "processingStartTime": "2019-01-06T02:05:00Z",
+        "processingEndTime": "2019-01-06T02:05:00Z",
+        "storageTime": "2019-01-06T02:05:00Z",
+        "modificationTime": "2019-01-06T02:05:00Z",
+        "comments": [],
+        "status": "IN_PROGRESS",
+        "intervalId": {
+            "startTime": "2019-01-06T01:00:00Z",
+            "definitionId": {
+                "effectiveAt": "2019-01-01T00:00:00Z",
+                "name": "AL1"
+            }
+        },
+        "stageMetrics": {
+            "eventCount": 0,
+            "associatedSignalDetectionCount": 0,
+            "unassociatedSignalDetectionCount": 0,
+            "percentWaveformsAvailable": 0,
+            "waveformAvailabilityStationGroup": {
+                "name": "Primary",
+                "effectiveAt": "TBD",
+                "effectiveForRequestTime": "2024-10-08T00:00:00.000Z"
+            }
+        },
+        "stageMode": "INTERACTIVE",
+        "activityIntervals": [
+            {
+                "endTime": "2019-01-06T02:00:00Z",
+                "processingStartTime": "2019-01-06T02:05:00Z",
+                "processingEndTime": "2019-01-06T02:05:00Z",
+                "storageTime": "2019-01-06T02:05:00Z",
+                "modificationTime": "2019-01-06T02:05:00Z",
+                "comments": [],
+                "status": "IN_PROGRESS",
+                "intervalId": {
+                    "startTime": "2019-01-06T01:00:00Z",
+                    "definitionId": {
+                        "effectiveAt": "2019-01-01T00:00:00Z",
+                        "name": "AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-06T01:00:00Z",
+                    "definitionId": {
+                        "effectiveAt": "2019-01-01T00:00:00Z",
+                        "name": "AL1 Event Review"
+                    }
+                },
+                "activeAnalystIds": []
+            },
+            {
+                "endTime": "2019-01-06T02:00:00Z",
+                "processingStartTime": "2019-01-06T02:05:00Z",
+                "processingEndTime": "2019-01-06T02:05:00Z",
+                "storageTime": "2019-01-06T02:05:00Z",
+                "modificationTime": "2019-01-06T02:05:00Z",
+                "comments": [],
+                "status": "IN_PROGRESS",
+                "intervalId": {
+                    "startTime": "2019-01-06T01:00:00Z",
+                    "definitionId": {
+                        "effectiveAt": "2019-01-01T00:00:00Z",
+                        "name": "AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-06T01:00:00Z",
+                    "definitionId": {
+                        "effectiveAt": "2019-01-01T00:00:00Z",
+                        "name": "AL1 Scan"
+                    }
+                },
+                "activeAnalystIds": []
+            }
+        ]
+    },
+    {
+        "endTime": "2019-01-06T02:00:00Z",
+        "processingStartTime": "2019-01-06T02:05:00Z",
+        "processingEndTime": "2019-01-06T02:05:00Z",
+        "storageTime": "2019-01-06T02:05:00Z",
+        "modificationTime": "2019-01-06T02:05:00Z",
+        "comments": [],
+        "status": "IN_PROGRESS",
+        "intervalId": {
+            "startTime": "2019-01-06T01:00:00Z",
+            "definitionId": {
+                "effectiveAt": "2019-01-01T00:00:00Z",
+                "name": "Auto Post-AL1"
+            }
+        },
+        "stageMetrics": {
+            "eventCount": 0,
+            "associatedSignalDetectionCount": 0,
+            "unassociatedSignalDetectionCount": 0,
+            "percentWaveformsAvailable": 0,
+            "waveformAvailabilityStationGroup": {
+                "name": "AuxDel",
+                "effectiveAt": "TBD",
+                "effectiveForRequestTime": "2024-10-08T00:00:00.000Z"
+            }
+        },
+        "stageMode": "AUTOMATIC",
+        "sequenceIntervals": [
+            {
+                "endTime": "2019-01-06T02:00:00Z",
+                "processingStartTime": "2019-01-06T02:05:00Z",
+                "processingEndTime": "2019-01-06T02:05:00Z",
+                "storageTime": "2019-01-06T02:05:00Z",
+                "modificationTime": "2019-01-06T02:05:00Z",
+                "comments": [],
+                "status": "IN_PROGRESS",
+                "intervalId": {
+                    "startTime": "2019-01-06T01:00:00Z",
+                    "definitionId": {
+                        "effectiveAt": "2019-01-01T00:00:00Z",
+                        "name": "Auto Post-AL1"
+                    }
+                },
+                "stageIntervalId": {
+                    "startTime": "2019-01-06T01:00:00Z",
+                    "definitionId": {
+                        "effectiveAt": "2019-01-01T00:00:00Z",
+                        "name": "Auto Post-AL1 Seq"
+                    }
+                },
+                "percentComplete": 0.333333,
+                "lastExecutedStepName": "Recall"
+            }
+        ]
+    }
+]
