@@ -1,0 +1,74 @@
+{
+  "paths": {
+    "count": 0
+  },
+  "operations": {
+    "count": 0,
+    "methods": {},
+    "avgParameters": 0.0,
+    "maxParameters": 0
+  },
+  "schemas": {
+    "count": 42,
+    "objectCount": 21,
+    "avgProperties": 4.81,
+    "maxProperties": 20,
+    "refCount": 60,
+    "distinctRefTargets": [
+      "Activity",
+      "ActivityInterval",
+      "AmplitudePhaseResponse",
+      "AnalysisActivity",
+      "AutomaticProcessingStage",
+      "Calibration",
+      "Channel",
+      "ChannelBandType",
+      "ChannelDataType",
+      "ChannelGroup",
+      "ChannelGroupType",
+      "ChannelInstrumentType",
+      "ChannelOrientationType",
+      "ChannelProcessingMetadataType",
+      "Comment",
+      "DoubleValue",
+      "FieldMap",
+      "FrequencyAmplitudePhase",
+      "InteractiveAnalysisStage",
+      "Interval",
+      "IntervalId",
+      "IntervalStatus",
+      "Location",
+      "MagnitudeType",
+      "OrientationAngles",
+      "ProcessingSequence",
+      "ProcessingSequenceInterval",
+      "ProcessingStep",
+      "RelativePosition",
+      "Response",
+      "Stage",
+      "StageInterval",
+      "StageMetrics",
+      "StageMode",
+      "Station",
+      "StationGroup",
+      "StationType",
+      "Units",
+      "WorkflowDefinitionId"
+    ],
+    "circularRefSchemas": [
+      "Channel",
+      "ChannelGroup",
+      "StageInterval",
+      "StageMetrics",
+      "Station",
+      "StationGroup"
+    ],
+    "circularRefCount": 6,
+    "maxNestingDepth": 3
+  },
+  "meta": {
+    "openapiVersion": "3.0.3",
+    "title": "GMS Workflow COI schema",
+    "version": "1.0.6"
+  }
+}

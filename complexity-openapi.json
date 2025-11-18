@@ -1,0 +1,78 @@
+{
+  "paths": {
+    "count": 14
+  },
+  "operations": {
+    "count": 17,
+    "methods": {
+      "get": 9,
+      "post": 8
+    },
+    "avgParameters": 5.71,
+    "maxParameters": 24
+  },
+  "schemas": {
+    "count": 61,
+    "objectCount": 40,
+    "avgProperties": 4.58,
+    "maxProperties": 14,
+    "refCount": 142,
+    "distinctRefTargets": [
+      "ChannelFilterDefinitionPair",
+      "CorrelatedEventHypothesis",
+      "CorrelatedEventScanType",
+      "CorrelatedEventsBySourceEventHypothesesRequest",
+      "DefinerType",
+      "DefiningInfo",
+      "DepthRestraintReason",
+      "Ellipse",
+      "Ellipsoid",
+      "Event",
+      "EventCorrelationContext",
+      "EventHypothesis",
+      "EventHypothesisId",
+      "EventLocation",
+      "EventStatus",
+      "EventStatusInfoByStageIdAndEventsRequest",
+      "EventStatusInfoByStageIdAndTimeRequest",
+      "EventStatusInfoId",
+      "EventStatusInfoUpdateRequest",
+      "EventsOutsideRangeWithSignalDetectionsInsideRangeRequest",
+      "EventsWithDetectionsAndSegmentsByTimeRequest",
+      "EventsWithSignalDetectionsAndSegments",
+      "FacetingDefinition",
+      "FeaturePrediction",
+      "FeaturePredictionComponent",
+      "FeaturePredictionComponentType",
+      "GeographicRegionId",
+      "LocationBehavior",
+      "LocationRestraint",
+      "LocationSolution",
+      "LocationUncertainty",
+      "MagnitudeType",
+      "NetworkMagnitudeBehavior",
+      "NetworkMagnitudeSolution",
+      "NetworkMagnitudeStatus",
+      "PreferredEventHypothesis",
+      "RestrainerType",
+      "RestraintType",
+      "ScalingFactorType",
+      "StationMagnitudeSolution",
+      "StoreEventResponse",
+      "StoreEventsRequest",
+      "Units"
+    ],
+    "circularRefSchemas": [
+      "Event",
+      "EventHypothesis",
+      "FacetingDefinition"
+    ],
+    "circularRefCount": 3,
+    "maxNestingDepth": 2
+  },
+  "meta": {
+    "openapiVersion": "3.1.0",
+    "title": "GMS IEI API (Combined)",
+    "version": "2.0.0-modern"
+  }
+}
